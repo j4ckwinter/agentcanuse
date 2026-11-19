@@ -1,21 +1,6 @@
 {
  "runs": [
   {
-   "id": "2026-11-19T12-48Z",
-   "startedAt": "2026-11-19T12:48:30.169Z",
-   "origin": "data-centre",
-   "engines": [
-    {
-     "id": "lightpanda",
-     "version": "1.0.4"
-    },
-    {
-     "id": "obscura",
-     "version": "v0.2.7"
-    }
-   ]
-  },
-  {
    "id": "2026-11-19T12-24Z",
    "startedAt": "2026-11-19T12:24:54.055Z",
    "origin": "home",

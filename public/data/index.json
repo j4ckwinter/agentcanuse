@@ -17,7 +17,14 @@
      "id": "obscura",
      "version": "v0.2.7"
     }
-   ]
+   ],
+   "siteCount": 124,
+   "siteList": "dfa25b64",
+   "passRates": {
+    "lightpanda": 0.8181818181818182,
+    "chromium": 0.8016528925619835,
+    "obscura": 0.7851239669421488
+   }
   },
   {
    "id": "2026-11-19T13-19Z",
@@ -36,7 +43,14 @@
      "id": "obscura",
      "version": "v0.2.7"
     }
-   ]
+   ],
+   "siteCount": 30,
+   "siteList": "fb7689a1",
+   "passRates": {
+    "chromium": 0.75,
+    "lightpanda": 0.75,
+    "obscura": 0.7142857142857143
+   }
   },
   {
    "id": "2026-11-19T13-02Z",
@@ -55,7 +69,14 @@
      "id": "obscura",
      "version": "v0.2.7"
     }
-   ]
+   ],
+   "siteCount": 30,
+   "siteList": "fb7689a1",
+   "passRates": {
+    "chromium": 0.7857142857142857,
+    "lightpanda": 0.75,
+    "obscura": 0.7142857142857143
+   }
   },
   {
    "id": "2026-11-19T12-24Z",
@@ -74,7 +95,14 @@
      "id": "obscura",
      "version": "v0.2.7"
     }
-   ]
+   ],
+   "siteCount": 30,
+   "siteList": "fb7689a1",
+   "passRates": {
+    "chromium": 0.7857142857142857,
+    "lightpanda": 0.7857142857142857,
+    "obscura": 0.7142857142857143
+   }
   },
   {
    "id": "2026-11-19T12-19Z",
@@ -93,7 +121,14 @@
      "id": "obscura",
      "version": "v0.2.4"
     }
-   ]
+   ],
+   "siteCount": 30,
+   "siteList": "fb7689a1",
+   "passRates": {
+    "chromium": 0.8214285714285714,
+    "lightpanda": 0.7857142857142857,
+    "obscura": 0.6785714285714286
+   }
   }
  ]
 }

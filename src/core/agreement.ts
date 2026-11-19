@@ -43,3 +43,12 @@ export function blockSplit(results: Result[]): BlockSplit {
       .map(([site]) => site),
   }
 }
+
+export function sitesWhereOnlyEngineDiffers(results: Result[], engine: EngineId): Set<string> {
+  const sites = [...outcomesBySite(results)].filter(([, outcomes]) => {
+    const own = outcomes.get(engine)
+    const others = [...outcomes].filter(([other, outcome]) => other !== engine && outcome !== 'skipped').map(([, outcome]) => outcome)
+    return own !== undefined && own !== 'skipped' && others.length > 0 && others.every((outcome) => outcome !== own)
+  })
+  return new Set(sites.map(([site]) => site))
+}

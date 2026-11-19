@@ -2,6 +2,7 @@ import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import sharp from 'sharp'
 import { sitesWhereEnginesDisagree } from '../core/agreement'
+import { summarise } from '../core/leaderboard'
 import type { EngineId, Run, RunSummary } from '../core/model'
 
 export const THUMBNAIL_WIDTH = 480
@@ -18,10 +19,6 @@ export async function saveThumbnail(dataDir: string, runId: string, engine: Engi
   await mkdir(dirname(path), { recursive: true })
   await sharp(png).resize({ width: THUMBNAIL_WIDTH }).webp({ quality: 70 }).toFile(path)
   return relative
-}
-
-function summarise(run: Run): RunSummary {
-  return { id: run.id, startedAt: run.startedAt, origin: run.origin, engines: run.engines }
 }
 
 async function readRuns(dataDir: string): Promise<Run[]> {

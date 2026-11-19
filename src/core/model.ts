@@ -62,4 +62,7 @@ export interface RunSummary {
   startedAt: string
   origin: Origin
   engines: EngineRun[]
+  siteCount: number
+  siteList: string
+  passRates: Partial<Record<EngineId, number>>
 }

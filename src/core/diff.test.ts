@@ -75,6 +75,9 @@ describe('releaseComparison', () => {
     startedAt,
     origin,
     engines: version === null ? [] : [{ id: 'lightpanda' as const, version }],
+    siteCount: 30,
+    siteList: 'list',
+    passRates: {},
   })
   const runs = [
     summary('r1', '2026-11-17T21:00:00Z', '1.0.2'),

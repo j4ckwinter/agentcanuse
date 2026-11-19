@@ -1,4 +1,5 @@
-import { CATEGORIES, OUTCOMES, type Category, type EngineId, type EngineRun, type Outcome, type Result, type Run } from './model'
+import { sameSurvey, siteListFingerprint } from './comparable'
+import { CATEGORIES, OUTCOMES, type Category, type EngineId, type EngineRun, type Outcome, type Result, type Run, type RunSummary } from './model'
 
 export interface Standing {
   engine: EngineRun
@@ -63,4 +64,33 @@ export function categoryStandings(run: Run): CategoryStanding[] {
     }
     return [{ category, sites: run.sites.filter((site) => site.category === category).length, passRates }]
   })
+}
+
+export function summarise(run: Run): RunSummary {
+  const passRates: Partial<Record<EngineId, number>> = {}
+  for (const standing of leaderboard(run)) passRates[standing.engine.id] = standing.passRate
+  return {
+    id: run.id,
+    startedAt: run.startedAt,
+    origin: run.origin,
+    engines: run.engines,
+    siteCount: run.sites.length,
+    siteList: siteListFingerprint(run.sites.map((site) => site.id)),
+    passRates,
+  }
+}
+
+export interface TrendPoint {
+  run: string
+  passRate: number
+}
+
+export function trend(runs: RunSummary[], current: RunSummary, engine: EngineId): TrendPoint[] {
+  return runs
+    .filter((run) => sameSurvey(run, current) && run.startedAt <= current.startedAt)
+    .sort((a, b) => a.startedAt.localeCompare(b.startedAt))
+    .flatMap((run): TrendPoint[] => {
+      const passRate = run.passRates[engine]
+      return passRate === undefined ? [] : [{ run: run.id, passRate }]
+    })
 }

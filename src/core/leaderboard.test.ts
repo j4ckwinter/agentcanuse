@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { categoryStandings, leaderboard, median } from './leaderboard'
+import { categoryStandings, leaderboard, median, summarise, trend } from './leaderboard'
+import type { RunSummary } from './model'
 import type { EngineId, Outcome, Result, Run } from './model'
 
 function result(engine: EngineId, site: string, outcome: Outcome, durationMs = 1000): Result {
@@ -86,5 +87,45 @@ describe('categoryStandings', () => {
       { category: 'docs', sites: 2, passRates: { chromium: 1, lightpanda: 0.5 } },
       { category: 'shopping', sites: 2, passRates: { chromium: 0, lightpanda: 0 } },
     ])
+  })
+})
+
+describe('summarise', () => {
+  it('records the site count and each engine pass rate for the run index', () => {
+    const summary = summarise({ ...run, sites: [{ id: 'a', name: 'A', category: 'docs', url: 'https://a.test/', expect: [] }] })
+    expect(summary.siteCount).toBe(1)
+    expect(summary.passRates.chromium).toBeCloseTo(2 / 3)
+    expect(summary.passRates.lightpanda).toBeCloseTo(1 / 3)
+  })
+})
+
+describe('trend', () => {
+  const at = (id: string, startedAt: string, origin: 'home' | 'data-centre', siteCount: number, rate: number | null): RunSummary => ({
+    id,
+    startedAt,
+    origin,
+    engines: [],
+    siteCount,
+    siteList: `list-${siteCount}`,
+    passRates: rate === null ? {} : { lightpanda: rate },
+  })
+  const runs = [
+    at('n4', '2026-11-23T03:00Z', 'data-centre', 124, 0.84),
+    at('n1', '2026-11-20T03:00Z', 'data-centre', 124, 0.8),
+    at('home', '2026-11-20T12:00Z', 'home', 124, 0.9),
+    at('small', '2026-11-19T03:00Z', 'data-centre', 30, 0.7),
+    at('n2', '2026-11-21T03:00Z', 'data-centre', 124, null),
+    at('n3', '2026-11-22T03:00Z', 'data-centre', 124, 0.82),
+  ]
+
+  it('follows one engine through comparable runs, oldest first, up to the run being viewed', () => {
+    expect(trend(runs, runs[5], 'lightpanda')).toEqual([
+      { run: 'n1', passRate: 0.8 },
+      { run: 'n3', passRate: 0.82 },
+    ])
+  })
+
+  it('leaves out runs from another network, with a different site list, or without the engine', () => {
+    expect(trend(runs, runs[0], 'lightpanda').map((point) => point.run)).toEqual(['n1', 'n3', 'n4'])
   })
 })

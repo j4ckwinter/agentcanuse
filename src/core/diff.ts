@@ -1,3 +1,4 @@
+import { sameNetwork } from './comparable'
 import type { EngineId, Outcome, Run, RunSummary } from './model'
 
 export type Change = 'fixed' | 'regressed' | 'shifted'
@@ -55,8 +56,8 @@ export function releaseComparison(runs: RunSummary[], engine: EngineId): { befor
   const [latest, ...older] = withEngine
   if (latest === undefined || older.length === 0) return null
   const latestVersion = versionIn(latest, engine)
-  const sameNetwork = older.filter((run) => run.origin === latest.origin)
-  const candidates = sameNetwork.length > 0 ? sameNetwork : older
+  const onSameNetwork = older.filter((run) => sameNetwork(run, latest))
+  const candidates = onSameNetwork.length > 0 ? onSameNetwork : older
   const previousRelease = candidates.find((run) => versionIn(run, engine) !== latestVersion) ?? candidates[0]
   return { before: previousRelease.id, after: latest.id }
 }

@@ -2,7 +2,7 @@
 
 **caniuse, but for the browsers ai agents use.** see it at [agentcanuse.com](https://agentcanuse.com).
 
-![the agentcanuse leaderboard, a site rendered side by side by Chromium, Lightpanda and Obscura with a score under each, then the release diff for one engine](docs/demo.gif)
+![Agent Can Use: the overview's answer and category guide, the engines table with usable trees, Zillow read side by side by Chromium, Lightpanda and Obscura, then Obscura's release diff with two sites now passing](docs/demo.gif)
 
 agents don't browse with chrome much anymore. they use lighter engines built for them: [Lightpanda](https://github.com/lightpanda-io/browser), [Obscura](https://github.com/h4ckf0r0day/obscura), and Cloudflare's [Kitesurf](https://github.com/cloudflare/kitesurf), open source since 13 november. they're faster and cheaper than chromium, and they break on some real sites. every comparison so far is a one-off, mostly run by the people who make the engine.
 

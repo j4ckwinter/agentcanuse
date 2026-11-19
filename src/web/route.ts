@@ -3,7 +3,7 @@ import { CATEGORIES, ENGINE_IDS, type Category, type EngineId } from '../core/mo
 import { BLOCKINGS, NO_FILTER, type Blocking, type SiteFilter } from './site-filter'
 
 export type Route =
-  | { view: 'leaderboard'; run: string | null }
+  | { view: 'home'; run: string | null }
   | { view: 'sites'; run: string | null; site: string | null; filter: SiteFilter }
   | { view: 'engine'; run: string | null; engine: EngineId }
   | { view: 'releases' }
@@ -48,28 +48,29 @@ export function parseRoute(hash: string): Route {
       return { view: 'sites', run, site: decoded(detail), filter: readFilter(params) }
     case 'engine': {
       const engine = oneOf<EngineId>(ENGINE_IDS, detail ?? null)
-      return engine === null ? { view: 'leaderboard', run } : { view: 'engine', run, engine }
+      return engine === null ? { view: 'home', run } : { view: 'engine', run, engine }
     }
     case 'releases':
       return { view: 'releases' }
     case 'method':
       return { view: 'method' }
     default:
-      return { view: 'leaderboard', run }
+      return { view: 'home', run }
   }
 }
 
 function withParams(path: string, params: URLSearchParams): string {
   const query = params.toString()
+  if (path === '') return query === '' ? '#' : `#?${query}`
   return query === '' ? `#${path}` : `#${path}?${query}`
 }
 
 export function routeHash(route: Route): string {
   const params = new URLSearchParams()
   switch (route.view) {
-    case 'leaderboard':
+    case 'home':
       if (route.run !== null) params.set('run', route.run)
-      return withParams('leaderboard', params)
+      return withParams('', params)
     case 'sites':
       if (route.run !== null) params.set('run', route.run)
       writeFilter(params, route.filter)

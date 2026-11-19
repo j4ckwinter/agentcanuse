@@ -2,9 +2,8 @@ import { useEffect, useMemo, useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { diffRuns, releaseComparison, type EngineDiff } from '../../core/diff'
 import type { EngineId, Run, RunSummary } from '../../core/model'
-import { OutcomeBadge } from '@/components/outcome-badge'
+import { OutcomeLabel } from '@/components/outcome-mark'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { loadRun } from '@/data'
 import { CHANGE_LABELS, ENGINE_INFO, ORIGIN_LABELS, shortDate } from '@/labels'
 
@@ -38,18 +37,10 @@ function plural(count: number, noun: string): string {
   return `${count} ${noun}${count === 1 ? '' : 's'}`
 }
 
-function DiffSummary({ diff }: { diff: EngineDiff }) {
+function summary(diff: EngineDiff): string {
   const fixed = diff.changes.filter((change) => change.change === 'fixed').length
   const regressed = diff.changes.filter((change) => change.change === 'regressed').length
-  return (
-    <p className="text-sm">
-      <span className="font-mono">{diff.beforeVersion}</span> <ArrowRight className="inline size-3" />{' '}
-      <span className="font-mono">{diff.afterVersion}</span>
-      <span className="ml-3 text-emerald-700">{fixed} now passing</span>
-      <span className="ml-3 text-rose-700">{regressed} stopped passing</span>
-      <span className="ml-3 text-muted-foreground">{plural(diff.changes.length - fixed - regressed, 'other change')}</span>
-    </p>
-  )
+  return `${plural(fixed, 'site')} now passing, ${regressed} stopped passing, ${plural(diff.changes.length - fixed - regressed, 'other change')}.`
 }
 
 export function ReleasesView({ runs }: { runs: RunSummary[] }) {
@@ -64,10 +55,14 @@ export function ReleasesView({ runs }: { runs: RunSummary[] }) {
   const candidates = runs.filter((run) => run.id !== comparison?.after && run.engines.some((entry) => entry.id === engine))
 
   return (
-    <div className="space-y-4">
-      <div className="flex flex-wrap items-center gap-3">
+    <>
+      <div className="flex flex-col gap-2">
+        <h2 className="text-2xl font-medium">Releases</h2>
+        <p className="leading-relaxed text-fg-secondary">what changed between an engine's latest run and its last run on a different version.</p>
+      </div>
+      <div className="flex flex-wrap items-center gap-2">
         <Select value={engine} onValueChange={(value) => setEngine(value as EngineId)}>
-          <SelectTrigger className="w-40">
+          <SelectTrigger className="h-8 rounded-lg text-[13px]" aria-label="Engine">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -80,7 +75,7 @@ export function ReleasesView({ runs }: { runs: RunSummary[] }) {
         </Select>
         {comparison !== null && before !== null && (
           <Select value={before} onValueChange={setBefore}>
-            <SelectTrigger className="w-64">
+            <SelectTrigger className="h-8 rounded-lg text-[13px]" aria-label="Compare with">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -92,52 +87,38 @@ export function ReleasesView({ runs }: { runs: RunSummary[] }) {
             </SelectContent>
           </Select>
         )}
-        {comparison !== null && <span className="text-sm text-muted-foreground">compared with the latest run</span>}
+        {comparison !== null && <span className="text-[13px] text-fg-muted">against the latest run</span>}
       </div>
-      {crossesNetworks && (
-        <p className="rounded-md bg-muted px-3 py-2 text-sm text-muted-foreground">
-          These runs came from different networks, so a change in blocking may be the network rather than the engine.
-        </p>
-      )}
-      {comparison === null && <p className="text-sm text-muted-foreground">This engine needs two runs before there is anything to compare.</p>}
-      {result !== null && 'error' in result && <p className="text-sm text-rose-700">{result.error}</p>}
+      {crossesNetworks && <p className="text-[13px] text-fg-muted">these runs came from different networks, so a change in blocking may be the network, not the engine.</p>}
+      {comparison === null && <p className="text-fg-secondary">this engine needs two runs before there's anything to compare.</p>}
+      {result !== null && 'error' in result && <p className="text-sm text-destructive">{result.error}</p>}
       {result !== null && 'diff' in result && (
-        <>
-          <DiffSummary diff={result.diff} />
+        <section className="flex flex-col gap-4" aria-label="Changes">
+          <p className="text-fg-secondary">
+            <span className="font-mono text-fg">{result.diff.beforeVersion}</span> <ArrowRight className="inline size-3.5 text-fg-muted" />{' '}
+            <span className="font-mono text-fg">{result.diff.afterVersion}</span>
+            {': '}
+            {summary(result.diff)}
+          </p>
           {result.diff.changes.length === 0 ? (
-            <p className="text-sm text-muted-foreground">No site changed outcome between these runs.</p>
+            <p className="text-fg-muted">no site changed outcome between these runs.</p>
           ) : (
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Site</TableHead>
-                  <TableHead>Before</TableHead>
-                  <TableHead>After</TableHead>
-                  <TableHead>Change</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {result.diff.changes.map((change) => (
-                  <TableRow key={change.site}>
-                    <TableCell className="font-medium">
-                      <a href={`#sites/${change.site}`} className="hover:underline">
-                        {result.names.get(change.site) ?? change.site}
-                      </a>
-                    </TableCell>
-                    <TableCell>
-                      <OutcomeBadge outcome={change.before} />
-                    </TableCell>
-                    <TableCell>
-                      <OutcomeBadge outcome={change.after} />
-                    </TableCell>
-                    <TableCell className={CHANGE_LABELS[change.change].tone}>{CHANGE_LABELS[change.change].label}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+            <ul className="flex flex-col">
+              {result.diff.changes.map((change) => (
+                <li key={change.site} className="-mx-3 grid grid-cols-[minmax(0,1fr)_auto_auto_auto] items-center gap-x-3 rounded-lg px-3 py-2 hover:bg-raised">
+                  <a href={`#sites/${change.site}`} className="truncate text-sm hover:underline">
+                    {result.names.get(change.site) ?? change.site}
+                  </a>
+                  <OutcomeLabel outcome={change.before} />
+                  <ArrowRight className="size-3.5 text-fg-muted" />
+                  <OutcomeLabel outcome={change.after} />
+                  <span className="col-span-4 text-[12px] text-fg-muted">{CHANGE_LABELS[change.change].label}</span>
+                </li>
+              ))}
+            </ul>
           )}
-        </>
+        </section>
       )}
-    </div>
+    </>
   )
 }

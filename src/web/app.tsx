@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import type { Run, RunSummary } from '../core/model'
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { ArrowLeft, BookOpen, Code, History, List } from 'lucide-react'
+import { repository } from '../../package.json'
+import { ThemeToggle } from '@/components/theme-toggle'
 import { loadIndex, loadRun } from '@/data'
-import { useRoute, type Route } from '@/route'
-import { NO_FILTER } from '@/site-filter'
+import { routeHash, useRoute, type Route } from '@/route'
 import { EngineView } from '@/views/engine-view'
 import { Footer } from '@/views/footer'
-import { LeaderboardView } from '@/views/leaderboard-view'
+import { HomeView } from '@/views/home-view'
 import { MethodView } from '@/views/method-view'
 import { ReleasesView } from '@/views/releases-view'
 import { RunPicker } from '@/views/run-picker'
@@ -47,21 +48,59 @@ function runParamOf(route: Route): string | null {
   return 'run' in route ? route.run : null
 }
 
-function tabRoute(view: string, run: string | null): Route {
-  switch (view) {
-    case 'sites':
-      return { view: 'sites', run, site: null, filter: NO_FILTER }
-    case 'releases':
-      return { view: 'releases' }
-    case 'method':
-      return { view: 'method' }
-    default:
-      return { view: 'leaderboard', run }
-  }
+function withRun(route: Route, run: string | null): Route {
+  return 'run' in route ? { ...route, run } : { view: 'home', run }
 }
 
-function withRun(route: Route, run: string | null): Route {
-  return 'run' in route ? { ...route, run } : { view: 'leaderboard', run }
+const ICON_BUTTON = 'inline-flex size-7 items-center justify-center rounded-md text-fg-secondary transition-transform hover:bg-hover hover:text-fg active:scale-[0.97]'
+
+function Header() {
+  return (
+    <header className="flex items-center justify-between gap-4">
+      <a href="#" className="group/home">
+        <h1 className="font-medium">agentcanuse</h1>
+        <p className="mt-1 text-fg-muted">can ai agents' browsers use the web?</p>
+      </a>
+      <nav aria-label="Links">
+        <ul className="flex gap-px">
+          <li>
+            <a href="#sites" aria-label="Every site" title="Every site" className={ICON_BUTTON}>
+              <List className="size-4" />
+            </a>
+          </li>
+          <li>
+            <a href="#releases" aria-label="Releases" title="Releases" className={ICON_BUTTON}>
+              <History className="size-4" />
+            </a>
+          </li>
+          <li>
+            <a href="#method" aria-label="How it works" title="How it works" className={ICON_BUTTON}>
+              <BookOpen className="size-4" />
+            </a>
+          </li>
+          <li>
+            <a href={repository.url} aria-label="Source on GitHub" title="Source on GitHub" className={ICON_BUTTON}>
+              <Code className="size-4" />
+            </a>
+          </li>
+          <li>
+            <ThemeToggle className={ICON_BUTTON} />
+          </li>
+        </ul>
+      </nav>
+    </header>
+  )
+}
+
+function Back({ route }: { route: Route }) {
+  if (route.view === 'home') return null
+  const href = route.view === 'sites' && route.site !== null ? routeHash({ ...route, site: null }) : routeHash({ view: 'home', run: runParamOf(route) })
+  const label = route.view === 'sites' && route.site !== null ? 'all sites' : 'agentcanuse'
+  return (
+    <a href={href} className="-mb-4 inline-flex items-center gap-1 self-start text-[13px] text-fg-muted hover:text-fg">
+      <ArrowLeft className="size-3.5" /> {label}
+    </a>
+  )
 }
 
 interface BodyProps {
@@ -69,12 +108,13 @@ interface BodyProps {
   runs: RunSummary[]
   run: Run
   navigate: (route: Route, options?: { replace?: boolean }) => void
+  runPicker: React.ReactNode
 }
 
-function Body({ route, runs, run, navigate }: BodyProps) {
+function Body({ route, runs, run, navigate, runPicker }: BodyProps) {
   switch (route.view) {
-    case 'leaderboard':
-      return <LeaderboardView run={run} runs={runs} runParam={route.run} />
+    case 'home':
+      return <HomeView run={run} runs={runs} runParam={route.run} runPicker={runPicker} />
     case 'sites':
       return <SitesView run={run} route={route} navigate={navigate} />
     case 'engine':
@@ -86,22 +126,11 @@ function Body({ route, runs, run, navigate }: BodyProps) {
   }
 }
 
-function Mark() {
-  return (
-    <svg viewBox="0 0 32 32" aria-hidden="true" className="size-8 shrink-0">
-      <rect width="32" height="32" rx="7" className="fill-foreground" />
-      <rect x="7" y="18" width="4" height="7" rx="1" fill="#10b981" />
-      <rect x="14" y="12" width="4" height="13" rx="1" fill="#10b981" />
-      <rect x="21" y="7" width="4" height="18" rx="1" fill="#f43f5e" />
-    </svg>
-  )
-}
-
 function LoadingRows() {
   return (
-    <div className="space-y-3" aria-label="Loading">
+    <div className="flex flex-col gap-3" aria-label="Loading">
       {[0, 1, 2, 3].map((row) => (
-        <div key={row} className="h-10 animate-pulse rounded-md bg-muted" />
+        <div key={row} className="h-10 animate-pulse rounded-lg bg-hover" />
       ))}
     </div>
   )
@@ -116,41 +145,19 @@ export function App() {
   const runId = runs === null ? null : (known?.id ?? runs[0].id)
   const unknownRun = runs !== null && runParam !== null && known === undefined
   const run = useRun(runId)
-  const tab = route.view === 'engine' ? 'leaderboard' : route.view
   const error = (index !== null && 'error' in index && index.error) || (run !== null && 'error' in run && run.error) || null
   const ready = runs !== null && run !== null && 'value' in run ? { runs, run: run.value } : null
+  const runPicker = ready && <RunPicker runs={ready.runs} current={ready.run} onPick={(id) => navigate(withRun(route, id === ready.runs[0].id ? null : id))} />
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-6xl flex-col gap-6 px-4 py-8">
-      <header className="space-y-2">
-        <a href="#leaderboard" className="inline-flex items-center gap-2.5">
-          <Mark />
-          <h1 className="text-3xl font-semibold tracking-tight">agentcanuse</h1>
-        </a>
-        <p className="text-muted-foreground">
-          The browser engines AI agents use, run against real sites. Which ones render the page, find the content, and get let in.
-        </p>
-        {ready !== null && (
-          <RunPicker runs={ready.runs} current={ready.run} onPick={(id) => navigate(withRun(route, id === ready.runs[0].id ? null : id))} />
-        )}
-      </header>
-      <Tabs value={tab} onValueChange={(view) => navigate(tabRoute(view, runParam))}>
-        <TabsList>
-          <TabsTrigger value="leaderboard">Leaderboard</TabsTrigger>
-          <TabsTrigger value="sites">Sites</TabsTrigger>
-          <TabsTrigger value="releases">Releases</TabsTrigger>
-          <TabsTrigger value="method">Method</TabsTrigger>
-        </TabsList>
-      </Tabs>
-      <main className="flex-1 space-y-4">
-        {unknownRun && (
-          <p className="rounded-md bg-muted px-3 py-2 text-sm text-muted-foreground">
-            There's no run called “{runParam}”, so this shows the latest run instead.
-          </p>
-        )}
-        {error !== null && <p className="text-sm text-rose-700 dark:text-rose-400">{error}</p>}
+    <div className="mx-auto flex min-h-svh w-full max-w-[720px] flex-col gap-10 px-5 pt-8 pb-24 sm:px-8 md:pt-14">
+      <Header />
+      <main key={route.view} className="enter flex flex-1 flex-col gap-12">
+        <Back route={route} />
+        {unknownRun && <p className="text-[13px] text-fg-muted">there's no run called “{runParam}”, so this shows the latest one.</p>}
+        {error !== null && <p className="text-sm text-destructive">{error}</p>}
         {error === null && ready === null && <LoadingRows />}
-        {ready !== null && <Body route={route} runs={ready.runs} run={ready.run} navigate={navigate} />}
+        {ready !== null && <Body route={route} runs={ready.runs} run={ready.run} navigate={navigate} runPicker={runPicker} />}
       </main>
       <Footer latest={runs?.[0] ?? null} />
     </div>

@@ -16,6 +16,17 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <script>
+      (() => {
+        const root = document.documentElement
+        let stored = null
+        try {
+          stored = window.localStorage.getItem('theme')
+        } catch {}
+        if (stored === 'light' || stored === 'dark') root.dataset.theme = stored
+        root.dataset.resolvedTheme = root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>

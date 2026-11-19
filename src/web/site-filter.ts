@@ -50,3 +50,15 @@ export function neighbours(sites: Site[], current: string): { previous: Site | n
   if (index === -1) return { previous: null, next: null }
   return { previous: sites[index - 1] ?? null, next: sites[index + 1] ?? null }
 }
+
+export const SEARCH_RESULTS = 6
+
+export function searchSites(sites: Site[], query: string): Site[] {
+  if (query.trim() === '') return []
+  const needle = query.trim().toLowerCase()
+  const startsWith = (site: Site) => [site.name, new URL(site.url).hostname.replace(/^www\./, '')].some((text) => text.toLowerCase().startsWith(needle))
+  return sites
+    .filter((site) => matchesQuery(site, query))
+    .sort((a, b) => Number(startsWith(b)) - Number(startsWith(a)))
+    .slice(0, SEARCH_RESULTS)
+}

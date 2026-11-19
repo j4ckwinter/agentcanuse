@@ -1,59 +1,57 @@
 import { useEffect, useRef } from 'react'
-import { ArrowLeft, ChevronLeft, ChevronRight, ImageOff } from 'lucide-react'
-import { sitesWhereEnginesDisagree } from '../../core/agreement'
+import { ChevronLeft, ChevronRight, ImageOff } from 'lucide-react'
 import type { EngineRun, Result, Run, Site } from '../../core/model'
-import { OutcomeBadge } from '@/components/outcome-badge'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import type { Verdict } from '../../core/verdict'
+import { OutcomeLabel } from '@/components/outcome-mark'
+import { VerdictLabel } from '@/components/verdict-label'
 import { shotUrl } from '@/data'
-import { CATEGORY_LABELS, ENGINE_INFO, seconds } from '@/labels'
+import { CATEGORY_LABELS, ENGINE_INFO, seconds, VERDICT_LABELS } from '@/labels'
 import { resultFor } from '@/results'
+
+function hostOf(site: Site): string {
+  return new URL(site.url).hostname.replace(/^www\./, '')
+}
 
 function Screenshot({ result }: { result: Result }) {
   if (result.shot !== null) {
-    return <img src={shotUrl(result.shot)} alt="" className="aspect-[8/5] w-full rounded-md border object-cover object-top" />
+    return <img src={shotUrl(result.shot)} alt="" className="aspect-[8/5] w-full rounded-lg border border-line object-cover object-top" />
   }
   return (
-    <div className="flex aspect-[8/5] w-full flex-col items-center justify-center gap-2 rounded-md border bg-muted p-4 text-center text-xs text-muted-foreground">
-      <ImageOff className="size-5" />
-      {result.excerpt === '' ? 'Nothing to show' : <p className="line-clamp-6 text-left">{result.excerpt}</p>}
+    <div className="flex aspect-[8/5] w-full flex-col items-center justify-center gap-2 rounded-lg border border-line bg-raised p-3 text-center text-[12px] text-fg-muted">
+      <ImageOff className="size-4" />
+      {result.excerpt === '' ? 'nothing to show' : <p className="line-clamp-5 text-left">{result.excerpt}</p>}
     </div>
   )
 }
 
-function EngineCard({ engine, result, engineHref }: { engine: EngineRun; result: Result; engineHref: string }) {
+function Fact({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <Card size="sm" className="gap-3">
-      <CardHeader className="flex flex-row items-center justify-between gap-2">
-        <CardTitle>
-          <a href={engineHref} className="hover:underline">
-            {ENGINE_INFO[engine.id].name}
-          </a>{' '}
-          <span className="font-mono text-xs font-normal text-muted-foreground">{engine.version}</span>
-        </CardTitle>
-        <OutcomeBadge outcome={result.outcome} />
-      </CardHeader>
-      <CardContent className="space-y-3">
-        <Screenshot result={result} />
-        <dl className="grid grid-cols-3 gap-2 text-xs">
-          <div>
-            <dt className="text-muted-foreground">Status</dt>
-            <dd className="tabular-nums">{result.status ?? '–'}</dd>
-          </div>
-          <div>
-            <dt className="text-muted-foreground">Time</dt>
-            <dd className="tabular-nums">{seconds(result.durationMs || null)}</dd>
-          </div>
-          <div>
-            <dt className="text-muted-foreground">Text</dt>
-            <dd className="tabular-nums">{result.textLength.toLocaleString('en-GB')} chars</dd>
-          </div>
-        </dl>
-        {result.missing.length > 0 && result.outcome !== 'skipped' && (
-          <p className="text-xs text-muted-foreground">Missing: {result.missing.map((phrase) => `“${phrase}”`).join(', ')}</p>
-        )}
-        {result.error !== null && <p className="text-xs text-rose-700 dark:text-rose-400">{result.error}</p>}
-      </CardContent>
-    </Card>
+    <div className="flex flex-col gap-0.5 border-t border-line pt-2">
+      <dt className="text-[11px] text-fg-muted">{label}</dt>
+      <dd className="text-[13px] tabular-nums">{children}</dd>
+    </div>
+  )
+}
+
+function EngineColumn({ engine, result, engineHref }: { engine: EngineRun; result: Result; engineHref: string }) {
+  const missing = result.outcome === 'skipped' ? [] : result.missing
+  return (
+    <div className="flex min-w-0 flex-col gap-3">
+      <a href={engineHref} className="truncate text-sm hover:underline">
+        {ENGINE_INFO[engine.id].name} <span className="font-mono text-[12px] text-fg-muted">{engine.version}</span>
+      </a>
+      <Screenshot result={result} />
+      <dl className="flex flex-col gap-2">
+        <Fact label="result">
+          <OutcomeLabel outcome={result.outcome} />
+        </Fact>
+        <Fact label="status">{result.status ?? '–'}</Fact>
+        <Fact label="time">{seconds(result.durationMs || null)}</Fact>
+        <Fact label="text">{result.textLength.toLocaleString('en-GB')} chars</Fact>
+        <Fact label="missing">{missing.length === 0 ? '–' : missing.map((phrase) => `“${phrase}”`).join(', ')}</Fact>
+        {result.error !== null && <Fact label="error">{result.error}</Fact>}
+      </dl>
+    </div>
   )
 }
 
@@ -61,7 +59,7 @@ function isTyping(target: EventTarget | null): boolean {
   return target instanceof HTMLElement && (target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName))
 }
 
-const WIDGETS_WITH_ARROW_KEYS = '[role=listbox],[role=tablist],[role=menu],[role=dialog]'
+const WIDGETS_WITH_ARROW_KEYS = '[role=listbox],[role=tablist],[role=menu],[role=dialog],[role=combobox]'
 
 function inWidget(target: EventTarget | null): boolean {
   return target instanceof Element && target.closest(WIDGETS_WITH_ARROW_KEYS) !== null
@@ -82,64 +80,63 @@ function useArrowKeys(previous: string | null, next: string | null) {
 }
 
 function StepLink({ href, label, children }: { href: string | null; label: string; children: React.ReactNode }) {
-  if (href === null) return <span className="inline-flex items-center gap-1 text-sm text-muted-foreground/40">{children}</span>
+  const style = 'inline-flex size-7 items-center justify-center rounded-md'
+  if (href === null) return <span className={`${style} text-faint`}>{children}</span>
   return (
-    <a href={href} aria-label={label} className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
+    <a href={href} aria-label={label} title={label} className={`${style} text-fg-secondary hover:bg-hover hover:text-fg`}>
       {children}
     </a>
   )
 }
 
 export interface ComparisonLinks {
-  back: string
   previous: { href: string; name: string } | null
   next: { href: string; name: string } | null
   position: string | null
   engine: (engine: EngineRun) => string
 }
 
-export function SiteComparison({ run, site, links }: { run: Run; site: Site; links: ComparisonLinks }) {
-  const results = run.results.filter((result) => result.site === site.id)
-  const agreed = !sitesWhereEnginesDisagree(results).has(site.id)
-  const noScreenshots = results.every((result) => result.shot === null)
+export function SiteComparison({ run, site, verdict, links }: { run: Run; site: Site; verdict: Verdict; links: ComparisonLinks }) {
   useArrowKeys(links.previous?.href ?? null, links.next?.href ?? null)
   return (
-    <div className="space-y-4">
-      <nav className="flex items-center justify-between gap-4">
-        <a href={links.back} className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
-          <ArrowLeft className="size-4" /> All sites
-        </a>
-        <div className="flex items-center gap-3">
-          <StepLink href={links.previous?.href ?? null} label={links.previous ? `Previous: ${links.previous.name}` : 'No previous site'}>
-            <ChevronLeft className="size-4" /> Previous
-          </StepLink>
-          {links.position !== null && <span className="text-xs text-muted-foreground tabular-nums">{links.position}</span>}
-          <StepLink href={links.next?.href ?? null} label={links.next ? `Next: ${links.next.name}` : 'No next site'}>
-            Next <ChevronRight className="size-4" />
-          </StepLink>
+    <article className="flex flex-col gap-8">
+      <header className="flex flex-col gap-3">
+        <div className="flex items-start justify-between gap-4">
+          <div className="min-w-0">
+            <h2 className="text-2xl font-medium">{site.name}</h2>
+            <a href={site.url} className="text-[13px] text-fg-muted underline-offset-4 hover:underline">
+              {hostOf(site)}
+            </a>
+          </div>
+          <nav aria-label="Other sites" className="flex shrink-0 items-center gap-1">
+            <StepLink href={links.previous?.href ?? null} label={links.previous ? `previous: ${links.previous.name}` : 'no previous site'}>
+              <ChevronLeft className="size-4" />
+            </StepLink>
+            {links.position !== null && <span className="text-[12px] text-fg-muted tabular-nums">{links.position}</span>}
+            <StepLink href={links.next?.href ?? null} label={links.next ? `next: ${links.next.name}` : 'no next site'}>
+              <ChevronRight className="size-4" />
+            </StepLink>
+          </nav>
         </div>
-      </nav>
-      <div>
-        <h2 className="text-xl font-semibold">{site.name}</h2>
-        <a href={site.url} className="text-sm text-muted-foreground underline-offset-4 hover:underline">
-          {site.url}
-        </a>
-        <p className="mt-1 text-sm text-muted-foreground">
-          {CATEGORY_LABELS[site.category]} · Expects: {site.expect.map((phrase) => `“${phrase}”`).join(', ')}
-        </p>
+        <div className="flex flex-col gap-2 rounded-xl border border-line bg-raised p-4">
+          <VerdictLabel verdict={verdict} className="self-start bg-surface" />
+          <p className="text-lg leading-snug">{VERDICT_LABELS[verdict].sentence(hostOf(site))}</p>
+          <p className="text-[13px] text-fg-muted">
+            {CATEGORY_LABELS[site.category]} · looks for {site.expect.map((phrase) => `“${phrase}”`).join(' and ')}
+          </p>
+        </div>
+      </header>
+      <div className="-mx-5 overflow-x-auto px-5 sm:mx-0 sm:px-0">
+        <div className="grid auto-cols-[minmax(11rem,1fr)] grid-flow-col gap-4">
+          {run.engines.map((engine) => {
+            const result = resultFor(run, site.id, engine.id)
+            return result && <EngineColumn key={engine.id} engine={engine} result={result} engineHref={links.engine(engine)} />
+          })}
+        </div>
       </div>
-      {agreed && noScreenshots && (
-        <p className="rounded-md bg-muted px-3 py-2 text-sm text-muted-foreground">
-          Every engine got the same result here, so no screenshots are kept. Screenshots are kept only where engines disagree.
-        </p>
-      )}
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-        {run.engines.map((engine) => {
-          const result = resultFor(run, site.id, engine.id)
-          return result && <EngineCard key={engine.id} engine={engine} result={result} engineHref={links.engine(engine)} />
-        })}
-      </div>
-      <p className="hidden text-xs text-muted-foreground sm:block">Tip: the left and right arrow keys step through the sites in this list.</p>
-    </div>
+      <p className="hidden text-[12px] text-fg-muted sm:block">
+        the arrow keys step through the sites in this list. screenshots are kept only where the engines disagreed.
+      </p>
+    </article>
   )
 }

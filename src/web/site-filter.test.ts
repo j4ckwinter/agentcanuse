@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { Site } from '../core/model'
-import { filterSites, neighbours, NO_FILTER, type SiteFacts } from './site-filter'
+import { filterSites, neighbours, NO_FILTER, searchSites, type SiteFacts } from './site-filter'
 
 const sites: Site[] = [
   { id: 'zillow', name: 'Zillow', category: 'listings', url: 'https://www.zillow.com/', expect: [] },
@@ -41,5 +41,17 @@ describe('neighbours', () => {
     expect(neighbours(sites, 'zillow').previous).toBeNull()
     expect(neighbours(sites, 'arxiv').next).toBeNull()
     expect(neighbours(sites, 'missing')).toEqual({ previous: null, next: null })
+  })
+})
+
+describe('searchSites', () => {
+  it('finds nothing for an empty search', () => {
+    expect(searchSites(sites, '  ')).toEqual([])
+  })
+
+  it('puts sites whose name or address starts with the search first', () => {
+    expect(ids(searchSites(sites, 'zi'))).toEqual(['zillow'])
+    expect(ids(searchSites(sites, 'gov'))).toEqual(['gov-uk'])
+    expect(ids(searchSites(sites, 'a'))).toEqual(['arxiv', 'gov-uk'])
   })
 })

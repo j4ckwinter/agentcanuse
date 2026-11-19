@@ -28,11 +28,13 @@ Each decision has one owner. Put new code with the owner of the decision it make
 | How a run is named | `src/core/run-id.ts` |
 | Which sites are surveyed and what each must show | `sites.json` |
 | Which engine versions run by default | `engines.json` |
+| Which engines are pinned to a GitHub release, and when a pin moves | `src/core/releases.ts` |
+| Checking for new engine releases and bumping pins | `src/runner/watch.ts` |
 | Downloading engine builds | `src/runner/install.ts` |
 | Starting each engine and finding its DevTools endpoint | `src/runner/engines.ts` |
 | Visiting a page: timeouts, the settle wait, what is read, screenshots | `src/runner/visit.ts` |
 | Whether a page may be visited, and the user agent that asks | `src/runner/robots.ts` |
-| Where runs, the index and thumbnails are written | `src/runner/store.ts` |
+| Where runs, the index and thumbnails are written, and which runs keep their thumbnails | `src/runner/store.ts` |
 | Command-line options and the order of a run | `src/runner/main.ts` |
 | Loading runs in the page | `src/web/data.ts` |
 | Names, colours and wording for engines, outcomes and changes | `src/web/labels.ts` |
@@ -55,7 +57,7 @@ Each decision has one owner. Put new code with the owner of the decision it make
 
 - Durations are milliseconds. Rates are fractions from 0 to 1, shown as percentages.
 - A run id is its UTC start minute, `2026-11-19T21-07Z`. `public/data/index.json` lists runs newest first, and each run lives in `public/data/runs/<id>.json`.
-- Thumbnails are 480-pixel-wide WebP files under `public/data/shots/<run>/<engine>/<site>.webp`.
+- Thumbnails are 480-pixel-wide WebP files under `public/data/shots/<run>/<engine>/<site>.webp`. Only the latest run keeps them, since the site shows no others; older runs keep their scores with `shot` set to `null`. `npm run tidy` rebuilds `index.json` from the run files and applies that rule, and every saved run runs it.
 - A run records where it came from: `home` for a run on a home connection, the default, and `data-centre` for the nightly GitHub Actions run. Sites treat the two differently, so a release diff compares runs from the same kind of network when it can.
 - Chromium's version is the headless-shell build that `@puppeteer/browsers` resolves for the `stable` channel.
 
@@ -65,4 +67,4 @@ The site is the Vercel project `agentcanuse`, served at https://agentcanuse.com.
 
 ## Commits
 
-Use Conventional Commits, one logical change each, with no AI attribution lines. Committing and pushing to `main` is expected. The survey workflow runs nightly at 03:17 UTC and commits its run to `main`, which Vercel deploys. Deploying by hand, or changing the schedule, needs Jack's request.
+Use Conventional Commits, one logical change each, with no AI attribution lines. Committing and pushing to `main` is expected. The survey workflow runs nightly at 03:17 UTC and commits its run to `main`, which Vercel deploys. The release watcher runs every six hours; when Lightpanda or Obscura publishes a new stable release it bumps `engines.json` and starts a survey, so the release diff picks up the new version the same day. Deploying by hand, or changing the schedule, needs Jack's request.

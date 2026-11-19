@@ -1,4 +1,5 @@
 import { sameSurvey, siteListFingerprint } from './comparable'
+import { isTreeUsable } from './tree'
 import { CATEGORIES, OUTCOMES, type Category, type EngineId, type EngineRun, type Outcome, type Result, type Run, type RunSummary } from './model'
 
 export interface Standing {
@@ -8,6 +9,7 @@ export interface Standing {
   passRate: number
   blockedRate: number
   medianMs: number | null
+  trees: { checked: number; usable: number }
 }
 
 function emptyCounts(): Record<Outcome, number> {
@@ -25,6 +27,11 @@ function rate(part: number, whole: number): number {
   return whole === 0 ? 0 : part / whole
 }
 
+function treeCounts(results: Result[]): Standing['trees'] {
+  const checked = results.flatMap((result) => (result.outcome === 'passed' && result.tree !== null ? [result.tree] : []))
+  return { checked: checked.length, usable: checked.filter(isTreeUsable).length }
+}
+
 function standingFor(engine: EngineRun, results: Result[]): Standing {
   const counts = emptyCounts()
   for (const result of results) counts[result.outcome] += 1
@@ -37,6 +44,7 @@ function standingFor(engine: EngineRun, results: Result[]): Standing {
     passRate: rate(counts.passed, attempted),
     blockedRate: rate(counts.blocked, attempted),
     medianMs: median(timed.map((result) => result.durationMs)),
+    trees: treeCounts(results),
   }
 }
 

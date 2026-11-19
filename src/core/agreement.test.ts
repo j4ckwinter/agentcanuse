@@ -17,6 +17,7 @@ function result(site: string, engine: EngineId, outcome: Outcome): Result {
     durationMs: 0,
     error: null,
     shot: null,
+    tree: null,
   }
 }
 

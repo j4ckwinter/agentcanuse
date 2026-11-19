@@ -3,7 +3,7 @@ import type { Result } from '../core/model'
 import { formatReport } from './report'
 
 function result(outcome: Result['outcome'], overrides: Partial<Result> = {}): Result {
-  return { site: 'check', engine: 'chromium', outcome, status: 200, title: '', excerpt: '', found: [], missing: [], textLength: 3329, linkCount: 0, durationMs: 2500, error: null, shot: null, ...overrides }
+  return { site: 'check', engine: 'chromium', outcome, status: 200, title: '', excerpt: '', found: [], missing: [], textLength: 3329, linkCount: 0, durationMs: 2500, error: null, shot: null, tree: null, ...overrides }
 }
 
 it('prints one aligned row per engine, the engines it skipped, and the verdict', () => {

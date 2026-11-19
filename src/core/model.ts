@@ -1,3 +1,5 @@
+import type { TreeNode, TreeSummary } from './tree'
+
 export const ENGINE_IDS = ['chromium', 'lightpanda', 'obscura', 'kitesurf'] as const
 export type EngineId = (typeof ENGINE_IDS)[number]
 
@@ -25,6 +27,7 @@ export interface Visit {
   linkCount: number
   durationMs: number
   error: string | null
+  tree: TreeNode[] | null
 }
 
 export interface Result {
@@ -41,6 +44,7 @@ export interface Result {
   durationMs: number
   error: string | null
   shot: string | null
+  tree: TreeSummary | null
 }
 
 export interface EngineRun {

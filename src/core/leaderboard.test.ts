@@ -18,6 +18,7 @@ function result(engine: EngineId, site: string, outcome: Outcome, durationMs = 1
     durationMs,
     error: null,
     shot: null,
+    tree: null,
   }
 }
 
@@ -101,6 +102,24 @@ describe('categoryStandings with skipped sites', () => {
       results: [result('chromium', 'a', 'passed'), result('lightpanda', 'a', 'skipped'), result('chromium', 'd', 'skipped'), result('lightpanda', 'd', 'skipped')],
     }
     expect(categoryStandings(partly)).toEqual([{ category: 'docs', sites: 1, passRates: { chromium: 1 }, leaders: ['chromium'] }])
+  })
+})
+
+describe('leaderboard trees', () => {
+  const usable = { nodes: 50, controls: 10, namedControls: 10, headings: 2, landmarks: 1 }
+  const unnamed = { ...usable, namedControls: 2 }
+
+  it('counts usable trees only among the pages an engine passed', () => {
+    const withTrees: Run = {
+      ...run,
+      results: [
+        { ...result('chromium', 'a', 'passed'), tree: usable },
+        { ...result('chromium', 'b', 'passed'), tree: unnamed },
+        { ...result('chromium', 'c', 'blocked'), tree: usable },
+        { ...result('chromium', 'd', 'passed'), tree: null },
+      ],
+    }
+    expect(leaderboard(withTrees).find((standing) => standing.engine.id === 'chromium')?.trees).toEqual({ checked: 2, usable: 1 })
   })
 })
 

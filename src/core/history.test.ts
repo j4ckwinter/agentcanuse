@@ -3,7 +3,7 @@ import { isFlaky, siteHistory } from './history'
 import type { EngineId, Outcome, Result, Run } from './model'
 
 function result(site: string, engine: EngineId, outcome: Outcome): Result {
-  return { site, engine, outcome, status: 200, title: '', excerpt: '', found: [], missing: [], textLength: 0, linkCount: 0, durationMs: 0, error: null, shot: null }
+  return { site, engine, outcome, status: 200, title: '', excerpt: '', found: [], missing: [], textLength: 0, linkCount: 0, durationMs: 0, error: null, shot: null, tree: null }
 }
 
 function run(id: string, startedAt: string, version: string, outcome: Outcome): Run {

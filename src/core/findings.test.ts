@@ -3,7 +3,7 @@ import { findings } from './findings'
 import type { EngineId, Outcome, Result, Run, Site } from './model'
 
 function result(site: string, engine: EngineId, outcome: Outcome): Result {
-  return { site, engine, outcome, status: 200, title: '', excerpt: '', found: [], missing: [], textLength: 0, linkCount: 0, durationMs: 1000, error: null, shot: null }
+  return { site, engine, outcome, status: 200, title: '', excerpt: '', found: [], missing: [], textLength: 0, linkCount: 0, durationMs: 1000, error: null, shot: null, tree: null }
 }
 
 function site(id: string): Site {

@@ -1,3 +1,4 @@
+import { summariseTree } from './tree'
 import type { EngineId, Outcome, Result, Site, Visit } from './model'
 
 export const MIN_TEXT_LENGTH = 200
@@ -53,6 +54,7 @@ export function judge(site: Site, engine: EngineId, visit: Visit, shot: string |
     durationMs: visit.durationMs,
     error: visit.error,
     shot,
+    tree: visit.tree === null ? null : summariseTree(visit.tree),
   }
 }
 
@@ -71,5 +73,6 @@ export function skipped(site: Site, engine: EngineId, reason: string): Result {
     durationMs: 0,
     error: reason,
     shot: null,
+    tree: null,
   }
 }

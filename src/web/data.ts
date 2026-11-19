@@ -1,3 +1,4 @@
+import { fromStored, type StoredRun } from '../core/stored'
 import type { Run, RunSummary } from '../core/model'
 
 const runs = new Map<string, Promise<Run>>()
@@ -16,7 +17,7 @@ export async function loadIndex(): Promise<RunSummary[]> {
 export function loadRun(id: string): Promise<Run> {
   let run = runs.get(id)
   if (run === undefined) {
-    run = getJson<Run>(`data/runs/${encodeURIComponent(id)}.json`)
+    run = getJson<StoredRun>(`data/runs/${encodeURIComponent(id)}.json`).then(fromStored)
     run.catch(() => runs.delete(id))
     runs.set(id, run)
   }

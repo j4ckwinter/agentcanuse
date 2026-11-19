@@ -2,6 +2,7 @@ import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import sharp from 'sharp'
 import { sitesWhereEnginesDisagree } from '../core/agreement'
+import { fromStored, type StoredRun } from '../core/stored'
 import { summarise } from '../core/leaderboard'
 import type { EngineId, Run, RunSummary } from '../core/model'
 
@@ -24,7 +25,7 @@ export async function saveThumbnail(dataDir: string, runId: string, engine: Engi
 async function readRuns(dataDir: string): Promise<Run[]> {
   const directory = join(dataDir, 'runs')
   const files = (await readdir(directory).catch(() => [])).filter((name) => name.endsWith('.json'))
-  const runs = await Promise.all(files.map(async (name) => JSON.parse(await readFile(join(directory, name), 'utf8')) as Run))
+  const runs = await Promise.all(files.map(async (name) => fromStored(JSON.parse(await readFile(join(directory, name), 'utf8')) as StoredRun)))
   return runs.sort((a, b) => b.startedAt.localeCompare(a.startedAt))
 }
 

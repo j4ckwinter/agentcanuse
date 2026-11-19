@@ -1,26 +1,45 @@
 import { describe, expect, it } from 'vitest'
 import type { Site } from '../core/model'
-import { filterSites, NO_FILTER } from './site-filter'
+import { filterSites, neighbours, NO_FILTER, type SiteFacts } from './site-filter'
 
 const sites: Site[] = [
   { id: 'zillow', name: 'Zillow', category: 'listings', url: 'https://www.zillow.com/', expect: [] },
   { id: 'gov-uk', name: 'GOV.UK bank holidays', category: 'government', url: 'https://www.gov.uk/bank-holidays', expect: [] },
   { id: 'nhs', name: 'NHS condition', category: 'government', url: 'https://www.nhs.uk/conditions/flu/', expect: [] },
+  { id: 'arxiv', name: 'arXiv abstract', category: 'reference', url: 'https://arxiv.org/abs/1706.03762', expect: [] },
 ]
-const ids = (list: Site[]) => list.map((site) => site.id)
+const facts: SiteFacts = { disagreeing: new Set(['zillow', 'nhs', 'arxiv']), split: { blockedOnlyForReference: ['zillow'], blockedOnlyForOthers: ['arxiv'] } }
+const ids = (list: (Site | null)[]) => list.map((site) => site?.id ?? null)
 
 describe('filterSites', () => {
   it('keeps every site when nothing is filtered', () => {
-    expect(ids(filterSites(sites, NO_FILTER, new Set()))).toEqual(['zillow', 'gov-uk', 'nhs'])
+    expect(ids(filterSites(sites, NO_FILTER, facts))).toEqual(['zillow', 'gov-uk', 'nhs', 'arxiv'])
   })
 
   it('matches the search against the name, id or hostname, ignoring case', () => {
-    expect(ids(filterSites(sites, { ...NO_FILTER, query: 'BANK' }, new Set()))).toEqual(['gov-uk'])
-    expect(ids(filterSites(sites, { ...NO_FILTER, query: 'nhs.uk' }, new Set()))).toEqual(['nhs'])
+    expect(ids(filterSites(sites, { ...NO_FILTER, query: 'BANK' }, facts))).toEqual(['gov-uk'])
+    expect(ids(filterSites(sites, { ...NO_FILTER, query: 'nhs.uk' }, facts))).toEqual(['nhs'])
   })
 
   it('combines the category with the disagreeing-only switch', () => {
-    const filter = { ...NO_FILTER, category: 'government' as const, disagreeingOnly: true }
-    expect(ids(filterSites(sites, filter, new Set(['nhs', 'zillow'])))).toEqual(['nhs'])
+    expect(ids(filterSites(sites, { ...NO_FILTER, category: 'government', disagreeingOnly: true }, facts))).toEqual(['nhs'])
+  })
+
+  it('narrows to the sites that blocked only Chromium, or only another engine', () => {
+    expect(ids(filterSites(sites, { ...NO_FILTER, blocking: 'only-chromium' }, facts))).toEqual(['zillow'])
+    expect(ids(filterSites(sites, { ...NO_FILTER, blocking: 'only-others' }, facts))).toEqual(['arxiv'])
+  })
+})
+
+describe('neighbours', () => {
+  it('finds the sites either side of the current one in the filtered order', () => {
+    const { previous, next } = neighbours(sites, 'gov-uk')
+    expect(ids([previous, next])).toEqual(['zillow', 'nhs'])
+  })
+
+  it('has nothing before the first site, nothing after the last, and nothing for a site not in the list', () => {
+    expect(neighbours(sites, 'zillow').previous).toBeNull()
+    expect(neighbours(sites, 'arxiv').next).toBeNull()
+    expect(neighbours(sites, 'missing')).toEqual({ previous: null, next: null })
   })
 })

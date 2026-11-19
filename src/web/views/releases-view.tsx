@@ -6,7 +6,7 @@ import { OutcomeBadge } from '@/components/outcome-badge'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { loadRun } from '@/data'
-import { CHANGE_LABELS, ENGINE_NAMES, ORIGIN_LABELS, shortDate } from '@/labels'
+import { CHANGE_LABELS, ENGINE_INFO, ORIGIN_LABELS, shortDate } from '@/labels'
 
 function engineIds(runs: RunSummary[]): EngineId[] {
   return [...new Set(runs.flatMap((run) => run.engines.map((engine) => engine.id)))]
@@ -73,7 +73,7 @@ export function ReleasesView({ runs }: { runs: RunSummary[] }) {
           <SelectContent>
             {engines.map((id) => (
               <SelectItem key={id} value={id}>
-                {ENGINE_NAMES[id]}
+                {ENGINE_INFO[id].name}
               </SelectItem>
             ))}
           </SelectContent>

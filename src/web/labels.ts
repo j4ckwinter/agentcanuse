@@ -1,11 +1,39 @@
 import type { Change } from '../core/diff'
+import { RELEASE_REPOS } from '../core/releases'
 import type { Category, EngineId, Origin, Outcome } from '../core/model'
 
-export const ENGINE_NAMES: Record<EngineId, string> = {
-  chromium: 'Chromium',
-  lightpanda: 'Lightpanda',
-  obscura: 'Obscura',
-  kitesurf: 'Kitesurf',
+export interface EngineInfo {
+  name: string
+  about: string
+  homepage: string
+}
+
+export const ENGINE_INFO: Record<EngineId, EngineInfo> = {
+  chromium: {
+    name: 'Chromium',
+    about: "Google's open-source browser, run as the headless shell. The reference: most agents still drive it.",
+    homepage: 'https://www.chromium.org/',
+  },
+  lightpanda: {
+    name: 'Lightpanda',
+    about: 'A headless browser written from scratch in Zig for AI agents and automation, with no rendering engine to carry.',
+    homepage: 'https://github.com/lightpanda-io/browser',
+  },
+  obscura: {
+    name: 'Obscura',
+    about: 'A headless browser written in Rust for agents and scraping, with its own layout and paint.',
+    homepage: 'https://github.com/h4ckf0r0day/obscura',
+  },
+  kitesurf: {
+    name: 'Kitesurf',
+    about: "Cloudflare's experimental browser engine for agents, built to run on Workers.",
+    homepage: 'https://github.com/cloudflare/kitesurf',
+  },
+}
+
+export function releaseNotesUrl(engine: EngineId, version: string): string | null {
+  const repo = RELEASE_REPOS[engine]
+  return repo === null ? null : `https://github.com/${repo}/releases/tag/${encodeURIComponent(version)}`
 }
 
 export const OUTCOME_LABELS: Record<Outcome, { label: string; meaning: string; tone: string; bar: string }> = {

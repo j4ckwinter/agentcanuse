@@ -149,13 +149,13 @@ function Body({ route, runs, run, navigate }: BodyProps) {
 
 function LoadingCards() {
   return (
-    <div className="flex flex-col gap-4" aria-label="Loading">
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {[0, 1, 2, 3].map((tile) => (
-          <div key={tile} className="h-26 animate-pulse rounded-xl border border-line bg-surface" />
-        ))}
+    <div className="flex flex-col gap-6" role="status" aria-label="Loading">
+      <div className="flex flex-col gap-3">
+        <div className="h-8 w-2/3 max-w-md animate-pulse rounded-md bg-hover" />
+        <div className="h-5 w-full max-w-2xl animate-pulse rounded-md bg-hover" />
       </div>
-      <div className="h-64 animate-pulse rounded-xl border border-line bg-surface" />
+      <div className="h-56 animate-pulse rounded-xl border border-line bg-surface" />
+      <div className="h-96 animate-pulse rounded-xl border border-line bg-surface" />
     </div>
   )
 }

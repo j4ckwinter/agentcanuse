@@ -8,6 +8,7 @@ import { TABLE_HEAD } from '@/components/table'
 import { OutcomeKey } from '@/components/outcome-mark'
 import { Tooltip } from '@/components/tooltip'
 import { ENGINE_COLORS, ENGINE_INFO, OUTCOME_LABELS, percent, seconds } from '@/labels'
+import { cn } from '@/lib/utils'
 import { routeHash } from '@/route'
 import { Sparkline } from '@/views/sparkline'
 
@@ -42,7 +43,7 @@ function OutcomeBar({ standing }: { standing: Standing }) {
 function Share({ part, whole }: { part: number; whole: number }) {
   const margin = shownMargin(part, whole)
   return (
-    <span className="inline-flex flex-col items-end">
+    <span className="inline-flex flex-col items-end whitespace-nowrap">
       <span className="text-sm font-semibold">
         {percent(whole === 0 ? 0 : part / whole)}
         {margin !== null && (
@@ -106,7 +107,7 @@ export function EnginesCard({ run, runs, runParam, full = false }: EnginesCardPr
           <thead>
             <tr className="border-b border-line">
               <th className={`${TABLE_HEAD} pl-card`}>Engine</th>
-              <th className={`${TABLE_HEAD} w-[38%]`}>Outcomes</th>
+              <th className={cn(TABLE_HEAD, full ? 'w-[28%]' : 'w-[38%]')}>Outcomes</th>
               <th className={`${TABLE_HEAD} text-right`}>Passed</th>
               {full && <th className={`${TABLE_HEAD} text-right`}>Blocked</th>}
               {full && (

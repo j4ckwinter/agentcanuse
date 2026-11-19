@@ -6,6 +6,8 @@ import { OutcomeBadge } from '@/components/outcome-badge'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { ENGINE_NAMES, ORIGIN_LABELS, OUTCOME_LABELS, percent, seconds } from '@/labels'
 import { cn } from '@/lib/utils'
+import { CategoryTable } from '@/views/category-table'
+import { Headline } from '@/views/headline'
 
 type SortKey = 'passRate' | 'blockedRate' | 'medianMs'
 
@@ -17,7 +19,7 @@ const SORTS: Record<SortKey, { label: string; compare: (a: Standing, b: Standing
 
 function SortHeader({ sortKey, active, onSort }: { sortKey: SortKey; active: SortKey; onSort: (key: SortKey) => void }) {
   return (
-    <TableHead className="text-right">
+    <TableHead className="text-right whitespace-normal">
       <button
         type="button"
         onClick={() => onSort(sortKey)}
@@ -38,7 +40,7 @@ function OutcomeBar({ standing }: { standing: Standing }) {
         <div
           key={outcome}
           title={`${OUTCOME_LABELS[outcome].label}: ${standing.counts[outcome]}`}
-          className={OUTCOME_LABELS[outcome].tone}
+          className={OUTCOME_LABELS[outcome].bar}
           style={{ width: `${(standing.counts[outcome] / Math.max(total, 1)) * 100}%` }}
         />
       ))}
@@ -51,14 +53,15 @@ export function LeaderboardView({ run }: { run: Run }) {
   const standings = useMemo(() => [...leaderboard(run)].sort(SORTS[sortKey].compare), [run, sortKey])
   const caveat = ORIGIN_LABELS[run.origin].caveat
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
+      <Headline run={run} standings={leaderboard(run)} />
       {caveat !== null && <p className="rounded-md bg-muted px-3 py-2 text-sm text-muted-foreground">{caveat}</p>}
       <Table>
         <TableHeader>
           <TableRow>
             <TableHead>Engine</TableHead>
-            <TableHead>Version</TableHead>
-            <TableHead>Outcomes</TableHead>
+            <TableHead className="hidden sm:table-cell">Version</TableHead>
+            <TableHead className="hidden md:table-cell">Outcomes</TableHead>
             <SortHeader sortKey="passRate" active={sortKey} onSort={setSortKey} />
             <SortHeader sortKey="blockedRate" active={sortKey} onSort={setSortKey} />
             <SortHeader sortKey="medianMs" active={sortKey} onSort={setSortKey} />
@@ -68,8 +71,8 @@ export function LeaderboardView({ run }: { run: Run }) {
           {standings.map((standing) => (
             <TableRow key={standing.engine.id}>
               <TableCell className="font-medium">{ENGINE_NAMES[standing.engine.id]}</TableCell>
-              <TableCell className="font-mono text-xs text-muted-foreground">{standing.engine.version}</TableCell>
-              <TableCell>
+              <TableCell className="hidden font-mono text-xs text-muted-foreground sm:table-cell">{standing.engine.version}</TableCell>
+              <TableCell className="hidden md:table-cell">
                 <OutcomeBar standing={standing} />
               </TableCell>
               <TableCell className="text-right text-base font-semibold tabular-nums">{percent(standing.passRate)}</TableCell>
@@ -87,6 +90,7 @@ export function LeaderboardView({ run }: { run: Run }) {
           </span>
         ))}
       </div>
+      <CategoryTable run={run} />
     </div>
   )
 }

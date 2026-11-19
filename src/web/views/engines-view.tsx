@@ -7,7 +7,7 @@ export function EnginesView({ run, runs, runParam }: { run: Run; runs: RunSummar
   return (
     <>
       <PageHeader title="Engines" description="Every engine in this run, with its outcomes, speed and how sure each number is. Pick one to see every site it didn’t pass." />
-      <EnginesCard run={run} runs={runs} runParam={runParam} />
+      <EnginesCard run={run} runs={runs} runParam={runParam} full />
       <SpeedChart run={run} />
     </>
   )

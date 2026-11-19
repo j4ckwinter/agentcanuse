@@ -1,33 +1,37 @@
 import { blockSplit } from './agreement'
-import { categoryStandings, leaderboard, type CategoryStanding } from './leaderboard'
-import type { Category, EngineId, Run } from './model'
+import { wilsonInterval } from './confidence'
+import { leaderboard, type Standing } from './leaderboard'
+import type { EngineId, Run } from './model'
+
+export type Overall = { kind: 'ahead'; engine: EngineId; passRate: number } | { kind: 'level'; low: number; high: number }
 
 export interface Findings {
-  leader: { engine: EngineId; passRate: number } | null
+  overall: Overall | null
   blockedOnlyChromium: number
   blockedOnlyOthers: number
-  hardestCategory: { category: Category; passRate: number } | null
-  fastest: { engine: EngineId; medianMs: number } | null
-  slowest: { engine: EngineId; medianMs: number } | null
 }
 
-function averagePassRate(standing: CategoryStanding): number {
-  const rates = Object.values(standing.passRates)
-  return rates.length === 0 ? 0 : rates.reduce((sum, rate) => sum + rate, 0) / rates.length
+function interval(standing: Standing) {
+  return wilsonInterval(standing.counts.passed, standing.attempted)
+}
+
+function overall(standings: Standing[]): Overall | null {
+  const visited = standings.filter((standing) => standing.attempted > 0)
+  if (visited.length === 0) return null
+  const [leader, ...rest] = visited
+  const leaderLow = interval(leader)?.low ?? 0
+  if (rest.length > 0 && rest.every((standing) => (interval(standing)?.high ?? 0) < leaderLow)) {
+    return { kind: 'ahead', engine: leader.engine.id, passRate: leader.passRate }
+  }
+  const rates = visited.map((standing) => standing.passRate)
+  return { kind: 'level', low: Math.min(...rates), high: Math.max(...rates) }
 }
 
 export function findings(run: Run): Findings {
-  const standings = leaderboard(run)
   const split = blockSplit(run.results)
-  const timed = standings.flatMap((standing) => (standing.medianMs === null ? [] : [{ engine: standing.engine.id, medianMs: standing.medianMs }]))
-  const byTime = [...timed].sort((a, b) => a.medianMs - b.medianMs)
-  const hardest = [...categoryStandings(run)].sort((a, b) => averagePassRate(a) - averagePassRate(b))[0]
   return {
-    leader: standings[0] ? { engine: standings[0].engine.id, passRate: standings[0].passRate } : null,
+    overall: overall(leaderboard(run)),
     blockedOnlyChromium: split.blockedOnlyForReference.length,
     blockedOnlyOthers: split.blockedOnlyForOthers.length,
-    hardestCategory: hardest ? { category: hardest.category, passRate: averagePassRate(hardest) } : null,
-    fastest: byTime[0] ?? null,
-    slowest: byTime.length > 1 ? byTime[byTime.length - 1] : null,
   }
 }

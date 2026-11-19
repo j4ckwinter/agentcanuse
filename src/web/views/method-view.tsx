@@ -6,6 +6,7 @@ import { Card } from '@/components/card'
 import { OutcomeLabel } from '@/components/outcome-mark'
 import { PageHeader } from '@/components/page-header'
 import { OUTCOME_LABELS } from '@/labels'
+import { TestExplainer } from '@/views/test-explainer'
 
 const LINK = 'font-medium text-accent-blue hover:underline'
 const CODE = 'rounded border border-line bg-raised px-1 py-px font-mono text-caption'
@@ -18,6 +19,7 @@ export function MethodView() {
   return (
     <>
       <PageHeader title="Method" description="What a visit is, how it's scored, and what the numbers can't tell you." />
+      <TestExplainer />
       <div className="grid gap-4 lg:grid-cols-2">
         <Card title="A visit">
           <Prose>

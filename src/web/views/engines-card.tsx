@@ -58,7 +58,14 @@ function PassRate({ passed, attempted }: { passed: number; attempted: number }) 
 }
 const CELL = 'px-3 py-3'
 
-export function EnginesCard({ run, runs, runParam }: { run: Run; runs: RunSummary[]; runParam: string | null }) {
+interface EnginesCardProps {
+  run: Run
+  runs: RunSummary[]
+  runParam: string | null
+  full?: boolean
+}
+
+export function EnginesCard({ run, runs, runParam, full = false }: EnginesCardProps) {
   const current = runs.find((summary) => summary.id === run.id)
   const standings = leaderboard(run)
   const anyTrend = current !== undefined && standings.some((standing) => trend(runs, current, standing.engine.id).length >= 2)
@@ -71,7 +78,7 @@ export function EnginesCard({ run, runs, runParam }: { run: Run; runs: RunSummar
               <th className={`${TABLE_HEAD} pl-card`}>Engine</th>
               <th className={`${TABLE_HEAD} w-[38%]`}>Outcomes</th>
               <th className={`${TABLE_HEAD} text-right`}>Passed</th>
-              <th className={`${TABLE_HEAD} text-right`}>Blocked</th>
+              {full && <th className={`${TABLE_HEAD} text-right`}>Blocked</th>}
               <th className={`${TABLE_HEAD} text-right`}>Median</th>
               {anyTrend && <th className={`${TABLE_HEAD} pr-card text-right`}>Trend</th>}
             </tr>
@@ -83,7 +90,7 @@ export function EnginesCard({ run, runs, runParam }: { run: Run; runs: RunSummar
                   <a href={routeHash({ view: 'engines', run: runParam, engine: standing.engine.id })} className="flex items-center gap-2.5 text-sm font-medium hover:underline">
                     <EngineDot engine={standing.engine.id} className="size-2.5" />
                     {ENGINE_INFO[standing.engine.id].name}
-                    <span className="rounded border border-line px-1.5 py-px font-mono text-micro font-normal text-fg-muted">{standing.engine.version}</span>
+                    {full && <span className="rounded border border-line px-1.5 py-px font-mono text-micro font-normal text-fg-muted">{standing.engine.version}</span>}
                   </a>
                 </td>
                 <td className={CELL}>
@@ -92,7 +99,7 @@ export function EnginesCard({ run, runs, runParam }: { run: Run; runs: RunSummar
                 <td className={`${CELL} text-right tabular-nums`}>
                   <PassRate passed={standing.counts.passed} attempted={standing.attempted} />
                 </td>
-                <td className={`${CELL} text-right text-sm text-fg-secondary tabular-nums`}>{percent(standing.blockedRate)}</td>
+                {full && <td className={`${CELL} text-right text-sm text-fg-secondary tabular-nums`}>{percent(standing.blockedRate)}</td>}
                 <td className={`${CELL} text-right font-mono text-label text-fg-secondary`}>{seconds(standing.medianMs)}</td>
                 {anyTrend && current && (
                   <td className={`${CELL} pr-card text-right`}>

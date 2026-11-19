@@ -34,15 +34,19 @@ Each decision has one owner. Put new code with the owner of the decision it make
 | Starting each engine and finding its DevTools endpoint | `src/runner/engines.ts` |
 | Visiting a page: what is read, screenshots | `src/runner/visit.ts` |
 | How long a visit waits: the load timeout, the settle wait, the overall deadline | `src/runner/timing.ts` |
-| Which sites keep screenshots, and where blocking differs between Chromium and the other engines | `src/core/agreement.ts` |
+| Which sites keep screenshots, where blocking differs between Chromium and the other engines, and where one engine alone differs | `src/core/agreement.ts` |
+| Which runs can be compared: same network, same site list | `src/core/comparable.ts` |
+| A run's summary for the index, and which runs a trend line follows | `src/core/leaderboard.ts` |
 | Site categories and per-category pass rates | `src/core/model.ts`, `src/core/leaderboard.ts` |
 | Whether a page may be visited, and the user agent that asks | `src/runner/robots.ts` |
 | Where runs, the index and thumbnails are written, and which runs keep their thumbnails | `src/runner/store.ts` |
 | Command-line options and the order of a run | `src/runner/main.ts` |
 | Loading runs in the page | `src/web/data.ts` |
 | Names, colours and wording for engines, outcomes, categories and changes | `src/web/labels.ts` |
-| Page addresses | `src/web/route.ts` |
-| Which sites the Sites tab shows for a search, category or the disagreement switch | `src/web/site-filter.ts` |
+| Page addresses, including filters and the selected run | `src/web/route.ts` |
+| Which run is shown, and what happens for a run id the index doesn't list | `src/web/app.tsx` |
+| What each engine is, its homepage and its release notes link | `src/web/labels.ts` |
+| Which sites the Sites tab shows for a search, category, the disagreement switch or a blocking split, and their order for next and previous | `src/web/site-filter.ts` |
 | The leaderboard's headline sentence | `src/web/views/headline.tsx` |
 | What the Method tab says about scoring | `src/web/views/method-view.tsx`, reading the rules from their owners |
 
@@ -64,6 +68,7 @@ Each decision has one owner. Put new code with the owner of the decision it make
 - Every site in `sites.json` has a `category` from `CATEGORIES` in `src/core/model.ts`; the runner refuses an unknown one.
 - Colours follow the system's light or dark setting. `public/og.png` is a static preview image with no scores in it, so it never goes stale; it names the engines and the site count, so redo it when either changes.
 - Durations are milliseconds. Rates are fractions from 0 to 1, shown as percentages.
+- `index.json` holds a summary per run: its origin, engines, site count, a fingerprint of its site list, and each engine's pass rate. The site reads trends from it without loading every run. `npm run tidy` rebuilds it.
 - A run id is its UTC start minute, `2026-11-19T21-07Z`. `public/data/index.json` lists runs newest first, and each run lives in `public/data/runs/<id>.json`.
 - Thumbnails are 480-pixel-wide WebP files under `public/data/shots/<run>/<engine>/<site>.webp`. Only the latest run keeps them, since the site shows no others, and only for sites where the engines disagree; older runs keep their scores with `shot` set to `null`. `npm run tidy` rebuilds `index.json` from the run files and applies that rule, and every saved run runs it.
 - A run records where it came from: `home` for a run on a home connection, the default, and `data-centre` for the nightly GitHub Actions run. Sites treat the two differently, so a release diff compares runs from the same kind of network when it can.

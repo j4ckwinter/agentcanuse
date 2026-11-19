@@ -5,6 +5,7 @@ import type { Site, Visit } from './model'
 const site: Site = {
   id: 'example',
   name: 'Example',
+  category: 'reference',
   url: 'https://example.com/',
   expect: ['Theory of Relativity', 'Nobel Prize'],
 }

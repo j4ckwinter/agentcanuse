@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
-import { sitesWhereEnginesDisagree } from './agreement'
+import { blockSplit, sitesWhereEnginesDisagree } from './agreement'
 import type { EngineId, Outcome, Result } from './model'
 
 function result(site: string, engine: EngineId, outcome: Outcome): Result {
@@ -32,4 +32,19 @@ it('finds the sites where engines reached different outcomes, ignoring skipped v
     result('npm', 'lightpanda', 'passed'),
   ]
   expect(sitesWhereEnginesDisagree(results)).toEqual(new Set(['zillow']))
+})
+
+it('splits blocking into sites that stopped only Chromium and sites that stopped only another engine', () => {
+  const results = [
+    result('zillow', 'chromium', 'blocked'),
+    result('zillow', 'lightpanda', 'passed'),
+    result('zillow', 'obscura', 'blocked'),
+    result('arxiv', 'chromium', 'passed'),
+    result('arxiv', 'lightpanda', 'blocked'),
+    result('ebay', 'chromium', 'blocked'),
+    result('ebay', 'lightpanda', 'blocked'),
+    result('booking', 'chromium', 'blocked'),
+    result('booking', 'obscura', 'failed'),
+  ]
+  expect(blockSplit(results)).toEqual({ blockedOnlyForReference: ['zillow'], blockedOnlyForOthers: ['arxiv'] })
 })

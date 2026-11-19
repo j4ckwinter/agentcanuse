@@ -20,6 +20,7 @@
   {
    "id": "wikipedia",
    "name": "Wikipedia article",
+   "category": "reference",
    "url": "https://en.wikipedia.org/wiki/Albert_Einstein",
    "expect": [
     "theory of relativity",
@@ -29,6 +30,7 @@
   {
    "id": "mdn",
    "name": "MDN reference",
+   "category": "docs",
    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API",
    "expect": [
     "Fetch API",
@@ -38,6 +40,7 @@
   {
    "id": "gov-uk",
    "name": "GOV.UK bank holidays",
+   "category": "government",
    "url": "https://www.gov.uk/bank-holidays",
    "expect": [
     "England and Wales",
@@ -47,6 +50,7 @@
   {
    "id": "python-docs",
    "name": "Python tutorial",
+   "category": "docs",
    "url": "https://docs.python.org/3/tutorial/index.html",
    "expect": [
     "The Python Tutorial",
@@ -56,6 +60,7 @@
   {
    "id": "arxiv",
    "name": "arXiv abstract",
+   "category": "reference",
    "url": "https://arxiv.org/abs/1706.03762",
    "expect": [
     "Attention Is All You Need",
@@ -65,6 +70,7 @@
   {
    "id": "hacker-news",
    "name": "Hacker News",
+   "category": "developer",
    "url": "https://news.ycombinator.com/",
    "expect": [
     "Hacker News",
@@ -74,6 +80,7 @@
   {
    "id": "books-toscrape",
    "name": "Bookshop demo",
+   "category": "shopping",
    "url": "https://books.toscrape.com/",
    "expect": [
     "All products",
@@ -83,6 +90,7 @@
   {
    "id": "quotes-js",
    "name": "Quotes rendered by JavaScript",
+   "category": "reference",
    "url": "https://quotes.toscrape.com/js/",
    "expect": [
     "Albert Einstein",
@@ -92,6 +100,7 @@
   {
    "id": "react-dev",
    "name": "React docs",
+   "category": "docs",
    "url": "https://react.dev/learn",
    "expect": [
     "Quick Start",
@@ -101,6 +110,7 @@
   {
    "id": "tailwind-docs",
    "name": "Tailwind docs",
+   "category": "docs",
    "url": "https://tailwindcss.com/docs/installation/using-vite",
    "expect": [
     "Install Tailwind CSS",
@@ -110,6 +120,7 @@
   {
    "id": "github",
    "name": "GitHub repository",
+   "category": "developer",
    "url": "https://github.com/lightpanda-io/browser",
    "expect": [
     "Lightpanda",
@@ -119,6 +130,7 @@
   {
    "id": "npm",
    "name": "npm package",
+   "category": "developer",
    "url": "https://www.npmjs.com/package/react",
    "expect": [
     "Weekly Downloads",
@@ -128,6 +140,7 @@
   {
    "id": "stack-overflow",
    "name": "Stack Overflow question",
+   "category": "developer",
    "url": "https://stackoverflow.com/questions/11227809/why-is-processing-a-sorted-array-faster-than-processing-an-unsorted-array",
    "expect": [
     "branch prediction",
@@ -137,6 +150,7 @@
   {
    "id": "bbc-news",
    "name": "BBC News",
+   "category": "news",
    "url": "https://www.bbc.co.uk/news",
    "expect": [
     "BBC News",
@@ -146,6 +160,7 @@
   {
    "id": "guardian",
    "name": "The Guardian",
+   "category": "news",
    "url": "https://www.theguardian.com/uk",
    "expect": [
     "The Guardian",
@@ -155,6 +170,7 @@
   {
    "id": "nytimes",
    "name": "New York Times",
+   "category": "news",
    "url": "https://www.nytimes.com/",
    "expect": [
     "The New York Times",
@@ -164,6 +180,7 @@
   {
    "id": "archive-org",
    "name": "Internet Archive",
+   "category": "reference",
    "url": "https://archive.org/about/",
    "expect": [
     "Internet Archive",
@@ -173,6 +190,7 @@
   {
    "id": "met-office",
    "name": "Met Office",
+   "category": "government",
    "url": "https://www.metoffice.gov.uk/",
    "expect": [
     "Met Office",
@@ -182,6 +200,7 @@
   {
    "id": "bbc-food",
    "name": "BBC Food recipe",
+   "category": "reference",
    "url": "https://www.bbc.co.uk/food/recipes/basicpancakeswithsuga_66226",
    "expect": [
     "plain flour",
@@ -191,6 +210,7 @@
   {
    "id": "youtube",
    "name": "YouTube video",
+   "category": "services",
    "url": "https://www.youtube.com/watch?v=jNQXAC9IVRw",
    "expect": [
     "Me at the zoo"
@@ -199,6 +219,7 @@
   {
    "id": "zillow",
    "name": "Zillow",
+   "category": "listings",
    "url": "https://www.zillow.com/",
    "expect": [
     "Zillow",
@@ -208,6 +229,7 @@
   {
    "id": "etsy",
    "name": "Etsy",
+   "category": "shopping",
    "url": "https://www.etsy.com/uk/",
    "expect": [
     "Etsy",
@@ -217,6 +239,7 @@
   {
    "id": "ebay",
    "name": "eBay",
+   "category": "shopping",
    "url": "https://www.ebay.co.uk/",
    "expect": [
     "eBay",
@@ -226,6 +249,7 @@
   {
    "id": "airbnb",
    "name": "Airbnb",
+   "category": "travel",
    "url": "https://www.airbnb.co.uk/",
    "expect": [
     "Airbnb",
@@ -235,6 +259,7 @@
   {
    "id": "booking",
    "name": "Booking.com",
+   "category": "travel",
    "url": "https://www.booking.com/",
    "expect": [
     "Booking.com",
@@ -244,6 +269,7 @@
   {
    "id": "vercel",
    "name": "Vercel",
+   "category": "services",
    "url": "https://vercel.com/",
    "expect": [
     "Vercel",
@@ -253,6 +279,7 @@
   {
    "id": "cloudflare",
    "name": "Cloudflare",
+   "category": "services",
    "url": "https://www.cloudflare.com/",
    "expect": [
     "Cloudflare",
@@ -262,6 +289,7 @@
   {
    "id": "stripe-docs",
    "name": "Stripe docs",
+   "category": "docs",
    "url": "https://docs.stripe.com/payments",
    "expect": [
     "Payments",
@@ -271,6 +299,7 @@
   {
    "id": "craigslist",
    "name": "Craigslist",
+   "category": "listings",
    "url": "https://london.craigslist.org/",
    "expect": [
     "craigslist",
@@ -280,6 +309,7 @@
   {
    "id": "hn-algolia",
    "name": "Hacker News search",
+   "category": "developer",
    "url": "https://hn.algolia.com/?q=browser",
    "expect": [
     "Search",
@@ -289,6 +319,7 @@
   {
    "id": "aljazeera",
    "name": "Al Jazeera",
+   "category": "news",
    "url": "https://www.aljazeera.com/",
    "expect": [
     "Al Jazeera",
@@ -298,6 +329,7 @@
   {
    "id": "amazon",
    "name": "Amazon UK",
+   "category": "shopping",
    "url": "https://www.amazon.co.uk/",
    "expect": [
     "Amazon",
@@ -307,6 +339,7 @@
   {
    "id": "apnews",
    "name": "AP News",
+   "category": "news",
    "url": "https://apnews.com/",
    "expect": [
     "AP News"
@@ -315,6 +348,7 @@
   {
    "id": "apple",
    "name": "Apple iPhone",
+   "category": "shopping",
    "url": "https://www.apple.com/uk/iphone/",
    "expect": [
     "iPhone",
@@ -324,6 +358,7 @@
   {
    "id": "apple-dev",
    "name": "Apple developer docs",
+   "category": "docs",
    "url": "https://developer.apple.com/documentation/swift",
    "expect": [
     "Swift",
@@ -333,6 +368,7 @@
   {
    "id": "argos",
    "name": "Argos",
+   "category": "shopping",
    "url": "https://www.argos.co.uk/",
    "expect": [
     "Argos"
@@ -341,6 +377,7 @@
   {
    "id": "ars",
    "name": "Ars Technica",
+   "category": "news",
    "url": "https://arstechnica.com/",
    "expect": [
     "Ars Technica",
@@ -350,6 +387,7 @@
   {
    "id": "asos",
    "name": "ASOS",
+   "category": "shopping",
    "url": "https://www.asos.com/",
    "expect": [
     "ASOS"
@@ -358,6 +396,7 @@
   {
    "id": "autotrader",
    "name": "Auto Trader",
+   "category": "listings",
    "url": "https://www.autotrader.co.uk/",
    "expect": [
     "Auto Trader"
@@ -366,6 +405,7 @@
   {
    "id": "aws-docs",
    "name": "AWS docs",
+   "category": "docs",
    "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html",
    "expect": [
     "What is Amazon S3?",
@@ -375,6 +415,7 @@
   {
    "id": "bbc-sport",
    "name": "BBC Sport",
+   "category": "news",
    "url": "https://www.bbc.co.uk/sport/football",
    "expect": [
     "Football",
@@ -384,6 +425,7 @@
   {
    "id": "bestbuy",
    "name": "Best Buy",
+   "category": "shopping",
    "url": "https://www.bestbuy.com/",
    "expect": [
     "Choose a country",
@@ -393,6 +435,7 @@
   {
    "id": "britannica",
    "name": "Britannica",
+   "category": "reference",
    "url": "https://www.britannica.com/science/photosynthesis",
    "expect": [
     "Britannica"
@@ -401,6 +444,7 @@
   {
    "id": "canada",
    "name": "Canada.ca",
+   "category": "government",
    "url": "https://www.canada.ca/en/services/benefits.html",
    "expect": [
     "Benefits",
@@ -410,6 +454,7 @@
   {
    "id": "caniuse",
    "name": "Can I use",
+   "category": "docs",
    "url": "https://caniuse.com/css-grid",
    "expect": [
     "Can I use",
@@ -419,6 +464,7 @@
   {
    "id": "cdc",
    "name": "CDC",
+   "category": "government",
    "url": "https://www.cdc.gov/flu/index.html",
    "expect": [
     "Influenza (Flu)",
@@ -428,6 +474,7 @@
   {
    "id": "cnn",
    "name": "CNN",
+   "category": "news",
    "url": "https://edition.cnn.com/",
    "expect": [
     "CNN",
@@ -437,6 +484,7 @@
   {
    "id": "codepen",
    "name": "CodePen",
+   "category": "developer",
    "url": "https://codepen.io/",
    "expect": [
     "CodePen"
@@ -445,6 +493,7 @@
   {
    "id": "crates",
    "name": "crates.io",
+   "category": "developer",
    "url": "https://crates.io/crates/serde",
    "expect": [
     "serde",
@@ -454,6 +503,7 @@
   {
    "id": "data-gov",
    "name": "Data.gov",
+   "category": "government",
    "url": "https://data.gov/",
    "expect": [
     "Open Data",
@@ -463,6 +513,7 @@
   {
    "id": "devto",
    "name": "DEV Community",
+   "category": "developer",
    "url": "https://dev.to/",
    "expect": [
     "DEV Community",
@@ -472,6 +523,7 @@
   {
    "id": "discogs",
    "name": "Discogs",
+   "category": "shopping",
    "url": "https://www.discogs.com/",
    "expect": [
     "Discogs"
@@ -480,6 +532,7 @@
   {
    "id": "django",
    "name": "Django docs",
+   "category": "docs",
    "url": "https://docs.djangoproject.com/en/stable/intro/overview/",
    "expect": [
     "Django at a glance",
@@ -489,6 +542,7 @@
   {
    "id": "docker-hub",
    "name": "Docker Hub",
+   "category": "developer",
    "url": "https://hub.docker.com/_/nginx",
    "expect": [
     "nginx",
@@ -498,6 +552,7 @@
   {
    "id": "duckduckgo",
    "name": "DuckDuckGo",
+   "category": "services",
    "url": "https://duckduckgo.com/about",
    "expect": [
     "About DuckDuckGo",
@@ -507,6 +562,7 @@
   {
    "id": "economist",
    "name": "The Economist",
+   "category": "news",
    "url": "https://www.economist.com/",
    "expect": [
     "The Economist"
@@ -515,6 +571,7 @@
   {
    "id": "eventbrite",
    "name": "Eventbrite",
+   "category": "travel",
    "url": "https://www.eventbrite.co.uk/",
    "expect": [
     "Eventbrite",
@@ -524,6 +581,7 @@
   {
    "id": "expedia",
    "name": "Expedia",
+   "category": "travel",
    "url": "https://www.expedia.co.uk/",
    "expect": [
     "Expedia"
@@ -532,6 +590,7 @@
   {
    "id": "figma",
    "name": "Figma",
+   "category": "services",
    "url": "https://www.figma.com/",
    "expect": [
     "full-stack creative canvas",
@@ -541,6 +600,7 @@
   {
    "id": "ft",
    "name": "Financial Times",
+   "category": "news",
    "url": "https://www.ft.com/",
    "expect": [
     "Financial Times"
@@ -549,6 +609,7 @@
   {
    "id": "gcp-docs",
    "name": "Google Cloud docs",
+   "category": "docs",
    "url": "https://cloud.google.com/run/docs/overview/what-is-cloud-run",
    "expect": [
     "What is Cloud Run",
@@ -558,6 +619,7 @@
   {
    "id": "git-book",
    "name": "Pro Git",
+   "category": "docs",
    "url": "https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control",
    "expect": [
     "About Version Control",
@@ -567,6 +629,7 @@
   {
    "id": "github-docs",
    "name": "GitHub Docs",
+   "category": "docs",
    "url": "https://docs.github.com/en/get-started/start-your-journey/about-github-and-git",
    "expect": [
     "What is GitHub?",
@@ -576,6 +639,7 @@
   {
    "id": "go-docs",
    "name": "Go tutorial",
+   "category": "docs",
    "url": "https://go.dev/doc/tutorial/getting-started",
    "expect": [
     "Tutorial: Get started with Go",
@@ -585,6 +649,7 @@
   {
    "id": "gov-uk-tax",
    "name": "GOV.UK vehicle tax",
+   "category": "government",
    "url": "https://www.gov.uk/vehicle-tax",
    "expect": [
     "Tax your vehicle",
@@ -594,6 +659,7 @@
   {
    "id": "huggingface",
    "name": "Hugging Face",
+   "category": "developer",
    "url": "https://huggingface.co/meta-llama",
    "expect": [
     "Meta Llama",
@@ -603,6 +669,7 @@
   {
    "id": "ikea",
    "name": "IKEA",
+   "category": "shopping",
    "url": "https://www.ikea.com/gb/en/",
    "expect": [
     "Welcome to IKEA UK",
@@ -612,6 +679,7 @@
   {
    "id": "independent",
    "name": "The Independent",
+   "category": "news",
    "url": "https://www.independent.co.uk/",
    "expect": [
     "The Independent",
@@ -621,6 +689,7 @@
   {
    "id": "irs",
    "name": "IRS",
+   "category": "government",
    "url": "https://www.irs.gov/filing",
    "expect": [
     "Filing",
@@ -630,6 +699,7 @@
   {
    "id": "kaggle",
    "name": "Kaggle",
+   "category": "developer",
    "url": "https://www.kaggle.com/",
    "expect": [
     "Kaggle",
@@ -639,6 +709,7 @@
   {
    "id": "khan",
    "name": "Khan Academy",
+   "category": "reference",
    "url": "https://www.khanacademy.org/math/algebra",
    "expect": [
     "Algebra 1",
@@ -648,6 +719,7 @@
   {
    "id": "kubernetes",
    "name": "Kubernetes docs",
+   "category": "docs",
    "url": "https://kubernetes.io/docs/concepts/overview/",
    "expect": [
     "Overview",
@@ -657,6 +729,7 @@
   {
    "id": "linear",
    "name": "Linear",
+   "category": "services",
    "url": "https://linear.app/",
    "expect": [
     "Linear",
@@ -666,6 +739,7 @@
   {
    "id": "medium",
    "name": "Medium",
+   "category": "services",
    "url": "https://medium.com/",
    "expect": [
     "Medium"
@@ -674,6 +748,7 @@
   {
    "id": "merriam-webster",
    "name": "Merriam-Webster",
+   "category": "reference",
    "url": "https://www.merriam-webster.com/dictionary/serendipity",
    "expect": [
     "serendipity"
@@ -682,6 +757,7 @@
   {
    "id": "mit-ocw",
    "name": "MIT OpenCourseWare",
+   "category": "reference",
    "url": "https://ocw.mit.edu/",
    "expect": [
     "MIT OpenCourseWare",
@@ -691,6 +767,7 @@
   {
    "id": "monzo",
    "name": "Monzo",
+   "category": "services",
    "url": "https://monzo.com/",
    "expect": [
     "Monzo",
@@ -700,6 +777,7 @@
   {
    "id": "mozilla",
    "name": "Mozilla",
+   "category": "services",
    "url": "https://www.mozilla.org/en-GB/firefox/",
    "expect": [
     "Firefox",
@@ -709,6 +787,7 @@
   {
    "id": "ms-learn",
    "name": "Microsoft Learn",
+   "category": "docs",
    "url": "https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/",
    "expect": [
     "C# documentation",
@@ -718,6 +797,7 @@
   {
    "id": "nasa",
    "name": "NASA",
+   "category": "government",
    "url": "https://www.nasa.gov/",
    "expect": [
     "NASA",
@@ -727,6 +807,7 @@
   {
    "id": "national-rail",
    "name": "National Rail",
+   "category": "travel",
    "url": "https://www.nationalrail.co.uk/",
    "expect": [
     "Plan Your Journey",
@@ -736,6 +817,7 @@
   {
    "id": "nature",
    "name": "Nature",
+   "category": "reference",
    "url": "https://www.nature.com/",
    "expect": [
     "Nature",
@@ -745,6 +827,7 @@
   {
    "id": "nextjs",
    "name": "Next.js docs",
+   "category": "docs",
    "url": "https://nextjs.org/docs",
    "expect": [
     "What is Next.js?",
@@ -754,6 +837,7 @@
   {
    "id": "nhs",
    "name": "NHS condition",
+   "category": "government",
    "url": "https://www.nhs.uk/conditions/flu/",
    "expect": [
     "Flu",
@@ -763,6 +847,7 @@
   {
    "id": "nodejs",
    "name": "Node.js docs",
+   "category": "docs",
    "url": "https://nodejs.org/en/learn/getting-started/introduction-to-nodejs",
    "expect": [
     "Introduction to Node.js",
@@ -772,6 +857,7 @@
   {
    "id": "notion",
    "name": "Notion",
+   "category": "services",
    "url": "https://www.notion.com/",
    "expect": [
     "Notion",
@@ -781,6 +867,7 @@
   {
    "id": "npr",
    "name": "NPR",
+   "category": "news",
    "url": "https://www.npr.org/",
    "expect": [
     "NPR",
@@ -790,6 +877,7 @@
   {
    "id": "ons",
    "name": "ONS",
+   "category": "government",
    "url": "https://www.ons.gov.uk/",
    "expect": [
     "Office for National Statistics",
@@ -799,6 +887,7 @@
   {
    "id": "openstreetmap",
    "name": "OpenStreetMap",
+   "category": "reference",
    "url": "https://www.openstreetmap.org/",
    "expect": [
     "Welcome to OpenStreetMap",
@@ -808,6 +897,7 @@
   {
    "id": "paypal",
    "name": "PayPal",
+   "category": "services",
    "url": "https://www.paypal.com/uk/home",
    "expect": [
     "PayPal"
@@ -816,6 +906,7 @@
   {
    "id": "postgres",
    "name": "PostgreSQL docs",
+   "category": "docs",
    "url": "https://www.postgresql.org/docs/current/tutorial-start.html",
    "expect": [
     "Getting Started",
@@ -825,6 +916,7 @@
   {
    "id": "producthunt",
    "name": "Product Hunt",
+   "category": "developer",
    "url": "https://www.producthunt.com/",
    "expect": [
     "Product Hunt"
@@ -833,6 +925,7 @@
   {
    "id": "pypi",
    "name": "PyPI package",
+   "category": "developer",
    "url": "https://pypi.org/project/requests/",
    "expect": [
     "requests",
@@ -842,6 +935,7 @@
   {
    "id": "rightmove",
    "name": "Rightmove",
+   "category": "listings",
    "url": "https://www.rightmove.co.uk/",
    "expect": [
     "Rightmove",
@@ -851,6 +945,7 @@
   {
    "id": "ryanair",
    "name": "Ryanair",
+   "category": "travel",
    "url": "https://www.ryanair.com/gb/en",
    "expect": [
     "Ryanair",
@@ -860,6 +955,7 @@
   {
    "id": "shopify",
    "name": "Shopify",
+   "category": "services",
    "url": "https://www.shopify.com/uk",
    "expect": [
     "Shopify",
@@ -869,6 +965,7 @@
   {
    "id": "simple-wiki",
    "name": "Simple Wikipedia",
+   "category": "reference",
    "url": "https://simple.wikipedia.org/wiki/Moon",
    "expect": [
     "Moon",
@@ -878,6 +975,7 @@
   {
    "id": "sky-news",
    "name": "Sky News",
+   "category": "news",
    "url": "https://news.sky.com/",
    "expect": [
     "Sky News"
@@ -886,6 +984,7 @@
   {
    "id": "skyscanner",
    "name": "Skyscanner",
+   "category": "travel",
    "url": "https://www.skyscanner.net/",
    "expect": [
     "Skyscanner"
@@ -894,6 +993,7 @@
   {
    "id": "spotify",
    "name": "Spotify",
+   "category": "services",
    "url": "https://www.spotify.com/uk/premium/",
    "expect": [
     "Premium",
@@ -903,6 +1003,7 @@
   {
    "id": "sqlite",
    "name": "SQLite",
+   "category": "docs",
    "url": "https://sqlite.org/whentouse.html",
    "expect": [
     "Situations Where SQLite Works Well",
@@ -912,6 +1013,7 @@
   {
    "id": "stanford-plato",
    "name": "Stanford Encyclopedia",
+   "category": "reference",
    "url": "https://plato.stanford.edu/entries/consciousness/",
    "expect": [
     "Consciousness",
@@ -921,6 +1023,7 @@
   {
    "id": "steam",
    "name": "Steam",
+   "category": "shopping",
    "url": "https://store.steampowered.com/",
    "expect": [
     "Steam",
@@ -930,6 +1033,7 @@
   {
    "id": "stripe",
    "name": "Stripe",
+   "category": "services",
    "url": "https://stripe.com/gb",
    "expect": [
     "Financial infrastructure",
@@ -939,6 +1043,7 @@
   {
    "id": "substack",
    "name": "Substack",
+   "category": "services",
    "url": "https://substack.com/",
    "expect": [
     "Discover your next obsession",
@@ -948,6 +1053,7 @@
   {
    "id": "supabase",
    "name": "Supabase docs",
+   "category": "docs",
    "url": "https://supabase.com/docs/guides/getting-started",
    "expect": [
     "Getting Started",
@@ -957,6 +1063,7 @@
   {
    "id": "svelte",
    "name": "Svelte docs",
+   "category": "docs",
    "url": "https://svelte.dev/docs/svelte/overview",
    "expect": [
     "Overview",
@@ -966,6 +1073,7 @@
   {
    "id": "target",
    "name": "Target",
+   "category": "shopping",
    "url": "https://www.target.com/",
    "expect": [
     "Target",
@@ -975,6 +1083,7 @@
   {
    "id": "techcrunch",
    "name": "TechCrunch",
+   "category": "news",
    "url": "https://techcrunch.com/",
    "expect": [
     "TechCrunch",
@@ -984,6 +1093,7 @@
   {
    "id": "tesco",
    "name": "Tesco",
+   "category": "shopping",
    "url": "https://www.tesco.com/groceries/en-GB/",
    "expect": [
     "Tesco"
@@ -992,6 +1102,7 @@
   {
    "id": "ticketmaster",
    "name": "Ticketmaster",
+   "category": "travel",
    "url": "https://www.ticketmaster.co.uk/",
    "expect": [
     "Ticketmaster"
@@ -1000,6 +1111,7 @@
   {
    "id": "typescript",
    "name": "TypeScript handbook",
+   "category": "docs",
    "url": "https://www.typescriptlang.org/docs/handbook/2/basic-types.html",
    "expect": [
     "The Basics",
@@ -1009,6 +1121,7 @@
   {
    "id": "usa-gov",
    "name": "USA.gov",
+   "category": "government",
    "url": "https://www.usa.gov/passport",
    "expect": [
     "U.S. passports",
@@ -1018,6 +1131,7 @@
   {
    "id": "verge",
    "name": "The Verge",
+   "category": "news",
    "url": "https://www.theverge.com/",
    "expect": [
     "The Verge",
@@ -1027,6 +1141,7 @@
   {
    "id": "vue",
    "name": "Vue guide",
+   "category": "docs",
    "url": "https://vuejs.org/guide/introduction.html",
    "expect": [
     "Introduction",
@@ -1036,6 +1151,7 @@
   {
    "id": "w3schools",
    "name": "W3Schools",
+   "category": "docs",
    "url": "https://www.w3schools.com/js/js_intro.asp",
    "expect": [
     "JavaScript Tutorial",
@@ -1045,6 +1161,7 @@
   {
    "id": "walmart",
    "name": "Walmart",
+   "category": "shopping",
    "url": "https://www.walmart.com/",
    "expect": [
     "Walmart",
@@ -1054,6 +1171,7 @@
   {
    "id": "weather-com",
    "name": "Weather.com",
+   "category": "reference",
    "url": "https://weather.com/",
    "expect": [
     "Weather",
@@ -1063,6 +1181,7 @@
   {
    "id": "web-dev",
    "name": "web.dev article",
+   "category": "docs",
    "url": "https://web.dev/articles/vitals",
    "expect": [
     "Web Vitals",
@@ -1072,6 +1191,7 @@
   {
    "id": "wired",
    "name": "Wired",
+   "category": "news",
    "url": "https://www.wired.com/",
    "expect": [
     "WIRED",
@@ -1081,6 +1201,7 @@
   {
    "id": "wise",
    "name": "Wise",
+   "category": "services",
    "url": "https://wise.com/gb/",
    "expect": [
     "Wise",
@@ -1090,6 +1211,7 @@
   {
    "id": "wolfram",
    "name": "Wolfram Alpha",
+   "category": "reference",
    "url": "https://www.wolframalpha.com/",
    "expect": [
     "Wolfram",
@@ -1099,6 +1221,7 @@
   {
    "id": "wordpress",
    "name": "WordPress.org",
+   "category": "services",
    "url": "https://wordpress.org/",
    "expect": [
     "Meet WordPress",
@@ -1108,6 +1231,7 @@
   {
    "id": "your-europe",
    "name": "Your Europe",
+   "category": "government",
    "url": "https://europa.eu/youreurope/citizens/travel/index_en.htm",
    "expect": [
     "Travel",

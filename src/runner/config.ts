@@ -1,5 +1,5 @@
 import { readFile, writeFile } from 'node:fs/promises'
-import { ENGINE_IDS, type EngineId, type Site } from '../core/model'
+import { CATEGORIES, ENGINE_IDS, type EngineId, type Site } from '../core/model'
 
 export type Pins = Record<EngineId, string>
 
@@ -9,6 +9,7 @@ export async function loadSites(path: string): Promise<Site[]> {
   for (const site of sites) {
     if (ids.has(site.id)) throw new Error(`Duplicate site id in ${path}: ${site.id}`)
     ids.add(site.id)
+    if (!(CATEGORIES as readonly string[]).includes(site.category)) throw new Error(`${site.id} has an unknown category: ${site.category}`)
     new URL(site.url)
   }
   return sites

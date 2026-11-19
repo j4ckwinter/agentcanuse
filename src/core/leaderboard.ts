@@ -1,4 +1,4 @@
-import { OUTCOMES, type EngineRun, type Outcome, type Result, type Run } from './model'
+import { CATEGORIES, OUTCOMES, type Category, type EngineId, type EngineRun, type Outcome, type Result, type Run } from './model'
 
 export interface Standing {
   engine: EngineRun
@@ -43,4 +43,24 @@ export function leaderboard(run: Run): Standing[] {
   return run.engines
     .map((engine) => standingFor(engine, run.results.filter((result) => result.engine === engine.id)))
     .sort((a, b) => b.passRate - a.passRate || a.blockedRate - b.blockedRate)
+}
+
+export interface CategoryStanding {
+  category: Category
+  sites: number
+  passRates: Partial<Record<EngineId, number>>
+}
+
+export function categoryStandings(run: Run): CategoryStanding[] {
+  const categoryOf = new Map(run.sites.map((site) => [site.id, site.category]))
+  return CATEGORIES.flatMap((category): CategoryStanding[] => {
+    const inCategory = run.results.filter((result) => categoryOf.get(result.site) === category)
+    if (inCategory.length === 0) return []
+    const passRates: Partial<Record<EngineId, number>> = {}
+    for (const { id } of run.engines) {
+      const attempted = inCategory.filter((result) => result.engine === id && result.outcome !== 'skipped')
+      passRates[id] = rate(attempted.filter((result) => result.outcome === 'passed').length, attempted.length)
+    }
+    return [{ category, sites: run.sites.filter((site) => site.category === category).length, passRates }]
+  })
 }

@@ -20,6 +20,7 @@
   {
    "id": "wikipedia",
    "name": "Wikipedia article",
+   "category": "reference",
    "url": "https://en.wikipedia.org/wiki/Albert_Einstein",
    "expect": [
     "theory of relativity",
@@ -29,6 +30,7 @@
   {
    "id": "mdn",
    "name": "MDN reference",
+   "category": "docs",
    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API",
    "expect": [
     "Fetch API",
@@ -38,6 +40,7 @@
   {
    "id": "gov-uk",
    "name": "GOV.UK bank holidays",
+   "category": "government",
    "url": "https://www.gov.uk/bank-holidays",
    "expect": [
     "England and Wales",
@@ -47,6 +50,7 @@
   {
    "id": "python-docs",
    "name": "Python tutorial",
+   "category": "docs",
    "url": "https://docs.python.org/3/tutorial/index.html",
    "expect": [
     "The Python Tutorial",
@@ -56,6 +60,7 @@
   {
    "id": "arxiv",
    "name": "arXiv abstract",
+   "category": "reference",
    "url": "https://arxiv.org/abs/1706.03762",
    "expect": [
     "Attention Is All You Need",
@@ -65,6 +70,7 @@
   {
    "id": "hacker-news",
    "name": "Hacker News",
+   "category": "developer",
    "url": "https://news.ycombinator.com/",
    "expect": [
     "Hacker News",
@@ -74,6 +80,7 @@
   {
    "id": "books-toscrape",
    "name": "Bookshop demo",
+   "category": "shopping",
    "url": "https://books.toscrape.com/",
    "expect": [
     "All products",
@@ -83,6 +90,7 @@
   {
    "id": "quotes-js",
    "name": "Quotes rendered by JavaScript",
+   "category": "reference",
    "url": "https://quotes.toscrape.com/js/",
    "expect": [
     "Albert Einstein",
@@ -92,6 +100,7 @@
   {
    "id": "react-dev",
    "name": "React docs",
+   "category": "docs",
    "url": "https://react.dev/learn",
    "expect": [
     "Quick Start",
@@ -101,6 +110,7 @@
   {
    "id": "tailwind-docs",
    "name": "Tailwind docs",
+   "category": "docs",
    "url": "https://tailwindcss.com/docs/installation/using-vite",
    "expect": [
     "Install Tailwind CSS",
@@ -110,6 +120,7 @@
   {
    "id": "github",
    "name": "GitHub repository",
+   "category": "developer",
    "url": "https://github.com/lightpanda-io/browser",
    "expect": [
     "Lightpanda",
@@ -119,6 +130,7 @@
   {
    "id": "npm",
    "name": "npm package",
+   "category": "developer",
    "url": "https://www.npmjs.com/package/react",
    "expect": [
     "Weekly Downloads",
@@ -128,6 +140,7 @@
   {
    "id": "stack-overflow",
    "name": "Stack Overflow question",
+   "category": "developer",
    "url": "https://stackoverflow.com/questions/11227809/why-is-processing-a-sorted-array-faster-than-processing-an-unsorted-array",
    "expect": [
     "branch prediction",
@@ -137,6 +150,7 @@
   {
    "id": "bbc-news",
    "name": "BBC News",
+   "category": "news",
    "url": "https://www.bbc.co.uk/news",
    "expect": [
     "BBC News",
@@ -146,6 +160,7 @@
   {
    "id": "guardian",
    "name": "The Guardian",
+   "category": "news",
    "url": "https://www.theguardian.com/uk",
    "expect": [
     "The Guardian",
@@ -155,6 +170,7 @@
   {
    "id": "nytimes",
    "name": "New York Times",
+   "category": "news",
    "url": "https://www.nytimes.com/",
    "expect": [
     "The New York Times",
@@ -164,6 +180,7 @@
   {
    "id": "archive-org",
    "name": "Internet Archive",
+   "category": "reference",
    "url": "https://archive.org/about/",
    "expect": [
     "Internet Archive",
@@ -173,6 +190,7 @@
   {
    "id": "met-office",
    "name": "Met Office",
+   "category": "government",
    "url": "https://www.metoffice.gov.uk/",
    "expect": [
     "Met Office",
@@ -182,6 +200,7 @@
   {
    "id": "bbc-food",
    "name": "BBC Food recipe",
+   "category": "reference",
    "url": "https://www.bbc.co.uk/food/recipes/basicpancakeswithsuga_66226",
    "expect": [
     "plain flour",
@@ -191,6 +210,7 @@
   {
    "id": "youtube",
    "name": "YouTube video",
+   "category": "services",
    "url": "https://www.youtube.com/watch?v=jNQXAC9IVRw",
    "expect": [
     "Me at the zoo"
@@ -199,6 +219,7 @@
   {
    "id": "zillow",
    "name": "Zillow",
+   "category": "listings",
    "url": "https://www.zillow.com/",
    "expect": [
     "Zillow",
@@ -208,6 +229,7 @@
   {
    "id": "etsy",
    "name": "Etsy",
+   "category": "shopping",
    "url": "https://www.etsy.com/uk/",
    "expect": [
     "Etsy",
@@ -217,6 +239,7 @@
   {
    "id": "ebay",
    "name": "eBay",
+   "category": "shopping",
    "url": "https://www.ebay.co.uk/",
    "expect": [
     "eBay",
@@ -226,6 +249,7 @@
   {
    "id": "airbnb",
    "name": "Airbnb",
+   "category": "travel",
    "url": "https://www.airbnb.co.uk/",
    "expect": [
     "Airbnb",
@@ -235,6 +259,7 @@
   {
    "id": "booking",
    "name": "Booking.com",
+   "category": "travel",
    "url": "https://www.booking.com/",
    "expect": [
     "Booking.com",
@@ -244,6 +269,7 @@
   {
    "id": "vercel",
    "name": "Vercel",
+   "category": "services",
    "url": "https://vercel.com/",
    "expect": [
     "Vercel",
@@ -253,6 +279,7 @@
   {
    "id": "cloudflare",
    "name": "Cloudflare",
+   "category": "services",
    "url": "https://www.cloudflare.com/",
    "expect": [
     "Cloudflare",
@@ -262,6 +289,7 @@
   {
    "id": "stripe-docs",
    "name": "Stripe docs",
+   "category": "docs",
    "url": "https://docs.stripe.com/payments",
    "expect": [
     "Payments",
@@ -271,6 +299,7 @@
   {
    "id": "craigslist",
    "name": "Craigslist",
+   "category": "listings",
    "url": "https://london.craigslist.org/",
    "expect": [
     "craigslist",
@@ -280,6 +309,7 @@
   {
    "id": "hn-algolia",
    "name": "Hacker News search",
+   "category": "developer",
    "url": "https://hn.algolia.com/?q=browser",
    "expect": [
     "Search",

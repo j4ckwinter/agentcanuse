@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { leaderboard, median } from './leaderboard'
+import { categoryStandings, leaderboard, median } from './leaderboard'
 import type { EngineId, Outcome, Result, Run } from './model'
 
 function result(engine: EngineId, site: string, outcome: Outcome, durationMs = 1000): Result {
@@ -68,5 +68,23 @@ describe('median', () => {
     expect(median([])).toBeNull()
     expect(median([3, 1, 2])).toBe(2)
     expect(median([4, 1, 3, 2])).toBe(2.5)
+  })
+})
+
+describe('categoryStandings', () => {
+  it('gives each engine a pass rate per category over the sites it attempted', () => {
+    const categorised: Run = {
+      ...run,
+      sites: [
+        { id: 'a', name: 'A', category: 'docs', url: 'https://a.test/', expect: [] },
+        { id: 'b', name: 'B', category: 'docs', url: 'https://b.test/', expect: [] },
+        { id: 'c', name: 'C', category: 'shopping', url: 'https://c.test/', expect: [] },
+        { id: 'd', name: 'D', category: 'shopping', url: 'https://d.test/', expect: [] },
+      ],
+    }
+    expect(categoryStandings(categorised)).toEqual([
+      { category: 'docs', sites: 2, passRates: { chromium: 1, lightpanda: 0.5 } },
+      { category: 'shopping', sites: 2, passRates: { chromium: 0, lightpanda: 0 } },
+    ])
   })
 })

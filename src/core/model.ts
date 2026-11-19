@@ -1,6 +1,9 @@
 export const ENGINE_IDS = ['chromium', 'lightpanda', 'obscura', 'kitesurf'] as const
 export type EngineId = (typeof ENGINE_IDS)[number]
 
+export const CATEGORIES = ['docs', 'developer', 'government', 'reference', 'news', 'shopping', 'travel', 'listings', 'services'] as const
+export type Category = (typeof CATEGORIES)[number]
+
 export const ORIGINS = ['home', 'data-centre'] as const
 export type Origin = (typeof ORIGINS)[number]
 
@@ -10,6 +13,7 @@ export type Outcome = (typeof OUTCOMES)[number]
 export interface Site {
   id: string
   name: string
+  category: Category
   url: string
   expect: string[]
 }

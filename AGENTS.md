@@ -56,6 +56,7 @@ Each decision has one owner. Put new code with the owner of the decision it make
 - Durations are milliseconds. Rates are fractions from 0 to 1, shown as percentages.
 - A run id is its UTC start minute, `2026-11-19T21-07Z`. `public/data/index.json` lists runs newest first, and each run lives in `public/data/runs/<id>.json`.
 - Thumbnails are 480-pixel-wide WebP files under `public/data/shots/<run>/<engine>/<site>.webp`.
+- A run records where it came from: `home` for a run on a home connection, the default, and `data-centre` for the nightly GitHub Actions run. Sites treat the two differently, so a release diff compares runs from the same kind of network when it can.
 - Chromium's version is the headless-shell build that `@puppeteer/browsers` resolves for the `stable` channel.
 
 ## Deploy
@@ -64,4 +65,4 @@ The site is the Vercel project `agentcanuse`, served at https://agentcanuse.com.
 
 ## Commits
 
-Use Conventional Commits, one logical change each, with no AI attribution lines. Committing and pushing to `main` is expected. Deploying to production, running the survey workflow, or turning on its schedule needs Jack's request.
+Use Conventional Commits, one logical change each, with no AI attribution lines. Committing and pushing to `main` is expected. The survey workflow runs nightly at 03:17 UTC and commits its run to `main`, which Vercel deploys. Deploying by hand, or changing the schedule, needs Jack's request.

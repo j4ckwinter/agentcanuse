@@ -35,6 +35,8 @@ the leaderboard ranks engines by pass rate over the sites they attempted. the si
 
 two runs from 19 november, from a home connection in the uk. the first ran the previous releases (Lightpanda 1.0.1, Obscura v0.2.4) so the releases tab had something to compare. the second ran the current ones. chromium and lightpanda both passed 22 of the 28 sites they could visit, obscura 20. most of the rest were sites blocking every engine, chromium included. Stack Overflow and the Internet Archive were skipped because their `robots.txt` couldn't be read.
 
+a survey also runs every night on GitHub Actions. those runs come from a data centre, which sites tend to block more than a home connection, so the site labels where each run came from, and the releases tab compares runs from the same kind of network when it can.
+
 ## run it
 
 you need Node 22.12 or newer.
@@ -52,6 +54,7 @@ that opens the site on the runs already in `public/data`. to run a survey of you
 npm run bench                                          # every engine, every site
 npm run bench -- --engines lightpanda --sites gov-uk   # just one
 npm run bench -- --pin lightpanda=1.0.1                # an older release
+npm run bench -- --origin data-centre                  # label a run from a server
 ```
 
 engines download into `.cache/engines` the first time. a run writes `public/data/runs/<id>.json` and thumbnails, and adds itself to `public/data/index.json`.

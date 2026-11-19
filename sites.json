@@ -17,7 +17,7 @@
   {"id": "nytimes", "name": "New York Times", "url": "https://www.nytimes.com/", "expect": ["The New York Times", "Opinion"]},
   {"id": "archive-org", "name": "Internet Archive", "url": "https://archive.org/about/", "expect": ["Internet Archive", "non-profit"]},
   {"id": "met-office", "name": "Met Office", "url": "https://www.metoffice.gov.uk/", "expect": ["Met Office", "forecast"]},
-  {"id": "bbc-food", "name": "BBC Food recipe", "url": "https://www.bbc.co.uk/food/recipes/easy_pancakes_10476", "expect": ["pancakes", "Ingredients"]},
+  {"id": "bbc-food", "name": "BBC Food recipe", "url": "https://www.bbc.co.uk/food/recipes/basicpancakeswithsuga_66226", "expect": ["plain flour", "caster sugar"]},
   {"id": "youtube", "name": "YouTube video", "url": "https://www.youtube.com/watch?v=jNQXAC9IVRw", "expect": ["Me at the zoo"]},
   {"id": "zillow", "name": "Zillow", "url": "https://www.zillow.com/", "expect": ["Zillow", "Buy"]},
   {"id": "etsy", "name": "Etsy", "url": "https://www.etsy.com/uk/", "expect": ["Etsy", "Gifts"]},

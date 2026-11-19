@@ -3,6 +3,7 @@ import type { Run, RunSummary } from '../core/model'
 import { Code } from 'lucide-react'
 import { repository } from '../../package.json'
 import { ThemeToggle } from '@/components/theme-toggle'
+import { BRAND_NAME, MARK_POINTER, MARK_POINTER_COLOR, MARK_RADIUS, MARK_TRAIL, MARK_TRAIL_WIDTH, MARK_VIEWBOX } from '@/brand'
 import { loadIndex, loadRun } from '@/data'
 import { routeHash, useRoute, type Route } from '@/route'
 import { NO_FILTER } from '@/site-filter'
@@ -83,11 +84,12 @@ function tabHref(tab: Tab, run: string | null): string {
 
 function Mark() {
   return (
-    <svg viewBox="0 0 32 32" aria-hidden="true" className="size-6 shrink-0">
-      <rect width="32" height="32" rx="8" className="fill-fg" />
-      <rect x="7" y="17" width="4.5" height="8" rx="1.25" fill="var(--series-1)" />
-      <rect x="13.75" y="11" width="4.5" height="14" rx="1.25" fill="var(--series-2)" />
-      <rect x="20.5" y="7" width="4.5" height="18" rx="1.25" fill="var(--series-3)" />
+    <svg viewBox={`0 0 ${MARK_VIEWBOX} ${MARK_VIEWBOX}`} aria-hidden="true" className="size-6 shrink-0">
+      <rect width={MARK_VIEWBOX} height={MARK_VIEWBOX} rx={MARK_RADIUS} className="fill-fg" />
+      <path d={MARK_POINTER} fill={MARK_POINTER_COLOR} />
+      {MARK_TRAIL.map(({ d, color }) => (
+        <path key={d} d={d} stroke={color} strokeWidth={MARK_TRAIL_WIDTH} strokeLinecap="round" />
+      ))}
     </svg>
   )
 }
@@ -106,7 +108,7 @@ function TopBar({ route, ready, navigate }: TopBarProps) {
       <div className="mx-auto flex h-14 max-w-[1200px] items-center gap-2 px-4 sm:px-6">
         <a href={tabHref('home', runParam)} className="flex items-center gap-2.5 rounded-md pr-1 text-sm font-semibold">
           <Mark />
-          agentcanuse
+          {BRAND_NAME}
         </a>
         {ready && (
           <>

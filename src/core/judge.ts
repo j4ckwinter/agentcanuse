@@ -28,12 +28,11 @@ function looksBlocked(visit: Visit, text: string): boolean {
   return CHALLENGE_PHRASES.some((phrase) => title.includes(phrase) || (text.length < 2000 && opening.includes(phrase)))
 }
 
-function outcomeOf(visit: Visit, text: string, missing: string[], expected: number): Outcome {
+function outcomeOf(visit: Visit, text: string, missing: string[]): Outcome {
   if (visit.error !== null) return 'failed'
   if (looksBlocked(visit, text)) return 'blocked'
   if (text.length < MIN_TEXT_LENGTH) return 'empty'
-  if (missing.length === 0 && expected > 0) return 'passed'
-  return 'incomplete'
+  return missing.length === 0 ? 'passed' : 'incomplete'
 }
 
 export function judge(site: Site, engine: EngineId, visit: Visit, shot: string | null): Result {
@@ -43,7 +42,7 @@ export function judge(site: Site, engine: EngineId, visit: Visit, shot: string |
   return {
     site: site.id,
     engine,
-    outcome: outcomeOf(visit, text, missing, site.expect.length),
+    outcome: outcomeOf(visit, text, missing),
     status: visit.status,
     title: visit.title.trim(),
     excerpt: visit.text.replace(/\s+/g, ' ').trim().slice(0, EXCERPT_LENGTH),

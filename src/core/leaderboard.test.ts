@@ -84,8 +84,8 @@ describe('categoryStandings', () => {
       ],
     }
     expect(categoryStandings(categorised)).toEqual([
-      { category: 'docs', sites: 2, passRates: { chromium: 1, lightpanda: 0.5 } },
-      { category: 'shopping', sites: 2, passRates: { chromium: 0, lightpanda: 0 } },
+      { category: 'docs', sites: 2, passRates: { chromium: 1, lightpanda: 0.5 }, leaders: ['chromium'] },
+      { category: 'shopping', sites: 2, passRates: { chromium: 0, lightpanda: 0 }, leaders: ['chromium', 'lightpanda'] },
     ])
   })
 })

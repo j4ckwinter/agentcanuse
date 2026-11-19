@@ -10,6 +10,7 @@ export async function loadSites(path: string): Promise<Site[]> {
     if (ids.has(site.id)) throw new Error(`Duplicate site id in ${path}: ${site.id}`)
     ids.add(site.id)
     if (!(CATEGORIES as readonly string[]).includes(site.category)) throw new Error(`${site.id} has an unknown category: ${site.category}`)
+    if (site.expect.length === 0) throw new Error(`${site.id} lists no expected phrases`)
     new URL(site.url)
   }
   return sites

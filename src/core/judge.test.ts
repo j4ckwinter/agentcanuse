@@ -30,6 +30,11 @@ describe('judge', () => {
     expect(result.missing).toEqual(['Nobel Prize'])
   })
 
+  it('passes a readable page when no phrases are expected, as a one-off check does', () => {
+    expect(judge({ ...site, expect: [] }, 'chromium', visit(), null).outcome).toBe('passed')
+    expect(judge({ ...site, expect: [] }, 'chromium', visit({ text: 'Loading…' }), null).outcome).toBe('empty')
+  })
+
   it('treats a page with almost no text as empty', () => {
     expect(judge(site, 'obscura', visit({ text: 'Loading…' }), null).outcome).toBe('empty')
   })

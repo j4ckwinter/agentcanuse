@@ -50,6 +50,7 @@ export interface CategoryStanding {
   category: Category
   sites: number
   passRates: Partial<Record<EngineId, number>>
+  leaders: EngineId[]
 }
 
 export function categoryStandings(run: Run): CategoryStanding[] {
@@ -62,7 +63,9 @@ export function categoryStandings(run: Run): CategoryStanding[] {
       const attempted = inCategory.filter((result) => result.engine === id && result.outcome !== 'skipped')
       passRates[id] = rate(attempted.filter((result) => result.outcome === 'passed').length, attempted.length)
     }
-    return [{ category, sites: run.sites.filter((site) => site.category === category).length, passRates }]
+    const best = Math.max(...Object.values(passRates))
+    const leaders = run.engines.map((engine) => engine.id).filter((id) => passRates[id] === best)
+    return [{ category, sites: run.sites.filter((site) => site.category === category).length, passRates, leaders }]
   })
 }
 

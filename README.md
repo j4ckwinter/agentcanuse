@@ -46,6 +46,8 @@ each site in [`sites.json`](sites.json) comes with a couple of phrases a person 
 
 it also asks each engine for the page's accessibility tree: the outline of headings, links, buttons and fields that screen readers use and plenty of agents act on. a tree counts as usable when the page has controls, at least 90% of them have a name, and there's a heading or landmark to find your way by. it's only judged on pages the engine passed, since a blocked page's tree is just the bot check, and it doesn't change the outcome.
 
+and it checks whether each engine reads text a person can't see. chromium is the only engine that lays the page out, so during its visit it samples text from elements it doesn't display, like collapsed sections and closed menus. a lighter engine reads hidden text when at least half of that sample turns up in what it read. that cuts both ways: more noise and things an agent could try to click that a person can't reach, but also collapsed content it gets without clicking.
+
 the site leads with whether any engine is clearly ahead, then which engine does best on each kind of site. every pass rate shows its margin of error, so a tie is called a tie. each site gets a page with what every engine read, its accessibility tree and recent history, and the releases tab shows which sites started or stopped passing when an engine shipped a new version.
 
 ## what it's found so far

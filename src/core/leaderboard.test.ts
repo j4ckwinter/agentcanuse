@@ -106,6 +106,20 @@ describe('categoryStandings with skipped sites', () => {
   })
 })
 
+describe('leaderboard hidden content', () => {
+  it('counts the pages where an engine read hidden content, among those judged', () => {
+    const withHidden: Run = {
+      ...run,
+      results: [
+        { ...result('lightpanda', 'a', 'passed'), hidden: { sampled: 10, read: 9 } },
+        { ...result('lightpanda', 'b', 'passed'), hidden: { sampled: 10, read: 1 } },
+        { ...result('lightpanda', 'c', 'passed'), hidden: null },
+      ],
+    }
+    expect(leaderboard(withHidden).find((standing) => standing.engine.id === 'lightpanda')?.hidden).toEqual({ judged: 2, reads: 1 })
+  })
+})
+
 describe('leaderboard trees', () => {
   const usable = { nodes: 50, controls: 10, namedControls: 10, headings: 2, landmarks: 1 }
   const unnamed = { ...usable, namedControls: 2 }

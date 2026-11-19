@@ -1,3 +1,4 @@
+import { REFERENCE_ENGINE } from '../../core/agreement'
 import { shownMargin } from '../../core/confidence'
 import { leaderboard, trend, type Standing } from '../../core/leaderboard'
 import { OUTCOMES, type Run, type RunSummary } from '../../core/model'
@@ -58,6 +59,12 @@ function Share({ part, whole }: { part: number; whole: number }) {
 }
 const CELL = 'px-3 py-3'
 
+function HiddenShare({ standing }: { standing: Standing }) {
+  if (standing.engine.id === REFERENCE_ENGINE) return <span className="text-label text-fg-muted">Reference</span>
+  if (standing.hidden.judged === 0) return <span className="text-sm text-fg-muted">–</span>
+  return <Share part={standing.hidden.reads} whole={standing.hidden.judged} />
+}
+
 function StackedEngines({ standings, href }: { standings: Standing[]; href: (standing: Standing) => string }) {
   return (
     <ul className="-mx-card -my-card md:hidden">
@@ -107,6 +114,11 @@ export function EnginesCard({ run, runs, runParam, full = false }: EnginesCardPr
                   Usable tree
                 </th>
               )}
+              {full && (
+                <th className={`${TABLE_HEAD} text-right`} title="Of the pages where both it and Chromium passed, how many it read text that Chromium hides from a person">
+                  Reads hidden text
+                </th>
+              )}
               <th className={`${TABLE_HEAD} text-right`}>Median</th>
               {anyTrend && <th className={`${TABLE_HEAD} pr-card text-right`}>Trend</th>}
             </tr>
@@ -131,6 +143,11 @@ export function EnginesCard({ run, runs, runParam, full = false }: EnginesCardPr
                 {full && (
                   <td className={`${CELL} text-right tabular-nums`}>
                     {standing.trees.checked === 0 ? <span className="text-sm text-fg-muted">–</span> : <Share part={standing.trees.usable} whole={standing.trees.checked} />}
+                  </td>
+                )}
+                {full && (
+                  <td className={`${CELL} text-right tabular-nums`}>
+                    <HiddenShare standing={standing} />
                   </td>
                 )}
                 <td className={`${CELL} text-right font-mono text-label text-fg-secondary`}>{seconds(standing.medianMs)}</td>

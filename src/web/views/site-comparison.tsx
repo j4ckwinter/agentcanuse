@@ -1,7 +1,9 @@
 import { useEffect, useRef } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { isFlaky, siteHistory } from '../../core/history'
-import type { EngineRun, Result, Run, RunSummary, Site } from '../../core/model'
+import type { EngineId, EngineRun, Result, Run, RunSummary, Site } from '../../core/model'
+import { REFERENCE_ENGINE } from '../../core/agreement'
+import type { HiddenReads } from '../../core/hidden'
 import { judgedTree, type TreeSummary } from '../../core/tree'
 import type { Verdict } from '../../core/verdict'
 import { Card } from '@/components/card'
@@ -13,7 +15,7 @@ import { PageHeader } from '@/components/page-header'
 import { VerdictLabel } from '@/components/verdict-label'
 import { shotUrl } from '@/data'
 import { Tooltip } from '@/components/tooltip'
-import { CATEGORY_LABELS, ENGINE_INFO, OUTCOME_LABELS, describeTree, seconds, shortDate, treeLabel, VERDICT_LABELS } from '@/labels'
+import { CATEGORY_LABELS, ENGINE_INFO, OUTCOME_LABELS, describeHidden, describeTree, hiddenLabel, seconds, shortDate, treeLabel, VERDICT_LABELS } from '@/labels'
 import { reproduceCommand } from '@/reproduce'
 import { useHistory } from '@/use-history'
 import { resultFor } from '@/results'
@@ -58,6 +60,15 @@ function TreeFact({ tree }: { tree: TreeSummary | null }) {
   )
 }
 
+function HiddenFact({ engine, hidden }: { engine: EngineId; hidden: HiddenReads | null }) {
+  return (
+    <Fact label="Hidden text">
+      {engine === REFERENCE_ENGINE ? 'Reference' : hiddenLabel(hidden)}
+      {hidden !== null && <span className="block text-caption text-fg-muted">{describeHidden(hidden)}</span>}
+    </Fact>
+  )
+}
+
 function EngineColumn({ engine, result, engineHref }: { engine: EngineRun; result: Result; engineHref: string }) {
   const missing = result.outcome === 'skipped' ? [] : result.missing
   return (
@@ -79,6 +90,7 @@ function EngineColumn({ engine, result, engineHref }: { engine: EngineRun; resul
         <Fact label="Text read">{result.textLength.toLocaleString('en-GB')} characters</Fact>
         <Fact label="Missing">{missing.length === 0 ? 'Nothing' : missing.map((phrase) => `“${phrase}”`).join(', ')}</Fact>
         <TreeFact tree={judgedTree(result)} />
+        <HiddenFact engine={engine.id} hidden={result.hidden} />
         {result.error !== null && <Fact label="Error">{result.error}</Fact>}
       </dl>
       <Screenshot result={result} />

@@ -1,5 +1,6 @@
 import { BLOCKING_STATUSES, CHALLENGE_PHRASES, MIN_TEXT_LENGTH } from '../../core/judge'
 import { OUTCOMES } from '../../core/model'
+import { MIN_HIDDEN_SAMPLE, READS_HIDDEN_SHARE } from '../../core/hidden'
 import { MIN_NAMED_CONTROLS } from '../../core/tree'
 import { NAVIGATION_TIMEOUT_MS, SETTLE_MS, VISIT_DEADLINE_MS } from '../../runner/timing'
 import { repository } from '../../../package.json'
@@ -76,6 +77,19 @@ export function MethodView() {
           <p>
             A tree counts as usable when the page has controls to act on, at least {Math.round(MIN_NAMED_CONTROLS * 100)}% of them have a name, and there is a heading or
             landmark to find your way by. It's judged only on pages the engine passed, since a blocked page's tree describes the bot check, and it doesn't change the outcome.
+          </p>
+        </Prose>
+      </Card>
+      <Card title="Hidden text">
+        <Prose>
+          <p>
+            Chromium is the only engine here that lays a page out, so it decides what a person can't see: menus, collapsed sections, cookie notices that haven't opened. During
+            its visit it samples text from elements it doesn't display, leaving out anything the page also shows elsewhere.
+          </p>
+          <p>
+            Each lighter engine's text is then checked for those samples. It reads hidden text on a page when it read at least {Math.round(READS_HIDDEN_SHARE * 100)}% of them.
+            It's judged only where both engines passed and Chromium found at least {MIN_HIDDEN_SAMPLE} samples. That cuts both ways for an agent: more to read, and things to
+            act on that a person couldn't reach, but also collapsed content it gets without clicking. Hidden means hidden at Chromium's desktop size, so a mobile menu counts.
           </p>
         </Prose>
       </Card>

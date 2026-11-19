@@ -1,10 +1,9 @@
 import { BLOCKING_STATUSES, CHALLENGE_PHRASES, MIN_TEXT_LENGTH } from '../../core/judge'
 import { OUTCOMES } from '../../core/model'
 import { NAVIGATION_TIMEOUT_MS, SETTLE_MS, VISIT_DEADLINE_MS } from '../../runner/timing'
+import { repository } from '../../../package.json'
 import { OutcomeBadge } from '@/components/outcome-badge'
 import { OUTCOME_LABELS } from '@/labels'
-
-const REPOSITORY = 'https://github.com/j4ckwinter/agentcanuse'
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -69,7 +68,7 @@ export function MethodView() {
         <p>
           Every run is published as JSON: <a className="underline underline-offset-4" href="data/index.json">the list of runs</a>, each
           linking to <code>data/runs/&lt;id&gt;.json</code>. The sites, phrases, scoring code and engine versions are in{' '}
-          <a className="underline underline-offset-4" href={REPOSITORY}>
+          <a className="underline underline-offset-4" href={repository.url}>
             the repository
           </a>
           .

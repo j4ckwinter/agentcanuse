@@ -1,6 +1,32 @@
 {
  "runs": [
   {
+   "id": "2026-11-19T16-37Z",
+   "startedAt": "2026-11-19T16:37:31.256Z",
+   "origin": "home",
+   "engines": [
+    {
+     "id": "chromium",
+     "version": "158.0.8127.36"
+    },
+    {
+     "id": "lightpanda",
+     "version": "1.0.4"
+    },
+    {
+     "id": "obscura",
+     "version": "v0.2.7"
+    }
+   ],
+   "siteCount": 124,
+   "siteList": "dfa25b64",
+   "passRates": {
+    "lightpanda": 0.8442622950819673,
+    "obscura": 0.8032786885245902,
+    "chromium": 0.7950819672131147
+   }
+  },
+  {
    "id": "2026-11-19T13-37Z",
    "startedAt": "2026-11-19T13:37:38.872Z",
    "origin": "home",

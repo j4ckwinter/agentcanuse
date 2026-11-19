@@ -1256,7 +1256,8 @@
    "linkCount": 4072,
    "durationMs": 2099,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "mdn",
@@ -1274,7 +1275,8 @@
    "linkCount": 187,
    "durationMs": 2187,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "gov-uk",
@@ -1292,7 +1294,8 @@
    "linkCount": 85,
    "durationMs": 1882,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "python-docs",
@@ -1310,7 +1313,8 @@
    "linkCount": 176,
    "durationMs": 1791,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "arxiv",
@@ -1328,7 +1332,8 @@
    "linkCount": 87,
    "durationMs": 2130,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/arxiv.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "hacker-news",
@@ -1346,7 +1351,8 @@
    "linkCount": 229,
    "durationMs": 2835,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "books-toscrape",
@@ -1364,7 +1370,8 @@
    "linkCount": 94,
    "durationMs": 2418,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "quotes-js",
@@ -1382,7 +1389,8 @@
    "linkCount": 5,
    "durationMs": 2648,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "react-dev",
@@ -1400,7 +1408,8 @@
    "linkCount": 126,
    "durationMs": 2591,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "tailwind-docs",
@@ -1418,7 +1427,8 @@
    "linkCount": 234,
    "durationMs": 2298,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "github",
@@ -1436,7 +1446,8 @@
    "linkCount": 304,
    "durationMs": 3040,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "npm",
@@ -1454,7 +1465,8 @@
    "linkCount": 2,
    "durationMs": 2660,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "stack-overflow",
@@ -1472,7 +1484,8 @@
    "linkCount": 0,
    "durationMs": 0,
    "error": "robots.txt does not allow this page, or could not be read",
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "bbc-news",
@@ -1490,7 +1503,8 @@
    "linkCount": 299,
    "durationMs": 2284,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/bbc-news.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "guardian",
@@ -1508,7 +1522,8 @@
    "linkCount": 431,
    "durationMs": 2294,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "nytimes",
@@ -1526,7 +1541,8 @@
    "linkCount": 0,
    "durationMs": 2451,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/nytimes.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "archive-org",
@@ -1544,7 +1560,8 @@
    "linkCount": 0,
    "durationMs": 0,
    "error": "robots.txt does not allow this page, or could not be read",
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "met-office",
@@ -1562,7 +1579,8 @@
    "linkCount": 275,
    "durationMs": 3167,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "bbc-food",
@@ -1580,7 +1598,8 @@
    "linkCount": 144,
    "durationMs": 2226,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "youtube",
@@ -1597,7 +1616,8 @@
    "linkCount": 96,
    "durationMs": 3768,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/youtube.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "zillow",
@@ -1615,7 +1635,8 @@
    "linkCount": 0,
    "durationMs": 2534,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/zillow.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "etsy",
@@ -1633,7 +1654,8 @@
    "linkCount": 0,
    "durationMs": 2215,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ebay",
@@ -1652,7 +1674,8 @@
    "linkCount": 0,
    "durationMs": 2064,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "airbnb",
@@ -1670,7 +1693,8 @@
    "linkCount": 161,
    "durationMs": 2557,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/airbnb.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "booking",
@@ -1688,7 +1712,8 @@
    "linkCount": 0,
    "durationMs": 1864,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/booking.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "vercel",
@@ -1706,7 +1731,8 @@
    "linkCount": 169,
    "durationMs": 2586,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "cloudflare",
@@ -1724,7 +1750,8 @@
    "linkCount": 71,
    "durationMs": 2416,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "stripe-docs",
@@ -1742,7 +1769,8 @@
    "linkCount": 88,
    "durationMs": 4220,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "craigslist",
@@ -1760,7 +1788,8 @@
    "linkCount": 269,
    "durationMs": 3476,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "hn-algolia",
@@ -1778,7 +1807,8 @@
    "linkCount": 191,
    "durationMs": 2614,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "aljazeera",
@@ -1796,7 +1826,8 @@
    "linkCount": 151,
    "durationMs": 2735,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "amazon",
@@ -1814,7 +1845,8 @@
    "linkCount": 168,
    "durationMs": 2081,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/amazon.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "apnews",
@@ -1831,7 +1863,8 @@
    "linkCount": 2,
    "durationMs": 2415,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "apple",
@@ -1849,7 +1882,8 @@
    "linkCount": 388,
    "durationMs": 2286,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "apple-dev",
@@ -1867,7 +1901,8 @@
    "linkCount": 218,
    "durationMs": 2519,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "argos",
@@ -1884,7 +1919,8 @@
    "linkCount": 0,
    "durationMs": 1666,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/argos.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ars",
@@ -1902,7 +1938,8 @@
    "linkCount": 227,
    "durationMs": 2948,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "asos",
@@ -1919,7 +1956,8 @@
    "linkCount": 0,
    "durationMs": 1671,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/asos.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "autotrader",
@@ -1936,7 +1974,8 @@
    "linkCount": 1,
    "durationMs": 1807,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/autotrader.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "aws-docs",
@@ -1954,7 +1993,8 @@
    "linkCount": 971,
    "durationMs": 3495,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/aws-docs.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "bbc-sport",
@@ -1972,7 +2012,8 @@
    "linkCount": 374,
    "durationMs": 2782,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/bbc-sport.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "bestbuy",
@@ -1990,7 +2031,8 @@
    "linkCount": 0,
    "durationMs": 30001,
    "error": "Navigation timeout of 30000 ms exceeded",
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "britannica",
@@ -2007,7 +2049,8 @@
    "linkCount": 2,
    "durationMs": 2406,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "canada",
@@ -2025,7 +2068,8 @@
    "linkCount": 76,
    "durationMs": 13635,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/canada.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "caniuse",
@@ -2043,7 +2087,8 @@
    "linkCount": 21,
    "durationMs": 3873,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "cdc",
@@ -2061,7 +2106,8 @@
    "linkCount": 240,
    "durationMs": 2525,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "cnn",
@@ -2079,7 +2125,8 @@
    "linkCount": 591,
    "durationMs": 3385,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "codepen",
@@ -2096,7 +2143,8 @@
    "linkCount": 2,
    "durationMs": 2287,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "crates",
@@ -2114,7 +2162,8 @@
    "linkCount": 56,
    "durationMs": 2128,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "data-gov",
@@ -2132,7 +2181,8 @@
    "linkCount": 44,
    "durationMs": 5414,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "devto",
@@ -2150,7 +2200,8 @@
    "linkCount": 393,
    "durationMs": 2659,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "discogs",
@@ -2167,7 +2218,8 @@
    "linkCount": 2,
    "durationMs": 2120,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "django",
@@ -2185,7 +2237,8 @@
    "linkCount": 156,
    "durationMs": 2425,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "docker-hub",
@@ -2203,7 +2256,8 @@
    "linkCount": 118,
    "durationMs": 2847,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "duckduckgo",
@@ -2221,7 +2275,8 @@
    "linkCount": 45,
    "durationMs": 1935,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "economist",
@@ -2238,7 +2293,8 @@
    "linkCount": 2,
    "durationMs": 2354,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "eventbrite",
@@ -2256,7 +2312,8 @@
    "linkCount": 192,
    "durationMs": 2843,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "expedia",
@@ -2273,7 +2330,8 @@
    "linkCount": 1,
    "durationMs": 2291,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/expedia.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "figma",
@@ -2291,7 +2349,8 @@
    "linkCount": 153,
    "durationMs": 2130,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ft",
@@ -2308,7 +2367,8 @@
    "linkCount": 9,
    "durationMs": 2309,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/ft.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "gcp-docs",
@@ -2326,7 +2386,8 @@
    "linkCount": 553,
    "durationMs": 4058,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "git-book",
@@ -2344,7 +2405,8 @@
    "linkCount": 166,
    "durationMs": 2026,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "github-docs",
@@ -2362,7 +2424,8 @@
    "linkCount": 135,
    "durationMs": 2015,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "go-docs",
@@ -2380,7 +2443,8 @@
    "linkCount": 115,
    "durationMs": 2468,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "gov-uk-tax",
@@ -2398,7 +2462,8 @@
    "linkCount": 90,
    "durationMs": 1990,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "huggingface",
@@ -2416,7 +2481,8 @@
    "linkCount": 201,
    "durationMs": 2582,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ikea",
@@ -2434,7 +2500,8 @@
    "linkCount": 255,
    "durationMs": 2880,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "independent",
@@ -2452,7 +2519,8 @@
    "linkCount": 374,
    "durationMs": 3213,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "irs",
@@ -2470,7 +2538,8 @@
    "linkCount": 255,
    "durationMs": 3468,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "kaggle",
@@ -2488,7 +2557,8 @@
    "linkCount": 63,
    "durationMs": 3485,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "khan",
@@ -2506,7 +2576,8 @@
    "linkCount": 945,
    "durationMs": 1786,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "kubernetes",
@@ -2524,7 +2595,8 @@
    "linkCount": 981,
    "durationMs": 2309,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "linear",
@@ -2542,7 +2614,8 @@
    "linkCount": 78,
    "durationMs": 3224,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "medium",
@@ -2559,7 +2632,8 @@
    "linkCount": 2,
    "durationMs": 2225,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/medium.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "merriam-webster",
@@ -2576,7 +2650,8 @@
    "linkCount": 2,
    "durationMs": 2126,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "mit-ocw",
@@ -2594,7 +2669,8 @@
    "linkCount": 909,
    "durationMs": 2618,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "monzo",
@@ -2612,7 +2688,8 @@
    "linkCount": 148,
    "durationMs": 2064,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "mozilla",
@@ -2630,7 +2707,8 @@
    "linkCount": 135,
    "durationMs": 2042,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ms-learn",
@@ -2648,7 +2726,8 @@
    "linkCount": 189,
    "durationMs": 2790,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "nasa",
@@ -2666,7 +2745,8 @@
    "linkCount": 284,
    "durationMs": 5179,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "national-rail",
@@ -2684,7 +2764,8 @@
    "linkCount": 65,
    "durationMs": 3021,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "nature",
@@ -2702,7 +2783,8 @@
    "linkCount": 140,
    "durationMs": 3227,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/nature.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "nextjs",
@@ -2720,7 +2802,8 @@
    "linkCount": 118,
    "durationMs": 2265,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "nhs",
@@ -2738,7 +2821,8 @@
    "linkCount": 44,
    "durationMs": 2560,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "nodejs",
@@ -2756,7 +2840,8 @@
    "linkCount": 139,
    "durationMs": 2054,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "notion",
@@ -2774,7 +2859,8 @@
    "linkCount": 93,
    "durationMs": 2269,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "npr",
@@ -2792,7 +2878,8 @@
    "linkCount": 416,
    "durationMs": 4017,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ons",
@@ -2810,7 +2897,8 @@
    "linkCount": 119,
    "durationMs": 2230,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "openstreetmap",
@@ -2828,7 +2916,8 @@
    "linkCount": 42,
    "durationMs": 2270,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "paypal",
@@ -2845,7 +2934,8 @@
    "linkCount": 0,
    "durationMs": 2468,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/paypal.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "postgres",
@@ -2863,7 +2953,8 @@
    "linkCount": 57,
    "durationMs": 2277,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "producthunt",
@@ -2880,7 +2971,8 @@
    "linkCount": 2,
    "durationMs": 2356,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "pypi",
@@ -2898,7 +2990,8 @@
    "linkCount": 678,
    "durationMs": 2321,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "rightmove",
@@ -2916,7 +3009,8 @@
    "linkCount": 163,
    "durationMs": 2777,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ryanair",
@@ -2934,7 +3028,8 @@
    "linkCount": 92,
    "durationMs": 3332,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "shopify",
@@ -2952,7 +3047,8 @@
    "linkCount": 202,
    "durationMs": 2231,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "simple-wiki",
@@ -2970,7 +3066,8 @@
    "linkCount": 1204,
    "durationMs": 1979,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "sky-news",
@@ -2987,7 +3084,8 @@
    "linkCount": 0,
    "durationMs": 1688,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/sky-news.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "skyscanner",
@@ -3004,7 +3102,8 @@
    "linkCount": 0,
    "durationMs": 2313,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/skyscanner.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "spotify",
@@ -3022,7 +3121,8 @@
    "linkCount": 61,
    "durationMs": 2356,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "sqlite",
@@ -3040,7 +3140,8 @@
    "linkCount": 41,
    "durationMs": 2498,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "stanford-plato",
@@ -3058,7 +3159,8 @@
    "linkCount": 146,
    "durationMs": 3410,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "steam",
@@ -3076,7 +3178,8 @@
    "linkCount": 287,
    "durationMs": 3331,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "stripe",
@@ -3094,7 +3197,8 @@
    "linkCount": 189,
    "durationMs": 2190,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "substack",
@@ -3112,7 +3216,8 @@
    "linkCount": 45,
    "durationMs": 3892,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "supabase",
@@ -3130,7 +3235,8 @@
    "linkCount": 122,
    "durationMs": 2324,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "svelte",
@@ -3148,7 +3254,8 @@
    "linkCount": 111,
    "durationMs": 1868,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "target",
@@ -3166,7 +3273,8 @@
    "linkCount": 76,
    "durationMs": 4959,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "techcrunch",
@@ -3184,7 +3292,8 @@
    "linkCount": 963,
    "durationMs": 4828,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "tesco",
@@ -3201,7 +3310,8 @@
    "linkCount": 0,
    "durationMs": 0,
    "error": "robots.txt does not allow this page, or could not be read",
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ticketmaster",
@@ -3218,7 +3328,8 @@
    "linkCount": 0,
    "durationMs": 2750,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/ticketmaster.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "typescript",
@@ -3236,7 +3347,8 @@
    "linkCount": 208,
    "durationMs": 2694,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "usa-gov",
@@ -3254,7 +3366,8 @@
    "linkCount": 53,
    "durationMs": 2652,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/usa-gov.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "verge",
@@ -3272,7 +3385,8 @@
    "linkCount": 492,
    "durationMs": 3291,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/verge.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "vue",
@@ -3290,7 +3404,8 @@
    "linkCount": 176,
    "durationMs": 2327,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "w3schools",
@@ -3308,7 +3423,8 @@
    "linkCount": 738,
    "durationMs": 2418,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "walmart",
@@ -3326,7 +3442,8 @@
    "linkCount": 113,
    "durationMs": 3715,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "weather-com",
@@ -3344,7 +3461,8 @@
    "linkCount": 69,
    "durationMs": 3554,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "web-dev",
@@ -3362,7 +3480,8 @@
    "linkCount": 249,
    "durationMs": 3023,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "wired",
@@ -3380,7 +3499,8 @@
    "linkCount": 183,
    "durationMs": 3702,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "wise",
@@ -3398,7 +3518,8 @@
    "linkCount": 178,
    "durationMs": 3707,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/chromium/wise.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "wolfram",
@@ -3416,7 +3537,8 @@
    "linkCount": 63,
    "durationMs": 3892,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "wordpress",
@@ -3434,7 +3556,8 @@
    "linkCount": 78,
    "durationMs": 2863,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "your-europe",
@@ -3452,7 +3575,8 @@
    "linkCount": 574,
    "durationMs": 1982,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "wikipedia",
@@ -3470,7 +3594,8 @@
    "linkCount": 4072,
    "durationMs": 1960,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "mdn",
@@ -3488,7 +3613,8 @@
    "linkCount": 187,
    "durationMs": 1786,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "gov-uk",
@@ -3506,7 +3632,8 @@
    "linkCount": 85,
    "durationMs": 1719,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "python-docs",
@@ -3524,7 +3651,8 @@
    "linkCount": 176,
    "durationMs": 1758,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "arxiv",
@@ -3542,7 +3670,8 @@
    "linkCount": 0,
    "durationMs": 1641,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/arxiv.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "hacker-news",
@@ -3560,7 +3689,8 @@
    "linkCount": 229,
    "durationMs": 2249,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "books-toscrape",
@@ -3578,7 +3708,8 @@
    "linkCount": 94,
    "durationMs": 2199,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "quotes-js",
@@ -3596,7 +3727,8 @@
    "linkCount": 5,
    "durationMs": 2116,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "react-dev",
@@ -3614,7 +3746,8 @@
    "linkCount": 126,
    "durationMs": 2116,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "tailwind-docs",
@@ -3632,7 +3765,8 @@
    "linkCount": 234,
    "durationMs": 1944,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "github",
@@ -3650,7 +3784,8 @@
    "linkCount": 304,
    "durationMs": 2752,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "npm",
@@ -3668,7 +3803,8 @@
    "linkCount": 2,
    "durationMs": 2023,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "stack-overflow",
@@ -3686,7 +3822,8 @@
    "linkCount": 0,
    "durationMs": 0,
    "error": "robots.txt does not allow this page, or could not be read",
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "bbc-news",
@@ -3704,7 +3841,8 @@
    "linkCount": 306,
    "durationMs": 2174,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/bbc-news.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "guardian",
@@ -3722,7 +3860,8 @@
    "linkCount": 432,
    "durationMs": 2313,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "nytimes",
@@ -3740,7 +3879,8 @@
    "linkCount": 0,
    "durationMs": 1858,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/nytimes.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "archive-org",
@@ -3758,7 +3898,8 @@
    "linkCount": 0,
    "durationMs": 0,
    "error": "robots.txt does not allow this page, or could not be read",
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "met-office",
@@ -3776,7 +3917,8 @@
    "linkCount": 277,
    "durationMs": 2682,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "bbc-food",
@@ -3794,7 +3936,8 @@
    "linkCount": 144,
    "durationMs": 2480,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "youtube",
@@ -3811,7 +3954,8 @@
    "linkCount": 5,
    "durationMs": 4086,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/youtube.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "zillow",
@@ -3829,7 +3973,8 @@
    "linkCount": 274,
    "durationMs": 3244,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/zillow.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "etsy",
@@ -3847,7 +3992,8 @@
    "linkCount": 0,
    "durationMs": 1694,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ebay",
@@ -3866,7 +4012,8 @@
    "linkCount": 0,
    "durationMs": 2076,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "airbnb",
@@ -3884,7 +4031,8 @@
    "linkCount": 255,
    "durationMs": 2771,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/airbnb.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "booking",
@@ -3902,7 +4050,8 @@
    "linkCount": 0,
    "durationMs": 1975,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/booking.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "vercel",
@@ -3920,7 +4069,8 @@
    "linkCount": 171,
    "durationMs": 2167,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "cloudflare",
@@ -3938,7 +4088,8 @@
    "linkCount": 71,
    "durationMs": 3205,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "stripe-docs",
@@ -3956,7 +4107,8 @@
    "linkCount": 88,
    "durationMs": 4810,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "craigslist",
@@ -3974,7 +4126,8 @@
    "linkCount": 269,
    "durationMs": 3446,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "hn-algolia",
@@ -3992,7 +4145,8 @@
    "linkCount": 191,
    "durationMs": 2238,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "aljazeera",
@@ -4010,7 +4164,8 @@
    "linkCount": 151,
    "durationMs": 2306,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "amazon",
@@ -4028,7 +4183,8 @@
    "linkCount": 167,
    "durationMs": 2585,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/amazon.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "apnews",
@@ -4045,7 +4201,8 @@
    "linkCount": 2,
    "durationMs": 1835,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "apple",
@@ -4063,7 +4220,8 @@
    "linkCount": 388,
    "durationMs": 1947,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "apple-dev",
@@ -4081,7 +4239,8 @@
    "linkCount": 227,
    "durationMs": 2672,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "argos",
@@ -4098,7 +4257,8 @@
    "linkCount": 1124,
    "durationMs": 3161,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/argos.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ars",
@@ -4116,7 +4276,8 @@
    "linkCount": 227,
    "durationMs": 3118,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "asos",
@@ -4133,7 +4294,8 @@
    "linkCount": 684,
    "durationMs": 3231,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/asos.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "autotrader",
@@ -4150,7 +4312,8 @@
    "linkCount": 116,
    "durationMs": 2235,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/autotrader.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "aws-docs",
@@ -4168,7 +4331,8 @@
    "linkCount": 0,
    "durationMs": 8003,
    "error": "net::ERR_TIMED_OUT at https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html",
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "bbc-sport",
@@ -4186,7 +4350,8 @@
    "linkCount": 381,
    "durationMs": 2335,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/bbc-sport.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "bestbuy",
@@ -4204,7 +4369,8 @@
    "linkCount": 9,
    "durationMs": 2340,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/bestbuy.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "britannica",
@@ -4221,7 +4387,8 @@
    "linkCount": 2,
    "durationMs": 1943,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "canada",
@@ -4239,7 +4406,8 @@
    "linkCount": 76,
    "durationMs": 3108,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/canada.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "caniuse",
@@ -4257,7 +4425,8 @@
    "linkCount": 21,
    "durationMs": 3399,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "cdc",
@@ -4275,7 +4444,8 @@
    "linkCount": 237,
    "durationMs": 2605,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "cnn",
@@ -4293,7 +4463,8 @@
    "linkCount": 592,
    "durationMs": 3067,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "codepen",
@@ -4310,7 +4481,8 @@
    "linkCount": 2,
    "durationMs": 1856,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "crates",
@@ -4328,7 +4500,8 @@
    "linkCount": 56,
    "durationMs": 2128,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "data-gov",
@@ -4346,7 +4519,8 @@
    "linkCount": 44,
    "durationMs": 2837,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "devto",
@@ -4364,7 +4538,8 @@
    "linkCount": 1377,
    "durationMs": 1987,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "discogs",
@@ -4381,7 +4556,8 @@
    "linkCount": 2,
    "durationMs": 1887,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "django",
@@ -4399,7 +4575,8 @@
    "linkCount": 156,
    "durationMs": 1989,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "docker-hub",
@@ -4417,7 +4594,8 @@
    "linkCount": 118,
    "durationMs": 2920,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "duckduckgo",
@@ -4435,7 +4613,8 @@
    "linkCount": 45,
    "durationMs": 1928,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "economist",
@@ -4452,7 +4631,8 @@
    "linkCount": 2,
    "durationMs": 2012,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "eventbrite",
@@ -4470,7 +4650,8 @@
    "linkCount": 192,
    "durationMs": 2110,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "expedia",
@@ -4487,7 +4668,8 @@
    "linkCount": 54,
    "durationMs": 2904,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/expedia.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "figma",
@@ -4505,7 +4687,8 @@
    "linkCount": 153,
    "durationMs": 3217,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ft",
@@ -4522,7 +4705,8 @@
    "linkCount": 572,
    "durationMs": 2277,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/ft.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "gcp-docs",
@@ -4540,7 +4724,8 @@
    "linkCount": 553,
    "durationMs": 2586,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "git-book",
@@ -4558,7 +4743,8 @@
    "linkCount": 166,
    "durationMs": 2009,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "github-docs",
@@ -4576,7 +4762,8 @@
    "linkCount": 135,
    "durationMs": 2147,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "go-docs",
@@ -4594,7 +4781,8 @@
    "linkCount": 115,
    "durationMs": 2426,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "gov-uk-tax",
@@ -4612,7 +4800,8 @@
    "linkCount": 90,
    "durationMs": 1729,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "huggingface",
@@ -4630,7 +4819,8 @@
    "linkCount": 201,
    "durationMs": 2339,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ikea",
@@ -4648,7 +4838,8 @@
    "linkCount": 441,
    "durationMs": 4324,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "independent",
@@ -4666,7 +4857,8 @@
    "linkCount": 374,
    "durationMs": 3835,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "irs",
@@ -4684,7 +4876,8 @@
    "linkCount": 255,
    "durationMs": 3173,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "kaggle",
@@ -4702,7 +4895,8 @@
    "linkCount": 63,
    "durationMs": 2760,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "khan",
@@ -4720,7 +4914,8 @@
    "linkCount": 945,
    "durationMs": 1831,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "kubernetes",
@@ -4738,7 +4933,8 @@
    "linkCount": 981,
    "durationMs": 1790,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "linear",
@@ -4756,7 +4952,8 @@
    "linkCount": 78,
    "durationMs": 2599,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "medium",
@@ -4773,7 +4970,8 @@
    "linkCount": 2,
    "durationMs": 1854,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/medium.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "merriam-webster",
@@ -4790,7 +4988,8 @@
    "linkCount": 2,
    "durationMs": 1947,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "mit-ocw",
@@ -4808,7 +5007,8 @@
    "linkCount": 909,
    "durationMs": 2598,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "monzo",
@@ -4826,7 +5026,8 @@
    "linkCount": 145,
    "durationMs": 2208,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "mozilla",
@@ -4844,7 +5045,8 @@
    "linkCount": 135,
    "durationMs": 3097,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ms-learn",
@@ -4862,7 +5064,8 @@
    "linkCount": 189,
    "durationMs": 2394,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "nasa",
@@ -4880,7 +5083,8 @@
    "linkCount": 284,
    "durationMs": 2034,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "national-rail",
@@ -4898,7 +5102,8 @@
    "linkCount": 65,
    "durationMs": 2450,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "nature",
@@ -4916,7 +5121,8 @@
    "linkCount": 0,
    "durationMs": 2163,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/nature.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "nextjs",
@@ -4934,7 +5140,8 @@
    "linkCount": 118,
    "durationMs": 2021,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "nhs",
@@ -4952,7 +5159,8 @@
    "linkCount": 44,
    "durationMs": 2805,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "nodejs",
@@ -4970,7 +5178,8 @@
    "linkCount": 139,
    "durationMs": 1914,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "notion",
@@ -4988,7 +5197,8 @@
    "linkCount": 94,
    "durationMs": 2399,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "npr",
@@ -5006,7 +5216,8 @@
    "linkCount": 416,
    "durationMs": 2766,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ons",
@@ -5024,7 +5235,8 @@
    "linkCount": 119,
    "durationMs": 2884,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "openstreetmap",
@@ -5042,7 +5254,8 @@
    "linkCount": 42,
    "durationMs": 2105,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "paypal",
@@ -5059,7 +5272,8 @@
    "linkCount": 0,
    "durationMs": 2252,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/paypal.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "postgres",
@@ -5077,7 +5291,8 @@
    "linkCount": 57,
    "durationMs": 1833,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "producthunt",
@@ -5094,7 +5309,8 @@
    "linkCount": 2,
    "durationMs": 2676,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "pypi",
@@ -5112,7 +5328,8 @@
    "linkCount": 684,
    "durationMs": 2142,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "rightmove",
@@ -5130,7 +5347,8 @@
    "linkCount": 163,
    "durationMs": 2266,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ryanair",
@@ -5148,7 +5366,8 @@
    "linkCount": 92,
    "durationMs": 2178,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "shopify",
@@ -5166,7 +5385,8 @@
    "linkCount": 202,
    "durationMs": 2335,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "simple-wiki",
@@ -5184,7 +5404,8 @@
    "linkCount": 1172,
    "durationMs": 1905,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "sky-news",
@@ -5201,7 +5422,8 @@
    "linkCount": 237,
    "durationMs": 2753,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/sky-news.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "skyscanner",
@@ -5218,7 +5440,8 @@
    "linkCount": 0,
    "durationMs": 2212,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/skyscanner.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "spotify",
@@ -5236,7 +5459,8 @@
    "linkCount": 61,
    "durationMs": 2200,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "sqlite",
@@ -5254,7 +5478,8 @@
    "linkCount": 41,
    "durationMs": 2089,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "stanford-plato",
@@ -5272,7 +5497,8 @@
    "linkCount": 146,
    "durationMs": 3366,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "steam",
@@ -5290,7 +5516,8 @@
    "linkCount": 283,
    "durationMs": 2516,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "stripe",
@@ -5308,7 +5535,8 @@
    "linkCount": 192,
    "durationMs": 2403,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "substack",
@@ -5326,7 +5554,8 @@
    "linkCount": 93,
    "durationMs": 2693,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "supabase",
@@ -5344,7 +5573,8 @@
    "linkCount": 122,
    "durationMs": 2148,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "svelte",
@@ -5362,7 +5592,8 @@
    "linkCount": 111,
    "durationMs": 2070,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "target",
@@ -5380,7 +5611,8 @@
    "linkCount": 126,
    "durationMs": 4035,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "techcrunch",
@@ -5398,7 +5630,8 @@
    "linkCount": 963,
    "durationMs": 2878,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "tesco",
@@ -5415,7 +5648,8 @@
    "linkCount": 0,
    "durationMs": 0,
    "error": "robots.txt does not allow this page, or could not be read",
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ticketmaster",
@@ -5432,7 +5666,8 @@
    "linkCount": 116,
    "durationMs": 3165,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/ticketmaster.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "typescript",
@@ -5450,7 +5685,8 @@
    "linkCount": 208,
    "durationMs": 1978,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "usa-gov",
@@ -5468,7 +5704,8 @@
    "linkCount": 0,
    "durationMs": 126,
    "error": "SslConnectError at https://www.usa.gov/passport",
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "verge",
@@ -5486,7 +5723,8 @@
    "linkCount": 374,
    "durationMs": 3015,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/verge.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "vue",
@@ -5504,7 +5742,8 @@
    "linkCount": 176,
    "durationMs": 1964,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "w3schools",
@@ -5522,7 +5761,8 @@
    "linkCount": 738,
    "durationMs": 2177,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "walmart",
@@ -5540,7 +5780,8 @@
    "linkCount": 125,
    "durationMs": 3068,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "weather-com",
@@ -5558,7 +5799,8 @@
    "linkCount": 68,
    "durationMs": 2520,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "web-dev",
@@ -5576,7 +5818,8 @@
    "linkCount": 249,
    "durationMs": 2842,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "wired",
@@ -5594,7 +5837,8 @@
    "linkCount": 183,
    "durationMs": 2815,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "wise",
@@ -5613,7 +5857,8 @@
    "linkCount": 173,
    "durationMs": 3622,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/lightpanda/wise.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "wolfram",
@@ -5631,7 +5876,8 @@
    "linkCount": 63,
    "durationMs": 4476,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "wordpress",
@@ -5649,7 +5895,8 @@
    "linkCount": 78,
    "durationMs": 2415,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "your-europe",
@@ -5667,7 +5914,8 @@
    "linkCount": 574,
    "durationMs": 1840,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "wikipedia",
@@ -5685,7 +5933,8 @@
    "linkCount": 4032,
    "durationMs": 4876,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "mdn",
@@ -5703,7 +5952,8 @@
    "linkCount": 187,
    "durationMs": 2664,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "gov-uk",
@@ -5721,7 +5971,8 @@
    "linkCount": 85,
    "durationMs": 2340,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "python-docs",
@@ -5739,7 +5990,8 @@
    "linkCount": 176,
    "durationMs": 2389,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "arxiv",
@@ -5757,7 +6009,8 @@
    "linkCount": 87,
    "durationMs": 2569,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/obscura/arxiv.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "hacker-news",
@@ -5775,7 +6028,8 @@
    "linkCount": 229,
    "durationMs": 3239,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "books-toscrape",
@@ -5793,7 +6047,8 @@
    "linkCount": 94,
    "durationMs": 3689,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "quotes-js",
@@ -5811,7 +6066,8 @@
    "linkCount": 5,
    "durationMs": 2901,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "react-dev",
@@ -5829,7 +6085,8 @@
    "linkCount": 126,
    "durationMs": 3618,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "tailwind-docs",
@@ -5847,7 +6104,8 @@
    "linkCount": 234,
    "durationMs": 8291,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "github",
@@ -5865,7 +6123,8 @@
    "linkCount": 278,
    "durationMs": 6295,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "npm",
@@ -5883,7 +6142,8 @@
    "linkCount": 2,
    "durationMs": 2142,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "stack-overflow",
@@ -5901,7 +6161,8 @@
    "linkCount": 0,
    "durationMs": 0,
    "error": "robots.txt does not allow this page, or could not be read",
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "bbc-news",
@@ -5919,7 +6180,8 @@
    "linkCount": 0,
    "durationMs": 30005,
    "error": "Navigation timeout of 30000 ms exceeded",
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "guardian",
@@ -5937,7 +6199,8 @@
    "linkCount": 431,
    "durationMs": 4456,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "nytimes",
@@ -5955,7 +6218,8 @@
    "linkCount": 0,
    "durationMs": 30004,
    "error": "Navigation timeout of 30000 ms exceeded",
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "archive-org",
@@ -5973,7 +6237,8 @@
    "linkCount": 0,
    "durationMs": 0,
    "error": "robots.txt does not allow this page, or could not be read",
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "met-office",
@@ -5991,7 +6256,8 @@
    "linkCount": 275,
    "durationMs": 3130,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "bbc-food",
@@ -6009,7 +6275,8 @@
    "linkCount": 143,
    "durationMs": 9317,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "youtube",
@@ -6026,7 +6293,8 @@
    "linkCount": 18,
    "durationMs": 6674,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/obscura/youtube.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "zillow",
@@ -6044,7 +6312,8 @@
    "linkCount": 274,
    "durationMs": 4650,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/obscura/zillow.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "etsy",
@@ -6062,7 +6331,8 @@
    "linkCount": 0,
    "durationMs": 2048,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ebay",
@@ -6081,7 +6351,8 @@
    "linkCount": 0,
    "durationMs": 2327,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "airbnb",
@@ -6100,7 +6371,8 @@
    "linkCount": 14,
    "durationMs": 4154,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/obscura/airbnb.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "booking",
@@ -6118,7 +6390,8 @@
    "linkCount": 0,
    "durationMs": 4318,
    "error": "Protocol error (Runtime.callFunctionOn): Cannot find context with specified id: 127",
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "vercel",
@@ -6136,7 +6409,8 @@
    "linkCount": 169,
    "durationMs": 4257,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "cloudflare",
@@ -6154,7 +6428,8 @@
    "linkCount": 71,
    "durationMs": 4171,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "stripe-docs",
@@ -6172,7 +6447,8 @@
    "linkCount": 88,
    "durationMs": 8200,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "craigslist",
@@ -6190,7 +6466,8 @@
    "linkCount": 269,
    "durationMs": 5017,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "hn-algolia",
@@ -6208,7 +6485,8 @@
    "linkCount": 191,
    "durationMs": 2871,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "aljazeera",
@@ -6226,7 +6504,8 @@
    "linkCount": 151,
    "durationMs": 4093,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "amazon",
@@ -6244,7 +6523,8 @@
    "linkCount": 0,
    "durationMs": 4061,
    "error": "Protocol error (Runtime.callFunctionOn): Cannot find context with specified id: 177",
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "apnews",
@@ -6261,7 +6541,8 @@
    "linkCount": 2,
    "durationMs": 1997,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "apple",
@@ -6279,7 +6560,8 @@
    "linkCount": 382,
    "durationMs": 4938,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "apple-dev",
@@ -6297,7 +6579,8 @@
    "linkCount": 218,
    "durationMs": 5893,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "argos",
@@ -6314,7 +6597,8 @@
    "linkCount": 0,
    "durationMs": 2650,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/obscura/argos.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ars",
@@ -6332,7 +6616,8 @@
    "linkCount": 203,
    "durationMs": 6720,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "asos",
@@ -6349,7 +6634,8 @@
    "linkCount": 683,
    "durationMs": 4061,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/obscura/asos.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "autotrader",
@@ -6366,7 +6652,8 @@
    "linkCount": 116,
    "durationMs": 5201,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/obscura/autotrader.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "aws-docs",
@@ -6384,7 +6671,8 @@
    "linkCount": 165,
    "durationMs": 2736,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/obscura/aws-docs.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "bbc-sport",
@@ -6402,7 +6690,8 @@
    "linkCount": 0,
    "durationMs": 30004,
    "error": "Navigation timeout of 30000 ms exceeded",
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "bestbuy",
@@ -6420,7 +6709,8 @@
    "linkCount": 9,
    "durationMs": 2865,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/obscura/bestbuy.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "britannica",
@@ -6437,7 +6727,8 @@
    "linkCount": 2,
    "durationMs": 2107,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "canada",
@@ -6455,7 +6746,8 @@
    "linkCount": 0,
    "durationMs": 30004,
    "error": "Navigation timeout of 30000 ms exceeded",
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "caniuse",
@@ -6473,7 +6765,8 @@
    "linkCount": 21,
    "durationMs": 4987,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "cdc",
@@ -6491,7 +6784,8 @@
    "linkCount": 230,
    "durationMs": 3770,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "cnn",
@@ -6509,7 +6803,8 @@
    "linkCount": 586,
    "durationMs": 23219,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "codepen",
@@ -6526,7 +6821,8 @@
    "linkCount": 2,
    "durationMs": 2142,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "crates",
@@ -6544,7 +6840,8 @@
    "linkCount": 56,
    "durationMs": 3981,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "data-gov",
@@ -6562,7 +6859,8 @@
    "linkCount": 44,
    "durationMs": 6641,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "devto",
@@ -6580,7 +6878,8 @@
    "linkCount": 392,
    "durationMs": 3502,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "discogs",
@@ -6597,7 +6896,8 @@
    "linkCount": 2,
    "durationMs": 2125,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "django",
@@ -6615,7 +6915,8 @@
    "linkCount": 156,
    "durationMs": 4243,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "docker-hub",
@@ -6633,7 +6934,8 @@
    "linkCount": 115,
    "durationMs": 6214,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "duckduckgo",
@@ -6651,7 +6953,8 @@
    "linkCount": 45,
    "durationMs": 2676,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "economist",
@@ -6668,7 +6971,8 @@
    "linkCount": 2,
    "durationMs": 1977,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "eventbrite",
@@ -6686,7 +6990,8 @@
    "linkCount": 192,
    "durationMs": 3303,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "expedia",
@@ -6703,7 +7008,8 @@
    "linkCount": 1,
    "durationMs": 3608,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/obscura/expedia.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "figma",
@@ -6721,7 +7027,8 @@
    "linkCount": 153,
    "durationMs": 5602,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ft",
@@ -6738,7 +7045,8 @@
    "linkCount": 9,
    "durationMs": 2099,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/obscura/ft.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "gcp-docs",
@@ -6756,7 +7064,8 @@
    "linkCount": 552,
    "durationMs": 4152,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "git-book",
@@ -6774,7 +7083,8 @@
    "linkCount": 166,
    "durationMs": 3111,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "github-docs",
@@ -6792,7 +7102,8 @@
    "linkCount": 135,
    "durationMs": 2961,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "go-docs",
@@ -6810,7 +7121,8 @@
    "linkCount": 115,
    "durationMs": 3852,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "gov-uk-tax",
@@ -6828,7 +7140,8 @@
    "linkCount": 90,
    "durationMs": 2307,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "huggingface",
@@ -6846,7 +7159,8 @@
    "linkCount": 201,
    "durationMs": 4601,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ikea",
@@ -6864,7 +7178,8 @@
    "linkCount": 214,
    "durationMs": 9081,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "independent",
@@ -6882,7 +7197,8 @@
    "linkCount": 374,
    "durationMs": 5171,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "irs",
@@ -6900,7 +7216,8 @@
    "linkCount": 255,
    "durationMs": 4543,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "kaggle",
@@ -6918,7 +7235,8 @@
    "linkCount": 63,
    "durationMs": 3997,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "khan",
@@ -6936,7 +7254,8 @@
    "linkCount": 943,
    "durationMs": 3874,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "kubernetes",
@@ -6954,7 +7273,8 @@
    "linkCount": 981,
    "durationMs": 2884,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "linear",
@@ -6972,7 +7292,8 @@
    "linkCount": 78,
    "durationMs": 3536,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "medium",
@@ -6989,7 +7310,8 @@
    "linkCount": 2,
    "durationMs": 5102,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/obscura/medium.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "merriam-webster",
@@ -7006,7 +7328,8 @@
    "linkCount": 2,
    "durationMs": 2022,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "mit-ocw",
@@ -7024,7 +7347,8 @@
    "linkCount": 909,
    "durationMs": 4711,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "monzo",
@@ -7042,7 +7366,8 @@
    "linkCount": 150,
    "durationMs": 2903,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "mozilla",
@@ -7060,7 +7385,8 @@
    "linkCount": 135,
    "durationMs": 3483,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ms-learn",
@@ -7078,7 +7404,8 @@
    "linkCount": 189,
    "durationMs": 4025,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "nasa",
@@ -7096,7 +7423,8 @@
    "linkCount": 284,
    "durationMs": 6001,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "national-rail",
@@ -7114,7 +7442,8 @@
    "linkCount": 65,
    "durationMs": 4281,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "nature",
@@ -7132,7 +7461,8 @@
    "linkCount": 140,
    "durationMs": 6706,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/obscura/nature.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "nextjs",
@@ -7150,7 +7480,8 @@
    "linkCount": 118,
    "durationMs": 3332,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "nhs",
@@ -7168,7 +7499,8 @@
    "linkCount": 44,
    "durationMs": 4504,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "nodejs",
@@ -7186,7 +7518,8 @@
    "linkCount": 139,
    "durationMs": 2396,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "notion",
@@ -7204,7 +7537,8 @@
    "linkCount": 93,
    "durationMs": 4901,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "npr",
@@ -7222,7 +7556,8 @@
    "linkCount": 432,
    "durationMs": 14133,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ons",
@@ -7240,7 +7575,8 @@
    "linkCount": 119,
    "durationMs": 2760,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "openstreetmap",
@@ -7258,7 +7594,8 @@
    "linkCount": 42,
    "durationMs": 2561,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "paypal",
@@ -7275,7 +7612,8 @@
    "linkCount": 23,
    "durationMs": 4152,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/obscura/paypal.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "postgres",
@@ -7293,7 +7631,8 @@
    "linkCount": 57,
    "durationMs": 2799,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "producthunt",
@@ -7310,7 +7649,8 @@
    "linkCount": 2,
    "durationMs": 2062,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "pypi",
@@ -7328,7 +7668,8 @@
    "linkCount": 678,
    "durationMs": 4133,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "rightmove",
@@ -7346,7 +7687,8 @@
    "linkCount": 161,
    "durationMs": 10974,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ryanair",
@@ -7364,7 +7706,8 @@
    "linkCount": 92,
    "durationMs": 3424,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "shopify",
@@ -7382,7 +7725,8 @@
    "linkCount": 202,
    "durationMs": 3432,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "simple-wiki",
@@ -7400,7 +7744,8 @@
    "linkCount": 1204,
    "durationMs": 3468,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "sky-news",
@@ -7417,7 +7762,8 @@
    "linkCount": 0,
    "durationMs": 2007,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/obscura/sky-news.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "skyscanner",
@@ -7434,7 +7780,8 @@
    "linkCount": 447,
    "durationMs": 6108,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/obscura/skyscanner.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "spotify",
@@ -7452,7 +7799,8 @@
    "linkCount": 59,
    "durationMs": 10286,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "sqlite",
@@ -7470,7 +7818,8 @@
    "linkCount": 41,
    "durationMs": 2650,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "stanford-plato",
@@ -7488,7 +7837,8 @@
    "linkCount": 146,
    "durationMs": 5309,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "steam",
@@ -7506,7 +7856,8 @@
    "linkCount": 235,
    "durationMs": 11287,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "stripe",
@@ -7524,7 +7875,8 @@
    "linkCount": 187,
    "durationMs": 5311,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "substack",
@@ -7542,7 +7894,8 @@
    "linkCount": 45,
    "durationMs": 15531,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "supabase",
@@ -7560,7 +7913,8 @@
    "linkCount": 120,
    "durationMs": 4077,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "svelte",
@@ -7578,7 +7932,8 @@
    "linkCount": 110,
    "durationMs": 3157,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "target",
@@ -7596,7 +7951,8 @@
    "linkCount": 76,
    "durationMs": 7148,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "techcrunch",
@@ -7614,7 +7970,8 @@
    "linkCount": 314,
    "durationMs": 10753,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "tesco",
@@ -7631,7 +7988,8 @@
    "linkCount": 0,
    "durationMs": 0,
    "error": "robots.txt does not allow this page, or could not be read",
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "ticketmaster",
@@ -7648,7 +8006,8 @@
    "linkCount": 116,
    "durationMs": 4478,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/obscura/ticketmaster.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "typescript",
@@ -7666,7 +8025,8 @@
    "linkCount": 208,
    "durationMs": 3137,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "usa-gov",
@@ -7684,7 +8044,8 @@
    "linkCount": 53,
    "durationMs": 5235,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/obscura/usa-gov.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "verge",
@@ -7702,7 +8063,8 @@
    "linkCount": 0,
    "durationMs": 30005,
    "error": "Navigation timeout of 30000 ms exceeded",
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "vue",
@@ -7720,7 +8082,8 @@
    "linkCount": 176,
    "durationMs": 3066,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "w3schools",
@@ -7738,7 +8101,8 @@
    "linkCount": 738,
    "durationMs": 9730,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "walmart",
@@ -7756,7 +8120,8 @@
    "linkCount": 125,
    "durationMs": 31062,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "weather-com",
@@ -7774,7 +8139,8 @@
    "linkCount": 39,
    "durationMs": 6343,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "web-dev",
@@ -7792,7 +8158,8 @@
    "linkCount": 248,
    "durationMs": 6790,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "wired",
@@ -7810,7 +8177,8 @@
    "linkCount": 178,
    "durationMs": 13242,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "wise",
@@ -7829,7 +8197,8 @@
    "linkCount": 176,
    "durationMs": 10153,
    "error": null,
-   "shot": "shots/2026-11-19T13-37Z/obscura/wise.webp"
+   "shot": null,
+   "tree": null
   },
   {
    "site": "wolfram",
@@ -7847,7 +8216,8 @@
    "linkCount": 55,
    "durationMs": 4746,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "wordpress",
@@ -7865,7 +8235,8 @@
    "linkCount": 78,
    "durationMs": 7301,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   },
   {
    "site": "your-europe",
@@ -7883,7 +8254,8 @@
    "linkCount": 571,
    "durationMs": 4169,
    "error": null,
-   "shot": null
+   "shot": null,
+   "tree": null
   }
  ]
 }

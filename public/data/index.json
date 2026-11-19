@@ -1,0 +1,40 @@
+{
+ "runs": [
+  {
+   "id": "2026-11-19T12-24Z",
+   "startedAt": "2026-11-19T12:24:54.055Z",
+   "engines": [
+    {
+     "id": "chromium",
+     "version": "158.0.8127.36"
+    },
+    {
+     "id": "lightpanda",
+     "version": "1.0.4"
+    },
+    {
+     "id": "obscura",
+     "version": "v0.2.7"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-19T12-19Z",
+   "startedAt": "2026-11-19T12:19:19.030Z",
+   "engines": [
+    {
+     "id": "chromium",
+     "version": "158.0.8127.36"
+    },
+    {
+     "id": "lightpanda",
+     "version": "1.0.1"
+    },
+    {
+     "id": "obscura",
+     "version": "v0.2.4"
+    }
+   ]
+  }
+ ]
+}

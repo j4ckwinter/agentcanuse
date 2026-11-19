@@ -58,6 +58,10 @@ Each decision has one owner. Put new code with the owner of the decision it make
 - Thumbnails are 480-pixel-wide WebP files under `public/data/shots/<run>/<engine>/<site>.webp`.
 - Chromium's version is the headless-shell build that `@puppeteer/browsers` resolves for the `stable` channel.
 
+## Deploy
+
+The site is the Vercel project `agentcanuse`, served at https://agentcanuse.com. Vercel builds it with `npm run build` and serves `dist`, which includes `public/data`. `npx vercel deploy --prod` from a linked checkout deploys the working tree, so deploy only a clean, pushed `main`.
+
 ## Commits
 
-Use Conventional Commits, one logical change each, with no AI attribution lines. Committing and pushing to `main` is expected. Running the survey workflow, turning on its schedule, making the repository public, or buying the domain needs Jack's request.
+Use Conventional Commits, one logical change each, with no AI attribution lines. Committing and pushing to `main` is expected. Deploying to production, running the survey workflow, or turning on its schedule needs Jack's request.

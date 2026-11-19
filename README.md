@@ -1,6 +1,6 @@
 # agentcanuse
 
-**caniuse, but for the browsers ai agents use.**
+**caniuse, but for the browsers ai agents use.** see it at [agentcanuse.com](https://agentcanuse.com).
 
 ![the agentcanuse leaderboard, a site rendered side by side by Chromium, Lightpanda and Obscura with a score under each, then the release diff for one engine](docs/demo.gif)
 

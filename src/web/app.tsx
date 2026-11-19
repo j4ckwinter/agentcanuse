@@ -111,13 +111,13 @@ function TopBar({ route, ready, navigate }: TopBarProps) {
           <ThemeToggle className={ICON_BUTTON} />
         </div>
       </div>
-      <nav aria-label="Sections" className="mx-auto flex max-w-page gap-1 overflow-x-auto px-2 sm:px-4">
+      <nav aria-label="Sections" className="mx-auto flex max-w-page gap-0.5 overflow-x-auto px-2 [scrollbar-width:none] sm:gap-1 sm:px-4 [&::-webkit-scrollbar]:hidden">
         {TABS.map(({ section, label }) => (
           <a
             key={section}
             href={routeHash(sectionRoute(section, route.run))}
             aria-current={route.view === section ? 'page' : undefined}
-            className="relative px-2.5 py-2.5 text-label whitespace-nowrap text-fg-secondary transition-colors hover:text-fg aria-[current=page]:text-fg aria-[current=page]:after:absolute aria-[current=page]:after:inset-x-2 aria-[current=page]:after:-bottom-px aria-[current=page]:after:h-0.5 aria-[current=page]:after:rounded-full aria-[current=page]:after:bg-fg"
+            className="relative px-2 py-2.5 text-label whitespace-nowrap sm:px-2.5 text-fg-secondary transition-colors hover:text-fg aria-[current=page]:text-fg aria-[current=page]:after:absolute aria-[current=page]:after:inset-x-2 aria-[current=page]:after:bottom-0 aria-[current=page]:after:h-0.5 aria-[current=page]:after:rounded-full aria-[current=page]:after:bg-fg"
           >
             {label}
           </a>

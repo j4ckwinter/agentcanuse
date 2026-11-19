@@ -42,6 +42,16 @@ describe('judge', () => {
     expect(judge(site, 'lightpanda', challenge, null).outcome).toBe('blocked')
   })
 
+  it('recognises the bot checks seen on real sites as blocked', () => {
+    const checks = [
+      visit({ title: 'Skyscanner', text: 'Are you a person or a robot?' }),
+      visit({ title: 'Human Verification | Open Library', text: 'Human Verification' }),
+      visit({ title: 'codepen.io', text: 'Performing security verification' }),
+      visit({ title: 'Attention Required!', text: 'Sorry, you have been blocked' }),
+    ]
+    for (const check of checks) expect(judge(site, 'chromium', check, null).outcome).toBe('blocked')
+  })
+
   it('does not call a long article blocked because it mentions captcha', () => {
     const article = visit({ text: longText + ' A captcha is a test. '.repeat(100) })
     expect(judge(site, 'chromium', article, null).outcome).toBe('passed')

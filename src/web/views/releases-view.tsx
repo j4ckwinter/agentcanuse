@@ -34,6 +34,10 @@ function useDiff(before: string | null, after: string | null, engine: EngineId):
   return state
 }
 
+function plural(count: number, noun: string): string {
+  return `${count} ${noun}${count === 1 ? '' : 's'}`
+}
+
 function DiffSummary({ diff }: { diff: EngineDiff }) {
   const fixed = diff.changes.filter((change) => change.change === 'fixed').length
   const regressed = diff.changes.filter((change) => change.change === 'regressed').length
@@ -43,7 +47,7 @@ function DiffSummary({ diff }: { diff: EngineDiff }) {
       <span className="font-mono">{diff.afterVersion}</span>
       <span className="ml-3 text-emerald-700">{fixed} now passing</span>
       <span className="ml-3 text-rose-700">{regressed} stopped passing</span>
-      <span className="ml-3 text-muted-foreground">{diff.changes.length - fixed - regressed} other changes</span>
+      <span className="ml-3 text-muted-foreground">{plural(diff.changes.length - fixed - regressed, 'other change')}</span>
     </p>
   )
 }

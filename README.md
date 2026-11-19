@@ -36,7 +36,7 @@ the leaderboard ranks engines by pass rate over the sites they attempted. the si
 
 ## what's in it so far
 
-two runs from 19 november, from a home connection in the uk. the first ran the previous releases (Lightpanda 1.0.1, Obscura v0.2.4) so the releases tab had something to compare. the second ran the current ones. chromium and lightpanda both passed 22 of the 28 sites they could visit, obscura 20. most of the rest were sites blocking every engine, chromium included. Stack Overflow and the Internet Archive were skipped because their `robots.txt` couldn't be read.
+the latest run is from a home connection in the uk on 19 november, over 124 sites. lightpanda passed 103 of the 122 it could visit, obscura 98 and chromium 97, which is a tie once you allow for the margin of error. what separates them is bot checks: 12 sites blocked only chromium, and 1 blocked only the lighter engines. their accessibility trees were usable on 93 to 97 of the pages they passed; most of the unusable ones were the site's own doing, like Hacker News's unnamed vote links, though lightpanda left more controls unnamed on Node.js, OpenStreetMap and Stripe. older runs from the same day cover the first 30 sites and the previous releases.
 
 a survey also runs every night on GitHub Actions, and another starts within six hours of a new Lightpanda or Obscura release, so the releases tab shows what each release changed. those runs come from a data centre, which sites tend to block more than a home connection, so the site labels where each run came from, and the releases tab compares runs from the same kind of network when it can.
 
@@ -55,10 +55,10 @@ it downloads each engine the first time (into `~/.cache/agentcanuse`), visits th
 ```
 https://www.gov.uk/bank-holidays
 
-engine      version        outcome  status  time  detail
-chromium    158.0.8127.36  passed   200     1.9s  5,994 characters read
-lightpanda  1.0.4          passed   200     1.7s  16,132 characters read
-obscura     v0.2.7         passed   200     2.4s  16,137 characters read
+engine      version        outcome  status  time  tree    detail
+chromium    158.0.8127.36  passed   200     2.0s  usable  5,994 characters read
+lightpanda  1.0.4          passed   200     1.8s  usable  16,132 characters read
+obscura     v0.2.7         passed   200     2.3s  usable  16,137 characters read
 
 Works everywhere. Every engine could read gov.uk.
 ```

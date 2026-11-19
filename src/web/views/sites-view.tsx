@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react'
 import { blockSplit, sitesWhereEnginesDisagree } from '../../core/agreement'
-import type { Run } from '../../core/model'
+import type { Run, RunSummary } from '../../core/model'
 import { verdictsBySite } from '../../core/verdict'
 import { routeHash, type Route } from '@/route'
 import { describeFilter, filterSites, neighbours, type SiteFilter } from '@/site-filter'
@@ -11,11 +11,12 @@ type SitesRoute = Extract<Route, { view: 'sites' }>
 
 interface SitesViewProps {
   run: Run
+  runs: RunSummary[]
   route: SitesRoute
   navigate: (route: Route, options?: { replace?: boolean }) => void
 }
 
-export function SitesView({ run, route, navigate }: SitesViewProps) {
+export function SitesView({ run, runs, route, navigate }: SitesViewProps) {
   const facts = useMemo(() => ({ disagreeing: sitesWhereEnginesDisagree(run.results), split: blockSplit(run.results) }), [run])
   const verdicts = useMemo(() => verdictsBySite(run.results), [run])
   const sites = filterSites(run.sites, route.filter, facts)
@@ -38,6 +39,7 @@ export function SitesView({ run, route, navigate }: SitesViewProps) {
       run={run}
       site={selected}
       verdict={verdicts.get(selected.id) ?? 'mixed'}
+      runs={runs}
       links={{
         back: siteHref(null),
         previous: previous && { href: siteHref(previous.id), name: previous.name },

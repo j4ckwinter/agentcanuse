@@ -137,7 +137,7 @@ function Body({ route, runs, run, navigate }: BodyProps) {
     case 'home':
       return <OverviewView run={run} runs={runs} runParam={route.run} />
     case 'sites':
-      return <SitesView run={run} route={route} navigate={navigate} />
+      return <SitesView run={run} runs={runs} route={route} navigate={navigate} />
     case 'engines':
       return route.engine === null ? <EnginesView run={run} runs={runs} runParam={route.run} /> : <EngineView run={run} engine={route.engine} runParam={route.run} />
     case 'releases':

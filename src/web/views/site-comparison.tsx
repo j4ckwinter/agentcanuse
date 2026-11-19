@@ -1,12 +1,17 @@
-import { useEffect, useRef } from 'react'
-import { ChevronLeft, ChevronRight, ImageOff } from 'lucide-react'
-import type { EngineRun, Result, Run, Site } from '../../core/model'
+import { useEffect, useRef, useState } from 'react'
+import { Check, ChevronLeft, ChevronRight, Copy, ImageOff } from 'lucide-react'
+import { isFlaky, siteHistory } from '../../core/history'
+import type { EngineRun, Result, Run, RunSummary, Site } from '../../core/model'
 import type { Verdict } from '../../core/verdict'
-import { OutcomeLabel } from '@/components/outcome-mark'
+import { Card } from '@/components/card'
+import { OutcomeLabel, OutcomeMark } from '@/components/outcome-mark'
 import { PageHeader } from '@/components/page-header'
 import { VerdictLabel } from '@/components/verdict-label'
 import { shotUrl } from '@/data'
-import { CATEGORY_LABELS, ENGINE_COLORS, ENGINE_INFO, seconds, VERDICT_LABELS } from '@/labels'
+import { Tooltip } from '@/components/tooltip'
+import { CATEGORY_LABELS, ENGINE_COLORS, ENGINE_INFO, OUTCOME_LABELS, seconds, shortDate, VERDICT_LABELS } from '@/labels'
+import { reproduceCommand } from '@/reproduce'
+import { useHistory } from '@/use-history'
 import { resultFor } from '@/results'
 
 function hostOf(site: Site): string {
@@ -56,6 +61,12 @@ function EngineColumn({ engine, result, engineHref }: { engine: EngineRun; resul
         <Fact label="Missing">{missing.length === 0 ? 'Nothing' : missing.map((phrase) => `“${phrase}”`).join(', ')}</Fact>
         {result.error !== null && <Fact label="Error">{result.error}</Fact>}
       </dl>
+      {result.excerpt !== '' && (
+        <details className="group border-t border-line px-4 py-2.5">
+          <summary className="cursor-pointer text-caption font-medium text-fg-secondary marker:text-fg-muted hover:text-fg">What it read</summary>
+          <p className="mt-2 max-h-48 overflow-y-auto font-mono text-micro leading-relaxed whitespace-pre-wrap text-fg-secondary">{result.excerpt}…</p>
+        </details>
+      )}
     </section>
   )
 }
@@ -103,7 +114,85 @@ export interface ComparisonLinks {
   engine: (engine: EngineRun) => string
 }
 
-export function SiteComparison({ run, site, verdict, links }: { run: Run; site: Site; verdict: Verdict; links: ComparisonLinks }) {
+function HistoryCard({ site, history, engines }: { site: Site; history: Run[] | null; engines: EngineRun[] }) {
+  return (
+    <Card title="Recent runs" description="Each engine's outcome on this site over the latest comparable runs, oldest first.">
+      {history === null ? (
+        <div className="h-16 animate-pulse rounded-md bg-hover" />
+      ) : (
+        <ul className="flex flex-col gap-3">
+          {engines.map((engine) => {
+            const points = siteHistory(history, site.id, engine.id)
+            return (
+              <li key={engine.id} className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                <span className="flex w-28 items-center gap-2 text-label">
+                  <span className="size-2 rounded-full" style={{ backgroundColor: ENGINE_COLORS[engine.id] }} aria-hidden="true" />
+                  {ENGINE_INFO[engine.id].name}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  {points.map((point) => (
+                    <Tooltip key={point.run} content={`${shortDate(point.startedAt)} · ${point.version} · ${OUTCOME_LABELS[point.outcome].label}`}>
+                      <span tabIndex={0} className="inline-flex">
+                        <OutcomeMark outcome={point.outcome} />
+                      </span>
+                    </Tooltip>
+                  ))}
+                </span>
+                {isFlaky(points) && (
+                  <span className="rounded-full border border-status-warning/50 bg-status-warning/10 px-2 py-0.5 text-micro font-medium" title="The outcome changed between runs with no new engine release">
+                    Flaky
+                  </span>
+                )}
+              </li>
+            )
+          })}
+        </ul>
+      )}
+      {history !== null && history.length < 2 && <p className="mt-3 text-caption text-fg-muted">History builds up with each nightly run.</p>}
+    </Card>
+  )
+}
+
+function ReproduceCard({ site }: { site: Site }) {
+  const command = reproduceCommand(site)
+  const [copied, setCopied] = useState(false)
+  const copy = () => {
+    navigator.clipboard
+      ?.writeText(command)
+      .then(() => {
+        setCopied(true)
+        window.setTimeout(() => setCopied(false), COPIED_MS)
+      })
+      .catch(() => setCopied(false))
+  }
+  return (
+    <Card
+      title="Reproduce this"
+      description="Run the same check on your own machine. It downloads each engine, visits the page once, and prints the result."
+      action={
+        <button type="button" onClick={copy} className="inline-flex h-8 items-center gap-1.5 rounded-md border border-line bg-surface px-2.5 text-label font-medium text-fg-secondary hover:bg-hover hover:text-fg">
+          {copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
+          {copied ? 'Copied' : 'Copy'}
+        </button>
+      }
+    >
+      <pre className="overflow-x-auto rounded-md border border-line bg-raised px-3 py-2.5 font-mono text-caption">{command}</pre>
+    </Card>
+  )
+}
+
+const COPIED_MS = 1500
+
+interface SiteComparisonProps {
+  run: Run
+  site: Site
+  verdict: Verdict
+  runs: RunSummary[]
+  links: ComparisonLinks
+}
+
+export function SiteComparison({ run, site, verdict, runs, links }: SiteComparisonProps) {
+  const history = useHistory(runs, run)
   useArrowKeys(links.previous?.href ?? null, links.next?.href ?? null)
   return (
     <>
@@ -155,6 +244,10 @@ export function SiteComparison({ run, site, verdict, links }: { run: Run; site: 
             return result && <EngineColumn key={engine.id} engine={engine} result={result} engineHref={links.engine(engine)} />
           })}
         </div>
+      </div>
+      <div className="grid gap-4 lg:grid-cols-2">
+        <HistoryCard site={site} history={history} engines={run.engines} />
+        <ReproduceCard site={site} />
       </div>
       <p className="hidden text-caption text-fg-muted sm:block">
         Use the ← and → keys to step through the sites in this list. Screenshots are kept only where the engines disagreed.

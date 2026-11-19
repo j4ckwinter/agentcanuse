@@ -25,6 +25,7 @@ jobs:
           path: .cache/engines
           key: engines-${{ runner.os }}-${{ hashFiles('engines.json') }}
       - run: npm ci
+      - run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
       - run: npm run bench -- --origin data-centre
       - run: |
           git config user.name "agentcanuse survey"

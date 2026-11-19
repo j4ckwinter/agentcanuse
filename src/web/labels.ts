@@ -121,6 +121,14 @@ export function seconds(ms: number | null): string {
   return ms === null ? '–' : `${(ms / 1000).toFixed(1)}s`
 }
 
+export function dayLabel(iso: string): string {
+  return new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' })
+}
+
+export function timeLabel(iso: string): string {
+  return new Date(iso).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'UTC' }) + ' UTC'
+}
+
 export function shortDate(iso: string): string {
   return new Date(iso).toLocaleString('en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', timeZone: 'UTC' }) + ' UTC'
 }

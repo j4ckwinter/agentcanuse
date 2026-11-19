@@ -61,6 +61,7 @@ Each decision has one owner. Put new code with the owner of the decision it make
 | Light and dark: the stored choice and the toggle | `src/web/theme.ts`, `src/web/components/theme-toggle.tsx`, and the boot script in `index.html` |
 | Page addresses, the sections they belong to, filters and the selected run | `src/web/route.ts` |
 | Which runs a site page loads for its history | `src/web/use-history.ts` |
+| How the run picker groups runs by day | `src/web/run-days.ts` |
 | The reproduce command shown on a site page | `src/web/reproduce.ts` |
 | How a site filter is described, for the list a site page steps through | `src/web/site-filter.ts` |
 | Which run is shown, and what happens for a run id the index doesn't list | `src/web/app.tsx` |

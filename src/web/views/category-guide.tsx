@@ -1,13 +1,14 @@
 import { categoryStandings } from '../../core/leaderboard'
 import type { Run } from '../../core/model'
 import { Card } from '@/components/card'
-import { CATEGORY_LABELS, ENGINE_COLORS, ENGINE_INFO, percent } from '@/labels'
+import { EngineDot } from '@/components/engine-dot'
+import { TABLE_HEAD } from '@/components/table'
+import { CATEGORY_LABELS, ENGINE_INFO, percent } from '@/labels'
 import { cn } from '@/lib/utils'
 import { routeHash } from '@/route'
 import { NO_FILTER } from '@/site-filter'
 
 const SMALL_SAMPLE = 10
-const HEAD = 'px-3 py-2 text-left text-caption font-medium text-fg-muted'
 
 function Leader({ engines }: { engines: string[] }) {
   return <span>{engines.join(' and ')}</span>
@@ -21,17 +22,17 @@ export function CategoryGuide({ run, runParam }: { run: Run; runParam: string | 
         <table className="w-full min-w-table border-collapse">
           <thead>
             <tr className="border-b border-line">
-              <th className={`${HEAD} pl-card`}>Category</th>
-              <th className={`${HEAD} text-right`}>Sites</th>
+              <th className={`${TABLE_HEAD} pl-card`}>Category</th>
+              <th className={`${TABLE_HEAD} text-right`}>Sites</th>
               {run.engines.map((engine) => (
-                <th key={engine.id} className={`${HEAD} text-right`}>
+                <th key={engine.id} className={`${TABLE_HEAD} text-right`}>
                   <span className="inline-flex items-center gap-1.5">
-                    <span className="size-2 rounded-full" style={{ backgroundColor: ENGINE_COLORS[engine.id] }} aria-hidden="true" />
+                    <EngineDot engine={engine.id} />
                     {ENGINE_INFO[engine.id].name}
                   </span>
                 </th>
               ))}
-              <th className={`${HEAD} pr-card`}>Best for this</th>
+              <th className={`${TABLE_HEAD} pr-card`}>Best for this</th>
             </tr>
           </thead>
           <tbody>
@@ -65,7 +66,7 @@ export function CategoryGuide({ run, runParam }: { run: Run; runParam: string | 
                       <span className="text-fg-muted">All tied</span>
                     ) : (
                       <span className="inline-flex items-center gap-1.5">
-                        {!tie && <span className="size-2 rounded-full" style={{ backgroundColor: ENGINE_COLORS[row.leaders[0]] }} aria-hidden="true" />}
+                        {!tie && <EngineDot engine={row.leaders[0]} />}
                         {tie && <span className="text-fg-muted">Tie:</span>}
                         <Leader engines={row.leaders.map((id) => ENGINE_INFO[id].name)} />
                       </span>

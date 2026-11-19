@@ -4,10 +4,11 @@ import { BLOCKING_STATUSES } from '../../core/judge'
 import { leaderboard } from '../../core/leaderboard'
 import { OUTCOMES, type EngineId, type Outcome, type Result, type Run } from '../../core/model'
 import { Card, StatTile } from '@/components/card'
+import { EngineDot } from '@/components/engine-dot'
 import { OutcomeMark } from '@/components/outcome-mark'
 import { PageHeader } from '@/components/page-header'
 import { shotUrl } from '@/data'
-import { CATEGORY_LABELS, ENGINE_COLORS, ENGINE_INFO, OUTCOME_LABELS, percent, releaseNotesUrl, seconds } from '@/labels'
+import { CATEGORY_LABELS, ENGINE_INFO, OUTCOME_LABELS, percent, releaseNotesUrl, seconds } from '@/labels'
 import { routeHash } from '@/route'
 import { NO_FILTER } from '@/site-filter'
 
@@ -71,7 +72,7 @@ export function EngineView({ run, engine, runParam }: { run: Run; engine: Engine
         back={back}
         title={
           <span className="flex items-center gap-3">
-            <span className="size-3 rounded-full" style={{ backgroundColor: ENGINE_COLORS[engine] }} aria-hidden="true" />
+            <EngineDot engine={engine} className="size-3" />
             {info.name}
             <span className="rounded-md border border-line px-2 py-0.5 font-mono text-label font-normal text-fg-muted">{standing.engine.version}</span>
           </span>

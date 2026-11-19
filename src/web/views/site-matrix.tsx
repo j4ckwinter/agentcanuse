@@ -2,10 +2,13 @@ import { Search, X } from 'lucide-react'
 import { CATEGORIES, type Run, type Site } from '../../core/model'
 import type { Verdict } from '../../core/verdict'
 import { OutcomeKey, OutcomeMark } from '@/components/outcome-mark'
+import { EngineDot } from '@/components/engine-dot'
+import { displayHost } from '@/host'
+import { TABLE_HEAD } from '@/components/table'
 import { PageHeader } from '@/components/page-header'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { VerdictLabel } from '@/components/verdict-label'
-import { CATEGORY_LABELS, ENGINE_COLORS, ENGINE_INFO } from '@/labels'
+import { CATEGORY_LABELS, ENGINE_INFO } from '@/labels'
 import { cn } from '@/lib/utils'
 import { resultFor } from '@/results'
 import { NO_FILTER, type Blocking, type SiteFilter } from '@/site-filter'
@@ -16,7 +19,6 @@ const BLOCKING_LABELS: Record<Exclude<Blocking, 'any'>, string> = {
 }
 
 const SEGMENT = 'inline-flex h-7 items-center rounded-sm px-2.5 text-label transition-colors'
-const HEAD = 'px-3 py-2 text-left text-caption font-medium text-fg-muted'
 
 interface ToolbarProps {
   filter: SiteFilter
@@ -104,13 +106,13 @@ export function SiteMatrix({ run, sites, verdicts, filter, onFilter, disagreeing
           <table className="w-full min-w-table border-collapse">
             <thead>
               <tr className="border-b border-line">
-                <th className={`${HEAD} pl-card`}>Site</th>
-                <th className={HEAD}>Category</th>
-                <th className={HEAD}>Verdict</th>
+                <th className={`${TABLE_HEAD} pl-card`}>Site</th>
+                <th className={TABLE_HEAD}>Category</th>
+                <th className={TABLE_HEAD}>Verdict</th>
                 {run.engines.map((engine) => (
-                  <th key={engine.id} className={`${HEAD} text-center last:pr-card`}>
+                  <th key={engine.id} className={`${TABLE_HEAD} text-center last:pr-card`}>
                     <span className="inline-flex items-center gap-1.5">
-                      <span className="size-2 rounded-full" style={{ backgroundColor: ENGINE_COLORS[engine.id] }} aria-hidden="true" />
+                      <EngineDot engine={engine.id} />
                       {ENGINE_INFO[engine.id].name}
                     </span>
                   </th>
@@ -124,7 +126,7 @@ export function SiteMatrix({ run, sites, verdicts, filter, onFilter, disagreeing
                     <a href={siteHref(site.id)} className="text-sm font-medium after:absolute after:inset-0 hover:underline">
                       {site.name}
                     </a>
-                    <div className="text-caption text-fg-muted">{new URL(site.url).hostname.replace(/^www\./, '')}</div>
+                    <div className="text-caption text-fg-muted">{displayHost(site.url)}</div>
                   </td>
                   <td className="px-3 py-2.5 text-label text-fg-secondary">{CATEGORY_LABELS[site.category]}</td>
                   <td className="px-3 py-2.5">

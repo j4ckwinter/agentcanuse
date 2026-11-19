@@ -4,18 +4,20 @@ import { isFlaky, siteHistory } from '../../core/history'
 import type { EngineRun, Result, Run, RunSummary, Site } from '../../core/model'
 import type { Verdict } from '../../core/verdict'
 import { Card } from '@/components/card'
+import { EngineDot } from '@/components/engine-dot'
+import { displayHost } from '@/host'
 import { OutcomeLabel, OutcomeMark } from '@/components/outcome-mark'
 import { PageHeader } from '@/components/page-header'
 import { VerdictLabel } from '@/components/verdict-label'
 import { shotUrl } from '@/data'
 import { Tooltip } from '@/components/tooltip'
-import { CATEGORY_LABELS, ENGINE_COLORS, ENGINE_INFO, OUTCOME_LABELS, seconds, shortDate, VERDICT_LABELS } from '@/labels'
+import { CATEGORY_LABELS, ENGINE_INFO, OUTCOME_LABELS, seconds, shortDate, VERDICT_LABELS } from '@/labels'
 import { reproduceCommand } from '@/reproduce'
 import { useHistory } from '@/use-history'
 import { resultFor } from '@/results'
 
 function hostOf(site: Site): string {
-  return new URL(site.url).hostname.replace(/^www\./, '')
+  return displayHost(site.url)
 }
 
 function Screenshot({ result }: { result: Result }) {
@@ -45,7 +47,7 @@ function EngineColumn({ engine, result, engineHref }: { engine: EngineRun; resul
     <section className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-line bg-surface">
       <header className="flex items-center justify-between gap-2 border-b border-line px-4 py-3">
         <a href={engineHref} className="flex min-w-0 items-center gap-2 text-sm font-medium hover:underline">
-          <span className="size-2.5 shrink-0 rounded-full" style={{ backgroundColor: ENGINE_COLORS[engine.id] }} aria-hidden="true" />
+          <EngineDot engine={engine.id} className="size-2.5" />
           <span className="truncate">{ENGINE_INFO[engine.id].name}</span>
         </a>
         <OutcomeLabel outcome={result.outcome} />
@@ -128,7 +130,7 @@ function HistoryCard({ site, history, engines }: { site: Site; history: Run[] | 
             return (
               <li key={engine.id} className="flex flex-wrap items-center gap-x-4 gap-y-2">
                 <span className="flex w-28 items-center gap-2 text-label">
-                  <span className="size-2 rounded-full" style={{ backgroundColor: ENGINE_COLORS[engine.id] }} aria-hidden="true" />
+                  <EngineDot engine={engine.id} />
                   {ENGINE_INFO[engine.id].name}
                 </span>
                 <span className="flex items-center gap-1.5">

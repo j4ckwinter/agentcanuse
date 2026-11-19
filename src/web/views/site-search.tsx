@@ -3,6 +3,7 @@ import { Search } from 'lucide-react'
 import type { Run } from '../../core/model'
 import { verdictsBySite } from '../../core/verdict'
 import { VerdictLabel } from '@/components/verdict-label'
+import { displayHost } from '@/host'
 import { cn } from '@/lib/utils'
 import { searchSites } from '@/site-filter'
 
@@ -84,7 +85,7 @@ export function SiteSearch({ run, siteHref }: { run: Run; siteHref: (site: strin
               >
                 <span className="min-w-0">
                   <span className="block truncate text-label font-medium">{site.name}</span>
-                  <span className="block truncate text-caption text-fg-muted">{new URL(site.url).hostname.replace(/^www\./, '')}</span>
+                  <span className="block truncate text-caption text-fg-muted">{displayHost(site.url)}</span>
                 </span>
                 {verdicts.has(site.id) && <VerdictLabel verdict={verdicts.get(site.id)!} />}
               </a>

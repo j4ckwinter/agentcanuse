@@ -2,11 +2,12 @@ import { useEffect, useMemo, useState } from 'react'
 import { diffRuns, releaseComparison, type EngineDiff } from '../../core/diff'
 import type { EngineId, Run, RunSummary } from '../../core/model'
 import { Card, StatTile } from '@/components/card'
+import { EngineDot } from '@/components/engine-dot'
 import { OutcomeLabel } from '@/components/outcome-mark'
 import { PageHeader } from '@/components/page-header'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { loadRun } from '@/data'
-import { CHANGE_LABELS, ENGINE_COLORS, ENGINE_INFO, ORIGIN_LABELS, shortDate } from '@/labels'
+import { CHANGE_LABELS, ENGINE_INFO, ORIGIN_LABELS, shortDate } from '@/labels'
 import { routeHash } from '@/route'
 import { NO_FILTER } from '@/site-filter'
 
@@ -66,7 +67,7 @@ export function ReleasesView({ runs }: { runs: RunSummary[] }) {
             {engines.map((id) => (
               <SelectItem key={id} value={id}>
                 <span className="flex items-center gap-2">
-                  <span className="size-2 rounded-full" style={{ backgroundColor: ENGINE_COLORS[id] }} aria-hidden="true" />
+                  <EngineDot engine={id} />
                   {ENGINE_INFO[id].name}
                 </span>
               </SelectItem>

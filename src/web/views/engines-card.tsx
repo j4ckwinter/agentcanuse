@@ -2,6 +2,8 @@ import { shownMargin } from '../../core/confidence'
 import { leaderboard, trend, type Standing } from '../../core/leaderboard'
 import { OUTCOMES, type Run, type RunSummary } from '../../core/model'
 import { Card } from '@/components/card'
+import { EngineDot } from '@/components/engine-dot'
+import { TABLE_HEAD } from '@/components/table'
 import { OutcomeKey } from '@/components/outcome-mark'
 import { Tooltip } from '@/components/tooltip'
 import { ENGINE_COLORS, ENGINE_INFO, OUTCOME_LABELS, percent, seconds } from '@/labels'
@@ -35,7 +37,6 @@ function OutcomeBar({ standing }: { standing: Standing }) {
   )
 }
 
-const HEAD = 'px-3 py-2 text-left text-caption font-medium text-fg-muted'
 
 function PassRate({ passed, attempted }: { passed: number; attempted: number }) {
   const margin = shownMargin(passed, attempted)
@@ -67,12 +68,12 @@ export function EnginesCard({ run, runs, runParam }: { run: Run; runs: RunSummar
         <table className="w-full min-w-table border-collapse">
           <thead>
             <tr className="border-b border-line">
-              <th className={`${HEAD} pl-card`}>Engine</th>
-              <th className={`${HEAD} w-[38%]`}>Outcomes</th>
-              <th className={`${HEAD} text-right`}>Passed</th>
-              <th className={`${HEAD} text-right`}>Blocked</th>
-              <th className={`${HEAD} text-right`}>Median</th>
-              {anyTrend && <th className={`${HEAD} pr-card text-right`}>Trend</th>}
+              <th className={`${TABLE_HEAD} pl-card`}>Engine</th>
+              <th className={`${TABLE_HEAD} w-[38%]`}>Outcomes</th>
+              <th className={`${TABLE_HEAD} text-right`}>Passed</th>
+              <th className={`${TABLE_HEAD} text-right`}>Blocked</th>
+              <th className={`${TABLE_HEAD} text-right`}>Median</th>
+              {anyTrend && <th className={`${TABLE_HEAD} pr-card text-right`}>Trend</th>}
             </tr>
           </thead>
           <tbody>
@@ -80,7 +81,7 @@ export function EnginesCard({ run, runs, runParam }: { run: Run; runs: RunSummar
               <tr key={standing.engine.id} className="border-b border-line last:border-0 hover:bg-raised">
                 <td className={`${CELL} pl-card`}>
                   <a href={routeHash({ view: 'engines', run: runParam, engine: standing.engine.id })} className="flex items-center gap-2.5 text-sm font-medium hover:underline">
-                    <span className="size-2.5 shrink-0 rounded-full" style={{ backgroundColor: ENGINE_COLORS[standing.engine.id] }} aria-hidden="true" />
+                    <EngineDot engine={standing.engine.id} className="size-2.5" />
                     {ENGINE_INFO[standing.engine.id].name}
                     <span className="rounded border border-line px-1.5 py-px font-mono text-micro font-normal text-fg-muted">{standing.engine.version}</span>
                   </a>

@@ -18,3 +18,8 @@ export function marginOfError(successes: number, trials: number): number | null 
   const interval = wilsonInterval(successes, trials)
   return interval === null ? null : (interval.high - interval.low) / 2
 }
+
+export function shownMargin(successes: number, trials: number): number | null {
+  if (successes === 0 || successes === trials) return null
+  return marginOfError(successes, trials)
+}

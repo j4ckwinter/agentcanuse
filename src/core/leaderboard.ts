@@ -61,9 +61,11 @@ export function categoryStandings(run: Run): CategoryStanding[] {
     const passRates: Partial<Record<EngineId, number>> = {}
     for (const { id } of run.engines) {
       const attempted = inCategory.filter((result) => result.engine === id && result.outcome !== 'skipped')
-      passRates[id] = rate(attempted.filter((result) => result.outcome === 'passed').length, attempted.length)
+      if (attempted.length > 0) passRates[id] = rate(attempted.filter((result) => result.outcome === 'passed').length, attempted.length)
     }
-    const best = Math.max(...Object.values(passRates))
+    const rates = Object.values(passRates)
+    if (rates.length === 0) return []
+    const best = Math.max(...rates)
     const leaders = run.engines.map((engine) => engine.id).filter((id) => passRates[id] === best)
     return [{ category, sites: run.sites.filter((site) => site.category === category).length, passRates, leaders }]
   })

@@ -90,6 +90,20 @@ describe('categoryStandings', () => {
   })
 })
 
+describe('categoryStandings with skipped sites', () => {
+  it('gives no rate to an engine that visited nothing in a category, and drops a category nobody visited', () => {
+    const partly: Run = {
+      ...run,
+      sites: [
+        { id: 'a', name: 'A', category: 'docs', url: 'https://a.test/', expect: [] },
+        { id: 'd', name: 'D', category: 'news', url: 'https://d.test/', expect: [] },
+      ],
+      results: [result('chromium', 'a', 'passed'), result('lightpanda', 'a', 'skipped'), result('chromium', 'd', 'skipped'), result('lightpanda', 'd', 'skipped')],
+    }
+    expect(categoryStandings(partly)).toEqual([{ category: 'docs', sites: 1, passRates: { chromium: 1 }, leaders: ['chromium'] }])
+  })
+})
+
 describe('summarise', () => {
   it('records the site count and each engine pass rate for the run index', () => {
     const summary = summarise({ ...run, sites: [{ id: 'a', name: 'A', category: 'docs', url: 'https://a.test/', expect: [] }] })

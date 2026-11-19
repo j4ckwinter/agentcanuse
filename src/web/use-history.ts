@@ -19,9 +19,10 @@ export function useHistory(runs: RunSummary[], current: Run): Run[] | null {
   const key = ids.join(',')
   useEffect(() => {
     let live = true
-    Promise.all(ids.map((id) => (id === current.id ? Promise.resolve(current) : loadRun(id))))
-      .then((loadedRuns) => live && setLoaded({ key, runs: loadedRuns }))
-      .catch(() => live && setLoaded({ key, runs: [current] }))
+    Promise.allSettled(ids.map((id) => (id === current.id ? Promise.resolve(current) : loadRun(id)))).then((settled) => {
+      const loadedRuns = settled.flatMap((outcome) => (outcome.status === 'fulfilled' ? [outcome.value] : []))
+      if (live) setLoaded({ key, runs: loadedRuns })
+    })
     return () => {
       live = false
     }

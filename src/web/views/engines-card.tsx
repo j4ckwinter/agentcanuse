@@ -1,4 +1,4 @@
-import { marginOfError } from '../../core/confidence'
+import { shownMargin } from '../../core/confidence'
 import { leaderboard, trend, type Standing } from '../../core/leaderboard'
 import { OUTCOMES, type Run, type RunSummary } from '../../core/model'
 import { Card } from '@/components/card'
@@ -37,8 +37,8 @@ function OutcomeBar({ standing }: { standing: Standing }) {
 
 const HEAD = 'px-3 py-2 text-left text-caption font-medium text-fg-muted'
 
-export function PassRate({ passed, attempted }: { passed: number; attempted: number }) {
-  const margin = marginOfError(passed, attempted)
+function PassRate({ passed, attempted }: { passed: number; attempted: number }) {
+  const margin = shownMargin(passed, attempted)
   return (
     <span className="inline-flex flex-col items-end">
       <span className="text-sm font-semibold">

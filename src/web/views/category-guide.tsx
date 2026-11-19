@@ -53,15 +53,15 @@ export function CategoryGuide({ run, runParam }: { run: Run; runParam: string | 
                     )}
                   </td>
                   {run.engines.map((engine) => {
-                    const rate = row.passRates[engine.id] ?? 0
+                    const rate = row.passRates[engine.id]
                     return (
                       <td key={engine.id} className={cn('px-3 py-2.5 text-right text-sm tabular-nums', row.leaders.includes(engine.id) ? 'font-semibold text-fg' : 'text-fg-secondary')}>
-                        {percent(rate)}
+                        {rate === undefined ? <span className="text-fg-muted" title="No site in this category was visited">–</span> : percent(rate)}
                       </td>
                     )
                   })}
                   <td className="px-3 py-2.5 pr-card text-label">
-                    {tie && row.leaders.length === run.engines.length ? (
+                    {tie && row.leaders.length === Object.keys(row.passRates).length ? (
                       <span className="text-fg-muted">All tied</span>
                     ) : (
                       <span className="inline-flex items-center gap-1.5">

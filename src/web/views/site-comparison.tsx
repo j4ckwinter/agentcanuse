@@ -64,7 +64,9 @@ function EngineColumn({ engine, result, engineHref }: { engine: EngineRun; resul
       {result.excerpt !== '' && (
         <details className="group border-t border-line px-4 py-2.5">
           <summary className="cursor-pointer text-caption font-medium text-fg-secondary marker:text-fg-muted hover:text-fg">What it read</summary>
-          <p className="mt-2 max-h-48 overflow-y-auto font-mono text-micro leading-relaxed whitespace-pre-wrap text-fg-secondary">{result.excerpt}…</p>
+          <p className="mt-2 max-h-48 overflow-y-auto font-mono text-micro leading-relaxed whitespace-pre-wrap text-fg-secondary">{result.excerpt}
+            {result.excerpt.length < result.textLength && '…'}
+          </p>
         </details>
       )}
     </section>

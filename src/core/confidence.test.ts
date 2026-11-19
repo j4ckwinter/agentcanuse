@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { marginOfError, wilsonInterval } from './confidence'
+import { marginOfError, shownMargin, wilsonInterval } from './confidence'
 
 describe('wilsonInterval', () => {
   it('gives the 95% Wilson interval for a share', () => {
@@ -24,5 +24,13 @@ describe('marginOfError', () => {
   it('narrows as the sample grows', () => {
     expect(marginOfError(80, 100)!).toBeLessThan(marginOfError(8, 10)!)
     expect(marginOfError(97, 121)!).toBeCloseTo(0.07, 2)
+  })
+})
+
+describe('shownMargin', () => {
+  it('leaves out a ± margin at 0% and 100%, where a symmetric margin would overstate it', () => {
+    expect(shownMargin(121, 121)).toBeNull()
+    expect(shownMargin(0, 40)).toBeNull()
+    expect(shownMargin(97, 121)).toBe(marginOfError(97, 121))
   })
 })

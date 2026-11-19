@@ -55,6 +55,8 @@ export function releaseComparison(runs: RunSummary[], engine: EngineId): { befor
   const [latest, ...older] = withEngine
   if (latest === undefined || older.length === 0) return null
   const latestVersion = versionIn(latest, engine)
-  const previousRelease = older.find((run) => versionIn(run, engine) !== latestVersion) ?? older[0]
+  const sameNetwork = older.filter((run) => run.origin === latest.origin)
+  const candidates = sameNetwork.length > 0 ? sameNetwork : older
+  const previousRelease = candidates.find((run) => versionIn(run, engine) !== latestVersion) ?? candidates[0]
   return { before: previousRelease.id, after: latest.id }
 }

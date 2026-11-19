@@ -6,7 +6,7 @@ import { OutcomeBadge } from '@/components/outcome-badge'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { loadRun } from '@/data'
-import { CHANGE_LABELS, ENGINE_NAMES, shortDate } from '@/labels'
+import { CHANGE_LABELS, ENGINE_NAMES, ORIGIN_LABELS, shortDate } from '@/labels'
 
 function engineIds(runs: RunSummary[]): EngineId[] {
   return [...new Set(runs.flatMap((run) => run.engines.map((engine) => engine.id)))]
@@ -59,6 +59,8 @@ export function ReleasesView({ runs }: { runs: RunSummary[] }) {
   const [before, setBefore] = useState<string | null>(null)
   useEffect(() => setBefore(comparison?.before ?? null), [comparison])
   const result = useDiff(before, comparison?.after ?? null, engine)
+  const originOf = (id: string | null) => runs.find((run) => run.id === id)?.origin
+  const crossesNetworks = before !== null && originOf(before) !== originOf(comparison?.after ?? null)
   const candidates = runs.filter((run) => run.id !== comparison?.after && run.engines.some((entry) => entry.id === engine))
 
   return (
@@ -84,7 +86,7 @@ export function ReleasesView({ runs }: { runs: RunSummary[] }) {
             <SelectContent>
               {candidates.map((run) => (
                 <SelectItem key={run.id} value={run.id}>
-                  {shortDate(run.startedAt)} · {run.engines.find((entry) => entry.id === engine)?.version}
+                  {shortDate(run.startedAt)} · {run.engines.find((entry) => entry.id === engine)?.version} · {ORIGIN_LABELS[run.origin].short}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -92,6 +94,11 @@ export function ReleasesView({ runs }: { runs: RunSummary[] }) {
         )}
         {comparison !== null && <span className="text-sm text-muted-foreground">compared with the latest run</span>}
       </div>
+      {crossesNetworks && (
+        <p className="rounded-md bg-muted px-3 py-2 text-sm text-muted-foreground">
+          These runs came from different networks, so a change in blocking may be the network rather than the engine.
+        </p>
+      )}
       {comparison === null && <p className="text-sm text-muted-foreground">This engine needs two runs before there is anything to compare.</p>}
       {result !== null && 'error' in result && <p className="text-sm text-rose-700">{result.error}</p>}
       {result !== null && 'diff' in result && (

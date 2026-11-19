@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { diffRuns, releaseComparison } from './diff'
-import type { EngineId, Outcome, Result, Run } from './model'
+import type { EngineId, Origin, Outcome, Result, Run } from './model'
 
 function result(engine: EngineId, site: string, outcome: Outcome): Result {
   return {
@@ -24,6 +24,7 @@ function runOf(id: string, version: string, outcomes: Record<string, Outcome>): 
   return {
     id,
     startedAt: '2026-11-19T21:00:00.000Z',
+    origin: 'home',
     engines: [{ id: 'lightpanda', version }],
     sites: [],
     results: [
@@ -69,9 +70,10 @@ describe('diffRuns', () => {
 })
 
 describe('releaseComparison', () => {
-  const summary = (id: string, startedAt: string, version: string | null) => ({
+  const summary = (id: string, startedAt: string, version: string | null, origin: Origin = 'home') => ({
     id,
     startedAt,
+    origin,
     engines: version === null ? [] : [{ id: 'lightpanda' as const, version }],
   })
   const runs = [
@@ -87,6 +89,20 @@ describe('releaseComparison', () => {
 
   it('falls back to the previous run when the version never changed', () => {
     expect(releaseComparison(runs.slice(1), 'lightpanda')).toEqual({ before: 'r2', after: 'r3' })
+  })
+
+  it('prefers an earlier run from the same kind of network as the latest', () => {
+    const mixed = [
+      summary('home-old', '2026-11-17T21:00:00Z', '1.0.2'),
+      summary('dc-old', '2026-11-16T03:00:00Z', '1.0.1', 'data-centre'),
+      summary('dc-new', '2026-11-20T03:00:00Z', '1.0.4', 'data-centre'),
+    ]
+    expect(releaseComparison(mixed, 'lightpanda')).toEqual({ before: 'dc-old', after: 'dc-new' })
+  })
+
+  it('falls back to a run from another network when the latest is the first of its kind', () => {
+    const mixed = [summary('home-old', '2026-11-17T21:00:00Z', '1.0.2'), summary('dc-new', '2026-11-20T03:00:00Z', '1.0.4', 'data-centre')]
+    expect(releaseComparison(mixed, 'lightpanda')).toEqual({ before: 'home-old', after: 'dc-new' })
   })
 
   it('needs two runs that include the engine', () => {

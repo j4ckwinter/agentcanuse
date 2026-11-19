@@ -33,7 +33,7 @@ export async function readIndex(dataDir: string): Promise<RunIndex> {
 export async function saveRun(dataDir: string, run: Run): Promise<void> {
   await writeJson(join(dataDir, 'runs', `${run.id}.json`), run)
   const index = await readIndex(dataDir)
-  const summary: RunSummary = { id: run.id, startedAt: run.startedAt, engines: run.engines }
+  const summary: RunSummary = { id: run.id, startedAt: run.startedAt, origin: run.origin, engines: run.engines }
   const runs = [summary, ...index.runs.filter((entry) => entry.id !== run.id)].sort((a, b) => b.startedAt.localeCompare(a.startedAt))
   await writeJson(join(dataDir, 'index.json'), { runs })
 }

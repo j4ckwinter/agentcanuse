@@ -1,7 +1,7 @@
 import { parseArgs } from 'node:util'
 import type { Browser } from 'puppeteer-core'
 import { judge, skipped } from '../core/judge'
-import { ENGINE_IDS, type EngineId, type EngineRun, type Result, type Site } from '../core/model'
+import { ENGINE_IDS, ORIGINS, type EngineId, type EngineRun, type Origin, type Result, type Site } from '../core/model'
 import { runIdAt } from '../core/run-id'
 import { isEngineId, loadPins, loadSites, type Pins } from './config'
 import { launchEngine, type RunningEngine } from './engines'
@@ -15,6 +15,7 @@ interface Options {
   engines: EngineId[]
   siteIds: string[] | null
   pins: Pins
+  origin: Origin
   dataDir: string
   cacheDir: string
   port: number
@@ -24,12 +25,17 @@ function list(value: string | undefined): string[] | null {
   return value === undefined ? null : value.split(',').map((item) => item.trim()).filter(Boolean)
 }
 
+function isOrigin(value: string): value is Origin {
+  return (ORIGINS as readonly string[]).includes(value)
+}
+
 async function readOptions(): Promise<Options> {
   const { values } = parseArgs({
     options: {
       engines: { type: 'string' },
       sites: { type: 'string' },
       pin: { type: 'string', multiple: true },
+      origin: { type: 'string', default: 'home' },
       data: { type: 'string', default: 'public/data' },
       cache: { type: 'string', default: '.cache/engines' },
       port: { type: 'string', default: '9333' },
@@ -44,8 +50,10 @@ async function readOptions(): Promise<Options> {
     if (!isEngineId(engine) || !version) throw new Error(`Pins look like engine=version, got ${pin}`)
     pins[engine] = version
   }
+  if (!isOrigin(values.origin)) throw new Error(`--origin is one of ${ORIGINS.join(', ')}, got ${values.origin}`)
   return {
     engines: engines as EngineId[],
+    origin: values.origin,
     siteIds: list(values.sites),
     pins,
     dataDir: values.data,
@@ -153,7 +161,7 @@ async function main(): Promise<void> {
     results.push(...survey.results)
   }
   if (engines.length === 0) throw new Error('No engine ran')
-  await saveRun(options.dataDir, { id: runId, startedAt: startedAt.toISOString(), engines, sites, results })
+  await saveRun(options.dataDir, { id: runId, startedAt: startedAt.toISOString(), origin: options.origin, engines, sites, results })
   console.log(`Saved run ${runId}`)
 }
 

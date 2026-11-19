@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import type { Run, RunSummary } from '../core/model'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { loadIndex, loadRun } from '@/data'
-import { shortDate } from '@/labels'
+import { ORIGIN_LABELS, shortDate } from '@/labels'
 import { useRoute, type Route } from '@/route'
 import { LeaderboardView } from '@/views/leaderboard-view'
 import { ReleasesView } from '@/views/releases-view'
@@ -46,7 +46,7 @@ export function App() {
         </p>
         {loaded !== null && 'latest' in loaded && (
           <p className="text-xs text-muted-foreground">
-            Latest run {shortDate(loaded.latest.startedAt)} · {loaded.latest.sites.length} sites · {loaded.runs.length} runs recorded
+            Latest run {shortDate(loaded.latest.startedAt)} from {ORIGIN_LABELS[loaded.latest.origin].label} · {loaded.latest.sites.length} sites · {loaded.runs.length} runs recorded
           </p>
         )}
       </header>

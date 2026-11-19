@@ -1,5 +1,5 @@
 import type { Change } from '../core/diff'
-import type { EngineId, Outcome } from '../core/model'
+import type { EngineId, Origin, Outcome } from '../core/model'
 
 export const ENGINE_NAMES: Record<EngineId, string> = {
   chromium: 'Chromium',
@@ -15,6 +15,15 @@ export const OUTCOME_LABELS: Record<Outcome, { label: string; meaning: string; t
   blocked: { label: 'Blocked', meaning: 'The site refused the engine or showed a bot check', tone: 'bg-rose-100 text-rose-900' },
   failed: { label: 'Failed', meaning: 'The engine errored or timed out', tone: 'bg-zinc-800 text-zinc-50' },
   skipped: { label: 'Skipped', meaning: 'Not visited, usually because robots.txt asks us not to', tone: 'bg-zinc-100 text-zinc-500' },
+}
+
+export const ORIGIN_LABELS: Record<Origin, { label: string; short: string; caveat: string | null }> = {
+  home: { label: 'a home connection', short: 'home', caveat: null },
+  'data-centre': {
+    label: 'a data centre (GitHub Actions)',
+    short: 'data centre',
+    caveat: 'This run came from a data centre. Sites tend to block data-centre traffic more than home connections, so blocked rates may run higher than an agent at home would see.',
+  },
 }
 
 export const CHANGE_LABELS: Record<Change, { label: string; tone: string }> = {

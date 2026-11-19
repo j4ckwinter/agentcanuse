@@ -1,6 +1,9 @@
 export const ENGINE_IDS = ['chromium', 'lightpanda', 'obscura', 'kitesurf'] as const
 export type EngineId = (typeof ENGINE_IDS)[number]
 
+export const ORIGINS = ['home', 'data-centre'] as const
+export type Origin = (typeof ORIGINS)[number]
+
 export const OUTCOMES = ['passed', 'incomplete', 'empty', 'blocked', 'failed', 'skipped'] as const
 export type Outcome = (typeof OUTCOMES)[number]
 
@@ -44,6 +47,7 @@ export interface EngineRun {
 export interface Run {
   id: string
   startedAt: string
+  origin: Origin
   engines: EngineRun[]
   sites: Site[]
   results: Result[]
@@ -52,5 +56,6 @@ export interface Run {
 export interface RunSummary {
   id: string
   startedAt: string
+  origin: Origin
   engines: EngineRun[]
 }

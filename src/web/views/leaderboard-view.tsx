@@ -4,7 +4,7 @@ import { leaderboard, type Standing } from '../../core/leaderboard'
 import { OUTCOMES, type Run } from '../../core/model'
 import { OutcomeBadge } from '@/components/outcome-badge'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { ENGINE_NAMES, OUTCOME_LABELS, percent, seconds } from '@/labels'
+import { ENGINE_NAMES, ORIGIN_LABELS, OUTCOME_LABELS, percent, seconds } from '@/labels'
 import { cn } from '@/lib/utils'
 
 type SortKey = 'passRate' | 'blockedRate' | 'medianMs'
@@ -49,8 +49,10 @@ function OutcomeBar({ standing }: { standing: Standing }) {
 export function LeaderboardView({ run }: { run: Run }) {
   const [sortKey, setSortKey] = useState<SortKey>('passRate')
   const standings = useMemo(() => [...leaderboard(run)].sort(SORTS[sortKey].compare), [run, sortKey])
+  const caveat = ORIGIN_LABELS[run.origin].caveat
   return (
     <div className="space-y-4">
+      {caveat !== null && <p className="rounded-md bg-muted px-3 py-2 text-sm text-muted-foreground">{caveat}</p>}
       <Table>
         <TableHeader>
           <TableRow>

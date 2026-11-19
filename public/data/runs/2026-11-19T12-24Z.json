@@ -1,6 +1,7 @@
 {
  "id": "2026-11-19T12-24Z",
  "startedAt": "2026-11-19T12:24:54.055Z",
+ "origin": "home",
  "engines": [
   {
    "id": "chromium",

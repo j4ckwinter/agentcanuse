@@ -23,6 +23,7 @@ function result(engine: EngineId, site: string, outcome: Outcome, durationMs = 1
 const run: Run = {
   id: 'r1',
   startedAt: '2026-11-19T21:00:00.000Z',
+  origin: 'home',
   engines: [
     { id: 'chromium', version: '150.0.1' },
     { id: 'lightpanda', version: '1.0.4' },

@@ -1,6 +1,6 @@
 {
-  "name": "agentcanuse",
-  "short_name": "agentcanuse",
+  "name": "Agent Can Use",
+  "short_name": "Agent Can Use",
   "description": "How the browser engines AI agents use handle real sites.",
   "start_url": "./",
   "display": "standalone",

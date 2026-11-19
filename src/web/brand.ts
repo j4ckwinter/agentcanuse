@@ -1,4 +1,4 @@
-export const BRAND_NAME = 'agentcanuse'
+export const BRAND_NAME = 'Agent Can Use'
 export const BRAND_TAGLINE = 'caniuse, but for the browsers AI agents use.'
 
 export const MARK_VIEWBOX = 32

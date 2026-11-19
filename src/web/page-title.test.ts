@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import type { Run } from '../core/model'
+import type { EngineId, Outcome, Result, Run } from '../core/model'
 import { BRAND_NAME } from './brand'
 import { HOME_TITLE, pageTitle } from './page-title'
 import { NO_FILTER } from './site-filter'
@@ -12,16 +12,23 @@ const run = {
   origin: 'home',
   engines: [],
   sites: [{ id: 'zillow', name: 'Zillow', category: 'listings', url: 'https://www.zillow.com/', expect: [] }],
-  results: [],
+  results: [visit('chromium', 'blocked'), visit('lightpanda', 'passed')],
 } satisfies Run
+
+function visit(engine: EngineId, outcome: Outcome): Result {
+  return { site: 'zillow', engine, outcome, status: 200, title: '', excerpt: '', found: [], missing: [], textLength: 0, linkCount: 0, durationMs: 1000, error: null, shot: null, tree: null }
+}
 
 describe('pageTitle', () => {
   it('gives the home page the question the site answers', () => {
     expect(pageTitle({ view: 'home', run: null }, run)).toBe(HOME_TITLE)
   })
 
-  it('names the site, engine or section being viewed', () => {
-    expect(pageTitle({ view: 'sites', run: null, site: 'zillow', filter: NO_FILTER }, run)).toBe('Zillow · Agent Can Use')
+  it('gives a site page its verdict, so a shared link explains itself', () => {
+    expect(pageTitle({ view: 'sites', run: null, site: 'zillow', filter: NO_FILTER }, run)).toBe('Zillow: Blocks headless Chrome · Agent Can Use')
+  })
+
+  it('names the engine or section being viewed', () => {
     expect(pageTitle({ view: 'sites', run: null, site: null, filter: NO_FILTER }, run)).toBe('Sites · Agent Can Use')
     expect(pageTitle({ view: 'engines', run: null, engine: 'lightpanda' }, run)).toBe('Lightpanda · Agent Can Use')
     expect(pageTitle({ view: 'engines', run: null, engine: null }, run)).toBe('Engines · Agent Can Use')

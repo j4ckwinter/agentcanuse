@@ -12,16 +12,21 @@ function engineIds(runs: RunSummary[]): EngineId[] {
   return [...new Set(runs.flatMap((run) => run.engines.map((engine) => engine.id)))]
 }
 
-function useDiff(before: string | null, after: string | null, engine: EngineId): { diff: EngineDiff; names: Map<string, string> } | null {
-  const [state, setState] = useState<{ diff: EngineDiff; names: Map<string, string> } | null>(null)
+type DiffState = { diff: EngineDiff; names: Map<string, string> } | { error: string } | null
+
+function useDiff(before: string | null, after: string | null, engine: EngineId): DiffState {
+  const [state, setState] = useState<DiffState>(null)
   useEffect(() => {
     setState(null)
     if (before === null || after === null) return
     let current = true
-    Promise.all([loadRun(before), loadRun(after)]).then(([earlier, later]: [Run, Run]) => {
-      if (!current) return
-      setState({ diff: diffRuns(earlier, later, engine), names: new Map(later.sites.map((site) => [site.id, site.name])) })
-    })
+    Promise.all([loadRun(before), loadRun(after)])
+      .then(([earlier, later]: [Run, Run]) => {
+        if (current) setState({ diff: diffRuns(earlier, later, engine), names: new Map(later.sites.map((site) => [site.id, site.name])) })
+      })
+      .catch((error: unknown) => {
+        if (current) setState({ error: error instanceof Error ? error.message : String(error) })
+      })
     return () => {
       current = false
     }
@@ -84,7 +89,8 @@ export function ReleasesView({ runs }: { runs: RunSummary[] }) {
         {comparison !== null && <span className="text-sm text-muted-foreground">compared with the latest run</span>}
       </div>
       {comparison === null && <p className="text-sm text-muted-foreground">This engine needs two runs before there is anything to compare.</p>}
-      {result !== null && (
+      {result !== null && 'error' in result && <p className="text-sm text-rose-700">{result.error}</p>}
+      {result !== null && 'diff' in result && (
         <>
           <DiffSummary diff={result.diff} />
           {result.diff.changes.length === 0 ? (

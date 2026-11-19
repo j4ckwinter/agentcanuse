@@ -17,6 +17,7 @@ export function loadRun(id: string): Promise<Run> {
   let run = runs.get(id)
   if (run === undefined) {
     run = getJson<Run>(`data/runs/${id}.json`)
+    run.catch(() => runs.delete(id))
     runs.set(id, run)
   }
   return run

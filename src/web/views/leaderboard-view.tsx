@@ -12,7 +12,7 @@ type SortKey = 'passRate' | 'blockedRate' | 'medianMs'
 const SORTS: Record<SortKey, { label: string; compare: (a: Standing, b: Standing) => number }> = {
   passRate: { label: 'Pass rate', compare: (a, b) => b.passRate - a.passRate },
   blockedRate: { label: 'Blocked', compare: (a, b) => a.blockedRate - b.blockedRate },
-  medianMs: { label: 'Median time', compare: (a, b) => (a.medianMs ?? Infinity) - (b.medianMs ?? Infinity) },
+  medianMs: { label: 'Median time', compare: (a, b) => (a.medianMs ?? Number.MAX_VALUE) - (b.medianMs ?? Number.MAX_VALUE) },
 }
 
 function SortHeader({ sortKey, active, onSort }: { sortKey: SortKey; active: SortKey; onSort: (key: SortKey) => void }) {

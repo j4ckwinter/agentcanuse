@@ -1,6 +1,7 @@
 import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import sharp from 'sharp'
+import { sitesWhereEnginesDisagree } from '../core/agreement'
 import type { EngineId, Run, RunSummary } from '../core/model'
 
 export const THUMBNAIL_WIDTH = 480
@@ -45,7 +46,19 @@ export async function tidyData(dataDir: string): Promise<RunSummary[]> {
   return summaries
 }
 
+async function keepScreenshotsWhereEnginesDisagree(dataDir: string, run: Run): Promise<Run> {
+  const disagreeing = sitesWhereEnginesDisagree(run.results)
+  const results = await Promise.all(
+    run.results.map(async (result) => {
+      if (result.shot === null || disagreeing.has(result.site)) return result
+      await rm(join(dataDir, result.shot), { force: true })
+      return { ...result, shot: null }
+    }),
+  )
+  return { ...run, results }
+}
+
 export async function saveRun(dataDir: string, run: Run): Promise<void> {
-  await writeJson(join(dataDir, 'runs', `${run.id}.json`), run)
+  await writeJson(join(dataDir, 'runs', `${run.id}.json`), await keepScreenshotsWhereEnginesDisagree(dataDir, run))
   await tidyData(dataDir)
 }

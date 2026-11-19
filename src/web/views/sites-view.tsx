@@ -1,4 +1,5 @@
 import { ArrowLeft, ImageOff } from 'lucide-react'
+import { sitesWhereEnginesDisagree } from '../../core/agreement'
 import type { EngineRun, Result, Run, Site } from '../../core/model'
 import { OutcomeBadge } from '@/components/outcome-badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -86,6 +87,9 @@ function EngineCard({ engine, result }: { engine: EngineRun; result: Result }) {
 }
 
 function SiteComparison({ run, site, onBack }: { run: Run; site: Site; onBack: () => void }) {
+  const results = run.results.filter((result) => result.site === site.id)
+  const agreed = !sitesWhereEnginesDisagree(results).has(site.id)
+  const noScreenshots = results.every((result) => result.shot === null)
   return (
     <div className="space-y-4">
       <button type="button" onClick={onBack} className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
@@ -98,6 +102,11 @@ function SiteComparison({ run, site, onBack }: { run: Run; site: Site; onBack: (
         </a>
         <p className="mt-1 text-sm text-muted-foreground">Expects: {site.expect.map((phrase) => `“${phrase}”`).join(', ')}</p>
       </div>
+      {agreed && noScreenshots && (
+        <p className="rounded-md bg-muted px-3 py-2 text-sm text-muted-foreground">
+          Every engine got the same result here, so no screenshots are kept. Screenshots are kept only where engines disagree.
+        </p>
+      )}
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {run.engines.map((engine) => {
           const result = resultFor(run, site.id, engine)

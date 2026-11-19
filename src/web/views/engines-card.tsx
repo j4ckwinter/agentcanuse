@@ -38,12 +38,12 @@ function OutcomeBar({ standing }: { standing: Standing }) {
 }
 
 
-function PassRate({ passed, attempted }: { passed: number; attempted: number }) {
-  const margin = shownMargin(passed, attempted)
+function Share({ part, whole }: { part: number; whole: number }) {
+  const margin = shownMargin(part, whole)
   return (
     <span className="inline-flex flex-col items-end">
       <span className="text-sm font-semibold">
-        {percent(attempted === 0 ? 0 : passed / attempted)}
+        {percent(whole === 0 ? 0 : part / whole)}
         {margin !== null && (
           <span className="ml-1 text-caption font-normal text-fg-muted" title="95% margin of error">
             ±{Math.round(margin * 100)}
@@ -51,7 +51,7 @@ function PassRate({ passed, attempted }: { passed: number; attempted: number }) 
         )}
       </span>
       <span className="text-micro text-fg-muted">
-        {passed} of {attempted}
+        {part} of {whole}
       </span>
     </span>
   )
@@ -70,7 +70,7 @@ function StackedEngines({ standings, href }: { standings: Standing[]; href: (sta
                 {ENGINE_INFO[standing.engine.id].name}
                 <span className="font-mono text-caption font-normal text-fg-muted">{seconds(standing.medianMs)}</span>
               </span>
-              <PassRate passed={standing.counts.passed} attempted={standing.attempted} />
+              <Share part={standing.counts.passed} whole={standing.attempted} />
             </span>
             <OutcomeBar standing={standing} />
           </a>
@@ -102,6 +102,11 @@ export function EnginesCard({ run, runs, runParam, full = false }: EnginesCardPr
               <th className={`${TABLE_HEAD} w-[38%]`}>Outcomes</th>
               <th className={`${TABLE_HEAD} text-right`}>Passed</th>
               {full && <th className={`${TABLE_HEAD} text-right`}>Blocked</th>}
+              {full && (
+                <th className={`${TABLE_HEAD} text-right`} title="Of the pages it passed, how many had an accessibility tree an agent could act on">
+                  Usable tree
+                </th>
+              )}
               <th className={`${TABLE_HEAD} text-right`}>Median</th>
               {anyTrend && <th className={`${TABLE_HEAD} pr-card text-right`}>Trend</th>}
             </tr>
@@ -120,9 +125,14 @@ export function EnginesCard({ run, runs, runParam, full = false }: EnginesCardPr
                   <OutcomeBar standing={standing} />
                 </td>
                 <td className={`${CELL} text-right tabular-nums`}>
-                  <PassRate passed={standing.counts.passed} attempted={standing.attempted} />
+                  <Share part={standing.counts.passed} whole={standing.attempted} />
                 </td>
                 {full && <td className={`${CELL} text-right text-sm text-fg-secondary tabular-nums`}>{percent(standing.blockedRate)}</td>}
+                {full && (
+                  <td className={`${CELL} text-right tabular-nums`}>
+                    {standing.trees.checked === 0 ? <span className="text-sm text-fg-muted">–</span> : <Share part={standing.trees.usable} whole={standing.trees.checked} />}
+                  </td>
+                )}
                 <td className={`${CELL} text-right font-mono text-label text-fg-secondary`}>{seconds(standing.medianMs)}</td>
                 {anyTrend && current && (
                   <td className={`${CELL} pr-card text-right`}>

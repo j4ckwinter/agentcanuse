@@ -1,3 +1,4 @@
+import { isTreeUsable, type TreeSummary } from '../core/tree'
 import type { Change } from '../core/diff'
 import { RELEASE_REPOS } from '../core/releases'
 import type { Category, EngineId, Origin, Outcome } from '../core/model'
@@ -91,6 +92,15 @@ export const ENGINE_COLORS: Record<EngineId, string> = {
   lightpanda: 'var(--series-2)',
   obscura: 'var(--series-3)',
   kitesurf: 'var(--status-neutral)',
+}
+
+export function treeLabel(tree: TreeSummary | null): string {
+  if (tree === null) return 'Not judged'
+  return isTreeUsable(tree) ? 'Usable' : 'Not usable'
+}
+
+export function describeTree(tree: TreeSummary): string {
+  return `${tree.namedControls} of ${tree.controls} controls named · ${tree.headings} headings · ${tree.landmarks} landmarks`
 }
 
 export function percent(value: number): string {

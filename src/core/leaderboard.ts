@@ -1,5 +1,5 @@
 import { sameSurvey, siteListFingerprint } from './comparable'
-import { isTreeUsable } from './tree'
+import { isTreeUsable, judgedTree } from './tree'
 import { CATEGORIES, OUTCOMES, type Category, type EngineId, type EngineRun, type Outcome, type Result, type Run, type RunSummary } from './model'
 
 export interface Standing {
@@ -28,7 +28,7 @@ function rate(part: number, whole: number): number {
 }
 
 function treeCounts(results: Result[]): Standing['trees'] {
-  const checked = results.flatMap((result) => (result.outcome === 'passed' && result.tree !== null ? [result.tree] : []))
+  const checked = results.flatMap((result) => judgedTree(result) ?? [])
   return { checked: checked.length, usable: checked.filter(isTreeUsable).length }
 }
 

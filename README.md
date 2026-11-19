@@ -21,6 +21,8 @@ each site in [`sites.json`](sites.json) comes with a couple of phrases a person 
 | failed | the engine errored or timed out |
 | skipped | not visited, because `robots.txt` asks us not to |
 
+it also asks each engine for the page's accessibility tree, the outline of headings, links, buttons and fields that screen readers use and plenty of agents act on. a tree counts as usable when the page has controls, at least 90% of them have a name, and there's a heading or landmark to find your way by. it's only judged on pages the engine passed, because a blocked page's tree is just the bot check, and it doesn't change the outcome.
+
 the leaderboard ranks engines by pass rate over the sites they attempted. the sites tab shows each page side by side, screenshots where the engine can paint one. the releases tab compares an engine's latest run with its last run on a different version, and lists the sites that started or stopped passing.
 
 ## what it can't tell you yet
@@ -29,7 +31,8 @@ the leaderboard ranks engines by pass rate over the sites they attempted. the si
 - **"blocked" depends on where it runs.** a run from a data centre gets blocked more than an agent on a home connection would.
 - **kitesurf isn't in the results yet.** it runs on Cloudflare Workers, its README warns against opening untrusted sites with a local copy, and hosting it needs a paid Workers plan. the runner drives it as soon as `KITESURF_ENDPOINT` points at a deployed instance.
 - **agent-browser isn't here because it isn't an engine.** it drives chromium or lightpanda, which are both already measured.
-- **thirty sites is a sample, not a census.**
+- **124 sites is a sample, not a census.**
+- **a usable tree means an agent could find what to act on,** not that clicking it would work.
 
 ## what's in it so far
 

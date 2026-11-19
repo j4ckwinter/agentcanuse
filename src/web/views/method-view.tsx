@@ -1,5 +1,6 @@
 import { BLOCKING_STATUSES, CHALLENGE_PHRASES, MIN_TEXT_LENGTH } from '../../core/judge'
 import { OUTCOMES } from '../../core/model'
+import { MIN_NAMED_CONTROLS } from '../../core/tree'
 import { NAVIGATION_TIMEOUT_MS, SETTLE_MS, VISIT_DEADLINE_MS } from '../../runner/timing'
 import { repository } from '../../../package.json'
 import { Card } from '@/components/card'
@@ -66,6 +67,18 @@ export function MethodView() {
           than {MIN_TEXT_LENGTH} characters of text. An engine error counts as failed even if some text came back.
         </p>
       </Card>
+      <Card title="The accessibility tree">
+        <Prose>
+          <p>
+            After a page loads, each engine is asked for its accessibility tree: the outline of headings, links, buttons and fields that screen readers use, and that many
+            agents act on instead of pixels.
+          </p>
+          <p>
+            A tree counts as usable when the page has controls to act on, at least {Math.round(MIN_NAMED_CONTROLS * 100)}% of them have a name, and there is a heading or
+            landmark to find your way by. It's judged only on pages the engine passed, since a blocked page's tree describes the bot check, and it doesn't change the outcome.
+          </p>
+        </Prose>
+      </Card>
       <div className="grid gap-4 lg:grid-cols-2">
         <Card title="Where runs come from">
           <Prose>
@@ -78,7 +91,7 @@ export function MethodView() {
         </Card>
         <Card title="What it can't tell you">
           <Prose>
-            <p>It only reads pages. Nothing clicks, types or fills in a form, and Kitesurf isn't measured yet.</p>
+            <p>It only reads pages. Nothing clicks, types or fills in a form, and Kitesurf isn't measured yet. A usable tree means an agent could find what to act on, not that acting on it works.</p>
             <p>The sites are a sample chosen by hand, and some results move between runs with no change to the engine, so read one site as a hint and the totals as the signal.</p>
           </Prose>
         </Card>

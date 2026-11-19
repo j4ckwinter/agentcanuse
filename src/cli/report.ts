@@ -1,6 +1,8 @@
 import type { EngineId, Result } from '../core/model'
 import type { Verdict } from '../core/verdict'
-import { VERDICT_LABELS } from '../web/labels'
+import { judgedTree } from '../core/tree'
+import { displayHost } from '../web/host'
+import { treeLabel, VERDICT_LABELS } from '../web/labels'
 
 export interface CheckedEngine {
   engine: EngineId
@@ -19,8 +21,8 @@ function pad(text: string, width: number): string {
 }
 
 export function formatReport(url: string, checked: CheckedEngine[], skipped: { engine: EngineId; reason: string }[], verdict: Verdict): string {
-  const rows = checked.map(({ engine, version, result }) => [engine, version, result.outcome, result.status === null ? '–' : String(result.status), `${(result.durationMs / 1000).toFixed(1)}s`, detail(result)])
-  const header = ['engine', 'version', 'outcome', 'status', 'time', 'detail']
+  const rows = checked.map(({ engine, version, result }) => [engine, version, result.outcome, result.status === null ? '–' : String(result.status), `${(result.durationMs / 1000).toFixed(1)}s`, treeLabel(judgedTree(result)).toLowerCase(), detail(result)])
+  const header = ['engine', 'version', 'outcome', 'status', 'time', 'tree', 'detail']
   const widths = header.map((title, column) => Math.max(title.length, ...rows.map((row) => row[column].length)))
   const line = (cells: string[]) => cells.map((cell, column) => (column === cells.length - 1 ? cell : pad(cell, widths[column]))).join('  ').trimEnd()
   return [
@@ -30,6 +32,6 @@ export function formatReport(url: string, checked: CheckedEngine[], skipped: { e
     ...rows.map(line),
     ...skipped.map(({ engine, reason }) => `${engine}: not run (${reason})`),
     '',
-    `${VERDICT_LABELS[verdict].label}. ${VERDICT_LABELS[verdict].sentence(new URL(url).hostname.replace(/^www\./, ''))}`,
+    `${VERDICT_LABELS[verdict].label}. ${VERDICT_LABELS[verdict].sentence(displayHost(url))}`,
   ].join('\n')
 }

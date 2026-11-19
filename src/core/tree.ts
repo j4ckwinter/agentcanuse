@@ -1,3 +1,5 @@
+import type { Result } from './model'
+
 export interface TreeNode {
   role: string
   name: string
@@ -30,4 +32,8 @@ export function summariseTree(nodes: TreeNode[]): TreeSummary {
 
 export function isTreeUsable(tree: TreeSummary): boolean {
   return tree.controls > 0 && tree.namedControls / tree.controls >= MIN_NAMED_CONTROLS && tree.headings + tree.landmarks > 0
+}
+
+export function judgedTree(result: Pick<Result, 'outcome' | 'tree'>): TreeSummary | null {
+  return result.outcome === 'passed' ? result.tree : null
 }

@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { isFlaky, siteHistory } from '../../core/history'
 import type { EngineRun, Result, Run, RunSummary, Site } from '../../core/model'
+import { judgedTree, type TreeSummary } from '../../core/tree'
 import type { Verdict } from '../../core/verdict'
 import { Card } from '@/components/card'
 import { CopyButton } from '@/components/copy-button'
@@ -12,7 +13,7 @@ import { PageHeader } from '@/components/page-header'
 import { VerdictLabel } from '@/components/verdict-label'
 import { shotUrl } from '@/data'
 import { Tooltip } from '@/components/tooltip'
-import { CATEGORY_LABELS, ENGINE_INFO, OUTCOME_LABELS, seconds, shortDate, VERDICT_LABELS } from '@/labels'
+import { CATEGORY_LABELS, ENGINE_INFO, OUTCOME_LABELS, describeTree, seconds, shortDate, treeLabel, VERDICT_LABELS } from '@/labels'
 import { reproduceCommand } from '@/reproduce'
 import { useHistory } from '@/use-history'
 import { resultFor } from '@/results'
@@ -48,6 +49,15 @@ function Fact({ label, children }: { label: string; children: React.ReactNode })
   )
 }
 
+function TreeFact({ tree }: { tree: TreeSummary | null }) {
+  return (
+    <Fact label="Accessibility tree">
+      {treeLabel(tree)}
+      {tree !== null && <span className="block text-caption text-fg-muted">{describeTree(tree)}</span>}
+    </Fact>
+  )
+}
+
 function EngineColumn({ engine, result, engineHref }: { engine: EngineRun; result: Result; engineHref: string }) {
   const missing = result.outcome === 'skipped' ? [] : result.missing
   return (
@@ -68,6 +78,7 @@ function EngineColumn({ engine, result, engineHref }: { engine: EngineRun; resul
         <Fact label="Time">{seconds(result.durationMs || null)}</Fact>
         <Fact label="Text read">{result.textLength.toLocaleString('en-GB')} characters</Fact>
         <Fact label="Missing">{missing.length === 0 ? 'Nothing' : missing.map((phrase) => `“${phrase}”`).join(', ')}</Fact>
+        <TreeFact tree={judgedTree(result)} />
         {result.error !== null && <Fact label="Error">{result.error}</Fact>}
       </dl>
       <Screenshot result={result} />

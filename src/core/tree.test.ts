@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { isTreeUsable, summariseTree, type TreeNode } from './tree'
+import { isTreeUsable, judgedTree, summariseTree, type TreeNode } from './tree'
 
 function node(role: string, name = '', ignored = false): TreeNode {
   return { role, name, ignored }
@@ -30,5 +30,18 @@ describe('isTreeUsable', () => {
 
   it('rejects a tree with no headings or landmarks', () => {
     expect(isTreeUsable({ ...base, headings: 0, landmarks: 0 })).toBe(false)
+  })
+})
+
+describe('judgedTree', () => {
+  const tree = { nodes: 10, controls: 2, namedControls: 2, headings: 1, landmarks: 0 }
+
+  it('judges the tree of a page the engine passed', () => {
+    expect(judgedTree({ outcome: 'passed', tree })).toBe(tree)
+  })
+
+  it('ignores the tree of a blocked or incomplete page, which describes a bot check or a partial page', () => {
+    expect(judgedTree({ outcome: 'blocked', tree })).toBeNull()
+    expect(judgedTree({ outcome: 'incomplete', tree })).toBeNull()
   })
 })

@@ -77,19 +77,25 @@ function messageOf(error: unknown): string {
   return error instanceof Error ? error.message : String(error)
 }
 
-async function open(id: EngineId, options: Options): Promise<Session | string> {
+type Refusal = { reason: string; expected: boolean }
+
+function isSession(opened: Session | Refusal): opened is Session {
+  return 'browser' in opened
+}
+
+async function open(id: EngineId, options: Options): Promise<Session | Refusal> {
   let launch
   try {
     launch = await launchEngine(id, options.pins, options.cacheDir, options.port)
   } catch (error) {
-    return `Could not start: ${messageOf(error)}`
+    return { reason: `Could not start: ${messageOf(error)}`, expected: false }
   }
-  if ('unavailable' in launch) return launch.unavailable
+  if ('unavailable' in launch) return { reason: launch.unavailable, expected: true }
   try {
     return { engine: launch.engine, browser: await connect(launch.engine.endpoint) }
   } catch (error) {
     await launch.engine.stop()
-    return `Could not connect: ${messageOf(error)}`
+    return { reason: `Could not connect: ${messageOf(error)}`, expected: false }
   }
 }
 
@@ -110,9 +116,9 @@ async function thumbnail(options: Options, runId: string, id: EngineId, site: Si
 
 async function surveyEngine(id: EngineId, sites: Site[], permitted: Set<string>, runId: string, options: Options) {
   let session = await open(id, options)
-  if (typeof session === 'string') {
-    console.log(`${id}: not run (${session})`)
-    return null
+  if (!isSession(session)) {
+    console.log(`${id}: not run (${session.reason})`)
+    return session
   }
   const engine: EngineRun = { id, version: session.engine.version }
   console.log(`${id} ${engine.version}`)
@@ -124,13 +130,13 @@ async function surveyEngine(id: EngineId, sites: Site[], permitted: Set<string>,
         results.push(skipped(site, id, ROBOTS_REFUSAL))
         continue
       }
-      if (typeof session === 'string' || needsRestart || !session.browser.connected) {
-        if (typeof session !== 'string') await close(session)
+      if (!isSession(session) || needsRestart || !session.browser.connected) {
+        if (isSession(session)) await close(session)
         session = await open(id, options)
         needsRestart = false
       }
-      if (typeof session === 'string') {
-        results.push(skipped(site, id, `Engine could not restart: ${session}`))
+      if (!isSession(session)) {
+        results.push(skipped(site, id, `Engine could not restart: ${session.reason}`))
         continue
       }
       const capture = await visitPage(session.browser, site.url)
@@ -140,7 +146,7 @@ async function surveyEngine(id: EngineId, sites: Site[], permitted: Set<string>,
       console.log(`  ${result.outcome.padEnd(10)} ${site.id} ${result.error ?? ''}`)
     }
   } finally {
-    if (typeof session !== 'string') await close(session)
+    if (isSession(session)) await close(session)
   }
   return { engine, results }
 }
@@ -154,12 +160,17 @@ async function main(): Promise<void> {
   const permitted = await permittedSites(sites)
   const engines: EngineRun[] = []
   const results: Result[] = []
+  const failures: string[] = []
   for (const id of options.engines) {
     const survey = await surveyEngine(id, sites, permitted, runId, options)
-    if (survey === null) continue
+    if ('reason' in survey) {
+      if (!survey.expected) failures.push(`${id}: ${survey.reason}`)
+      continue
+    }
     engines.push(survey.engine)
     results.push(...survey.results)
   }
+  if (failures.length > 0) throw new Error(`Not saving a run with missing engines.\n${failures.join('\n')}`)
   if (engines.length === 0) throw new Error('No engine ran')
   await saveRun(options.dataDir, { id: runId, startedAt: startedAt.toISOString(), origin: options.origin, engines, sites, results })
   console.log(`Saved run ${runId}`)

@@ -11,4 +11,5 @@ it('reads a run saved before trees were captured as having no tree for each visi
     results: [{ site: 'a', engine: 'chromium', outcome: 'passed', status: 200, title: '', excerpt: '', found: [], missing: [], textLength: 900, linkCount: 3, durationMs: 1000, error: null, shot: null }],
   }
   expect(fromStored(stored).results[0].tree).toBeNull()
+  expect(fromStored(stored).results[0].hidden).toBeNull()
 })

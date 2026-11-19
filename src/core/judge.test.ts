@@ -13,7 +13,7 @@ const site: Site = {
 const longText = 'Albert Einstein developed the theory of relativity and won the Nobel Prize in Physics. '.repeat(5)
 
 function visit(overrides: Partial<Visit> = {}): Visit {
-  return { status: 200, title: 'Albert Einstein', text: longText, linkCount: 12, durationMs: 840, error: null, tree: null, ...overrides }
+  return { status: 200, title: 'Albert Einstein', text: longText, linkCount: 12, durationMs: 840, error: null, tree: null, hiddenText: null, ...overrides }
 }
 
 describe('judge', () => {

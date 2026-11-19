@@ -18,6 +18,7 @@ function result(site: string, engine: EngineId, outcome: Outcome): Result {
     error: null,
     shot: null,
     tree: null,
+    hidden: null,
   }
 }
 

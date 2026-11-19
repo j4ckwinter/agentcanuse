@@ -56,6 +56,31 @@ async function readTree(page: Page): Promise<TreeNode[] | null> {
   }
 }
 
+const MAX_HIDDEN_CANDIDATES = 200
+
+async function readHiddenText(page: Page): Promise<string[] | null> {
+  try {
+    return await page.evaluate((limit) => {
+      const skipped = ['SCRIPT', 'STYLE', 'NOSCRIPT', 'TEMPLATE', 'svg']
+      const found: string[] = []
+      const pending: Element[] = document.body === null ? [] : Array.from(document.body.children)
+      while (pending.length > 0 && found.length < limit) {
+        const element = pending.shift() as Element
+        if (skipped.includes(element.tagName)) continue
+        if (element.checkVisibility({ visibilityProperty: true })) {
+          pending.push(...Array.from(element.children))
+          continue
+        }
+        const text = element.textContent?.trim() ?? ''
+        if (text !== '') found.push(text)
+      }
+      return found
+    }, MAX_HIDDEN_CANDIDATES)
+  } catch {
+    return null
+  }
+}
+
 async function screenshotOf(page: Page): Promise<Uint8Array | null> {
   try {
     return await page.screenshot({ type: 'png' })
@@ -64,7 +89,11 @@ async function screenshotOf(page: Page): Promise<Uint8Array | null> {
   }
 }
 
-async function capture(page: Page, url: string): Promise<Capture> {
+export interface VisitOptions {
+  collectHidden: boolean
+}
+
+async function capture(page: Page, url: string, options: VisitOptions): Promise<Capture> {
   const started = performance.now()
   try {
     await page.setViewport(VIEWPORT).catch(() => undefined)
@@ -73,14 +102,14 @@ async function capture(page: Page, url: string): Promise<Capture> {
     const content = await readContent(page)
     const durationMs = Math.round(performance.now() - started)
     return {
-      visit: { status: response?.status() ?? null, ...content, durationMs, error: null, tree: await readTree(page) },
+      visit: { status: response?.status() ?? null, ...content, durationMs, error: null, tree: await readTree(page), hiddenText: options.collectHidden ? await readHiddenText(page) : null },
       screenshot: await screenshotOf(page),
       stalled: false,
     }
   } catch (error) {
     const durationMs = Math.round(performance.now() - started)
     return {
-      visit: { status: null, title: '', text: '', linkCount: 0, durationMs, error: messageOf(error), tree: null },
+      visit: { status: null, title: '', text: '', linkCount: 0, durationMs, error: messageOf(error), tree: null, hiddenText: null },
       screenshot: null,
       stalled: false,
     }
@@ -90,23 +119,23 @@ async function capture(page: Page, url: string): Promise<Capture> {
 async function deadline(ms: number, signal: AbortSignal): Promise<Capture> {
   await delay(ms, undefined, { signal })
   return {
-    visit: { status: null, title: '', text: '', linkCount: 0, durationMs: ms, error: `No answer within ${ms / 1000}s`, tree: null },
+    visit: { status: null, title: '', text: '', linkCount: 0, durationMs: ms, error: `No answer within ${ms / 1000}s`, tree: null, hiddenText: null },
     screenshot: null,
     stalled: true,
   }
 }
 
-export async function visitPage(browser: Browser, url: string): Promise<Capture> {
+export async function visitPage(browser: Browser, url: string, options: VisitOptions = { collectHidden: false }): Promise<Capture> {
   let close: () => Promise<unknown> = async () => {}
   const timers = new AbortController()
   try {
     const context = await browser.createBrowserContext()
     close = () => context.close()
     const page = await context.newPage()
-    return await Promise.race([capture(page, url), deadline(VISIT_DEADLINE_MS, timers.signal)])
+    return await Promise.race([capture(page, url, options), deadline(VISIT_DEADLINE_MS, timers.signal)])
   } catch (error) {
     return {
-      visit: { status: null, title: '', text: '', linkCount: 0, durationMs: 0, error: messageOf(error), tree: null },
+      visit: { status: null, title: '', text: '', linkCount: 0, durationMs: 0, error: messageOf(error), tree: null, hiddenText: null },
       screenshot: null,
       stalled: true,
     }

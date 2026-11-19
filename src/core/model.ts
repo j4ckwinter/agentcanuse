@@ -1,3 +1,4 @@
+import type { HiddenReads } from './hidden'
 import type { TreeNode, TreeSummary } from './tree'
 
 export const ENGINE_IDS = ['chromium', 'lightpanda', 'obscura', 'kitesurf'] as const
@@ -28,6 +29,7 @@ export interface Visit {
   durationMs: number
   error: string | null
   tree: TreeNode[] | null
+  hiddenText: string[] | null
 }
 
 export interface Result {
@@ -45,6 +47,7 @@ export interface Result {
   error: string | null
   shot: string | null
   tree: TreeSummary | null
+  hidden: HiddenReads | null
 }
 
 export interface EngineRun {

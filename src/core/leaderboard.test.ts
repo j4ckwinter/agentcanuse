@@ -19,6 +19,7 @@ function result(engine: EngineId, site: string, outcome: Outcome, durationMs = 1
     error: null,
     shot: null,
     tree: null,
+    hidden: null,
   }
 }
 

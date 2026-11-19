@@ -1,5 +1,7 @@
 import { parseArgs } from 'node:util'
 import type { Browser } from 'puppeteer-core'
+import { REFERENCE_ENGINE } from '../core/agreement'
+import { hiddenSample, textKey, withHiddenReads, type HiddenEvidence } from '../core/hidden'
 import { judge, skipped } from '../core/judge'
 import { ENGINE_IDS, ORIGINS, type EngineId, type EngineRun, type Origin, type Result, type Site } from '../core/model'
 import { runIdAt } from '../core/run-id'
@@ -114,7 +116,7 @@ async function thumbnail(options: Options, runId: string, id: EngineId, site: Si
   }
 }
 
-async function surveyEngine(id: EngineId, sites: Site[], permitted: Set<string>, runId: string, options: Options) {
+async function surveyEngine(id: EngineId, sites: Site[], permitted: Set<string>, runId: string, options: Options, evidence: HiddenEvidence) {
   let session = await open(id, options)
   if (!isSession(session)) {
     console.log(`${id}: not run (${session.reason})`)
@@ -139,10 +141,14 @@ async function surveyEngine(id: EngineId, sites: Site[], permitted: Set<string>,
         results.push(skipped(site, id, `Engine could not restart: ${session.reason}`))
         continue
       }
-      const capture = await visitPage(session.browser, site.url)
+      const capture = await visitPage(session.browser, site.url, { collectHidden: id === REFERENCE_ENGINE })
       needsRestart = capture.stalled
       const result = judge(site, id, capture.visit, await thumbnail(options, runId, id, site, capture.screenshot))
       results.push(result)
+      if (result.outcome === 'passed') {
+        evidence.texts.set(textKey(site.id, id), capture.visit.text)
+        if (capture.visit.hiddenText !== null) evidence.samples.set(site.id, hiddenSample(capture.visit.hiddenText, capture.visit.text))
+      }
       console.log(`  ${result.outcome.padEnd(10)} ${site.id} ${result.error ?? ''}`)
     }
   } finally {
@@ -161,8 +167,9 @@ async function main(): Promise<void> {
   const engines: EngineRun[] = []
   const results: Result[] = []
   const failures: string[] = []
+  const evidence: HiddenEvidence = { samples: new Map(), texts: new Map() }
   for (const id of options.engines) {
-    const survey = await surveyEngine(id, sites, permitted, runId, options)
+    const survey = await surveyEngine(id, sites, permitted, runId, options, evidence)
     if ('reason' in survey) {
       if (!survey.expected) failures.push(`${id}: ${survey.reason}`)
       continue
@@ -172,7 +179,7 @@ async function main(): Promise<void> {
   }
   if (failures.length > 0) throw new Error(`Not saving a run with missing engines.\n${failures.join('\n')}`)
   if (engines.length === 0) throw new Error('No engine ran')
-  await saveRun(options.dataDir, { id: runId, startedAt: startedAt.toISOString(), origin: options.origin, engines, sites, results })
+  await saveRun(options.dataDir, { id: runId, startedAt: startedAt.toISOString(), origin: options.origin, engines, sites, results: withHiddenReads(results, evidence) })
   console.log(`Saved run ${runId}`)
 }
 

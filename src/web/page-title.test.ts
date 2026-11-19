@@ -16,7 +16,7 @@ const run = {
 } satisfies Run
 
 function visit(engine: EngineId, outcome: Outcome): Result {
-  return { site: 'zillow', engine, outcome, status: 200, title: '', excerpt: '', found: [], missing: [], textLength: 0, linkCount: 0, durationMs: 1000, error: null, shot: null, tree: null }
+  return { site: 'zillow', engine, outcome, status: 200, title: '', excerpt: '', found: [], missing: [], textLength: 0, linkCount: 0, durationMs: 1000, error: null, shot: null, tree: null, hidden: null }
 }
 
 describe('pageTitle', () => {

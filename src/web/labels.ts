@@ -1,3 +1,4 @@
+import { readsHidden, type HiddenReads } from '../core/hidden'
 import { isTreeUsable, type TreeSummary } from '../core/tree'
 import type { Change } from '../core/diff'
 import { RELEASE_REPOS } from '../core/releases'
@@ -97,6 +98,15 @@ export const ENGINE_COLORS: Record<EngineId, string> = {
 export function treeLabel(tree: TreeSummary | null): string {
   if (tree === null) return 'Not judged'
   return isTreeUsable(tree) ? 'Usable' : 'Not usable'
+}
+
+export function hiddenLabel(hidden: HiddenReads | null): string {
+  if (hidden === null) return 'Not judged'
+  return readsHidden(hidden) ? 'Reads it' : 'Skips it'
+}
+
+export function describeHidden(hidden: HiddenReads): string {
+  return `${hidden.read} of ${hidden.sampled} hidden pieces read`
 }
 
 export function describeTree(tree: TreeSummary): string {

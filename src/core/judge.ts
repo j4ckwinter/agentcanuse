@@ -55,6 +55,7 @@ export function judge(site: Site, engine: EngineId, visit: Visit, shot: string |
     error: visit.error,
     shot,
     tree: visit.tree === null ? null : summariseTree(visit.tree),
+    hidden: null,
   }
 }
 
@@ -74,5 +75,6 @@ export function skipped(site: Site, engine: EngineId, reason: string): Result {
     error: reason,
     shot: null,
     tree: null,
+    hidden: null,
   }
 }

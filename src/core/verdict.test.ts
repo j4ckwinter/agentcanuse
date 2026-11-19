@@ -3,7 +3,7 @@ import type { EngineId, Outcome, Result } from './model'
 import { comparedVerdict, verdictFor, verdictsBySite } from './verdict'
 
 function result(engine: EngineId, outcome: Outcome, site = 'site'): Result {
-  return { site, engine, outcome, status: 200, title: '', excerpt: '', found: [], missing: [], textLength: 0, linkCount: 0, durationMs: 0, error: null, shot: null, tree: null }
+  return { site, engine, outcome, status: 200, title: '', excerpt: '', found: [], missing: [], textLength: 0, linkCount: 0, durationMs: 0, error: null, shot: null, tree: null, hidden: null }
 }
 const verdict = (chromium: Outcome, lightpanda: Outcome, obscura: Outcome) =>
   verdictFor([result('chromium', chromium), result('lightpanda', lightpanda), result('obscura', obscura)])

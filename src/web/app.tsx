@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { Run, RunSummary } from '../core/model'
 import { Code } from 'lucide-react'
+import { cn } from '@/lib/utils'
 import { repository } from '../../package.json'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { BRAND_NAME, MARK_POINTER, MARK_POINTER_COLOR, MARK_RADIUS, MARK_TRAIL, MARK_TRAIL_WIDTH, MARK_VIEWBOX } from '@/brand'
@@ -85,13 +86,13 @@ function TopBar({ route, ready, navigate }: TopBarProps) {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-page/85 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-page items-center gap-2 px-4 sm:px-6">
-        <a href={routeHash(sectionRoute('home', route.run))} className="flex items-center gap-2.5 rounded-md pr-1 text-sm font-semibold">
+        <a href={routeHash(sectionRoute('home', route.run))} className="flex shrink-0 items-center gap-2.5 rounded-md pr-1 text-sm font-semibold whitespace-nowrap">
           <Mark />
           {BRAND_NAME}
         </a>
         {ready && (
           <>
-            <span className="text-faint" aria-hidden="true">
+            <span className="hidden text-faint sm:inline" aria-hidden="true">
               /
             </span>
             <RunPicker runs={ready.runs} current={ready.run.id} onPick={(id) => navigate(withRun(route, id === ready.runs[0].id ? null : id))} />
@@ -103,7 +104,7 @@ function TopBar({ route, ready, navigate }: TopBarProps) {
               <SiteSearch run={ready.run} siteHref={(site) => routeHash({ view: 'sites', run: route.run, site, filter: NO_FILTER })} />
             </div>
           )}
-          <a href={repository.url} aria-label="Source on GitHub" title="Source on GitHub" className={ICON_BUTTON}>
+          <a href={repository.url} aria-label="Source on GitHub" title="Source on GitHub" className={cn(ICON_BUTTON, 'hidden sm:inline-flex')}>
             <Code className="size-4" />
           </a>
           <ThemeToggle className={ICON_BUTTON} />

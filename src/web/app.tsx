@@ -7,6 +7,7 @@ import { BRAND_NAME, MARK_POINTER, MARK_POINTER_COLOR, MARK_RADIUS, MARK_TRAIL, 
 import { loadIndex, loadRun } from '@/data'
 import { routeHash, useRoute, type Route } from '@/route'
 import { NO_FILTER } from '@/site-filter'
+import { pageTitle } from '@/page-title'
 import { EngineView } from '@/views/engine-view'
 import { Footer } from '@/views/footer'
 import { OverviewView } from '@/views/overview-view'
@@ -192,6 +193,10 @@ export function App() {
   const run = useRun(runId)
   const error = (index !== null && 'error' in index && index.error) || (run !== null && 'error' in run && run.error) || null
   const ready = runs !== null && run !== null && 'value' in run ? { runs, run: run.value } : null
+  const title = pageTitle(route, ready?.run ?? null)
+  useEffect(() => {
+    document.title = title
+  }, [title])
 
   return (
     <div className="flex min-h-svh flex-col">

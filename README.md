@@ -92,3 +92,5 @@ engines download into `.cache/engines` the first time. a run writes `public/data
 ## being polite
 
 every engine visits each site once per run, one page at a time. before any of that, the runner asks `robots.txt` whether `agentcanuse` may visit, and skips the site if not, or if it can't tell. the engines run their standard builds, never a stealth mode: getting blocked is one of the things it measures.
+
+the site itself counts page views with Vercel Web Analytics, which uses no cookies. it records which page was viewed, not which run or filters.

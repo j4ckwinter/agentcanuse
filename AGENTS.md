@@ -51,6 +51,7 @@ Each decision has one owner. Put new code with the owner of the decision it make
 | The `agentcanuse check` command: its options and the order of a check | `src/cli/main.ts`, launched by `bin/agentcanuse.mjs` |
 | How a check's results are printed | `src/cli/report.ts` |
 | Loading runs in the page | `src/web/data.ts` |
+| What a page view records: one view per page, by pattern and path, without the run or filters | `src/web/analytics.ts` |
 | Wording for engines, outcomes, verdicts, categories and changes; each outcome's mark and status colour; each engine's series colour | `src/web/labels.ts` |
 | How each outcome mark is drawn | `src/web/components/outcome-mark.tsx` |
 | Design tokens: the palette (surfaces, text, series, status, sequential ramp), type scale, card spacing, cell radius, page and table widths, screenshot ratio, light and dark, high contrast and motion | `src/web/index.css` |

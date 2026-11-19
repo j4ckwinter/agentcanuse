@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import type { Run, RunSummary } from '../core/model'
 import { Code } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { pageViewFor, recordView } from '@/analytics'
 import { repository } from '../../package.json'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { BRAND_NAME, MARK_POINTER, MARK_POINTER_COLOR, MARK_RADIUS, MARK_TRAIL, MARK_TRAIL_WIDTH, MARK_VIEWBOX } from '@/brand'
@@ -176,6 +177,10 @@ export function App() {
   useEffect(() => {
     document.title = title
   }, [title])
+  const view = pageViewFor(route)
+  useEffect(() => {
+    recordView({ route: view.route, path: view.path })
+  }, [view.route, view.path])
 
   return (
     <div className="flex min-h-svh flex-col">

@@ -4,7 +4,7 @@
 
 **caniuse, but for the browsers ai agents use.** see it at [agentcanuse.com](https://agentcanuse.com).
 
-<img src="docs/demo.gif" alt="Agent Can Use: the overview's answer and category guide, the engines table with usable trees, Zillow read side by side by Chromium, Lightpanda and Obscura, then Obscura's release diff with two sites now passing" width="900">
+<img src="docs/demo.gif" alt="Agent Can Use: the overview's answer and category guide, the engines table with usable trees, Zillow read side by side by Chromium, Lightpanda and Obscura, then Obscura's release diff with React docs now passing" width="900">
 
 </div>
 

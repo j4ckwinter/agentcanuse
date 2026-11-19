@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
-import { Check, ChevronLeft, ChevronRight, Copy, ImageOff } from 'lucide-react'
+import { useEffect, useRef } from 'react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { isFlaky, siteHistory } from '../../core/history'
 import type { EngineRun, Result, Run, RunSummary, Site } from '../../core/model'
 import type { Verdict } from '../../core/verdict'
 import { Card } from '@/components/card'
+import { CopyButton } from '@/components/copy-button'
 import { EngineDot } from '@/components/engine-dot'
 import { displayHost } from '@/host'
 import { OutcomeLabel, OutcomeMark } from '@/components/outcome-mark'
@@ -17,13 +18,23 @@ import { useHistory } from '@/use-history'
 import { resultFor } from '@/results'
 
 function Screenshot({ result }: { result: Result }) {
-  if (result.shot !== null) {
-    return <img src={shotUrl(result.shot)} alt="" className="aspect-screenshot w-full border-b border-line object-cover object-top" />
-  }
+  if (result.shot === null) return null
+  return <img src={shotUrl(result.shot)} alt={`What ${ENGINE_INFO[result.engine].name} saw`} className="aspect-screenshot w-full border-t border-line object-cover object-top" />
+}
+
+function WhatItRead({ result }: { result: Result }) {
+  if (result.outcome === 'skipped') return null
   return (
-    <div className="flex aspect-screenshot w-full flex-col items-center justify-center gap-2 border-b border-line bg-raised p-4 text-center text-caption text-fg-muted">
-      <ImageOff className="size-4" />
-      {result.excerpt === '' ? 'No screenshot or text' : <p className="line-clamp-5 text-left">{result.excerpt}</p>}
+    <div className="border-b border-line px-4 py-3">
+      <p className="mb-1.5 text-caption text-fg-muted">What it read</p>
+      {result.excerpt === '' ? (
+        <p className="text-label text-fg-muted">Nothing readable came back.</p>
+      ) : (
+        <p className="max-h-32 overflow-y-auto font-mono text-micro leading-relaxed whitespace-pre-wrap text-fg-secondary">
+          {result.excerpt}
+          {result.excerpt.length < result.textLength && '…'}
+        </p>
+      )}
     </div>
   )
 }
@@ -48,7 +59,7 @@ function EngineColumn({ engine, result, engineHref }: { engine: EngineRun; resul
         </a>
         <OutcomeLabel outcome={result.outcome} />
       </header>
-      <Screenshot result={result} />
+      <WhatItRead result={result} />
       <dl className="px-4 py-2">
         <Fact label="Version">
           <span className="font-mono text-caption">{engine.version}</span>
@@ -59,14 +70,7 @@ function EngineColumn({ engine, result, engineHref }: { engine: EngineRun; resul
         <Fact label="Missing">{missing.length === 0 ? 'Nothing' : missing.map((phrase) => `“${phrase}”`).join(', ')}</Fact>
         {result.error !== null && <Fact label="Error">{result.error}</Fact>}
       </dl>
-      {result.excerpt !== '' && (
-        <details className="group border-t border-line px-4 py-2.5">
-          <summary className="cursor-pointer text-caption font-medium text-fg-secondary marker:text-fg-muted hover:text-fg">What it read</summary>
-          <p className="mt-2 max-h-48 overflow-y-auto font-mono text-micro leading-relaxed whitespace-pre-wrap text-fg-secondary">{result.excerpt}
-            {result.excerpt.length < result.textLength && '…'}
-          </p>
-        </details>
-      )}
+      <Screenshot result={result} />
     </section>
   )
 }
@@ -155,33 +159,16 @@ function HistoryCard({ site, history, engines }: { site: Site; history: Run[] | 
 
 function ReproduceCard({ site }: { site: Site }) {
   const command = reproduceCommand(site)
-  const [copied, setCopied] = useState(false)
-  const copy = () => {
-    navigator.clipboard
-      ?.writeText(command)
-      .then(() => {
-        setCopied(true)
-        window.setTimeout(() => setCopied(false), COPIED_MS)
-      })
-      .catch(() => setCopied(false))
-  }
   return (
     <Card
       title="Reproduce this"
       description="Run the same check on your own machine. It downloads each engine, visits the page once, and prints the result."
-      action={
-        <button type="button" onClick={copy} className="inline-flex h-8 items-center gap-1.5 rounded-md border border-line bg-surface px-2.5 text-label font-medium text-fg-secondary hover:bg-hover hover:text-fg">
-          {copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
-          {copied ? 'Copied' : 'Copy'}
-        </button>
-      }
+      action={<CopyButton text={() => command} label="Copy" />}
     >
       <pre className="rounded-md border border-line bg-raised px-3 py-2.5 font-mono text-caption break-all whitespace-pre-wrap">{command}</pre>
     </Card>
   )
 }
-
-const COPIED_MS = 1500
 
 interface SiteComparisonProps {
   run: Run
@@ -200,9 +187,12 @@ export function SiteComparison({ run, site, verdict, runs, links }: SiteComparis
         back={{ href: links.back, label: links.list === 'All sites' ? 'Sites' : `Sites · ${links.list}` }}
         title={site.name}
         description={
-          <a href={site.url} className="hover:underline">
-            {displayHost(site.url)}
-          </a>
+          <span className="flex flex-wrap items-center gap-3">
+            <a href={site.url} className="hover:underline">
+              {displayHost(site.url)}
+            </a>
+            <CopyButton text={() => window.location.href} label="Copy link" />
+          </span>
         }
         aside={
           <nav aria-label="Other sites" className="flex shrink-0 items-center gap-2">

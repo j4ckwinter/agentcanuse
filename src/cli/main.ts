@@ -1,16 +1,16 @@
 import { homedir } from 'node:os'
 import { join } from 'node:path'
-import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
 import { judge } from '../core/judge'
 import { ENGINE_IDS, type EngineId, type Site } from '../core/model'
 import { verdictFor } from '../core/verdict'
-import { isEngineId, loadPins } from '../runner/config'
+import enginePins from '../../engines.json'
+import { isEngineId, pinsFrom } from '../runner/config'
 import { freePort, launchEngine } from '../runner/engines'
 import { connect, visitPage } from '../runner/visit'
 import { formatReport, type CheckedEngine, type SkippedEngine } from './report'
 
-const PINS = fileURLToPath(new URL('../../engines.json', import.meta.url))
+const PINS = pinsFrom(enginePins, 'engines.json')
 const USAGE = `Usage: agentcanuse check <url> [--engine <id>]... [--expect <phrase>]... [--json]
 
 Visits the page once with each engine and prints how each did.
@@ -61,7 +61,7 @@ function readArguments() {
 type Checked = { checked: CheckedEngine } | { skipped: string }
 
 async function check(id: EngineId, site: Site, cacheDir: string): Promise<Checked> {
-  const launch = await launchEngine(id, await loadPins(PINS), cacheDir, await freePort())
+  const launch = await launchEngine(id, PINS, cacheDir, await freePort())
   if ('unavailable' in launch) return { skipped: launch.unavailable }
   try {
     const browser = await connect(launch.engine.endpoint)

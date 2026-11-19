@@ -16,15 +16,18 @@ export async function loadSites(path: string): Promise<Site[]> {
   return sites
 }
 
-export async function loadPins(path: string): Promise<Pins> {
-  const raw = JSON.parse(await readFile(path, 'utf8')) as Record<string, { version: string }>
+export function pinsFrom(raw: Partial<Record<string, { version: string }>>, source: string): Pins {
   return Object.fromEntries(
     ENGINE_IDS.map((id) => {
       const entry = raw[id]
-      if (entry === undefined) throw new Error(`${path} has no entry for ${id}`)
+      if (entry === undefined) throw new Error(`${source} has no entry for ${id}`)
       return [id, entry.version]
     }),
   ) as Pins
+}
+
+export async function loadPins(path: string): Promise<Pins> {
+  return pinsFrom(JSON.parse(await readFile(path, 'utf8')) as Record<string, { version: string }>, path)
 }
 
 export async function savePins(path: string, pins: Pins): Promise<void> {

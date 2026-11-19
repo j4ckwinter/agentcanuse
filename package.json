@@ -1,14 +1,29 @@
 {
   "name": "agentcanuse",
-  "private": true,
+  "version": "0.1.0",
+  "description": "check whether the browsers ai agents use can read a page: chromium, lightpanda and obscura, side by side",
+  "license": "MIT",
+  "homepage": "https://agentcanuse.com",
   "repository": {
     "type": "git",
     "url": "https://github.com/j4ckwinter/agentcanuse"
   },
+  "keywords": [
+    "ai-agents",
+    "headless-browser",
+    "lightpanda",
+    "obscura",
+    "chromium",
+    "accessibility",
+    "benchmark"
+  ],
   "type": "module",
   "bin": {
-    "agentcanuse": "bin/agentcanuse.mjs"
+    "agentcanuse": "cli/agentcanuse.mjs"
   },
+  "files": [
+    "cli"
+  ],
   "engines": {
     "node": ">=22.12.0"
   },
@@ -23,33 +38,36 @@
     "tidy": "tsx src/runner/tidy.ts",
     "watch-releases": "tsx src/runner/watch.ts",
     "brand": "tsx scripts/brand-assets.ts",
-    "check-site": "node bin/agentcanuse.mjs check"
+    "check-site": "tsx src/cli/main.ts check",
+    "build:cli": "esbuild src/cli/main.ts --bundle --platform=node --format=esm --target=node22 --packages=external --banner:js='#!/usr/bin/env node' --outfile=cli/agentcanuse.mjs",
+    "prepublishOnly": "npm run check && npm run build:cli"
   },
   "dependencies": {
+    "@puppeteer/browsers": "3.2.7",
+    "puppeteer-core": "25.18.1"
+  },
+  "devDependencies": {
     "@fontsource-variable/geist": "^5.3.0",
     "@fontsource-variable/geist-mono": "5.3.0",
-    "@puppeteer/browsers": "3.2.7",
+    "@tailwindcss/vite": "4.3.5",
+    "@types/node": "26.6.6",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
     "@vercel/analytics": "2.0.1",
+    "@vitejs/plugin-react": "6.3.0",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.5.2",
+    "esbuild": "0.28.2",
     "lucide-react": "^1.76.0",
-    "puppeteer-core": "25.18.1",
     "radix-ui": "^1.8.1",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "robots-parser": "3.0.1",
     "shadcn": "^4.23.0",
     "sharp": "0.35.5",
-    "tsx": "4.23.15",
-    "tw-animate-css": "^1.4.0"
-  },
-  "devDependencies": {
-    "@tailwindcss/vite": "4.3.5",
-    "@types/node": "26.6.6",
-    "@types/react": "19.3.0",
-    "@types/react-dom": "19.3.0",
-    "@vitejs/plugin-react": "6.3.0",
     "tailwindcss": "4.3.5",
+    "tsx": "4.23.15",
+    "tw-animate-css": "^1.4.0",
     "typescript": "7.0.2",
     "vite": "8.3.8",
     "vitest": "5.1.1"

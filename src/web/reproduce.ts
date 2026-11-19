@@ -1,15 +1,14 @@
 import type { EngineId, Site } from '../core/model'
-import { repository } from '../../package.json'
+import { name } from '../../package.json'
 
-export const NPX_ALLOW_GIT = '--allow-git=root'
-export const CLI_PACKAGE = `github:${new URL(repository.url).pathname.replace(/^\//, '')}`
+export const CLI_PACKAGE = name
 
 function quoted(value: string): string {
   return /^[\w./:@-]+$/.test(value) ? value : `'${value.replaceAll("'", `'\\''`)}'`
 }
 
 export function reproduceCommand(site: Pick<Site, 'url' | 'expect'>, engine?: EngineId): string {
-  const parts = ['npx', NPX_ALLOW_GIT, CLI_PACKAGE, 'check', quoted(site.url)]
+  const parts = ['npx', CLI_PACKAGE, 'check', quoted(site.url)]
   if (engine) parts.push('--engine', engine)
   for (const phrase of site.expect) parts.push(`--expect=${quoted(phrase)}`)
   return parts.join(' ')

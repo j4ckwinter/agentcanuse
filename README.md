@@ -13,10 +13,10 @@ agent can use runs every engine against the same 124 real sites every night, sco
 no need to clone anything. with Node 22.12 or newer:
 
 ```sh
-npx --allow-git=root github:j4ckwinter/agentcanuse check https://your-site.com
+npx agentcanuse check https://your-site.com
 ```
 
-`--allow-git=root` is there because npm 12 won't install from git unless you ask, and it only allows this one package. the first run downloads each engine into `~/.cache/agentcanuse`. then it visits the page once with each and prints what happened:
+the first run downloads each engine into `~/.cache/agentcanuse`. then it visits the page once with each and prints what happened:
 
 ```
 https://www.gov.uk/bank-holidays

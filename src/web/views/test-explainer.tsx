@@ -1,6 +1,4 @@
 import { ClipboardCheck, Globe, ScanSearch } from 'lucide-react'
-import { OutcomeMark } from '@/components/outcome-mark'
-import { OUTCOME_LABELS } from '@/labels'
 
 const STEPS = [
   {
@@ -20,9 +18,7 @@ const STEPS = [
   },
 ] as const
 
-const SHOWN = ['passed', 'incomplete', 'blocked', 'failed'] as const
-
-export function TestExplainer({ sites }: { sites: number }) {
+export function TestExplainer() {
   return (
     <section aria-labelledby="how-it-works" className="rounded-xl border border-line bg-surface">
       <h2 id="how-it-works" className="sr-only">
@@ -40,26 +36,10 @@ export function TestExplainer({ sites }: { sites: number }) {
                 {title}
               </span>
               <p className="text-label leading-relaxed text-fg-secondary">{body}</p>
-              {title === 'Score' && (
-                <ul className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1">
-                  {SHOWN.map((outcome) => (
-                    <li key={outcome} className="inline-flex items-center gap-1.5 text-caption text-fg-secondary" title={OUTCOME_LABELS[outcome].meaning}>
-                      <OutcomeMark outcome={outcome} className="size-3.5" />
-                      {OUTCOME_LABELS[outcome].label}
-                    </li>
-                  ))}
-                </ul>
-              )}
             </div>
           </li>
         ))}
       </ol>
-      <p className="border-t border-line px-card py-3 text-label text-fg-muted">
-        {sites} sites across docs, news, shopping, government and more. Same sites, same checks, every engine.{' '}
-        <a href="#method" className="font-medium text-accent-blue hover:underline">
-          Read the method
-        </a>
-      </p>
     </section>
   )
 }

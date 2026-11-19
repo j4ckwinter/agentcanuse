@@ -16,10 +16,6 @@ import { reproduceCommand } from '@/reproduce'
 import { useHistory } from '@/use-history'
 import { resultFor } from '@/results'
 
-function hostOf(site: Site): string {
-  return displayHost(site.url)
-}
-
 function Screenshot({ result }: { result: Result }) {
   if (result.shot !== null) {
     return <img src={shotUrl(result.shot)} alt="" className="aspect-screenshot w-full border-b border-line object-cover object-top" />
@@ -205,7 +201,7 @@ export function SiteComparison({ run, site, verdict, runs, links }: SiteComparis
         title={site.name}
         description={
           <a href={site.url} className="hover:underline">
-            {hostOf(site)}
+            {displayHost(site.url)}
           </a>
         }
         aside={
@@ -214,10 +210,7 @@ export function SiteComparison({ run, site, verdict, runs, links }: SiteComparis
               <ChevronLeft className="size-4" /> Previous
             </StepLink>
             {links.position !== null && (
-              <span className="text-caption text-fg-muted" title={links.list}>
-                <span className="font-mono">{links.position}</span>
-                <span className="hidden sm:inline"> · {links.list}</span>
-              </span>
+              <span className="font-mono text-caption text-fg-muted">{links.position}</span>
             )}
             <StepLink href={links.next?.href ?? null} label={links.next ? `Next: ${links.next.name}` : 'No next site'}>
               Next <ChevronRight className="size-4" />

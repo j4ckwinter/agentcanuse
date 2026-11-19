@@ -185,7 +185,7 @@ export function App() {
         {error === null && ready === null && <LoadingCards />}
         {ready !== null && <Body route={route} runs={ready.runs} run={ready.run} navigate={navigate} />}
       </main>
-      <Footer latest={runs?.[0] ?? null} />
+      <Footer />
     </div>
   )
 }

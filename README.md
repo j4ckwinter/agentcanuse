@@ -42,8 +42,10 @@ a survey also runs every night on GitHub Actions, and another starts within six 
 you don't need to clone anything. with Node 22.12 or newer:
 
 ```sh
-npx github:j4ckwinter/agentcanuse check https://your-site.com
+npx --allow-git=root github:j4ckwinter/agentcanuse check https://your-site.com
 ```
+
+npm 12 won't install from git unless you say so, which is what `--allow-git=root` does, for this one package only.
 
 it downloads each engine the first time (into `~/.cache/agentcanuse`), visits the page once with each, and prints what happened:
 

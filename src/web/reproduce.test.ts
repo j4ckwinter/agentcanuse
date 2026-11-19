@@ -8,13 +8,13 @@ describe('reproduceCommand', () => {
 
   it('passes the site, the engine and every expected phrase, quoting what the shell would split', () => {
     expect(reproduceCommand({ url: 'https://www.zillow.com/', expect: ['Zillow', 'Buy now'] }, 'lightpanda')).toBe(
-      "npx github:j4ckwinter/agentcanuse check https://www.zillow.com/ --engine lightpanda --expect Zillow --expect 'Buy now'",
+      "npx --allow-git=root github:j4ckwinter/agentcanuse check https://www.zillow.com/ --engine lightpanda --expect Zillow --expect 'Buy now'",
     )
   })
 
   it('escapes single quotes inside a phrase', () => {
     expect(reproduceCommand({ url: 'https://example.com/?a=1&b=2', expect: ["Today's outlook"] })).toBe(
-      "npx github:j4ckwinter/agentcanuse check 'https://example.com/?a=1&b=2' --expect 'Today'\\''s outlook'",
+      "npx --allow-git=root github:j4ckwinter/agentcanuse check 'https://example.com/?a=1&b=2' --expect 'Today'\\''s outlook'",
     )
   })
 })

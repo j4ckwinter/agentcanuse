@@ -1,10 +1,8 @@
 import { setTimeout as delay } from 'node:timers/promises'
 import puppeteer, { type Browser, type Page } from 'puppeteer-core'
 import type { Visit } from '../core/model'
+import { NAVIGATION_TIMEOUT_MS, SETTLE_MS, VISIT_DEADLINE_MS } from './timing'
 
-export const NAVIGATION_TIMEOUT_MS = 30_000
-export const SETTLE_MS = 1_500
-export const VISIT_DEADLINE_MS = 60_000
 export const VIEWPORT = { width: 1280, height: 800 }
 
 export interface Capture {

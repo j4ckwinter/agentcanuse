@@ -1,3 +1,4 @@
+import { marginOfError } from '../../core/confidence'
 import { leaderboard, trend, type Standing } from '../../core/leaderboard'
 import { OUTCOMES, type Run, type RunSummary } from '../../core/model'
 import { Card } from '@/components/card'
@@ -35,6 +36,25 @@ function OutcomeBar({ standing }: { standing: Standing }) {
 }
 
 const HEAD = 'px-3 py-2 text-left text-caption font-medium text-fg-muted'
+
+export function PassRate({ passed, attempted }: { passed: number; attempted: number }) {
+  const margin = marginOfError(passed, attempted)
+  return (
+    <span className="inline-flex flex-col items-end">
+      <span className="text-sm font-semibold">
+        {percent(attempted === 0 ? 0 : passed / attempted)}
+        {margin !== null && (
+          <span className="ml-1 text-caption font-normal text-fg-muted" title="95% margin of error">
+            ±{Math.round(margin * 100)}
+          </span>
+        )}
+      </span>
+      <span className="text-micro text-fg-muted">
+        {passed} of {attempted}
+      </span>
+    </span>
+  )
+}
 const CELL = 'px-3 py-3'
 
 export function EnginesCard({ run, runs, runParam }: { run: Run; runs: RunSummary[]; runParam: string | null }) {
@@ -42,7 +62,7 @@ export function EnginesCard({ run, runs, runParam }: { run: Run; runs: RunSummar
   const standings = leaderboard(run)
   const anyTrend = current !== undefined && standings.some((standing) => trend(runs, current, standing.engine.id).length >= 2)
   return (
-    <Card title="Engines" description="Every visit in this run, by outcome." action={<span className="hidden md:block"><OutcomeKey /></span>}>
+    <Card title="Engines" description="Every visit in this run, by outcome. ± is the 95% margin of error on the pass rate." action={<span className="hidden md:block"><OutcomeKey /></span>}>
       <div className="-mx-card -my-2 overflow-x-auto">
         <table className="w-full min-w-table border-collapse">
           <thead>
@@ -68,7 +88,9 @@ export function EnginesCard({ run, runs, runParam }: { run: Run; runs: RunSummar
                 <td className={CELL}>
                   <OutcomeBar standing={standing} />
                 </td>
-                <td className={`${CELL} text-right text-sm font-semibold tabular-nums`}>{percent(standing.passRate)}</td>
+                <td className={`${CELL} text-right tabular-nums`}>
+                  <PassRate passed={standing.counts.passed} attempted={standing.attempted} />
+                </td>
                 <td className={`${CELL} text-right text-sm text-fg-secondary tabular-nums`}>{percent(standing.blockedRate)}</td>
                 <td className={`${CELL} text-right font-mono text-label text-fg-secondary`}>{seconds(standing.medianMs)}</td>
                 {anyTrend && current && (

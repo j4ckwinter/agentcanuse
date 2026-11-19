@@ -1263,7 +1263,8 @@
     "namedControls": 3004,
     "headings": 72,
     "landmarks": 91
-   }
+   },
+   "hidden": null
   },
   {
    "site": "mdn",
@@ -1288,7 +1289,8 @@
     "namedControls": 369,
     "headings": 14,
     "landmarks": 19
-   }
+   },
+   "hidden": null
   },
   {
    "site": "gov-uk",
@@ -1313,7 +1315,8 @@
     "namedControls": 56,
     "headings": 11,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "python-docs",
@@ -1338,7 +1341,8 @@
     "namedControls": 257,
     "headings": 4,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "arxiv",
@@ -1357,7 +1361,8 @@
    "durationMs": 30001,
    "error": "Navigation timeout of 30000 ms exceeded",
    "shot": null,
-   "tree": null
+   "tree": null,
+   "hidden": null
   },
   {
    "site": "hacker-news",
@@ -1382,7 +1387,8 @@
     "namedControls": 198,
     "headings": 0,
     "landmarks": 1
-   }
+   },
+   "hidden": null
   },
   {
    "site": "books-toscrape",
@@ -1407,7 +1413,8 @@
     "namedControls": 114,
     "headings": 21,
     "landmarks": 24
-   }
+   },
+   "hidden": null
   },
   {
    "site": "quotes-js",
@@ -1432,7 +1439,8 @@
     "namedControls": 5,
     "headings": 1,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "react-dev",
@@ -1457,7 +1465,8 @@
     "namedControls": 108,
     "headings": 15,
     "landmarks": 4
-   }
+   },
+   "hidden": null
   },
   {
    "site": "tailwind-docs",
@@ -1482,7 +1491,8 @@
     "namedControls": 235,
     "headings": 35,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "github",
@@ -1507,7 +1517,8 @@
     "namedControls": 274,
     "headings": 48,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "npm",
@@ -1532,7 +1543,8 @@
     "namedControls": 2,
     "headings": 2,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "stack-overflow",
@@ -1551,7 +1563,8 @@
    "durationMs": 0,
    "error": "robots.txt does not allow this page, or could not be read",
    "shot": null,
-   "tree": null
+   "tree": null,
+   "hidden": null
   },
   {
    "site": "bbc-news",
@@ -1569,14 +1582,15 @@
    "linkCount": 302,
    "durationMs": 2535,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/bbc-news.webp",
+   "shot": null,
    "tree": {
     "nodes": 1859,
     "controls": 189,
     "namedControls": 189,
     "headings": 56,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "guardian",
@@ -1601,7 +1615,8 @@
     "namedControls": 341,
     "headings": 238,
     "landmarks": 11
-   }
+   },
+   "hidden": null
   },
   {
    "site": "nytimes",
@@ -1619,14 +1634,15 @@
    "linkCount": 0,
    "durationMs": 2299,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/nytimes.webp",
+   "shot": null,
    "tree": {
     "nodes": 2,
     "controls": 0,
     "namedControls": 0,
     "headings": 0,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "archive-org",
@@ -1645,7 +1661,8 @@
    "durationMs": 0,
    "error": "robots.txt does not allow this page, or could not be read",
    "shot": null,
-   "tree": null
+   "tree": null,
+   "hidden": null
   },
   {
    "site": "met-office",
@@ -1670,7 +1687,8 @@
     "namedControls": 129,
     "headings": 41,
     "landmarks": 11
-   }
+   },
+   "hidden": null
   },
   {
    "site": "bbc-food",
@@ -1695,7 +1713,8 @@
     "namedControls": 100,
     "headings": 10,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "youtube",
@@ -1712,14 +1731,15 @@
    "linkCount": 98,
    "durationMs": 3022,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/youtube.webp",
+   "shot": null,
    "tree": {
     "nodes": 932,
     "controls": 80,
     "namedControls": 80,
     "headings": 22,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "zillow",
@@ -1737,14 +1757,15 @@
    "linkCount": 0,
    "durationMs": 2294,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/zillow.webp",
+   "shot": null,
    "tree": {
     "nodes": 17,
     "controls": 0,
     "namedControls": 0,
     "headings": 0,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "etsy",
@@ -1769,7 +1790,8 @@
     "namedControls": 0,
     "headings": 0,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ebay",
@@ -1795,7 +1817,8 @@
     "namedControls": 0,
     "headings": 0,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "airbnb",
@@ -1813,14 +1836,15 @@
    "linkCount": 161,
    "durationMs": 2474,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/airbnb.webp",
+   "shot": null,
    "tree": {
     "nodes": 460,
     "controls": 78,
     "namedControls": 78,
     "headings": 7,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "booking",
@@ -1838,14 +1862,15 @@
    "linkCount": 263,
    "durationMs": 1893,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/booking.webp",
+   "shot": null,
    "tree": {
     "nodes": 1195,
     "controls": 173,
     "namedControls": 173,
     "headings": 106,
     "landmarks": 11
-   }
+   },
+   "hidden": null
   },
   {
    "site": "vercel",
@@ -1870,7 +1895,8 @@
     "namedControls": 11,
     "headings": 3,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "cloudflare",
@@ -1895,7 +1921,8 @@
     "namedControls": 85,
     "headings": 23,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "stripe-docs",
@@ -1920,7 +1947,8 @@
     "namedControls": 108,
     "headings": 7,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "craigslist",
@@ -1945,7 +1973,8 @@
     "namedControls": 248,
     "headings": 0,
     "landmarks": 1
-   }
+   },
+   "hidden": null
   },
   {
    "site": "hn-algolia",
@@ -1970,7 +1999,8 @@
     "namedControls": 199,
     "headings": 0,
     "landmarks": 1
-   }
+   },
+   "hidden": null
   },
   {
    "site": "aljazeera",
@@ -1995,7 +2025,8 @@
     "namedControls": 143,
     "headings": 65,
     "landmarks": 10
-   }
+   },
+   "hidden": null
   },
   {
    "site": "amazon",
@@ -2013,14 +2044,15 @@
    "linkCount": 197,
    "durationMs": 1953,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/amazon.webp",
+   "shot": null,
    "tree": {
     "nodes": 1223,
     "controls": 214,
     "namedControls": 213,
     "headings": 30,
     "landmarks": 9
-   }
+   },
+   "hidden": null
   },
   {
    "site": "apnews",
@@ -2037,14 +2069,15 @@
    "linkCount": 2,
    "durationMs": 2093,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/apnews.webp",
+   "shot": null,
    "tree": {
     "nodes": 31,
     "controls": 2,
     "namedControls": 2,
     "headings": 2,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "apple",
@@ -2069,7 +2102,8 @@
     "namedControls": 200,
     "headings": 48,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "apple-dev",
@@ -2087,14 +2121,15 @@
    "linkCount": 218,
    "durationMs": 2637,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/apple-dev.webp",
+   "shot": null,
    "tree": {
     "nodes": 1589,
     "controls": 171,
     "namedControls": 171,
     "headings": 31,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "argos",
@@ -2111,14 +2146,15 @@
    "linkCount": 0,
    "durationMs": 1720,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/argos.webp",
+   "shot": null,
    "tree": {
     "nodes": 12,
     "controls": 0,
     "namedControls": 0,
     "headings": 1,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ars",
@@ -2143,7 +2179,8 @@
     "namedControls": 141,
     "headings": 38,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "asos",
@@ -2160,14 +2197,15 @@
    "linkCount": 0,
    "durationMs": 1738,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/asos.webp",
+   "shot": null,
    "tree": {
     "nodes": 12,
     "controls": 0,
     "namedControls": 0,
     "headings": 1,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "autotrader",
@@ -2184,14 +2222,15 @@
    "linkCount": 1,
    "durationMs": 1741,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/autotrader.webp",
+   "shot": null,
    "tree": {
     "nodes": 56,
     "controls": 2,
     "namedControls": 2,
     "headings": 4,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "aws-docs",
@@ -2216,7 +2255,8 @@
     "namedControls": 198,
     "headings": 41,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "bbc-sport",
@@ -2234,14 +2274,15 @@
    "linkCount": 374,
    "durationMs": 2096,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/bbc-sport.webp",
+   "shot": null,
    "tree": {
     "nodes": 3606,
     "controls": 344,
     "namedControls": 344,
     "headings": 26,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "bestbuy",
@@ -2260,7 +2301,8 @@
    "durationMs": 30001,
    "error": "Navigation timeout of 30000 ms exceeded",
    "shot": null,
-   "tree": null
+   "tree": null,
+   "hidden": null
   },
   {
    "site": "britannica",
@@ -2277,14 +2319,15 @@
    "linkCount": 2,
    "durationMs": 2494,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/britannica.webp",
+   "shot": null,
    "tree": {
     "nodes": 30,
     "controls": 2,
     "namedControls": 2,
     "headings": 2,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "canada",
@@ -2302,14 +2345,15 @@
    "linkCount": 76,
    "durationMs": 11207,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/canada.webp",
+   "shot": null,
    "tree": {
     "nodes": 623,
     "controls": 78,
     "namedControls": 78,
     "headings": 29,
     "landmarks": 10
-   }
+   },
+   "hidden": null
   },
   {
    "site": "caniuse",
@@ -2334,7 +2378,8 @@
     "namedControls": 54,
     "headings": 32,
     "landmarks": 6
-   }
+   },
+   "hidden": null
   },
   {
    "site": "cdc",
@@ -2359,7 +2404,8 @@
     "namedControls": 87,
     "headings": 7,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "cnn",
@@ -2384,7 +2430,8 @@
     "namedControls": 402,
     "headings": 18,
     "landmarks": 10
-   }
+   },
+   "hidden": null
   },
   {
    "site": "codepen",
@@ -2408,7 +2455,8 @@
     "namedControls": 2,
     "headings": 2,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "crates",
@@ -2433,7 +2481,8 @@
     "namedControls": 62,
     "headings": 16,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "data-gov",
@@ -2458,7 +2507,8 @@
     "namedControls": 46,
     "headings": 5,
     "landmarks": 11
-   }
+   },
+   "hidden": null
   },
   {
    "site": "devto",
@@ -2483,7 +2533,8 @@
     "namedControls": 341,
     "headings": 30,
     "landmarks": 9
-   }
+   },
+   "hidden": null
   },
   {
    "site": "discogs",
@@ -2500,14 +2551,15 @@
    "linkCount": 2,
    "durationMs": 2376,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/discogs.webp",
+   "shot": null,
    "tree": {
     "nodes": 30,
     "controls": 2,
     "namedControls": 2,
     "headings": 2,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "django",
@@ -2532,7 +2584,8 @@
     "namedControls": 133,
     "headings": 24,
     "landmarks": 12
-   }
+   },
+   "hidden": null
   },
   {
    "site": "docker-hub",
@@ -2557,7 +2610,8 @@
     "namedControls": 106,
     "headings": 34,
     "landmarks": 3
-   }
+   },
+   "hidden": null
   },
   {
    "site": "duckduckgo",
@@ -2582,7 +2636,8 @@
     "namedControls": 44,
     "headings": 14,
     "landmarks": 4
-   }
+   },
+   "hidden": null
   },
   {
    "site": "economist",
@@ -2606,7 +2661,8 @@
     "namedControls": 2,
     "headings": 2,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "eventbrite",
@@ -2624,14 +2680,15 @@
    "linkCount": 192,
    "durationMs": 2637,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/eventbrite.webp",
+   "shot": null,
    "tree": {
     "nodes": 1457,
     "controls": 249,
     "namedControls": 249,
     "headings": 23,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "expedia",
@@ -2648,14 +2705,15 @@
    "linkCount": 1,
    "durationMs": 2348,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/expedia.webp",
+   "shot": null,
    "tree": {
     "nodes": 24,
     "controls": 1,
     "namedControls": 1,
     "headings": 1,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "figma",
@@ -2680,7 +2738,8 @@
     "namedControls": 97,
     "headings": 18,
     "landmarks": 22
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ft",
@@ -2704,7 +2763,8 @@
     "namedControls": 9,
     "headings": 2,
     "landmarks": 4
-   }
+   },
+   "hidden": null
   },
   {
    "site": "gcp-docs",
@@ -2729,7 +2789,8 @@
     "namedControls": 215,
     "headings": 25,
     "landmarks": 14
-   }
+   },
+   "hidden": null
   },
   {
    "site": "git-book",
@@ -2754,7 +2815,8 @@
     "namedControls": 49,
     "headings": 5,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "github-docs",
@@ -2779,7 +2841,8 @@
     "namedControls": 58,
     "headings": 10,
     "landmarks": 10
-   }
+   },
+   "hidden": null
   },
   {
    "site": "go-docs",
@@ -2804,7 +2867,8 @@
     "namedControls": 88,
     "headings": 6,
     "landmarks": 9
-   }
+   },
+   "hidden": null
   },
   {
    "site": "gov-uk-tax",
@@ -2829,7 +2893,8 @@
     "namedControls": 69,
     "headings": 15,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "huggingface",
@@ -2854,7 +2919,8 @@
     "namedControls": 180,
     "headings": 34,
     "landmarks": 6
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ikea",
@@ -2879,7 +2945,8 @@
     "namedControls": 326,
     "headings": 64,
     "landmarks": 9
-   }
+   },
+   "hidden": null
   },
   {
    "site": "independent",
@@ -2904,7 +2971,8 @@
     "namedControls": 339,
     "headings": 123,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "irs",
@@ -2929,7 +2997,8 @@
     "namedControls": 100,
     "headings": 18,
     "landmarks": 14
-   }
+   },
+   "hidden": null
   },
   {
    "site": "kaggle",
@@ -2954,7 +3023,8 @@
     "namedControls": 71,
     "headings": 23,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "khan",
@@ -2979,7 +3049,8 @@
     "namedControls": 960,
     "headings": 119,
     "landmarks": 9
-   }
+   },
+   "hidden": null
   },
   {
    "site": "kubernetes",
@@ -3004,7 +3075,8 @@
     "namedControls": 67,
     "headings": 7,
     "landmarks": 10
-   }
+   },
+   "hidden": null
   },
   {
    "site": "linear",
@@ -3029,7 +3101,8 @@
     "namedControls": 135,
     "headings": 15,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "medium",
@@ -3046,14 +3119,15 @@
    "linkCount": 2,
    "durationMs": 2281,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/medium.webp",
+   "shot": null,
    "tree": {
     "nodes": 31,
     "controls": 2,
     "namedControls": 2,
     "headings": 2,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "merriam-webster",
@@ -3070,14 +3144,15 @@
    "linkCount": 2,
    "durationMs": 2157,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/merriam-webster.webp",
+   "shot": null,
    "tree": {
     "nodes": 31,
     "controls": 2,
     "namedControls": 2,
     "headings": 2,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "mit-ocw",
@@ -3102,7 +3177,8 @@
     "namedControls": 117,
     "headings": 16,
     "landmarks": 3
-   }
+   },
+   "hidden": null
   },
   {
    "site": "monzo",
@@ -3127,7 +3203,8 @@
     "namedControls": 4,
     "headings": 1,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "mozilla",
@@ -3152,7 +3229,8 @@
     "namedControls": 67,
     "headings": 21,
     "landmarks": 9
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ms-learn",
@@ -3177,7 +3255,8 @@
     "namedControls": 91,
     "headings": 22,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "nasa",
@@ -3202,7 +3281,8 @@
     "namedControls": 78,
     "headings": 31,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "national-rail",
@@ -3227,7 +3307,8 @@
     "namedControls": 81,
     "headings": 21,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "nature",
@@ -3245,14 +3326,15 @@
    "linkCount": 140,
    "durationMs": 3267,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/nature.webp",
+   "shot": null,
    "tree": {
     "nodes": 64,
     "controls": 5,
     "namedControls": 5,
     "headings": 3,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "nextjs",
@@ -3277,7 +3359,8 @@
     "namedControls": 118,
     "headings": 14,
     "landmarks": 11
-   }
+   },
+   "hidden": null
   },
   {
    "site": "nhs",
@@ -3302,7 +3385,8 @@
     "namedControls": 46,
     "headings": 16,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "nodejs",
@@ -3327,7 +3411,8 @@
     "namedControls": 118,
     "headings": 2,
     "landmarks": 6
-   }
+   },
+   "hidden": null
   },
   {
    "site": "notion",
@@ -3352,7 +3437,8 @@
     "namedControls": 63,
     "headings": 14,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "npr",
@@ -3377,7 +3463,8 @@
     "namedControls": 311,
     "headings": 61,
     "landmarks": 13
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ons",
@@ -3402,7 +3489,8 @@
     "namedControls": 64,
     "headings": 24,
     "landmarks": 9
-   }
+   },
+   "hidden": null
   },
   {
    "site": "openstreetmap",
@@ -3427,7 +3515,8 @@
     "namedControls": 36,
     "headings": 2,
     "landmarks": 3
-   }
+   },
+   "hidden": null
   },
   {
    "site": "paypal",
@@ -3444,14 +3533,15 @@
    "linkCount": 0,
    "durationMs": 2379,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/paypal.webp",
+   "shot": null,
    "tree": {
     "nodes": 3,
     "controls": 0,
     "namedControls": 0,
     "headings": 0,
     "landmarks": 1
-   }
+   },
+   "hidden": null
   },
   {
    "site": "postgres",
@@ -3476,7 +3566,8 @@
     "namedControls": 61,
     "headings": 2,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "producthunt",
@@ -3500,7 +3591,8 @@
     "namedControls": 2,
     "headings": 2,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "pypi",
@@ -3525,7 +3617,8 @@
     "namedControls": 99,
     "headings": 19,
     "landmarks": 12
-   }
+   },
+   "hidden": null
   },
   {
    "site": "rightmove",
@@ -3550,7 +3643,8 @@
     "namedControls": 138,
     "headings": 18,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ryanair",
@@ -3575,7 +3669,8 @@
     "namedControls": 120,
     "headings": 33,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "shopify",
@@ -3600,7 +3695,8 @@
     "namedControls": 114,
     "headings": 26,
     "landmarks": 4
-   }
+   },
+   "hidden": null
   },
   {
    "site": "simple-wiki",
@@ -3625,7 +3721,8 @@
     "namedControls": 403,
     "headings": 24,
     "landmarks": 39
-   }
+   },
+   "hidden": null
   },
   {
    "site": "sky-news",
@@ -3649,7 +3746,8 @@
     "namedControls": 0,
     "headings": 1,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "skyscanner",
@@ -3666,14 +3764,15 @@
    "linkCount": 0,
    "durationMs": 1860,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/skyscanner.webp",
+   "shot": null,
    "tree": {
     "nodes": 30,
     "controls": 0,
     "namedControls": 0,
     "headings": 1,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "spotify",
@@ -3698,7 +3797,8 @@
     "namedControls": 62,
     "headings": 23,
     "landmarks": 9
-   }
+   },
+   "hidden": null
   },
   {
    "site": "sqlite",
@@ -3723,7 +3823,8 @@
     "namedControls": 32,
     "headings": 3,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "stanford-plato",
@@ -3748,7 +3849,8 @@
     "namedControls": 147,
     "headings": 50,
     "landmarks": 1
-   }
+   },
+   "hidden": null
   },
   {
    "site": "steam",
@@ -3773,7 +3875,8 @@
     "namedControls": 178,
     "headings": 8,
     "landmarks": 6
-   }
+   },
+   "hidden": null
   },
   {
    "site": "stripe",
@@ -3798,7 +3901,8 @@
     "namedControls": 198,
     "headings": 47,
     "landmarks": 9
-   }
+   },
+   "hidden": null
   },
   {
    "site": "substack",
@@ -3823,7 +3927,8 @@
     "namedControls": 77,
     "headings": 2,
     "landmarks": 3
-   }
+   },
+   "hidden": null
   },
   {
    "site": "supabase",
@@ -3848,7 +3953,8 @@
     "namedControls": 129,
     "headings": 7,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "svelte",
@@ -3873,7 +3979,8 @@
     "namedControls": 117,
     "headings": 11,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "target",
@@ -3898,7 +4005,8 @@
     "namedControls": 0,
     "headings": 0,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "techcrunch",
@@ -3923,7 +4031,8 @@
     "namedControls": 244,
     "headings": 90,
     "landmarks": 9
-   }
+   },
+   "hidden": null
   },
   {
    "site": "tesco",
@@ -3940,14 +4049,15 @@
    "linkCount": 0,
    "durationMs": 1758,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/tesco.webp",
+   "shot": null,
    "tree": {
     "nodes": 12,
     "controls": 0,
     "namedControls": 0,
     "headings": 1,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ticketmaster",
@@ -3964,14 +4074,15 @@
    "linkCount": 0,
    "durationMs": 2282,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/chromium/ticketmaster.webp",
+   "shot": null,
    "tree": {
     "nodes": 32,
     "controls": 0,
     "namedControls": 0,
     "headings": 0,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "typescript",
@@ -3996,7 +4107,8 @@
     "namedControls": 126,
     "headings": 20,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "usa-gov",
@@ -4021,7 +4133,8 @@
     "namedControls": 48,
     "headings": 9,
     "landmarks": 14
-   }
+   },
+   "hidden": null
   },
   {
    "site": "verge",
@@ -4046,7 +4159,8 @@
     "namedControls": 331,
     "headings": 15,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "vue",
@@ -4071,7 +4185,8 @@
     "namedControls": 125,
     "headings": 19,
     "landmarks": 6
-   }
+   },
+   "hidden": null
   },
   {
    "site": "w3schools",
@@ -4096,7 +4211,8 @@
     "namedControls": 215,
     "headings": 27,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "walmart",
@@ -4121,7 +4237,8 @@
     "namedControls": 30,
     "headings": 1,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "weather-com",
@@ -4146,7 +4263,8 @@
     "namedControls": 67,
     "headings": 9,
     "landmarks": 15
-   }
+   },
+   "hidden": null
   },
   {
    "site": "web-dev",
@@ -4171,7 +4289,8 @@
     "namedControls": 139,
     "headings": 19,
     "landmarks": 13
-   }
+   },
+   "hidden": null
   },
   {
    "site": "wired",
@@ -4196,7 +4315,8 @@
     "namedControls": 174,
     "headings": 82,
     "landmarks": 10
-   }
+   },
+   "hidden": null
   },
   {
    "site": "wise",
@@ -4221,7 +4341,8 @@
     "namedControls": 144,
     "headings": 37,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "wolfram",
@@ -4246,7 +4367,8 @@
     "namedControls": 71,
     "headings": 4,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "wordpress",
@@ -4271,7 +4393,8 @@
     "namedControls": 63,
     "headings": 11,
     "landmarks": 6
-   }
+   },
+   "hidden": null
   },
   {
    "site": "your-europe",
@@ -4296,7 +4419,8 @@
     "namedControls": 86,
     "headings": 9,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "wikipedia",
@@ -4321,7 +4445,8 @@
     "namedControls": 4036,
     "headings": 72,
     "landmarks": 102
-   }
+   },
+   "hidden": null
   },
   {
    "site": "mdn",
@@ -4346,7 +4471,8 @@
     "namedControls": 376,
     "headings": 14,
     "landmarks": 25
-   }
+   },
+   "hidden": null
   },
   {
    "site": "gov-uk",
@@ -4371,7 +4497,8 @@
     "namedControls": 64,
     "headings": 18,
     "landmarks": 11
-   }
+   },
+   "hidden": null
   },
   {
    "site": "python-docs",
@@ -4396,7 +4523,8 @@
     "namedControls": 309,
     "headings": 9,
     "landmarks": 12
-   }
+   },
+   "hidden": null
   },
   {
    "site": "arxiv",
@@ -4414,14 +4542,15 @@
    "linkCount": 0,
    "durationMs": 1786,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/arxiv.webp",
+   "shot": null,
    "tree": {
     "nodes": 12,
     "controls": 0,
     "namedControls": 0,
     "headings": 2,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "hacker-news",
@@ -4446,7 +4575,8 @@
     "namedControls": 198,
     "headings": 0,
     "landmarks": 1
-   }
+   },
+   "hidden": null
   },
   {
    "site": "books-toscrape",
@@ -4471,7 +4601,8 @@
     "namedControls": 114,
     "headings": 21,
     "landmarks": 25
-   }
+   },
+   "hidden": null
   },
   {
    "site": "quotes-js",
@@ -4496,7 +4627,8 @@
     "namedControls": 5,
     "headings": 1,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "react-dev",
@@ -4521,7 +4653,8 @@
     "namedControls": 136,
     "headings": 16,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "tailwind-docs",
@@ -4546,7 +4679,8 @@
     "namedControls": 248,
     "headings": 38,
     "landmarks": 3
-   }
+   },
+   "hidden": null
   },
   {
    "site": "github",
@@ -4571,7 +4705,8 @@
     "namedControls": 375,
     "headings": 56,
     "landmarks": 10
-   }
+   },
+   "hidden": null
   },
   {
    "site": "npm",
@@ -4596,7 +4731,8 @@
     "namedControls": 2,
     "headings": 2,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "stack-overflow",
@@ -4615,7 +4751,8 @@
    "durationMs": 0,
    "error": "robots.txt does not allow this page, or could not be read",
    "shot": null,
-   "tree": null
+   "tree": null,
+   "hidden": null
   },
   {
    "site": "bbc-news",
@@ -4633,14 +4770,15 @@
    "linkCount": 309,
    "durationMs": 2665,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/bbc-news.webp",
+   "shot": null,
    "tree": {
     "nodes": 2730,
     "controls": 194,
     "namedControls": 179,
     "headings": 56,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "guardian",
@@ -4665,7 +4803,8 @@
     "namedControls": 342,
     "headings": 238,
     "landmarks": 205
-   }
+   },
+   "hidden": null
   },
   {
    "site": "nytimes",
@@ -4683,14 +4822,15 @@
    "linkCount": 0,
    "durationMs": 1926,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/nytimes.webp",
+   "shot": null,
    "tree": {
     "nodes": 2,
     "controls": 0,
     "namedControls": 0,
     "headings": 0,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "archive-org",
@@ -4709,7 +4849,8 @@
    "durationMs": 0,
    "error": "robots.txt does not allow this page, or could not be read",
    "shot": null,
-   "tree": null
+   "tree": null,
+   "hidden": null
   },
   {
    "site": "met-office",
@@ -4734,7 +4875,8 @@
     "namedControls": 131,
     "headings": 41,
     "landmarks": 17
-   }
+   },
+   "hidden": null
   },
   {
    "site": "bbc-food",
@@ -4759,7 +4901,8 @@
     "namedControls": 99,
     "headings": 10,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "youtube",
@@ -4776,14 +4919,15 @@
    "linkCount": 5,
    "durationMs": 3129,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/youtube.webp",
+   "shot": null,
    "tree": {
     "nodes": 267,
     "controls": 29,
     "namedControls": 19,
     "headings": 2,
     "landmarks": 4
-   }
+   },
+   "hidden": null
   },
   {
    "site": "zillow",
@@ -4801,14 +4945,15 @@
    "linkCount": 274,
    "durationMs": 2964,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/zillow.webp",
+   "shot": null,
    "tree": {
     "nodes": 512,
     "controls": 72,
     "namedControls": 72,
     "headings": 13,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "etsy",
@@ -4833,7 +4978,8 @@
     "namedControls": 0,
     "headings": 0,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ebay",
@@ -4859,7 +5005,8 @@
     "namedControls": 0,
     "headings": 0,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "airbnb",
@@ -4877,14 +5024,15 @@
    "linkCount": 265,
    "durationMs": 2751,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/airbnb.webp",
+   "shot": null,
    "tree": {
     "nodes": 4096,
     "controls": 380,
     "namedControls": 380,
     "headings": 17,
     "landmarks": 11
-   }
+   },
+   "hidden": null
   },
   {
    "site": "booking",
@@ -4902,14 +5050,15 @@
    "linkCount": 239,
    "durationMs": 1852,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/booking.webp",
+   "shot": null,
    "tree": {
     "nodes": 2296,
     "controls": 255,
     "namedControls": 255,
     "headings": 186,
     "landmarks": 13
-   }
+   },
+   "hidden": null
   },
   {
    "site": "vercel",
@@ -4934,7 +5083,8 @@
     "namedControls": 109,
     "headings": 19,
     "landmarks": 20
-   }
+   },
+   "hidden": null
   },
   {
    "site": "cloudflare",
@@ -4959,7 +5109,8 @@
     "namedControls": 93,
     "headings": 23,
     "landmarks": 25
-   }
+   },
+   "hidden": null
   },
   {
    "site": "stripe-docs",
@@ -4984,7 +5135,8 @@
     "namedControls": 105,
     "headings": 7,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "craigslist",
@@ -5009,7 +5161,8 @@
     "namedControls": 396,
     "headings": 0,
     "landmarks": 1
-   }
+   },
+   "hidden": null
   },
   {
    "site": "hn-algolia",
@@ -5034,7 +5187,8 @@
     "namedControls": 199,
     "headings": 0,
     "landmarks": 4
-   }
+   },
+   "hidden": null
   },
   {
    "site": "aljazeera",
@@ -5059,7 +5213,8 @@
     "namedControls": 181,
     "headings": 70,
     "landmarks": 28
-   }
+   },
+   "hidden": null
   },
   {
    "site": "amazon",
@@ -5077,14 +5232,15 @@
    "linkCount": 166,
    "durationMs": 2479,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/amazon.webp",
+   "shot": null,
    "tree": {
     "nodes": 1865,
     "controls": 221,
     "namedControls": 221,
     "headings": 35,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "apnews",
@@ -5101,14 +5257,15 @@
    "linkCount": 1686,
    "durationMs": 3582,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/apnews.webp",
+   "shot": null,
    "tree": {
     "nodes": 22304,
     "controls": 1834,
     "namedControls": 1824,
     "headings": 185,
     "landmarks": 12
-   }
+   },
+   "hidden": null
   },
   {
    "site": "apple",
@@ -5133,7 +5290,8 @@
     "namedControls": 434,
     "headings": 95,
     "landmarks": 34
-   }
+   },
+   "hidden": null
   },
   {
    "site": "apple-dev",
@@ -5152,14 +5310,15 @@
    "linkCount": 157,
    "durationMs": 2551,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/apple-dev.webp",
+   "shot": null,
    "tree": {
     "nodes": 888,
     "controls": 187,
     "namedControls": 187,
     "headings": 24,
     "landmarks": 6
-   }
+   },
+   "hidden": null
   },
   {
    "site": "argos",
@@ -5176,14 +5335,15 @@
    "linkCount": 1124,
    "durationMs": 2895,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/argos.webp",
+   "shot": null,
    "tree": {
     "nodes": 6821,
     "controls": 2043,
     "namedControls": 2043,
     "headings": 40,
     "landmarks": 26
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ars",
@@ -5208,7 +5368,8 @@
     "namedControls": 177,
     "headings": 42,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "asos",
@@ -5225,14 +5386,15 @@
    "linkCount": 684,
    "durationMs": 2542,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/asos.webp",
+   "shot": null,
    "tree": {
     "nodes": 1234,
     "controls": 137,
     "namedControls": 137,
     "headings": 13,
     "landmarks": 39
-   }
+   },
+   "hidden": null
   },
   {
    "site": "autotrader",
@@ -5249,14 +5411,15 @@
    "linkCount": 116,
    "durationMs": 2277,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/autotrader.webp",
+   "shot": null,
    "tree": {
     "nodes": 1224,
     "controls": 256,
     "namedControls": 256,
     "headings": 33,
     "landmarks": 29
-   }
+   },
+   "hidden": null
   },
   {
    "site": "aws-docs",
@@ -5281,7 +5444,8 @@
     "namedControls": 214,
     "headings": 44,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "bbc-sport",
@@ -5299,14 +5463,15 @@
    "linkCount": 384,
    "durationMs": 1960,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/bbc-sport.webp",
+   "shot": null,
    "tree": {
     "nodes": 5433,
     "controls": 345,
     "namedControls": 329,
     "headings": 26,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "bestbuy",
@@ -5324,14 +5489,15 @@
    "linkCount": 9,
    "durationMs": 2378,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/bestbuy.webp",
+   "shot": null,
    "tree": {
     "nodes": 157,
     "controls": 12,
     "namedControls": 12,
     "headings": 12,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "britannica",
@@ -5348,14 +5514,15 @@
    "linkCount": 270,
    "durationMs": 2953,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/britannica.webp",
+   "shot": null,
    "tree": {
     "nodes": 2009,
     "controls": 310,
     "namedControls": 306,
     "headings": 8,
     "landmarks": 11
-   }
+   },
+   "hidden": null
   },
   {
    "site": "canada",
@@ -5373,14 +5540,15 @@
    "linkCount": 78,
    "durationMs": 2567,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/canada.webp",
+   "shot": null,
    "tree": {
     "nodes": 895,
     "controls": 88,
     "namedControls": 88,
     "headings": 31,
     "landmarks": 22
-   }
+   },
+   "hidden": null
   },
   {
    "site": "caniuse",
@@ -5405,7 +5573,8 @@
     "namedControls": 49,
     "headings": 32,
     "landmarks": 12
-   }
+   },
+   "hidden": null
   },
   {
    "site": "cdc",
@@ -5430,7 +5599,8 @@
     "namedControls": 230,
     "headings": 9,
     "landmarks": 18
-   }
+   },
+   "hidden": null
   },
   {
    "site": "cnn",
@@ -5455,7 +5625,8 @@
     "namedControls": 308,
     "headings": 19,
     "landmarks": 13
-   }
+   },
+   "hidden": null
   },
   {
    "site": "codepen",
@@ -5479,7 +5650,8 @@
     "namedControls": 2,
     "headings": 2,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "crates",
@@ -5504,7 +5676,8 @@
     "namedControls": 63,
     "headings": 17,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "data-gov",
@@ -5529,7 +5702,8 @@
     "namedControls": 49,
     "headings": 5,
     "landmarks": 16
-   }
+   },
+   "hidden": null
   },
   {
    "site": "devto",
@@ -5554,7 +5728,8 @@
     "namedControls": 1607,
     "headings": 116,
     "landmarks": 17
-   }
+   },
+   "hidden": null
   },
   {
    "site": "discogs",
@@ -5572,7 +5747,8 @@
    "durationMs": 93,
    "error": "SslConnectError at https://www.discogs.com/",
    "shot": null,
-   "tree": null
+   "tree": null,
+   "hidden": null
   },
   {
    "site": "django",
@@ -5597,7 +5773,8 @@
     "namedControls": 164,
     "headings": 24,
     "landmarks": 23
-   }
+   },
+   "hidden": null
   },
   {
    "site": "docker-hub",
@@ -5622,7 +5799,8 @@
     "namedControls": 105,
     "headings": 34,
     "landmarks": 9
-   }
+   },
+   "hidden": null
   },
   {
    "site": "duckduckgo",
@@ -5647,7 +5825,8 @@
     "namedControls": 45,
     "headings": 14,
     "landmarks": 15
-   }
+   },
+   "hidden": null
   },
   {
    "site": "economist",
@@ -5671,7 +5850,8 @@
     "namedControls": 0,
     "headings": 0,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "eventbrite",
@@ -5690,14 +5870,15 @@
    "linkCount": 160,
    "durationMs": 2205,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/eventbrite.webp",
+   "shot": null,
    "tree": {
     "nodes": 923,
     "controls": 209,
     "namedControls": 206,
     "headings": 6,
     "landmarks": 19
-   }
+   },
+   "hidden": null
   },
   {
    "site": "expedia",
@@ -5714,14 +5895,15 @@
    "linkCount": 54,
    "durationMs": 2616,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/expedia.webp",
+   "shot": null,
    "tree": {
     "nodes": 480,
     "controls": 41,
     "namedControls": 41,
     "headings": 13,
     "landmarks": 10
-   }
+   },
+   "hidden": null
   },
   {
    "site": "figma",
@@ -5746,7 +5928,8 @@
     "namedControls": 95,
     "headings": 18,
     "landmarks": 22
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ft",
@@ -5770,7 +5953,8 @@
     "namedControls": 9,
     "headings": 2,
     "landmarks": 4
-   }
+   },
+   "hidden": null
   },
   {
    "site": "gcp-docs",
@@ -5795,7 +5979,8 @@
     "namedControls": 581,
     "headings": 25,
     "landmarks": 17
-   }
+   },
+   "hidden": null
   },
   {
    "site": "git-book",
@@ -5820,7 +6005,8 @@
     "namedControls": 167,
     "headings": 18,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "github-docs",
@@ -5845,7 +6031,8 @@
     "namedControls": 66,
     "headings": 12,
     "landmarks": 15
-   }
+   },
+   "hidden": null
   },
   {
    "site": "go-docs",
@@ -5870,7 +6057,8 @@
     "namedControls": 110,
     "headings": 6,
     "landmarks": 11
-   }
+   },
+   "hidden": null
   },
   {
    "site": "gov-uk-tax",
@@ -5895,7 +6083,8 @@
     "namedControls": 69,
     "headings": 15,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "huggingface",
@@ -5920,7 +6109,8 @@
     "namedControls": 187,
     "headings": 39,
     "landmarks": 39
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ikea",
@@ -5945,7 +6135,8 @@
     "namedControls": 450,
     "headings": 68,
     "landmarks": 29
-   }
+   },
+   "hidden": null
   },
   {
    "site": "independent",
@@ -5970,7 +6161,8 @@
     "namedControls": 339,
     "headings": 123,
     "landmarks": 25
-   }
+   },
+   "hidden": null
   },
   {
    "site": "irs",
@@ -5995,7 +6187,8 @@
     "namedControls": 166,
     "headings": 24,
     "landmarks": 27
-   }
+   },
+   "hidden": null
   },
   {
    "site": "kaggle",
@@ -6020,7 +6213,8 @@
     "namedControls": 71,
     "headings": 23,
     "landmarks": 16
-   }
+   },
+   "hidden": null
   },
   {
    "site": "khan",
@@ -6045,7 +6239,8 @@
     "namedControls": 957,
     "headings": 119,
     "landmarks": 9
-   }
+   },
+   "hidden": null
   },
   {
    "site": "kubernetes",
@@ -6070,7 +6265,8 @@
     "namedControls": 1842,
     "headings": 7,
     "landmarks": 12
-   }
+   },
+   "hidden": null
   },
   {
    "site": "linear",
@@ -6095,7 +6291,8 @@
     "namedControls": 147,
     "headings": 16,
     "landmarks": 15
-   }
+   },
+   "hidden": null
   },
   {
    "site": "medium",
@@ -6112,14 +6309,15 @@
    "linkCount": 22,
    "durationMs": 2662,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/medium.webp",
+   "shot": null,
    "tree": {
     "nodes": 33,
     "controls": 4,
     "namedControls": 3,
     "headings": 2,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "merriam-webster",
@@ -6136,14 +6334,15 @@
    "linkCount": 143,
    "durationMs": 4660,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/merriam-webster.webp",
+   "shot": null,
    "tree": {
     "nodes": 2170,
     "controls": 114,
     "namedControls": 114,
     "headings": 30,
     "landmarks": 9
-   }
+   },
+   "hidden": null
   },
   {
    "site": "mit-ocw",
@@ -6168,7 +6367,8 @@
     "namedControls": 819,
     "headings": 37,
     "landmarks": 4
-   }
+   },
+   "hidden": null
   },
   {
    "site": "monzo",
@@ -6193,7 +6393,8 @@
     "namedControls": 126,
     "headings": 63,
     "landmarks": 33
-   }
+   },
+   "hidden": null
   },
   {
    "site": "mozilla",
@@ -6218,7 +6419,8 @@
     "namedControls": 476,
     "headings": 31,
     "landmarks": 27
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ms-learn",
@@ -6243,7 +6445,8 @@
     "namedControls": 131,
     "headings": 22,
     "landmarks": 12
-   }
+   },
+   "hidden": null
   },
   {
    "site": "nasa",
@@ -6268,7 +6471,8 @@
     "namedControls": 93,
     "headings": 35,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "national-rail",
@@ -6293,7 +6497,8 @@
     "namedControls": 81,
     "headings": 21,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "nature",
@@ -6311,14 +6516,15 @@
    "linkCount": 0,
    "durationMs": 1927,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/nature.webp",
+   "shot": null,
    "tree": {
     "nodes": 20,
     "controls": 3,
     "namedControls": 3,
     "headings": 0,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "nextjs",
@@ -6343,7 +6549,8 @@
     "namedControls": 128,
     "headings": 15,
     "landmarks": 16
-   }
+   },
+   "hidden": null
   },
   {
    "site": "nhs",
@@ -6368,7 +6575,8 @@
     "namedControls": 45,
     "headings": 16,
     "landmarks": 19
-   }
+   },
+   "hidden": null
   },
   {
    "site": "nodejs",
@@ -6393,7 +6601,8 @@
     "namedControls": 116,
     "headings": 2,
     "landmarks": 18
-   }
+   },
+   "hidden": null
   },
   {
    "site": "notion",
@@ -6418,7 +6627,8 @@
     "namedControls": 66,
     "headings": 14,
     "landmarks": 12
-   }
+   },
+   "hidden": null
   },
   {
    "site": "npr",
@@ -6443,7 +6653,8 @@
     "namedControls": 692,
     "headings": 88,
     "landmarks": 28
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ons",
@@ -6468,7 +6679,8 @@
     "namedControls": 130,
     "headings": 34,
     "landmarks": 46
-   }
+   },
+   "hidden": null
   },
   {
    "site": "openstreetmap",
@@ -6493,7 +6705,8 @@
     "namedControls": 63,
     "headings": 2,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "paypal",
@@ -6510,14 +6723,15 @@
    "linkCount": 0,
    "durationMs": 1955,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/paypal.webp",
+   "shot": null,
    "tree": {
     "nodes": 2,
     "controls": 0,
     "namedControls": 0,
     "headings": 0,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "postgres",
@@ -6542,7 +6756,8 @@
     "namedControls": 60,
     "headings": 2,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "producthunt",
@@ -6566,7 +6781,8 @@
     "namedControls": 2,
     "headings": 2,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "pypi",
@@ -6591,7 +6807,8 @@
     "namedControls": 113,
     "headings": 19,
     "landmarks": 14
-   }
+   },
+   "hidden": null
   },
   {
    "site": "rightmove",
@@ -6616,7 +6833,8 @@
     "namedControls": 138,
     "headings": 18,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ryanair",
@@ -6641,7 +6859,8 @@
     "namedControls": 120,
     "headings": 33,
     "landmarks": 15
-   }
+   },
+   "hidden": null
   },
   {
    "site": "shopify",
@@ -6666,7 +6885,8 @@
     "namedControls": 113,
     "headings": 26,
     "landmarks": 19
-   }
+   },
+   "hidden": null
   },
   {
    "site": "simple-wiki",
@@ -6691,7 +6911,8 @@
     "namedControls": 1189,
     "headings": 24,
     "landmarks": 45
-   }
+   },
+   "hidden": null
   },
   {
    "site": "sky-news",
@@ -6715,7 +6936,8 @@
     "namedControls": 0,
     "headings": 1,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "skyscanner",
@@ -6732,14 +6954,15 @@
    "linkCount": 0,
    "durationMs": 2066,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/skyscanner.webp",
+   "shot": null,
    "tree": {
     "nodes": 19,
     "controls": 0,
     "namedControls": 0,
     "headings": 1,
     "landmarks": 6
-   }
+   },
+   "hidden": null
   },
   {
    "site": "spotify",
@@ -6764,7 +6987,8 @@
     "namedControls": 69,
     "headings": 23,
     "landmarks": 25
-   }
+   },
+   "hidden": null
   },
   {
    "site": "sqlite",
@@ -6789,7 +7013,8 @@
     "namedControls": 42,
     "headings": 3,
     "landmarks": 1
-   }
+   },
+   "hidden": null
   },
   {
    "site": "stanford-plato",
@@ -6814,7 +7039,8 @@
     "namedControls": 183,
     "headings": 50,
     "landmarks": 1
-   }
+   },
+   "hidden": null
   },
   {
    "site": "steam",
@@ -6839,7 +7065,8 @@
     "namedControls": 191,
     "headings": 8,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "stripe",
@@ -6864,7 +7091,8 @@
     "namedControls": 190,
     "headings": 47,
     "landmarks": 29
-   }
+   },
+   "hidden": null
   },
   {
    "site": "substack",
@@ -6889,7 +7117,8 @@
     "namedControls": 103,
     "headings": 2,
     "landmarks": 4
-   }
+   },
+   "hidden": null
   },
   {
    "site": "supabase",
@@ -6914,7 +7143,8 @@
     "namedControls": 156,
     "headings": 7,
     "landmarks": 19
-   }
+   },
+   "hidden": null
   },
   {
    "site": "svelte",
@@ -6939,7 +7169,8 @@
     "namedControls": 122,
     "headings": 11,
     "landmarks": 9
-   }
+   },
+   "hidden": null
   },
   {
    "site": "target",
@@ -6964,7 +7195,8 @@
     "namedControls": 154,
     "headings": 39,
     "landmarks": 9
-   }
+   },
+   "hidden": null
   },
   {
    "site": "techcrunch",
@@ -6989,7 +7221,8 @@
     "namedControls": 287,
     "headings": 90,
     "landmarks": 9
-   }
+   },
+   "hidden": null
   },
   {
    "site": "tesco",
@@ -7006,14 +7239,15 @@
    "linkCount": 163,
    "durationMs": 3728,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/tesco.webp",
+   "shot": null,
    "tree": {
     "nodes": 1602,
     "controls": 176,
     "namedControls": 171,
     "headings": 57,
     "landmarks": 55
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ticketmaster",
@@ -7030,14 +7264,15 @@
    "linkCount": 116,
    "durationMs": 3337,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/lightpanda/ticketmaster.webp",
+   "shot": null,
    "tree": {
     "nodes": 1074,
     "controls": 123,
     "namedControls": 123,
     "headings": 56,
     "landmarks": 14
-   }
+   },
+   "hidden": null
   },
   {
    "site": "typescript",
@@ -7062,7 +7297,8 @@
     "namedControls": 126,
     "headings": 20,
     "landmarks": 14
-   }
+   },
+   "hidden": null
   },
   {
    "site": "usa-gov",
@@ -7087,7 +7323,8 @@
     "namedControls": 58,
     "headings": 8,
     "landmarks": 19
-   }
+   },
+   "hidden": null
   },
   {
    "site": "verge",
@@ -7112,7 +7349,8 @@
     "namedControls": 429,
     "headings": 16,
     "landmarks": 30
-   }
+   },
+   "hidden": null
   },
   {
    "site": "vue",
@@ -7137,7 +7375,8 @@
     "namedControls": 200,
     "headings": 19,
     "landmarks": 15
-   }
+   },
+   "hidden": null
   },
   {
    "site": "w3schools",
@@ -7162,7 +7401,8 @@
     "namedControls": 581,
     "headings": 27,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "walmart",
@@ -7187,7 +7427,8 @@
     "namedControls": 110,
     "headings": 2,
     "landmarks": 91
-   }
+   },
+   "hidden": null
   },
   {
    "site": "weather-com",
@@ -7212,7 +7453,8 @@
     "namedControls": 75,
     "headings": 8,
     "landmarks": 19
-   }
+   },
+   "hidden": null
   },
   {
    "site": "web-dev",
@@ -7237,7 +7479,8 @@
     "namedControls": 182,
     "headings": 21,
     "landmarks": 20
-   }
+   },
+   "hidden": null
   },
   {
    "site": "wired",
@@ -7262,7 +7505,8 @@
     "namedControls": 172,
     "headings": 82,
     "landmarks": 19
-   }
+   },
+   "hidden": null
   },
   {
    "site": "wise",
@@ -7287,7 +7531,8 @@
     "namedControls": 171,
     "headings": 37,
     "landmarks": 18
-   }
+   },
+   "hidden": null
   },
   {
    "site": "wolfram",
@@ -7312,7 +7557,8 @@
     "namedControls": 71,
     "headings": 4,
     "landmarks": 12
-   }
+   },
+   "hidden": null
   },
   {
    "site": "wordpress",
@@ -7337,7 +7583,8 @@
     "namedControls": 86,
     "headings": 11,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "your-europe",
@@ -7362,7 +7609,8 @@
     "namedControls": 589,
     "headings": 10,
     "landmarks": 11
-   }
+   },
+   "hidden": null
   },
   {
    "site": "wikipedia",
@@ -7387,7 +7635,8 @@
     "namedControls": 3004,
     "headings": 72,
     "landmarks": 92
-   }
+   },
+   "hidden": null
   },
   {
    "site": "mdn",
@@ -7412,7 +7661,8 @@
     "namedControls": 112,
     "headings": 12,
     "landmarks": 20
-   }
+   },
+   "hidden": null
   },
   {
    "site": "gov-uk",
@@ -7437,7 +7687,8 @@
     "namedControls": 64,
     "headings": 18,
     "landmarks": 10
-   }
+   },
+   "hidden": null
   },
   {
    "site": "python-docs",
@@ -7462,7 +7713,8 @@
     "namedControls": 179,
     "headings": 4,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "arxiv",
@@ -7480,14 +7732,15 @@
    "linkCount": 87,
    "durationMs": 2579,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/arxiv.webp",
+   "shot": null,
    "tree": {
     "nodes": 702,
     "controls": 87,
     "namedControls": 87,
     "headings": 11,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "hacker-news",
@@ -7512,7 +7765,8 @@
     "namedControls": 198,
     "headings": 0,
     "landmarks": 1
-   }
+   },
+   "hidden": null
   },
   {
    "site": "books-toscrape",
@@ -7537,7 +7791,8 @@
     "namedControls": 114,
     "headings": 21,
     "landmarks": 25
-   }
+   },
+   "hidden": null
   },
   {
    "site": "quotes-js",
@@ -7562,7 +7817,8 @@
     "namedControls": 5,
     "headings": 1,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "react-dev",
@@ -7587,7 +7843,8 @@
     "namedControls": 103,
     "headings": 15,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "tailwind-docs",
@@ -7612,7 +7869,8 @@
     "namedControls": 235,
     "headings": 35,
     "landmarks": 3
-   }
+   },
+   "hidden": null
   },
   {
    "site": "github",
@@ -7637,7 +7895,8 @@
     "namedControls": 276,
     "headings": 48,
     "landmarks": 10
-   }
+   },
+   "hidden": null
   },
   {
    "site": "npm",
@@ -7662,7 +7921,8 @@
     "namedControls": 2,
     "headings": 2,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "stack-overflow",
@@ -7681,7 +7941,8 @@
    "durationMs": 0,
    "error": "robots.txt does not allow this page, or could not be read",
    "shot": null,
-   "tree": null
+   "tree": null,
+   "hidden": null
   },
   {
    "site": "bbc-news",
@@ -7700,7 +7961,8 @@
    "durationMs": 30005,
    "error": "Navigation timeout of 30000 ms exceeded",
    "shot": null,
-   "tree": null
+   "tree": null,
+   "hidden": null
   },
   {
    "site": "guardian",
@@ -7725,7 +7987,8 @@
     "namedControls": 340,
     "headings": 237,
     "landmarks": 202
-   }
+   },
+   "hidden": null
   },
   {
    "site": "nytimes",
@@ -7743,14 +8006,15 @@
    "linkCount": 984,
    "durationMs": 28822,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/nytimes.webp",
+   "shot": null,
    "tree": {
     "nodes": 2865,
     "controls": 156,
     "namedControls": 151,
     "headings": 13,
     "landmarks": 54
-   }
+   },
+   "hidden": null
   },
   {
    "site": "archive-org",
@@ -7769,7 +8033,8 @@
    "durationMs": 0,
    "error": "robots.txt does not allow this page, or could not be read",
    "shot": null,
-   "tree": null
+   "tree": null,
+   "hidden": null
   },
   {
    "site": "met-office",
@@ -7794,7 +8059,8 @@
     "namedControls": 128,
     "headings": 41,
     "landmarks": 13
-   }
+   },
+   "hidden": null
   },
   {
    "site": "bbc-food",
@@ -7819,7 +8085,8 @@
     "namedControls": 87,
     "headings": 10,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "youtube",
@@ -7836,14 +8103,15 @@
    "linkCount": 18,
    "durationMs": 5385,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/youtube.webp",
+   "shot": null,
    "tree": {
     "nodes": 133,
     "controls": 8,
     "namedControls": 6,
     "headings": 0,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "zillow",
@@ -7861,14 +8129,15 @@
    "linkCount": 274,
    "durationMs": 4069,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/zillow.webp",
+   "shot": null,
    "tree": {
     "nodes": 538,
     "controls": 71,
     "namedControls": 70,
     "headings": 13,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "etsy",
@@ -7893,7 +8162,8 @@
     "namedControls": 0,
     "headings": 0,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ebay",
@@ -7919,7 +8189,8 @@
     "namedControls": 0,
     "headings": 0,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "airbnb",
@@ -7938,14 +8209,15 @@
    "linkCount": 14,
    "durationMs": 4252,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/airbnb.webp",
+   "shot": null,
    "tree": {
     "nodes": 346,
     "controls": 13,
     "namedControls": 13,
     "headings": 1,
     "landmarks": 3
-   }
+   },
+   "hidden": null
   },
   {
    "site": "booking",
@@ -7964,7 +8236,8 @@
    "durationMs": 2902,
    "error": "Protocol error (Runtime.callFunctionOn): Cannot find context with specified id: 139",
    "shot": null,
-   "tree": null
+   "tree": null,
+   "hidden": null
   },
   {
    "site": "vercel",
@@ -7989,7 +8262,8 @@
     "namedControls": 106,
     "headings": 18,
     "landmarks": 20
-   }
+   },
+   "hidden": null
   },
   {
    "site": "cloudflare",
@@ -8014,7 +8288,8 @@
     "namedControls": 85,
     "headings": 23,
     "landmarks": 16
-   }
+   },
+   "hidden": null
   },
   {
    "site": "stripe-docs",
@@ -8039,7 +8314,8 @@
     "namedControls": 104,
     "headings": 7,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "craigslist",
@@ -8064,7 +8340,8 @@
     "namedControls": 248,
     "headings": 0,
     "landmarks": 1
-   }
+   },
+   "hidden": null
   },
   {
    "site": "hn-algolia",
@@ -8089,7 +8366,8 @@
     "namedControls": 199,
     "headings": 0,
     "landmarks": 4
-   }
+   },
+   "hidden": null
   },
   {
    "site": "aljazeera",
@@ -8114,7 +8392,8 @@
     "namedControls": 143,
     "headings": 65,
     "landmarks": 25
-   }
+   },
+   "hidden": null
   },
   {
    "site": "amazon",
@@ -8133,7 +8412,8 @@
    "durationMs": 2810,
    "error": "Protocol error (Runtime.callFunctionOn): Cannot find context with specified id: 189",
    "shot": null,
-   "tree": null
+   "tree": null,
+   "hidden": null
   },
   {
    "site": "apnews",
@@ -8150,14 +8430,15 @@
    "linkCount": 2,
    "durationMs": 1934,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/apnews.webp",
+   "shot": null,
    "tree": {
     "nodes": 33,
     "controls": 2,
     "namedControls": 2,
     "headings": 2,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "apple",
@@ -8182,7 +8463,8 @@
     "namedControls": 169,
     "headings": 46,
     "landmarks": 25
-   }
+   },
+   "hidden": null
   },
   {
    "site": "apple-dev",
@@ -8200,14 +8482,15 @@
    "linkCount": 218,
    "durationMs": 4687,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/apple-dev.webp",
+   "shot": null,
    "tree": {
     "nodes": 1246,
     "controls": 162,
     "namedControls": 162,
     "headings": 31,
     "landmarks": 10
-   }
+   },
+   "hidden": null
   },
   {
    "site": "argos",
@@ -8224,14 +8507,15 @@
    "linkCount": 0,
    "durationMs": 2669,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/argos.webp",
+   "shot": null,
    "tree": {
     "nodes": 13,
     "controls": 0,
     "namedControls": 0,
     "headings": 1,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ars",
@@ -8256,7 +8540,8 @@
     "namedControls": 141,
     "headings": 38,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "asos",
@@ -8273,14 +8558,15 @@
    "linkCount": 683,
    "durationMs": 3735,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/asos.webp",
+   "shot": null,
    "tree": {
     "nodes": 1215,
     "controls": 133,
     "namedControls": 132,
     "headings": 12,
     "landmarks": 38
-   }
+   },
+   "hidden": null
   },
   {
    "site": "autotrader",
@@ -8297,14 +8583,15 @@
    "linkCount": 116,
    "durationMs": 3998,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/autotrader.webp",
+   "shot": null,
    "tree": {
     "nodes": 1041,
     "controls": 115,
     "namedControls": 105,
     "headings": 30,
     "landmarks": 27
-   }
+   },
+   "hidden": null
   },
   {
    "site": "aws-docs",
@@ -8329,7 +8616,8 @@
     "namedControls": 195,
     "headings": 40,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "bbc-sport",
@@ -8348,7 +8636,8 @@
    "durationMs": 30004,
    "error": "Navigation timeout of 30000 ms exceeded",
    "shot": null,
-   "tree": null
+   "tree": null,
+   "hidden": null
   },
   {
    "site": "bestbuy",
@@ -8366,14 +8655,15 @@
    "linkCount": 9,
    "durationMs": 2850,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/bestbuy.webp",
+   "shot": null,
    "tree": {
     "nodes": 93,
     "controls": 6,
     "namedControls": 6,
     "headings": 4,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "britannica",
@@ -8390,14 +8680,15 @@
    "linkCount": 2,
    "durationMs": 1975,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/britannica.webp",
+   "shot": null,
    "tree": {
     "nodes": 32,
     "controls": 2,
     "namedControls": 2,
     "headings": 2,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "canada",
@@ -8416,7 +8707,8 @@
    "durationMs": 30004,
    "error": "Navigation timeout of 30000 ms exceeded",
    "shot": null,
-   "tree": null
+   "tree": null,
+   "hidden": null
   },
   {
    "site": "caniuse",
@@ -8441,7 +8733,8 @@
     "namedControls": 28,
     "headings": 4,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "cdc",
@@ -8466,7 +8759,8 @@
     "namedControls": 75,
     "headings": 7,
     "landmarks": 11
-   }
+   },
+   "hidden": null
   },
   {
    "site": "cnn",
@@ -8491,7 +8785,8 @@
     "namedControls": 379,
     "headings": 16,
     "landmarks": 10
-   }
+   },
+   "hidden": null
   },
   {
    "site": "codepen",
@@ -8515,7 +8810,8 @@
     "namedControls": 2,
     "headings": 2,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "crates",
@@ -8540,7 +8836,8 @@
     "namedControls": 62,
     "headings": 16,
     "landmarks": 6
-   }
+   },
+   "hidden": null
   },
   {
    "site": "data-gov",
@@ -8565,7 +8862,8 @@
     "namedControls": 46,
     "headings": 5,
     "landmarks": 15
-   }
+   },
+   "hidden": null
   },
   {
    "site": "devto",
@@ -8590,7 +8888,8 @@
     "namedControls": 334,
     "headings": 30,
     "landmarks": 14
-   }
+   },
+   "hidden": null
   },
   {
    "site": "discogs",
@@ -8607,14 +8906,15 @@
    "linkCount": 2,
    "durationMs": 1912,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/discogs.webp",
+   "shot": null,
    "tree": {
     "nodes": 32,
     "controls": 2,
     "namedControls": 2,
     "headings": 2,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "django",
@@ -8639,7 +8939,8 @@
     "namedControls": 133,
     "headings": 24,
     "landmarks": 22
-   }
+   },
+   "hidden": null
   },
   {
    "site": "docker-hub",
@@ -8664,7 +8965,8 @@
     "namedControls": 101,
     "headings": 34,
     "landmarks": 9
-   }
+   },
+   "hidden": null
   },
   {
    "site": "duckduckgo",
@@ -8689,7 +8991,8 @@
     "namedControls": 44,
     "headings": 14,
     "landmarks": 15
-   }
+   },
+   "hidden": null
   },
   {
    "site": "economist",
@@ -8713,7 +9016,8 @@
     "namedControls": 2,
     "headings": 2,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "eventbrite",
@@ -8732,14 +9036,15 @@
    "linkCount": 160,
    "durationMs": 3247,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/eventbrite.webp",
+   "shot": null,
    "tree": {
     "nodes": 753,
     "controls": 148,
     "namedControls": 148,
     "headings": 5,
     "landmarks": 13
-   }
+   },
+   "hidden": null
   },
   {
    "site": "expedia",
@@ -8756,14 +9061,15 @@
    "linkCount": 1,
    "durationMs": 3373,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/expedia.webp",
+   "shot": null,
    "tree": {
     "nodes": 27,
     "controls": 1,
     "namedControls": 1,
     "headings": 1,
     "landmarks": 3
-   }
+   },
+   "hidden": null
   },
   {
    "site": "figma",
@@ -8788,7 +9094,8 @@
     "namedControls": 100,
     "headings": 18,
     "landmarks": 14
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ft",
@@ -8812,7 +9119,8 @@
     "namedControls": 9,
     "headings": 2,
     "landmarks": 4
-   }
+   },
+   "hidden": null
   },
   {
    "site": "gcp-docs",
@@ -8837,7 +9145,8 @@
     "namedControls": 205,
     "headings": 24,
     "landmarks": 14
-   }
+   },
+   "hidden": null
   },
   {
    "site": "git-book",
@@ -8862,7 +9171,8 @@
     "namedControls": 49,
     "headings": 5,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "github-docs",
@@ -8887,7 +9197,8 @@
     "namedControls": 58,
     "headings": 10,
     "landmarks": 12
-   }
+   },
+   "hidden": null
   },
   {
    "site": "go-docs",
@@ -8912,7 +9223,8 @@
     "namedControls": 88,
     "headings": 6,
     "landmarks": 11
-   }
+   },
+   "hidden": null
   },
   {
    "site": "gov-uk-tax",
@@ -8937,7 +9249,8 @@
     "namedControls": 69,
     "headings": 15,
     "landmarks": 7
-   }
+   },
+   "hidden": null
   },
   {
    "site": "huggingface",
@@ -8962,7 +9275,8 @@
     "namedControls": 199,
     "headings": 34,
     "landmarks": 35
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ikea",
@@ -8987,7 +9301,8 @@
     "namedControls": 236,
     "headings": 51,
     "landmarks": 25
-   }
+   },
+   "hidden": null
   },
   {
    "site": "independent",
@@ -9012,7 +9327,8 @@
     "namedControls": 340,
     "headings": 123,
     "landmarks": 25
-   }
+   },
+   "hidden": null
   },
   {
    "site": "irs",
@@ -9037,7 +9353,8 @@
     "namedControls": 100,
     "headings": 18,
     "landmarks": 22
-   }
+   },
+   "hidden": null
   },
   {
    "site": "kaggle",
@@ -9062,7 +9379,8 @@
     "namedControls": 81,
     "headings": 23,
     "landmarks": 17
-   }
+   },
+   "hidden": null
   },
   {
    "site": "khan",
@@ -9087,7 +9405,8 @@
     "namedControls": 956,
     "headings": 118,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "kubernetes",
@@ -9112,7 +9431,8 @@
     "namedControls": 71,
     "headings": 7,
     "landmarks": 12
-   }
+   },
+   "hidden": null
   },
   {
    "site": "linear",
@@ -9137,7 +9457,8 @@
     "namedControls": 135,
     "headings": 15,
     "landmarks": 15
-   }
+   },
+   "hidden": null
   },
   {
    "site": "medium",
@@ -9154,14 +9475,15 @@
    "linkCount": 2,
    "durationMs": 3511,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/medium.webp",
+   "shot": null,
    "tree": {
     "nodes": 24,
     "controls": 2,
     "namedControls": 2,
     "headings": 1,
     "landmarks": 1
-   }
+   },
+   "hidden": null
   },
   {
    "site": "merriam-webster",
@@ -9178,14 +9500,15 @@
    "linkCount": 2,
    "durationMs": 1998,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/merriam-webster.webp",
+   "shot": null,
    "tree": {
     "nodes": 36,
     "controls": 2,
     "namedControls": 2,
     "headings": 2,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "mit-ocw",
@@ -9210,7 +9533,8 @@
     "namedControls": 117,
     "headings": 16,
     "landmarks": 3
-   }
+   },
+   "hidden": null
   },
   {
    "site": "monzo",
@@ -9235,7 +9559,8 @@
     "namedControls": 109,
     "headings": 53,
     "landmarks": 29
-   }
+   },
+   "hidden": null
   },
   {
    "site": "mozilla",
@@ -9260,7 +9585,8 @@
     "namedControls": 44,
     "headings": 21,
     "landmarks": 16
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ms-learn",
@@ -9285,7 +9611,8 @@
     "namedControls": 92,
     "headings": 22,
     "landmarks": 11
-   }
+   },
+   "hidden": null
   },
   {
    "site": "nasa",
@@ -9310,7 +9637,8 @@
     "namedControls": 78,
     "headings": 31,
     "landmarks": 4
-   }
+   },
+   "hidden": null
   },
   {
    "site": "national-rail",
@@ -9335,7 +9663,8 @@
     "namedControls": 81,
     "headings": 21,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "nature",
@@ -9353,14 +9682,15 @@
    "linkCount": 140,
    "durationMs": 3942,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/nature.webp",
+   "shot": null,
    "tree": {
     "nodes": 2397,
     "controls": 104,
     "namedControls": 104,
     "headings": 57,
     "landmarks": 11
-   }
+   },
+   "hidden": null
   },
   {
    "site": "nextjs",
@@ -9385,7 +9715,8 @@
     "namedControls": 118,
     "headings": 14,
     "landmarks": 16
-   }
+   },
+   "hidden": null
   },
   {
    "site": "nhs",
@@ -9410,7 +9741,8 @@
     "namedControls": 50,
     "headings": 17,
     "landmarks": 18
-   }
+   },
+   "hidden": null
   },
   {
    "site": "nodejs",
@@ -9435,7 +9767,8 @@
     "namedControls": 149,
     "headings": 2,
     "landmarks": 18
-   }
+   },
+   "hidden": null
   },
   {
    "site": "notion",
@@ -9460,7 +9793,8 @@
     "namedControls": 58,
     "headings": 13,
     "landmarks": 11
-   }
+   },
+   "hidden": null
   },
   {
    "site": "npr",
@@ -9485,7 +9819,8 @@
     "namedControls": 237,
     "headings": 60,
     "landmarks": 20
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ons",
@@ -9510,7 +9845,8 @@
     "namedControls": 63,
     "headings": 24,
     "landmarks": 30
-   }
+   },
+   "hidden": null
   },
   {
    "site": "openstreetmap",
@@ -9535,7 +9871,8 @@
     "namedControls": 36,
     "headings": 2,
     "landmarks": 4
-   }
+   },
+   "hidden": null
   },
   {
    "site": "paypal",
@@ -9552,14 +9889,15 @@
    "linkCount": 23,
    "durationMs": 3663,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/paypal.webp",
+   "shot": null,
    "tree": {
     "nodes": 1406,
     "controls": 23,
     "namedControls": 22,
     "headings": 23,
     "landmarks": 14
-   }
+   },
+   "hidden": null
   },
   {
    "site": "postgres",
@@ -9584,7 +9922,8 @@
     "namedControls": 58,
     "headings": 2,
     "landmarks": 3
-   }
+   },
+   "hidden": null
   },
   {
    "site": "producthunt",
@@ -9608,7 +9947,8 @@
     "namedControls": 2,
     "headings": 2,
     "landmarks": 2
-   }
+   },
+   "hidden": null
   },
   {
    "site": "pypi",
@@ -9633,7 +9973,8 @@
     "namedControls": 104,
     "headings": 19,
     "landmarks": 11
-   }
+   },
+   "hidden": null
   },
   {
    "site": "rightmove",
@@ -9658,7 +9999,8 @@
     "namedControls": 136,
     "headings": 18,
     "landmarks": 8
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ryanair",
@@ -9683,7 +10025,8 @@
     "namedControls": 122,
     "headings": 33,
     "landmarks": 15
-   }
+   },
+   "hidden": null
   },
   {
    "site": "shopify",
@@ -9708,7 +10051,8 @@
     "namedControls": 122,
     "headings": 26,
     "landmarks": 19
-   }
+   },
+   "hidden": null
   },
   {
    "site": "simple-wiki",
@@ -9733,7 +10077,8 @@
     "namedControls": 368,
     "headings": 24,
     "landmarks": 40
-   }
+   },
+   "hidden": null
   },
   {
    "site": "sky-news",
@@ -9757,7 +10102,8 @@
     "namedControls": 0,
     "headings": 1,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "skyscanner",
@@ -9774,14 +10120,15 @@
    "linkCount": 448,
    "durationMs": 5134,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/skyscanner.webp",
+   "shot": null,
    "tree": {
     "nodes": 574,
     "controls": 80,
     "namedControls": 80,
     "headings": 14,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "spotify",
@@ -9806,7 +10153,8 @@
     "namedControls": 57,
     "headings": 21,
     "landmarks": 25
-   }
+   },
+   "hidden": null
   },
   {
    "site": "sqlite",
@@ -9831,7 +10179,8 @@
     "namedControls": 36,
     "headings": 3,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "stanford-plato",
@@ -9856,7 +10205,8 @@
     "namedControls": 147,
     "headings": 50,
     "landmarks": 1
-   }
+   },
+   "hidden": null
   },
   {
    "site": "steam",
@@ -9881,7 +10231,8 @@
     "namedControls": 117,
     "headings": 3,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "stripe",
@@ -9906,7 +10257,8 @@
     "namedControls": 194,
     "headings": 47,
     "landmarks": 23
-   }
+   },
+   "hidden": null
   },
   {
    "site": "substack",
@@ -9931,7 +10283,8 @@
     "namedControls": 80,
     "headings": 2,
     "landmarks": 3
-   }
+   },
+   "hidden": null
   },
   {
    "site": "supabase",
@@ -9956,7 +10309,8 @@
     "namedControls": 125,
     "headings": 7,
     "landmarks": 15
-   }
+   },
+   "hidden": null
   },
   {
    "site": "svelte",
@@ -9981,7 +10335,8 @@
     "namedControls": 116,
     "headings": 11,
     "landmarks": 9
-   }
+   },
+   "hidden": null
   },
   {
    "site": "target",
@@ -10006,7 +10361,8 @@
     "namedControls": 0,
     "headings": 0,
     "landmarks": 0
-   }
+   },
+   "hidden": null
   },
   {
    "site": "techcrunch",
@@ -10031,7 +10387,8 @@
     "namedControls": 237,
     "headings": 89,
     "landmarks": 9
-   }
+   },
+   "hidden": null
   },
   {
    "site": "tesco",
@@ -10048,14 +10405,15 @@
    "linkCount": 118,
    "durationMs": 9464,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/tesco.webp",
+   "shot": null,
    "tree": {
     "nodes": 952,
     "controls": 102,
     "namedControls": 102,
     "headings": 31,
     "landmarks": 13
-   }
+   },
+   "hidden": null
   },
   {
    "site": "ticketmaster",
@@ -10072,14 +10430,15 @@
    "linkCount": 116,
    "durationMs": 3592,
    "error": null,
-   "shot": "shots/2026-11-19T16-37Z/obscura/ticketmaster.webp",
+   "shot": null,
    "tree": {
     "nodes": 611,
     "controls": 91,
     "namedControls": 91,
     "headings": 32,
     "landmarks": 13
-   }
+   },
+   "hidden": null
   },
   {
    "site": "typescript",
@@ -10104,7 +10463,8 @@
     "namedControls": 114,
     "headings": 20,
     "landmarks": 13
-   }
+   },
+   "hidden": null
   },
   {
    "site": "usa-gov",
@@ -10129,7 +10489,8 @@
     "namedControls": 48,
     "headings": 9,
     "landmarks": 16
-   }
+   },
+   "hidden": null
   },
   {
    "site": "verge",
@@ -10154,7 +10515,8 @@
     "namedControls": 188,
     "headings": 6,
     "landmarks": 14
-   }
+   },
+   "hidden": null
   },
   {
    "site": "vue",
@@ -10179,7 +10541,8 @@
     "namedControls": 123,
     "headings": 19,
     "landmarks": 15
-   }
+   },
+   "hidden": null
   },
   {
    "site": "w3schools",
@@ -10204,7 +10567,8 @@
     "namedControls": 213,
     "headings": 27,
     "landmarks": 5
-   }
+   },
+   "hidden": null
   },
   {
    "site": "walmart",
@@ -10229,7 +10593,8 @@
     "namedControls": 52,
     "headings": 2,
     "landmarks": 43
-   }
+   },
+   "hidden": null
   },
   {
    "site": "weather-com",
@@ -10254,7 +10619,8 @@
     "namedControls": 63,
     "headings": 8,
     "landmarks": 17
-   }
+   },
+   "hidden": null
   },
   {
    "site": "web-dev",
@@ -10279,7 +10645,8 @@
     "namedControls": 130,
     "headings": 18,
     "landmarks": 17
-   }
+   },
+   "hidden": null
   },
   {
    "site": "wired",
@@ -10304,7 +10671,8 @@
     "namedControls": 181,
     "headings": 77,
     "landmarks": 23
-   }
+   },
+   "hidden": null
   },
   {
    "site": "wise",
@@ -10329,7 +10697,8 @@
     "namedControls": 134,
     "headings": 35,
     "landmarks": 16
-   }
+   },
+   "hidden": null
   },
   {
    "site": "wolfram",
@@ -10354,7 +10723,8 @@
     "namedControls": 62,
     "headings": 4,
     "landmarks": 12
-   }
+   },
+   "hidden": null
   },
   {
    "site": "wordpress",
@@ -10379,7 +10749,8 @@
     "namedControls": 61,
     "headings": 11,
     "landmarks": 6
-   }
+   },
+   "hidden": null
   },
   {
    "site": "your-europe",
@@ -10404,7 +10775,8 @@
     "namedControls": 83,
     "headings": 9,
     "landmarks": 9
-   }
+   },
+   "hidden": null
   }
  ]
 }

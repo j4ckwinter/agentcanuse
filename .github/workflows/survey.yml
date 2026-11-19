@@ -30,7 +30,9 @@ jobs:
       - run: |
           git config user.name "agentcanuse survey"
           git config user.email "survey@users.noreply.github.com"
+          git checkout -- public/data/index.json
+          git pull --rebase
+          npm run reindex
           git add public/data
           git commit -m "data: record survey run"
-          git pull --rebase
           git push

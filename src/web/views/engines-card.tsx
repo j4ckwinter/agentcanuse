@@ -58,6 +58,28 @@ function PassRate({ passed, attempted }: { passed: number; attempted: number }) 
 }
 const CELL = 'px-3 py-3'
 
+function StackedEngines({ standings, href }: { standings: Standing[]; href: (standing: Standing) => string }) {
+  return (
+    <ul className="-mx-card -my-card md:hidden">
+      {standings.map((standing) => (
+        <li key={standing.engine.id} className="border-b border-line last:border-0">
+          <a href={href(standing)} className="flex flex-col gap-2 px-card py-3 hover:bg-raised">
+            <span className="flex items-start justify-between gap-3">
+              <span className="flex items-center gap-2.5 text-sm font-medium">
+                <EngineDot engine={standing.engine.id} className="size-2.5" />
+                {ENGINE_INFO[standing.engine.id].name}
+                <span className="font-mono text-caption font-normal text-fg-muted">{seconds(standing.medianMs)}</span>
+              </span>
+              <PassRate passed={standing.counts.passed} attempted={standing.attempted} />
+            </span>
+            <OutcomeBar standing={standing} />
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
 interface EnginesCardProps {
   run: Run
   runs: RunSummary[]
@@ -71,7 +93,8 @@ export function EnginesCard({ run, runs, runParam, full = false }: EnginesCardPr
   const anyTrend = current !== undefined && standings.some((standing) => trend(runs, current, standing.engine.id).length >= 2)
   return (
     <Card title="Engines" description="Every visit in this run, by outcome. ± is the 95% margin of error on the pass rate." action={<span className="hidden md:block"><OutcomeKey /></span>}>
-      <div className="-mx-card -my-2 overflow-x-auto">
+      <StackedEngines standings={standings} href={(standing) => routeHash({ view: 'engines', run: runParam, engine: standing.engine.id })} />
+      <div className="-mx-card -my-2 hidden overflow-x-auto md:block">
         <table className="w-full min-w-table border-collapse">
           <thead>
             <tr className="border-b border-line">

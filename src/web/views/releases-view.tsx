@@ -129,7 +129,7 @@ export function ReleasesView({ runs }: { runs: RunSummary[] }) {
                     {result.diff.changes.map((change) => (
                       <tr key={change.site} className="relative border-b border-line last:border-0 hover:bg-raised">
                         <td className="px-3 py-2.5 pl-card">
-                          <a href={routeHash({ view: 'sites', run: null, site: change.site, filter: NO_FILTER })} className="text-sm font-medium after:absolute after:inset-0 hover:underline">
+                          <a href={routeHash({ view: 'sites', run: comparison === null || comparison.after === runs[0].id ? null : comparison.after, site: change.site, filter: NO_FILTER })} className="text-sm font-medium after:absolute after:inset-0 hover:underline">
                             {result.names.get(change.site) ?? change.site}
                           </a>
                         </td>

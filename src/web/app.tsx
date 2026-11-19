@@ -5,10 +5,11 @@ import { repository } from '../../package.json'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { BRAND_NAME, MARK_POINTER, MARK_POINTER_COLOR, MARK_RADIUS, MARK_TRAIL, MARK_TRAIL_WIDTH, MARK_VIEWBOX } from '@/brand'
 import { loadIndex, loadRun } from '@/data'
-import { routeHash, useRoute, type Route } from '@/route'
+import { routeHash, sectionRoute, useRoute, type Route, type Section } from '@/route'
 import { NO_FILTER } from '@/site-filter'
 import { pageTitle } from '@/page-title'
 import { EngineView } from '@/views/engine-view'
+import { EnginesView } from '@/views/engines-view'
 import { Footer } from '@/views/footer'
 import { OverviewView } from '@/views/overview-view'
 import { SiteSearch } from '@/views/site-search'
@@ -48,40 +49,19 @@ function useRun(id: string | null): Loaded<Run> {
   return loaded !== null && loaded.id === id ? loaded.result : null
 }
 
-function runParamOf(route: Route): string | null {
-  return 'run' in route ? route.run : null
-}
-
 function withRun(route: Route, run: string | null): Route {
-  return 'run' in route ? { ...route, run } : { view: 'home', run }
+  return { ...route, run }
 }
 
 const ICON_BUTTON = 'inline-flex size-8 items-center justify-center rounded-md text-fg-secondary transition-colors hover:bg-hover hover:text-fg'
 
-type Tab = 'home' | 'sites' | 'releases' | 'method'
-
-const TABS: { tab: Tab; label: string }[] = [
-  { tab: 'home', label: 'Overview' },
-  { tab: 'sites', label: 'Sites' },
-  { tab: 'releases', label: 'Releases' },
-  { tab: 'method', label: 'Method' },
+const TABS: { section: Section; label: string }[] = [
+  { section: 'home', label: 'Overview' },
+  { section: 'engines', label: 'Engines' },
+  { section: 'sites', label: 'Sites' },
+  { section: 'releases', label: 'Releases' },
+  { section: 'method', label: 'Method' },
 ]
-
-function tabOf(route: Route): Tab {
-  return route.view === 'engine' ? 'home' : route.view
-}
-
-function tabHref(tab: Tab, run: string | null): string {
-  switch (tab) {
-    case 'home':
-      return routeHash({ view: 'home', run })
-    case 'sites':
-      return routeHash({ view: 'sites', run, site: null, filter: NO_FILTER })
-    case 'releases':
-    case 'method':
-      return routeHash({ view: tab })
-  }
-}
 
 function Mark() {
   return (
@@ -102,12 +82,10 @@ interface TopBarProps {
 }
 
 function TopBar({ route, ready, navigate }: TopBarProps) {
-  const runParam = runParamOf(route)
-  const active = tabOf(route)
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-page/85 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-page items-center gap-2 px-4 sm:px-6">
-        <a href={tabHref('home', runParam)} className="flex items-center gap-2.5 rounded-md pr-1 text-sm font-semibold">
+        <a href={routeHash(sectionRoute('home', route.run))} className="flex items-center gap-2.5 rounded-md pr-1 text-sm font-semibold">
           <Mark />
           {BRAND_NAME}
         </a>
@@ -122,7 +100,7 @@ function TopBar({ route, ready, navigate }: TopBarProps) {
         <div className="ml-auto flex items-center gap-1">
           {ready && (
             <div className="mr-1 hidden w-64 md:block">
-              <SiteSearch run={ready.run} siteHref={(site) => routeHash({ view: 'sites', run: runParam, site, filter: NO_FILTER })} />
+              <SiteSearch run={ready.run} siteHref={(site) => routeHash({ view: 'sites', run: route.run, site, filter: NO_FILTER })} />
             </div>
           )}
           <a href={repository.url} aria-label="Source on GitHub" title="Source on GitHub" className={ICON_BUTTON}>
@@ -132,11 +110,11 @@ function TopBar({ route, ready, navigate }: TopBarProps) {
         </div>
       </div>
       <nav aria-label="Sections" className="mx-auto flex max-w-page gap-1 overflow-x-auto px-2 sm:px-4">
-        {TABS.map(({ tab, label }) => (
+        {TABS.map(({ section, label }) => (
           <a
-            key={tab}
-            href={tabHref(tab, runParam)}
-            aria-current={active === tab ? 'page' : undefined}
+            key={section}
+            href={routeHash(sectionRoute(section, route.run))}
+            aria-current={route.view === section ? 'page' : undefined}
             className="relative px-2.5 py-2.5 text-label whitespace-nowrap text-fg-secondary transition-colors hover:text-fg aria-[current=page]:text-fg aria-[current=page]:after:absolute aria-[current=page]:after:inset-x-2 aria-[current=page]:after:-bottom-px aria-[current=page]:after:h-0.5 aria-[current=page]:after:rounded-full aria-[current=page]:after:bg-fg"
           >
             {label}
@@ -160,8 +138,8 @@ function Body({ route, runs, run, navigate }: BodyProps) {
       return <OverviewView run={run} runs={runs} runParam={route.run} />
     case 'sites':
       return <SitesView run={run} route={route} navigate={navigate} />
-    case 'engine':
-      return <EngineView run={run} engine={route.engine} runParam={route.run} />
+    case 'engines':
+      return route.engine === null ? <EnginesView run={run} runs={runs} runParam={route.run} /> : <EngineView run={run} engine={route.engine} runParam={route.run} />
     case 'releases':
       return <ReleasesView runs={runs} />
     case 'method':
@@ -185,7 +163,7 @@ function LoadingCards() {
 export function App() {
   const index = useIndex()
   const [route, navigate] = useRoute()
-  const runParam = runParamOf(route)
+  const runParam = route.run
   const runs = index !== null && 'value' in index ? index.value : null
   const known = runs?.find((summary) => summary.id === runParam)
   const runId = runs === null ? null : (known?.id ?? runs[0].id)

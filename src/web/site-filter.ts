@@ -1,5 +1,6 @@
 import type { BlockSplit } from '../core/agreement'
 import type { Category, Site } from '../core/model'
+import { CATEGORY_LABELS } from './labels'
 
 export const BLOCKINGS = ['any', 'only-chromium', 'only-others'] as const
 export type Blocking = (typeof BLOCKINGS)[number]
@@ -61,4 +62,19 @@ export function searchSites(sites: Site[], query: string): Site[] {
     .filter((site) => matchesQuery(site, query))
     .sort((a, b) => Number(startsWith(b)) - Number(startsWith(a)))
     .slice(0, SEARCH_RESULTS)
+}
+
+const BLOCKING_DESCRIPTIONS: Record<Exclude<Blocking, 'any'>, string> = {
+  'only-chromium': 'Blocked Chromium only',
+  'only-others': 'Blocked a lighter engine only',
+}
+
+export function describeFilter(filter: SiteFilter): string {
+  const parts = [
+    filter.disagreeingOnly ? 'Engines disagree' : null,
+    filter.category === 'all' ? null : CATEGORY_LABELS[filter.category],
+    filter.blocking === 'any' ? null : BLOCKING_DESCRIPTIONS[filter.blocking],
+    filter.query.trim() === '' ? null : `“${filter.query.trim()}”`,
+  ].filter((part): part is string => part !== null)
+  return parts.length === 0 ? 'All sites' : parts.join(' · ')
 }

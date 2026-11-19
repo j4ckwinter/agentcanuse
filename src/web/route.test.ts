@@ -1,11 +1,11 @@
 import { describe, expect, it } from 'vitest'
-import { parseRoute, routeHash, type Route } from './route'
+import { parseRoute, routeHash, sectionRoute, type Route } from './route'
 import { NO_FILTER } from './site-filter'
 
 describe('routes', () => {
   it('opens the home page for an empty, old or unknown hash', () => {
-    expect(parseRoute('#leaderboard')).toEqual({ view: 'home', run: null })
     expect(parseRoute('')).toEqual({ view: 'home', run: null })
+    expect(parseRoute('#leaderboard')).toEqual({ view: 'home', run: null })
     expect(parseRoute('#nonsense')).toEqual({ view: 'home', run: null })
   })
 
@@ -22,9 +22,17 @@ describe('routes', () => {
     expect(parseRoute('#sites?category=sport&blocking=sometimes')).toEqual({ view: 'sites', run: null, site: null, filter: NO_FILTER })
   })
 
-  it('reads an engine page, and falls back to the home page for an unknown engine', () => {
-    expect(parseRoute('#engine/obscura?run=2026-11-19T13-37Z')).toEqual({ view: 'engine', run: '2026-11-19T13-37Z', engine: 'obscura' })
-    expect(parseRoute('#engine/netscape')).toEqual({ view: 'home', run: null })
+  it('reads the engines list and one engine, including old engine links', () => {
+    expect(parseRoute('#engines')).toEqual({ view: 'engines', run: null, engine: null })
+    expect(parseRoute('#engines/obscura?run=2026-11-19T13-37Z')).toEqual({ view: 'engines', run: '2026-11-19T13-37Z', engine: 'obscura' })
+    expect(parseRoute('#engine/lightpanda')).toEqual({ view: 'engines', run: null, engine: 'lightpanda' })
+    expect(parseRoute('#engines/netscape')).toEqual({ view: 'engines', run: null, engine: null })
+  })
+
+  it('keeps the selected run on every page', () => {
+    expect(parseRoute('#method?run=r1')).toEqual({ view: 'method', run: 'r1' })
+    expect(parseRoute('#releases?run=r1')).toEqual({ view: 'releases', run: 'r1' })
+    expect(routeHash(sectionRoute('method', 'r1'))).toBe('#method?run=r1')
   })
 
   it('treats a site id that cannot be decoded as no site', () => {
@@ -37,19 +45,17 @@ describe('routes', () => {
       { view: 'home', run: '2026-11-19T12-24Z' },
       { view: 'sites', run: null, site: null, filter: NO_FILTER },
       { view: 'sites', run: '2026-11-19T12-24Z', site: 'gov-uk', filter: { query: 'a b', category: 'docs', disagreeingOnly: true, blocking: 'only-others' } },
-      { view: 'engine', run: null, engine: 'lightpanda' },
-      { view: 'releases' },
-      { view: 'method' },
+      { view: 'engines', run: null, engine: null },
+      { view: 'engines', run: 'r2', engine: 'lightpanda' },
+      { view: 'releases', run: null },
+      { view: 'method', run: 'r3' },
     ]
     for (const route of routes) expect(parseRoute(routeHash(route))).toEqual(route)
   })
 
-  it('writes the home page as a bare hash', () => {
+  it('writes the home page as a bare hash and keeps an unfiltered hash short', () => {
     expect(routeHash({ view: 'home', run: null })).toBe('#')
     expect(routeHash({ view: 'home', run: 'r1' })).toBe('#?run=r1')
-  })
-
-  it('keeps an unfiltered hash short', () => {
     expect(routeHash({ view: 'sites', run: null, site: null, filter: NO_FILTER })).toBe('#sites')
   })
 })

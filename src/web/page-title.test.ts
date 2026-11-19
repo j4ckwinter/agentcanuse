@@ -20,8 +20,9 @@ describe('pageTitle', () => {
   it('names the site, engine or section being viewed', () => {
     expect(pageTitle({ view: 'sites', run: null, site: 'zillow', filter: NO_FILTER }, run)).toBe('Zillow · agentcanuse')
     expect(pageTitle({ view: 'sites', run: null, site: null, filter: NO_FILTER }, run)).toBe('Sites · agentcanuse')
-    expect(pageTitle({ view: 'engine', run: null, engine: 'lightpanda' }, run)).toBe('Lightpanda · agentcanuse')
-    expect(pageTitle({ view: 'method' }, null)).toBe('Method · agentcanuse')
+    expect(pageTitle({ view: 'engines', run: null, engine: 'lightpanda' }, run)).toBe('Lightpanda · agentcanuse')
+    expect(pageTitle({ view: 'engines', run: null, engine: null }, run)).toBe('Engines · agentcanuse')
+    expect(pageTitle({ view: 'method', run: null }, null)).toBe('Method · agentcanuse')
   })
 
   it('falls back to the section name for a site it cannot find', () => {

@@ -99,6 +99,7 @@ export interface ComparisonLinks {
   previous: { href: string; name: string } | null
   next: { href: string; name: string } | null
   position: string | null
+  list: string
   engine: (engine: EngineRun) => string
 }
 
@@ -107,7 +108,7 @@ export function SiteComparison({ run, site, verdict, links }: { run: Run; site: 
   return (
     <>
       <PageHeader
-        back={{ href: links.back, label: 'All sites' }}
+        back={{ href: links.back, label: links.list === 'All sites' ? 'Sites' : `Sites · ${links.list}` }}
         title={site.name}
         description={
           <a href={site.url} className="hover:underline">
@@ -119,7 +120,12 @@ export function SiteComparison({ run, site, verdict, links }: { run: Run; site: 
             <StepLink href={links.previous?.href ?? null} label={links.previous ? `Previous: ${links.previous.name}` : 'No previous site'}>
               <ChevronLeft className="size-4" /> Previous
             </StepLink>
-            {links.position !== null && <span className="font-mono text-caption text-fg-muted">{links.position}</span>}
+            {links.position !== null && (
+              <span className="text-caption text-fg-muted" title={links.list}>
+                <span className="font-mono">{links.position}</span>
+                <span className="hidden sm:inline"> · {links.list}</span>
+              </span>
+            )}
             <StepLink href={links.next?.href ?? null} label={links.next ? `Next: ${links.next.name}` : 'No next site'}>
               Next <ChevronRight className="size-4" />
             </StepLink>

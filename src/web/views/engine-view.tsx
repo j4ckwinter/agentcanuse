@@ -57,7 +57,7 @@ function ResultRow({ run, result, alone, runParam }: { run: Run; result: Result;
 
 export function EngineView({ run, engine, runParam }: { run: Run; engine: EngineId; runParam: string | null }) {
   const info = ENGINE_INFO[engine]
-  const back = { href: routeHash({ view: 'home', run: runParam }), label: 'Overview' }
+  const back = { href: routeHash({ view: 'engines', run: runParam, engine: null }), label: 'Engines' }
   const standing = leaderboard(run).find((entry) => entry.engine.id === engine)
   if (standing === undefined) {
     return <PageHeader back={back} title={info.name} description={`${info.name} wasn’t part of this run.`} />

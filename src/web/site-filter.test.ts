@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { Site } from '../core/model'
-import { filterSites, neighbours, NO_FILTER, searchSites, type SiteFacts } from './site-filter'
+import { describeFilter, filterSites, neighbours, NO_FILTER, searchSites, type SiteFacts } from './site-filter'
 
 const sites: Site[] = [
   { id: 'zillow', name: 'Zillow', category: 'listings', url: 'https://www.zillow.com/', expect: [] },
@@ -53,5 +53,13 @@ describe('searchSites', () => {
     expect(ids(searchSites(sites, 'zi'))).toEqual(['zillow'])
     expect(ids(searchSites(sites, 'gov'))).toEqual(['gov-uk'])
     expect(ids(searchSites(sites, 'a'))).toEqual(['arxiv', 'gov-uk'])
+  })
+})
+
+describe('describeFilter', () => {
+  it('names the list a site page steps through', () => {
+    expect(describeFilter(NO_FILTER)).toBe('All sites')
+    expect(describeFilter({ ...NO_FILTER, disagreeingOnly: true, category: 'news' })).toBe('Engines disagree · News')
+    expect(describeFilter({ ...NO_FILTER, blocking: 'only-chromium', query: ' bbc ' })).toBe('Blocked Chromium only · “bbc”')
   })
 })

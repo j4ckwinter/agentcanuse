@@ -4,10 +4,25 @@ import { BLOCKINGS, NO_FILTER, type Blocking, type SiteFilter } from './site-fil
 
 export type Route =
   | { view: 'home'; run: string | null }
+  | { view: 'engines'; run: string | null; engine: EngineId | null }
   | { view: 'sites'; run: string | null; site: string | null; filter: SiteFilter }
-  | { view: 'engine'; run: string | null; engine: EngineId }
-  | { view: 'releases' }
-  | { view: 'method' }
+  | { view: 'releases'; run: string | null }
+  | { view: 'method'; run: string | null }
+
+export type Section = Route['view']
+
+export function sectionRoute(section: Section, run: string | null): Route {
+  switch (section) {
+    case 'home':
+    case 'releases':
+    case 'method':
+      return { view: section, run }
+    case 'engines':
+      return { view: 'engines', run, engine: null }
+    case 'sites':
+      return { view: 'sites', run, site: null, filter: NO_FILTER }
+  }
+}
 
 function oneOf<T extends string>(values: readonly T[], value: string | null): T | null {
   return value !== null && (values as readonly string[]).includes(value) ? (value as T) : null
@@ -46,14 +61,12 @@ export function parseRoute(hash: string): Route {
   switch (view) {
     case 'sites':
       return { view: 'sites', run, site: decoded(detail), filter: readFilter(params) }
-    case 'engine': {
-      const engine = oneOf<EngineId>(ENGINE_IDS, detail ?? null)
-      return engine === null ? { view: 'home', run } : { view: 'engine', run, engine }
-    }
+    case 'engines':
+    case 'engine':
+      return { view: 'engines', run, engine: oneOf<EngineId>(ENGINE_IDS, detail ?? null) }
     case 'releases':
-      return { view: 'releases' }
     case 'method':
-      return { view: 'method' }
+      return { view, run }
     default:
       return { view: 'home', run }
   }
@@ -67,20 +80,18 @@ function withParams(path: string, params: URLSearchParams): string {
 
 export function routeHash(route: Route): string {
   const params = new URLSearchParams()
+  if (route.run !== null) params.set('run', route.run)
   switch (route.view) {
     case 'home':
-      if (route.run !== null) params.set('run', route.run)
       return withParams('', params)
+    case 'engines':
+      return withParams(route.engine === null ? 'engines' : `engines/${route.engine}`, params)
     case 'sites':
-      if (route.run !== null) params.set('run', route.run)
       writeFilter(params, route.filter)
       return withParams(route.site === null ? 'sites' : `sites/${encodeURIComponent(route.site)}`, params)
-    case 'engine':
-      if (route.run !== null) params.set('run', route.run)
-      return withParams(`engine/${route.engine}`, params)
     case 'releases':
     case 'method':
-      return `#${route.view}`
+      return withParams(route.view, params)
   }
 }
 

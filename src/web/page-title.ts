@@ -11,8 +11,8 @@ function heading(route: Route, run: Run | null): string | null {
       return null
     case 'sites':
       return (route.site !== null && run?.sites.find((site) => site.id === route.site)?.name) || 'Sites'
-    case 'engine':
-      return ENGINE_INFO[route.engine].name
+    case 'engines':
+      return route.engine === null ? 'Engines' : ENGINE_INFO[route.engine].name
     case 'releases':
       return 'Releases'
     case 'method':

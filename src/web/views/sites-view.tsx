@@ -3,7 +3,7 @@ import { blockSplit, sitesWhereEnginesDisagree } from '../../core/agreement'
 import type { Run } from '../../core/model'
 import { verdictsBySite } from '../../core/verdict'
 import { routeHash, type Route } from '@/route'
-import { filterSites, neighbours, type SiteFilter } from '@/site-filter'
+import { describeFilter, filterSites, neighbours, type SiteFilter } from '@/site-filter'
 import { SiteComparison } from '@/views/site-comparison'
 import { SiteMatrix } from '@/views/site-matrix'
 
@@ -43,7 +43,8 @@ export function SitesView({ run, route, navigate }: SitesViewProps) {
         previous: previous && { href: siteHref(previous.id), name: previous.name },
         next: next && { href: siteHref(next.id), name: next.name },
         position: index === -1 ? null : `${index + 1} of ${sites.length}`,
-        engine: (engine) => routeHash({ view: 'engine', run: route.run, engine: engine.id }),
+        list: describeFilter(route.filter),
+        engine: (engine) => routeHash({ view: 'engines', run: route.run, engine: engine.id }),
       }}
     />
   )

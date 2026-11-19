@@ -9,9 +9,6 @@ export function Footer({ latest }: { latest: RunSummary | null }) {
     <footer className="border-t border-line">
       <div className="mx-auto flex max-w-page flex-wrap items-center gap-x-5 gap-y-1 px-4 py-card text-label text-fg-muted sm:px-6">
         {latest !== null && <span>Updated {shortDate(latest.startedAt)}</span>}
-        <a className={LINK} href="#method">
-          Method
-        </a>
         <a className={LINK} href="data/index.json">
           Raw data
         </a>

@@ -59,7 +59,7 @@ export function EnginesCard({ run, runs, runParam }: { run: Run; runs: RunSummar
             {standings.map((standing) => (
               <tr key={standing.engine.id} className="border-b border-line last:border-0 hover:bg-raised">
                 <td className={`${CELL} pl-card`}>
-                  <a href={routeHash({ view: 'engine', run: runParam, engine: standing.engine.id })} className="flex items-center gap-2.5 text-sm font-medium hover:underline">
+                  <a href={routeHash({ view: 'engines', run: runParam, engine: standing.engine.id })} className="flex items-center gap-2.5 text-sm font-medium hover:underline">
                     <span className="size-2.5 shrink-0 rounded-full" style={{ backgroundColor: ENGINE_COLORS[standing.engine.id] }} aria-hidden="true" />
                     {ENGINE_INFO[standing.engine.id].name}
                     <span className="rounded border border-line px-1.5 py-px font-mono text-micro font-normal text-fg-muted">{standing.engine.version}</span>

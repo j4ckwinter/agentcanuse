@@ -1,5 +1,6 @@
 import { Search, X } from 'lucide-react'
 import { CATEGORIES, type Run, type Site } from '../../core/model'
+import { repository } from '../../../package.json'
 import type { Verdict } from '../../core/verdict'
 import { OutcomeKey, OutcomeMark } from '@/components/outcome-mark'
 import { EngineDot } from '@/components/engine-dot'
@@ -17,6 +18,8 @@ const BLOCKING_LABELS: Record<Exclude<Blocking, 'any'>, string> = {
   'only-chromium': 'Blocked Chromium, let a lighter engine in',
   'only-others': 'Let Chromium in, blocked a lighter engine',
 }
+
+const SUGGEST_SITE_URL = `${repository.url}/issues/new?template=suggest-a-site.yml`
 
 const SEGMENT = 'inline-flex h-7 items-center rounded-sm px-2.5 text-label transition-colors'
 
@@ -153,8 +156,11 @@ export function SiteMatrix({ run, sites, verdicts, filter, onFilter, disagreeing
             </button>
           </div>
         )}
-        <div className="border-t border-line px-card py-3">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line px-card py-3">
           <OutcomeKey />
+          <a href={SUGGEST_SITE_URL} className="text-label font-medium text-accent-blue hover:underline">
+            Suggest a site
+          </a>
         </div>
       </section>
     </>

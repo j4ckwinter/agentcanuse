@@ -67,6 +67,8 @@ the live numbers on [agentcanuse.com](https://agentcanuse.com) move with each ru
 - **agent-browser isn't here because it isn't an engine.** it drives chromium or lightpanda, which are both measured.
 - **124 sites is a sample, not a census.** one site is a hint; the totals are the signal.
 
+want a site in the survey? [suggest one](https://github.com/j4ckwinter/agentcanuse/issues/new?template=suggest-a-site.yml). it needs a public page and two phrases a person would look for on it.
+
 ## run it yourself
 
 you need Node 22.12 or newer.

@@ -1,0 +1,54 @@
+name: Suggest a site
+description: Add a page to the nightly survey.
+title: "Add a site: "
+labels: ["site suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Every engine visits each site once a night, as `agentcanuse`, and only if the site's robots.txt allows it. Pick one public page that doesn't need a login.
+  - type: input
+    id: url
+    attributes:
+      label: Page address
+      placeholder: https://www.example.com/some/page
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Name to show
+      placeholder: Example product page
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Docs
+        - Developer tools
+        - Government
+        - Reference
+        - News
+        - Shopping
+        - Travel and tickets
+        - Property and listings
+        - Apps and services
+    validations:
+      required: true
+  - type: textarea
+    id: phrases
+    attributes:
+      label: Two phrases a person would look for on the page
+      description: One per line. They should show in a normal browser today.
+      placeholder: |
+        Add to basket
+        Free delivery
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it's interesting
+      description: Optional. For example, it blocks bots, or it's built with a framework the survey doesn't cover yet.

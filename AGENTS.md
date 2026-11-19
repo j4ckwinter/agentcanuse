@@ -36,6 +36,8 @@ Each decision has one owner. Put new code with the owner of the decision it make
 | How long a visit waits: the load timeout, the settle wait, the overall deadline | `src/runner/timing.ts` |
 | Which sites keep screenshots, where blocking differs between Chromium and the other engines, and where one engine alone differs | `src/core/agreement.ts` |
 | Which runs can be compared: same network, same site list | `src/core/comparable.ts` |
+| The margin of error on a pass rate | `src/core/confidence.ts` |
+| A site's history across runs, and when it counts as flaky | `src/core/history.ts` |
 | A site's verdict (works everywhere, blocks headless Chrome, …) | `src/core/verdict.ts` |
 | What the Findings card reports | `src/core/findings.ts`, worded in `src/web/views/findings-card.tsx` |
 | A run's summary for the index, and which runs a trend line follows | `src/core/leaderboard.ts` |
@@ -43,6 +45,8 @@ Each decision has one owner. Put new code with the owner of the decision it make
 | Whether a page may be visited, and the user agent that asks | `src/runner/robots.ts` |
 | Where runs, the index and thumbnails are written, and which runs keep their thumbnails | `src/runner/store.ts` |
 | Command-line options and the order of a run | `src/runner/main.ts` |
+| The `agentcanuse check` command: its options and the order of a check | `src/cli/main.ts`, launched by `bin/agentcanuse.mjs` |
+| How a check's results are printed | `src/cli/report.ts` |
 | Loading runs in the page | `src/web/data.ts` |
 | Wording for engines, outcomes, verdicts, categories and changes; each outcome's mark and status colour; each engine's series colour | `src/web/labels.ts` |
 | How each outcome mark is drawn | `src/web/components/outcome-mark.tsx` |
@@ -50,7 +54,10 @@ Each decision has one owner. Put new code with the owner of the decision it make
 | The mark (pointer and three-engine trail), its colours, the name and tagline | `src/web/brand.ts` |
 | The favicon, PNG icons, Apple touch icon and social image, generated from the brand | `scripts/brand-assets.ts` (`npm run brand`) |
 | Light and dark: the stored choice and the toggle | `src/web/theme.ts`, `src/web/components/theme-toggle.tsx`, and the boot script in `index.html` |
-| Page addresses, including filters and the selected run | `src/web/route.ts` |
+| Page addresses, the sections they belong to, filters and the selected run | `src/web/route.ts` |
+| Which runs a site page loads for its history | `src/web/use-history.ts` |
+| The reproduce command shown on a site page | `src/web/reproduce.ts` |
+| How a site filter is described, for the list a site page steps through | `src/web/site-filter.ts` |
 | Which run is shown, and what happens for a run id the index doesn't list | `src/web/app.tsx` |
 | What each engine is, its homepage and its release notes link | `src/web/labels.ts` |
 | Which sites the Sites tab shows for a search, category, the disagreement switch or a blocking split, and their order for next and previous | `src/web/site-filter.ts` |
@@ -64,6 +71,7 @@ Each decision has one owner. Put new code with the owner of the decision it make
 - Every engine is driven the same way: started as a local DevTools server and visited with `puppeteer-core`. A difference in the results should come from the engine, not from how we drove it.
 - Ask `robots.txt` before visiting. A site that disallows `agentcanuse`, or whose `robots.txt` can't be read, is skipped. Only a 404 or 410 counts as having no `robots.txt`; a 401, 403 or 429 counts as unreadable. Visit each site once per engine per run, one at a time.
 - Use the engines' standard builds. Never their stealth builds or anything else meant to get past a bot check: being blocked is one of the things measured.
+- `agentcanuse check` visits only the page a person asks for, once per engine, so it skips the `robots.txt` check the survey makes. It shares the survey's launcher, visit and judge, so a check scores a page the same way. Without `--expect`, a page passes when it loads readable text. It installs from GitHub with `npx`, which is why `tsx` is a runtime dependency; publishing to npm needs Jack's request.
 - Kitesurf runs only when `KITESURF_ENDPOINT` points at a deployed instance. Its README warns against opening untrusted sites with a local Kitesurf, so don't run it locally.
 - An expected phrase should be content a person would look for, and should show in Chromium today. When a phrase stops matching in Chromium too, the site changed, so update `sites.json` rather than the scoring. A site that blocks Chromium can't have its phrases checked, so it lists only the site's name.
 - Tests cover `src/core` and `src/web/route.ts` through their exported functions. No network, clock or sleeping in tests.

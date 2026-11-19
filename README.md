@@ -37,6 +37,29 @@ two runs from 19 november, from a home connection in the uk. the first ran the p
 
 a survey also runs every night on GitHub Actions, and another starts within six hours of a new Lightpanda or Obscura release, so the releases tab shows what each release changed. those runs come from a data centre, which sites tend to block more than a home connection, so the site labels where each run came from, and the releases tab compares runs from the same kind of network when it can.
 
+## check your own site
+
+you don't need to clone anything. with Node 22.12 or newer:
+
+```sh
+npx github:j4ckwinter/agentcanuse check https://your-site.com
+```
+
+it downloads each engine the first time (into `~/.cache/agentcanuse`), visits the page once with each, and prints what happened:
+
+```
+https://www.gov.uk/bank-holidays
+
+engine      version        outcome  status  time  detail
+chromium    158.0.8127.36  passed   200     1.9s  5,994 characters read
+lightpanda  1.0.4          passed   200     1.7s  16,132 characters read
+obscura     v0.2.7         passed   200     2.4s  16,137 characters read
+
+Works everywhere. Every engine could read gov.uk.
+```
+
+add `--expect "some text"` (as many as you like) to check the page shows what it should, `--engine lightpanda` to try one engine, or `--json` for the raw results. every site page on agentcanuse.com has the exact command for that site.
+
 ## run it
 
 you need Node 22.12 or newer.

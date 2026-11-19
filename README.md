@@ -1,8 +1,12 @@
+<div align="center">
+
 # agent can use
 
 **caniuse, but for the browsers ai agents use.** see it at [agentcanuse.com](https://agentcanuse.com).
 
-![Agent Can Use: the overview's answer and category guide, the engines table with usable trees, Zillow read side by side by Chromium, Lightpanda and Obscura, then Obscura's release diff with two sites now passing](docs/demo.gif)
+<img src="docs/demo.gif" alt="Agent Can Use: the overview's answer and category guide, the engines table with usable trees, Zillow read side by side by Chromium, Lightpanda and Obscura, then Obscura's release diff with two sites now passing" width="900">
+
+</div>
 
 if you're building an agent, you have to pick a browser for it. chromium is the safe choice. [Lightpanda](https://github.com/lightpanda-io/browser) and [Obscura](https://github.com/h4ckf0r0day/obscura) are lighter engines built for agents, and Cloudflare open-sourced [Kitesurf](https://github.com/cloudflare/kitesurf) on 13 november. the lighter ones promise less memory and quicker pages, and they break on some real sites. which ones, and how often? every comparison so far is a one-off, mostly run by whoever makes the engine.
 

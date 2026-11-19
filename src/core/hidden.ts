@@ -27,14 +27,9 @@ function probesOf(text: string): string[] {
 
 export function hiddenSample(candidates: string[], visibleText: string): string[] {
   const visible = squash(visibleText)
-  const blocks = candidates.map((candidate) => probesOf(squash(candidate)).filter((probe) => !visible.includes(probe)))
-  const sample = new Set<string>()
-  for (let round = 0; sample.size < HIDDEN_SAMPLE_SIZE && blocks.some((block) => round < block.length); round += 1) {
-    for (const block of blocks) {
-      if (round < block.length && sample.size < HIDDEN_SAMPLE_SIZE) sample.add(block[round])
-    }
-  }
-  return [...sample]
+  const probes = [...new Set(candidates.flatMap((candidate) => probesOf(squash(candidate))).filter((probe) => !visible.includes(probe)))]
+  if (probes.length <= HIDDEN_SAMPLE_SIZE) return probes
+  return Array.from({ length: HIDDEN_SAMPLE_SIZE }, (_, index) => probes[Math.floor((index * probes.length) / HIDDEN_SAMPLE_SIZE)])
 }
 
 export function hiddenReads(sample: string[], text: string): HiddenReads | null {

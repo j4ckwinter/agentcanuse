@@ -13,19 +13,20 @@ describe('hiddenSample', () => {
     expect(hiddenSample([hidden(1), hidden(2)], `Header ${hidden(2)} footer`)).toEqual(['roledetailsforjobnumber1,shownafterseemore'])
   })
 
-  it('takes at most twenty pieces, each cut to a probe of eighty characters', () => {
+  it('takes at most twenty pieces, each a probe of at most eighty characters', () => {
     const sample = hiddenSample(Array.from({ length: 30 }, (_, index) => `${hidden(index)} ${'x'.repeat(100)}`), '')
     expect(sample).toHaveLength(20)
-    expect(sample.every((probe) => probe.length === 80)).toBe(true)
+    expect(sample.every((probe) => probe.length <= 80)).toBe(true)
   })
 })
 
-describe('hiddenSample from long blocks', () => {
-  it('cuts a long hidden block into several probes, taking from each block in turn', () => {
-    const long = Array.from({ length: 6 }, (_, index) => hidden(index)).join(' ')
-    const sample = hiddenSample([long, hidden(9)], '')
-    expect(sample.length).toBeGreaterThanOrEqual(4)
-    expect(sample[1]).toBe('roledetailsforjobnumber9,shownafterseemore')
+describe('hiddenSample from blocks of different sizes', () => {
+  it('spreads the sample evenly over all hidden text, so a big block counts for more than a short notice', () => {
+    const panel = Array.from({ length: 60 }, (_, index) => hidden(index)).join(' ')
+    const notices = [1, 2, 3, 4].map((index) => `Cookie notice number ${index} has been accepted`)
+    const sample = hiddenSample([...notices, panel], '')
+    expect(sample).toHaveLength(20)
+    expect(sample.filter((probe) => probe.startsWith('cookienotice')).length).toBeLessThanOrEqual(3)
   })
 })
 

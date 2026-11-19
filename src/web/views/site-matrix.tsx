@@ -15,8 +15,8 @@ const BLOCKING_LABELS: Record<Exclude<Blocking, 'any'>, string> = {
   'only-others': 'Let Chromium in, blocked a lighter engine',
 }
 
-const SEGMENT = 'inline-flex h-7 items-center rounded-[5px] px-2.5 text-[13px] transition-colors'
-const HEAD = 'px-3 py-2 text-left text-[12px] font-medium text-fg-muted'
+const SEGMENT = 'inline-flex h-7 items-center rounded-sm px-2.5 text-label transition-colors'
+const HEAD = 'px-3 py-2 text-left text-caption font-medium text-fg-muted'
 
 interface ToolbarProps {
   filter: SiteFilter
@@ -35,7 +35,7 @@ function Toolbar({ filter, onChange, disagreeing, total }: ToolbarProps) {
           onChange={(event) => onChange({ ...filter, query: event.target.value })}
           placeholder="Search by name or address"
           aria-label="Search sites"
-          className="h-8 w-full rounded-md border border-line bg-surface pr-3 pl-8 text-[13px] outline-none placeholder:text-fg-muted focus-visible:border-accent-blue"
+          className="h-8 w-full rounded-md border border-line bg-surface pr-3 pl-8 text-label outline-none placeholder:text-fg-muted focus-visible:border-accent-blue"
         />
       </div>
       <div className="flex flex-wrap items-center gap-2">
@@ -52,12 +52,12 @@ function Toolbar({ filter, onChange, disagreeing, total }: ToolbarProps) {
               className={cn(SEGMENT, filter.disagreeingOnly === value ? 'bg-surface font-medium text-fg shadow-xs' : 'text-fg-secondary hover:text-fg')}
             >
               {label}
-              <span className="ml-1.5 font-mono text-[11px] text-fg-muted">{count}</span>
+              <span className="ml-1.5 font-mono text-micro text-fg-muted">{count}</span>
             </button>
           ))}
         </div>
         <Select value={filter.category} onValueChange={(category) => onChange({ ...filter, category: category as SiteFilter['category'] })}>
-          <SelectTrigger size="sm" className="h-8 rounded-md text-[13px]" aria-label="Category">
+          <SelectTrigger size="sm" className="h-8 rounded-md text-label" aria-label="Category">
             <SelectValue />
           </SelectTrigger>
           <SelectContent position="popper" align="start">
@@ -73,7 +73,7 @@ function Toolbar({ filter, onChange, disagreeing, total }: ToolbarProps) {
           <button
             type="button"
             onClick={() => onChange({ ...filter, blocking: 'any' })}
-            className="inline-flex h-8 items-center gap-1.5 rounded-md border border-accent-blue/40 bg-accent-blue/10 px-2.5 text-[13px] text-fg"
+            className="inline-flex h-8 items-center gap-1.5 rounded-md border border-accent-blue/40 bg-accent-blue/10 px-2.5 text-label text-fg"
           >
             {BLOCKING_LABELS[filter.blocking]}
             <X className="size-3.5" aria-label="Clear" />
@@ -101,14 +101,14 @@ export function SiteMatrix({ run, sites, verdicts, filter, onFilter, disagreeing
       <section className="rounded-xl border border-line bg-surface" aria-label="Sites">
         <Toolbar filter={filter} onChange={onFilter} disagreeing={disagreeing} total={run.sites.length} />
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[680px] border-collapse">
+          <table className="w-full min-w-table border-collapse">
             <thead>
               <tr className="border-b border-line">
-                <th className={`${HEAD} pl-5`}>Site</th>
+                <th className={`${HEAD} pl-card`}>Site</th>
                 <th className={HEAD}>Category</th>
                 <th className={HEAD}>Verdict</th>
                 {run.engines.map((engine) => (
-                  <th key={engine.id} className={`${HEAD} text-center last:pr-5`}>
+                  <th key={engine.id} className={`${HEAD} text-center last:pr-card`}>
                     <span className="inline-flex items-center gap-1.5">
                       <span className="size-2 rounded-full" style={{ backgroundColor: ENGINE_COLORS[engine.id] }} aria-hidden="true" />
                       {ENGINE_INFO[engine.id].name}
@@ -120,20 +120,20 @@ export function SiteMatrix({ run, sites, verdicts, filter, onFilter, disagreeing
             <tbody>
               {sites.map((site) => (
                 <tr key={site.id} className="relative border-b border-line last:border-0 hover:bg-raised">
-                  <td className="px-3 py-2.5 pl-5">
+                  <td className="px-3 py-2.5 pl-card">
                     <a href={siteHref(site.id)} className="text-sm font-medium after:absolute after:inset-0 hover:underline">
                       {site.name}
                     </a>
-                    <div className="text-[12px] text-fg-muted">{new URL(site.url).hostname.replace(/^www\./, '')}</div>
+                    <div className="text-caption text-fg-muted">{new URL(site.url).hostname.replace(/^www\./, '')}</div>
                   </td>
-                  <td className="px-3 py-2.5 text-[13px] text-fg-secondary">{CATEGORY_LABELS[site.category]}</td>
+                  <td className="px-3 py-2.5 text-label text-fg-secondary">{CATEGORY_LABELS[site.category]}</td>
                   <td className="px-3 py-2.5">
                     <VerdictLabel verdict={verdicts.get(site.id) ?? 'mixed'} />
                   </td>
                   {run.engines.map((engine) => {
                     const result = resultFor(run, site.id, engine.id)
                     return (
-                      <td key={engine.id} className="px-3 py-2.5 text-center last:pr-5">
+                      <td key={engine.id} className="px-3 py-2.5 text-center last:pr-card">
                         {result && <OutcomeMark outcome={result.outcome} />}
                       </td>
                     )
@@ -144,14 +144,14 @@ export function SiteMatrix({ run, sites, verdicts, filter, onFilter, disagreeing
           </table>
         </div>
         {sites.length === 0 && (
-          <div className="flex flex-col items-center gap-2 px-5 py-12 text-center">
+          <div className="flex flex-col items-center gap-2 px-card py-12 text-center">
             <p className="text-sm font-medium">No sites match these filters</p>
-            <button type="button" className="text-[13px] font-medium text-accent-blue hover:underline" onClick={() => onFilter(NO_FILTER)}>
+            <button type="button" className="text-label font-medium text-accent-blue hover:underline" onClick={() => onFilter(NO_FILTER)}>
               Clear filters
             </button>
           </div>
         )}
-        <div className="border-t border-line px-5 py-3">
+        <div className="border-t border-line px-card py-3">
           <OutcomeKey />
         </div>
       </section>

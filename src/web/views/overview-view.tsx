@@ -30,15 +30,15 @@ export function OverviewView({ run, runs, runParam }: { run: Run; runs: RunSumma
         title="Can AI agents’ browsers use the web?"
         description={`Agents browse with lighter engines built for them, not just Chrome. We run each one against the same ${run.sites.length} real sites and score whether it can load the page, find what’s on it, and get past the bot checks.`}
         aside={
-          <p className="flex shrink-0 items-center gap-2 text-[13px] text-fg-muted">
-            <span className="size-2 rounded-full bg-[var(--status-good)]" aria-hidden="true" />
+          <p className="flex shrink-0 items-center gap-2 text-label text-fg-muted">
+            <span className="size-2 rounded-full bg-status-good" aria-hidden="true" />
             Run of {shortDate(run.startedAt)} from {ORIGIN_LABELS[run.origin].label}
           </p>
         }
       />
       <TestExplainer sites={run.sites.length} />
       {caveat !== null && (
-        <p className="flex items-start gap-2.5 rounded-xl border border-line bg-surface px-4 py-3 text-[13px] text-fg-secondary">
+        <p className="flex items-start gap-2.5 rounded-xl border border-line bg-surface px-4 py-3 text-label text-fg-secondary">
           <Info className="mt-0.5 size-4 shrink-0 text-accent-blue" />
           {caveat}
         </p>

@@ -46,18 +46,18 @@ export function SpeedChart({ run }: { run: Run }) {
         <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} className="h-auto w-full" role="img" aria-label="Median time per page against pass rate, one point per engine">
           {yTicks.map((tick) => (
             <g key={tick}>
-              <line x1={MARGIN.left} x2={WIDTH - MARGIN.right} y1={y(tick)} y2={y(tick)} stroke="var(--palette-line)" strokeWidth="1" />
-              <text x={MARGIN.left - 8} y={y(tick)} dy="0.32em" textAnchor="end" fontSize="11" fill="var(--palette-fg-muted)">
+              <line x1={MARGIN.left} x2={WIDTH - MARGIN.right} y1={y(tick)} y2={y(tick)} className="stroke-line" strokeWidth="1" />
+              <text x={MARGIN.left - 8} y={y(tick)} dy="0.32em" textAnchor="end" className="fill-fg-muted text-micro">
                 {percent(tick)}
               </text>
             </g>
           ))}
           {xTicks.map((tick) => (
-            <text key={tick} x={x(tick)} y={HEIGHT - MARGIN.bottom + 18} textAnchor="middle" fontSize="11" fill="var(--palette-fg-muted)">
+            <text key={tick} x={x(tick)} y={HEIGHT - MARGIN.bottom + 18} textAnchor="middle" className="fill-fg-muted text-micro">
               {seconds(tick)}
             </text>
           ))}
-          <text x={WIDTH - MARGIN.right} y={HEIGHT - 4} textAnchor="end" fontSize="11" fill="var(--palette-fg-muted)">
+          <text x={WIDTH - MARGIN.right} y={HEIGHT - 4} textAnchor="end" className="fill-fg-muted text-micro">
             median time per page
           </text>
           {points.map((point) => (
@@ -74,7 +74,7 @@ export function SpeedChart({ run }: { run: Run }) {
             >
               <circle cx={x(point.ms)} cy={y(point.rate)} r="16" fill="transparent" />
               <circle cx={x(point.ms)} cy={y(point.rate)} r={hovered === point.engine ? 8 : 6.5} fill={ENGINE_COLORS[point.engine]} stroke="var(--palette-surface)" strokeWidth="2" />
-              <text x={x(point.ms) + 12} y={labelY.get(point.engine) ?? y(point.rate)} dy="0.32em" fontSize="12" fill="var(--palette-fg-secondary)">
+              <text x={x(point.ms) + 12} y={labelY.get(point.engine) ?? y(point.rate)} dy="0.32em" className="fill-fg-secondary text-caption">
                 {ENGINE_INFO[point.engine].name}
               </text>
             </g>
@@ -83,7 +83,7 @@ export function SpeedChart({ run }: { run: Run }) {
         {active && (
           <div
             role="tooltip"
-            className="pointer-events-none absolute z-20 -translate-x-1/2 -translate-y-full rounded-lg border border-line bg-surface px-2.5 py-1.5 text-[12px] whitespace-nowrap shadow-lg"
+            className="pointer-events-none absolute z-20 -translate-x-1/2 -translate-y-full rounded-lg border border-line bg-surface px-2.5 py-1.5 text-caption whitespace-nowrap shadow-lg"
             style={{ left: `${(x(active.ms) / WIDTH) * 100}%`, top: `calc(${(y(active.rate) / HEIGHT) * 100}% - 12px)` }}
           >
             <span className="font-medium">{ENGINE_INFO[active.engine].name}</span>

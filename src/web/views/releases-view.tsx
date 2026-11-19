@@ -59,7 +59,7 @@ export function ReleasesView({ runs }: { runs: RunSummary[] }) {
       <PageHeader title="Releases" description="What changed for an engine between its latest run and its last run on a different version. A new release is picked up within six hours." />
       <div className="flex flex-wrap items-center gap-2">
         <Select value={engine} onValueChange={(value) => setEngine(value as EngineId)}>
-          <SelectTrigger size="sm" className="h-8 rounded-md text-[13px]" aria-label="Engine">
+          <SelectTrigger size="sm" className="h-8 rounded-md text-label" aria-label="Engine">
             <SelectValue />
           </SelectTrigger>
           <SelectContent position="popper" align="start">
@@ -75,9 +75,9 @@ export function ReleasesView({ runs }: { runs: RunSummary[] }) {
         </Select>
         {comparison !== null && before !== null && (
           <>
-            <span className="text-[13px] text-fg-muted">compared with</span>
+            <span className="text-label text-fg-muted">compared with</span>
             <Select value={before} onValueChange={setBefore}>
-              <SelectTrigger size="sm" className="h-8 rounded-md text-[13px]" aria-label="Compare with">
+              <SelectTrigger size="sm" className="h-8 rounded-md text-label" aria-label="Compare with">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent position="popper" align="start">
@@ -91,11 +91,11 @@ export function ReleasesView({ runs }: { runs: RunSummary[] }) {
           </>
         )}
       </div>
-      {crossesNetworks && <p className="text-[13px] text-fg-muted">These runs came from different networks, so a change in blocking may be the network rather than the engine.</p>}
+      {crossesNetworks && <p className="text-label text-fg-muted">These runs came from different networks, so a change in blocking may be the network rather than the engine.</p>}
       {comparison === null && (
-        <div className="rounded-xl border border-dashed border-line bg-surface px-5 py-12 text-center">
+        <div className="rounded-xl border border-dashed border-line bg-surface px-card py-12 text-center">
           <p className="text-sm font-medium">Nothing to compare yet</p>
-          <p className="mt-1 text-[13px] text-fg-muted">{ENGINE_INFO[engine].name} needs two runs before a release can be compared.</p>
+          <p className="mt-1 text-label text-fg-muted">{ENGINE_INFO[engine].name} needs two runs before a release can be compared.</p>
         </div>
       )}
       {result !== null && 'error' in result && <p className="text-sm text-destructive">{result.error}</p>}
@@ -115,20 +115,20 @@ export function ReleasesView({ runs }: { runs: RunSummary[] }) {
             {result.diff.changes.length === 0 ? (
               <p className="py-6 text-center text-sm text-fg-muted">No site changed outcome between these runs.</p>
             ) : (
-              <div className="-mx-5 -my-5 overflow-x-auto">
-                <table className="w-full min-w-[520px] border-collapse">
+              <div className="-mx-card -my-card overflow-x-auto">
+                <table className="w-full min-w-table-narrow border-collapse">
                   <thead>
                     <tr className="border-b border-line">
-                      <th className="px-3 py-2 pl-5 text-left text-[12px] font-medium text-fg-muted">Site</th>
-                      <th className="px-3 py-2 text-left text-[12px] font-medium text-fg-muted">Before</th>
-                      <th className="px-3 py-2 text-left text-[12px] font-medium text-fg-muted">After</th>
-                      <th className="px-3 py-2 pr-5 text-left text-[12px] font-medium text-fg-muted">Change</th>
+                      <th className="px-3 py-2 pl-card text-left text-caption font-medium text-fg-muted">Site</th>
+                      <th className="px-3 py-2 text-left text-caption font-medium text-fg-muted">Before</th>
+                      <th className="px-3 py-2 text-left text-caption font-medium text-fg-muted">After</th>
+                      <th className="px-3 py-2 pr-card text-left text-caption font-medium text-fg-muted">Change</th>
                     </tr>
                   </thead>
                   <tbody>
                     {result.diff.changes.map((change) => (
                       <tr key={change.site} className="relative border-b border-line last:border-0 hover:bg-raised">
-                        <td className="px-3 py-2.5 pl-5">
+                        <td className="px-3 py-2.5 pl-card">
                           <a href={routeHash({ view: 'sites', run: null, site: change.site, filter: NO_FILTER })} className="text-sm font-medium after:absolute after:inset-0 hover:underline">
                             {result.names.get(change.site) ?? change.site}
                           </a>
@@ -139,7 +139,7 @@ export function ReleasesView({ runs }: { runs: RunSummary[] }) {
                         <td className="px-3 py-2.5">
                           <OutcomeLabel outcome={change.after} />
                         </td>
-                        <td className="px-3 py-2.5 pr-5 text-[13px] text-fg-secondary">{CHANGE_LABELS[change.change].label}</td>
+                        <td className="px-3 py-2.5 pr-card text-label text-fg-secondary">{CHANGE_LABELS[change.change].label}</td>
                       </tr>
                     ))}
                   </tbody>

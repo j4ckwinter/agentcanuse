@@ -30,20 +30,20 @@ export function TestExplainer({ sites }: { sites: number }) {
       </h2>
       <ol className="grid divide-line md:grid-cols-3 md:divide-x">
         {STEPS.map(({ icon: Icon, title, body }, index) => (
-          <li key={title} className="flex gap-3 border-b border-line p-5 last:border-0 md:border-b-0">
+          <li key={title} className="flex gap-3 border-b border-line p-card last:border-0 md:border-b-0">
             <span className="flex size-8 shrink-0 items-center justify-center rounded-lg border border-line bg-raised text-fg-secondary">
               <Icon className="size-4" />
             </span>
             <div className="flex flex-col gap-1">
               <span className="text-sm font-medium">
-                <span className="mr-1.5 font-mono text-[12px] text-fg-muted">{index + 1}</span>
+                <span className="mr-1.5 font-mono text-caption text-fg-muted">{index + 1}</span>
                 {title}
               </span>
-              <p className="text-[13px] leading-relaxed text-fg-secondary">{body}</p>
+              <p className="text-label leading-relaxed text-fg-secondary">{body}</p>
               {title === 'Score' && (
                 <ul className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1">
                   {SHOWN.map((outcome) => (
-                    <li key={outcome} className="inline-flex items-center gap-1.5 text-[12px] text-fg-secondary" title={OUTCOME_LABELS[outcome].meaning}>
+                    <li key={outcome} className="inline-flex items-center gap-1.5 text-caption text-fg-secondary" title={OUTCOME_LABELS[outcome].meaning}>
                       <OutcomeMark outcome={outcome} className="size-3.5" />
                       {OUTCOME_LABELS[outcome].label}
                     </li>
@@ -54,7 +54,7 @@ export function TestExplainer({ sites }: { sites: number }) {
           </li>
         ))}
       </ol>
-      <p className="border-t border-line px-5 py-3 text-[13px] text-fg-muted">
+      <p className="border-t border-line px-card py-3 text-label text-fg-muted">
         {sites} sites across docs, news, shopping, government and more. Same sites, same checks, every engine.{' '}
         <a href="#method" className="font-medium text-accent-blue hover:underline">
           Read the method

@@ -106,7 +106,7 @@ function TopBar({ route, ready, navigate }: TopBarProps) {
   const active = tabOf(route)
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-page/85 backdrop-blur-md">
-      <div className="mx-auto flex h-14 max-w-[1200px] items-center gap-2 px-4 sm:px-6">
+      <div className="mx-auto flex h-14 max-w-page items-center gap-2 px-4 sm:px-6">
         <a href={tabHref('home', runParam)} className="flex items-center gap-2.5 rounded-md pr-1 text-sm font-semibold">
           <Mark />
           {BRAND_NAME}
@@ -131,13 +131,13 @@ function TopBar({ route, ready, navigate }: TopBarProps) {
           <ThemeToggle className={ICON_BUTTON} />
         </div>
       </div>
-      <nav aria-label="Sections" className="mx-auto flex max-w-[1200px] gap-1 overflow-x-auto px-2 sm:px-4">
+      <nav aria-label="Sections" className="mx-auto flex max-w-page gap-1 overflow-x-auto px-2 sm:px-4">
         {TABS.map(({ tab, label }) => (
           <a
             key={tab}
             href={tabHref(tab, runParam)}
             aria-current={active === tab ? 'page' : undefined}
-            className="relative px-2.5 py-2.5 text-[13px] whitespace-nowrap text-fg-secondary transition-colors hover:text-fg aria-[current=page]:text-fg aria-[current=page]:after:absolute aria-[current=page]:after:inset-x-2 aria-[current=page]:after:-bottom-px aria-[current=page]:after:h-0.5 aria-[current=page]:after:rounded-full aria-[current=page]:after:bg-fg"
+            className="relative px-2.5 py-2.5 text-label whitespace-nowrap text-fg-secondary transition-colors hover:text-fg aria-[current=page]:text-fg aria-[current=page]:after:absolute aria-[current=page]:after:inset-x-2 aria-[current=page]:after:-bottom-px aria-[current=page]:after:h-0.5 aria-[current=page]:after:rounded-full aria-[current=page]:after:bg-fg"
           >
             {label}
           </a>
@@ -174,7 +174,7 @@ function LoadingCards() {
     <div className="flex flex-col gap-4" aria-label="Loading">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {[0, 1, 2, 3].map((tile) => (
-          <div key={tile} className="h-[104px] animate-pulse rounded-xl border border-line bg-surface" />
+          <div key={tile} className="h-26 animate-pulse rounded-xl border border-line bg-surface" />
         ))}
       </div>
       <div className="h-64 animate-pulse rounded-xl border border-line bg-surface" />
@@ -201,8 +201,8 @@ export function App() {
   return (
     <div className="flex min-h-svh flex-col">
       <TopBar route={route} ready={ready} navigate={navigate} />
-      <main key={route.view} className="enter mx-auto flex w-full max-w-[1200px] flex-1 flex-col gap-6 px-4 py-8 sm:px-6">
-        {unknownRun && <p className="text-[13px] text-fg-muted">There's no run called “{runParam}”, so this shows the latest one.</p>}
+      <main key={route.view} className="enter mx-auto flex w-full max-w-page flex-1 flex-col gap-6 px-4 py-8 sm:px-6">
+        {unknownRun && <p className="text-label text-fg-muted">There's no run called “{runParam}”, so this shows the latest one.</p>}
         {error !== null && <p className="text-sm text-destructive">{error}</p>}
         {error === null && ready === null && <LoadingCards />}
         {ready !== null && <Body route={route} runs={ready.runs} run={ready.run} navigate={navigate} />}

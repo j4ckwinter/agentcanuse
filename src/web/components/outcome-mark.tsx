@@ -33,7 +33,7 @@ export function OutcomeMark({ outcome, className }: { outcome: Outcome; classNam
 
 export function OutcomeLabel({ outcome }: { outcome: Outcome }) {
   return (
-    <span className="inline-flex items-center gap-1.5 text-[13px] text-fg-secondary">
+    <span className="inline-flex items-center gap-1.5 text-label text-fg-secondary">
       <OutcomeMark outcome={outcome} />
       {OUTCOME_LABELS[outcome].label}
     </span>

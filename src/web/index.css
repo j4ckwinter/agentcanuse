@@ -35,6 +35,8 @@
   --seq-400: #3987e5;
   --seq-550: #1c5cab;
   --seq-700: #0d366b;
+  --seq-ink-on-strong: #ffffff;
+  --seq-ink-on-soft: #0b0b0b;
 
   --background: var(--palette-page);
   --foreground: var(--palette-fg);
@@ -79,6 +81,12 @@
   --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
   --color-page: var(--palette-page);
+  --color-status-good: var(--status-good);
+  --color-status-warning: var(--status-warning);
+  --color-status-serious: var(--status-serious);
+  --color-status-critical: var(--status-critical);
+  --color-status-neutral: var(--status-neutral);
+  --color-status-none: var(--status-none);
   --color-accent-blue: var(--palette-accent);
   --color-series-1: var(--series-1);
   --color-series-2: var(--series-2);
@@ -117,6 +125,25 @@
 
 @theme {
   --ease-settle: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --text-micro: 0.6875rem;
+  --text-micro--line-height: 1.5;
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.5;
+  --text-label: 0.8125rem;
+  --text-label--line-height: 1.5;
+  --text-display: 1.75rem;
+  --text-display--line-height: 1.15;
+  --text-display--letter-spacing: -0.02em;
+
+  --spacing-card: 1.25rem;
+  --radius-cell: 4px;
+
+  --container-page: 1200px;
+  --container-table-narrow: 520px;
+  --container-table: 680px;
+
+  --aspect-screenshot: 8 / 5;
 }
 
 @layer base {

@@ -5,12 +5,12 @@ import { ORIGIN_LABELS, shortDate } from '@/labels'
 export function RunPicker({ runs, current, onPick }: { runs: RunSummary[]; current: string; onPick: (id: string) => void }) {
   return (
     <Select value={current} onValueChange={onPick}>
-      <SelectTrigger size="sm" className="h-8 max-w-[9.5rem] min-w-0 gap-2 overflow-hidden rounded-md border-transparent px-2 text-[13px] font-medium shadow-none hover:bg-hover sm:max-w-none" aria-label="Choose a run">
+      <SelectTrigger size="sm" className="h-8 max-w-38 min-w-0 gap-2 overflow-hidden rounded-md border-transparent px-2 text-label font-medium shadow-none hover:bg-hover sm:max-w-none" aria-label="Choose a run">
         <SelectValue />
       </SelectTrigger>
       <SelectContent position="popper" align="start">
         {runs.map((run, position) => (
-          <SelectItem key={run.id} value={run.id} className="text-[13px]">
+          <SelectItem key={run.id} value={run.id} className="text-label">
             <span className="flex items-center gap-2">
               {position === 0 ? 'Latest run' : shortDate(run.startedAt)}
               <span className="text-fg-muted">

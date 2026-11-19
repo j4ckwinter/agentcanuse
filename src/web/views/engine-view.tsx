@@ -12,7 +12,7 @@ import { routeHash } from '@/route'
 import { NO_FILTER } from '@/site-filter'
 
 const NOT_PASSED: Outcome[] = OUTCOMES.filter((outcome) => outcome !== 'passed')
-const BUTTON = 'inline-flex h-8 items-center gap-1.5 rounded-md border border-line bg-surface px-3 text-[13px] font-medium text-fg-secondary hover:bg-hover hover:text-fg'
+const BUTTON = 'inline-flex h-8 items-center gap-1.5 rounded-md border border-line bg-surface px-3 text-label font-medium text-fg-secondary hover:bg-hover hover:text-fg'
 
 function detail(result: Result): string {
   if (result.error !== null) return result.error
@@ -34,22 +34,22 @@ function ResultRow({ run, result, alone, runParam }: { run: Run; result: Result;
   if (site === undefined) return null
   return (
     <tr className="relative border-b border-line last:border-0 hover:bg-raised">
-      <td className="hidden w-28 py-2 pl-5 sm:table-cell">
+      <td className="hidden w-28 py-2 pl-card sm:table-cell">
         {result.shot !== null ? (
-          <img src={shotUrl(result.shot)} alt="" className="aspect-[8/5] w-24 rounded border border-line object-cover object-top" />
+          <img src={shotUrl(result.shot)} alt="" className="aspect-screenshot w-24 rounded border border-line object-cover object-top" />
         ) : (
-          <span className="block aspect-[8/5] w-24 rounded border border-line bg-raised" />
+          <span className="block aspect-screenshot w-24 rounded border border-line bg-raised" />
         )}
       </td>
-      <td className="px-3 py-2.5 pl-5 sm:pl-3">
+      <td className="px-3 py-2.5 pl-card sm:pl-3">
         <a href={routeHash({ view: 'sites', run: runParam, site: site.id, filter: NO_FILTER })} className="text-sm font-medium after:absolute after:inset-0 hover:underline">
           {site.name}
         </a>
-        <div className="text-[12px] text-fg-muted">{CATEGORY_LABELS[site.category]}</div>
+        <div className="text-caption text-fg-muted">{CATEGORY_LABELS[site.category]}</div>
       </td>
-      <td className="px-3 py-2.5 text-[13px] text-fg-secondary">{detail(result)}</td>
-      <td className="px-3 py-2.5 pr-5 text-right">
-        {alone && <span className="rounded-full border border-line px-2 py-0.5 text-[11px] whitespace-nowrap text-fg-muted">Only {ENGINE_INFO[result.engine].name}</span>}
+      <td className="px-3 py-2.5 text-label text-fg-secondary">{detail(result)}</td>
+      <td className="px-3 py-2.5 pr-card text-right">
+        {alone && <span className="rounded-full border border-line px-2 py-0.5 text-micro whitespace-nowrap text-fg-muted">Only {ENGINE_INFO[result.engine].name}</span>}
       </td>
     </tr>
   )
@@ -73,7 +73,7 @@ export function EngineView({ run, engine, runParam }: { run: Run; engine: Engine
           <span className="flex items-center gap-3">
             <span className="size-3 rounded-full" style={{ backgroundColor: ENGINE_COLORS[engine] }} aria-hidden="true" />
             {info.name}
-            <span className="rounded-md border border-line px-2 py-0.5 font-mono text-[13px] font-normal text-fg-muted">{standing.engine.version}</span>
+            <span className="rounded-md border border-line px-2 py-0.5 font-mono text-label font-normal text-fg-muted">{standing.engine.version}</span>
           </span>
         }
         description={info.about}
@@ -106,13 +106,13 @@ export function EngineView({ run, engine, runParam }: { run: Run; engine: Engine
               <span className="flex items-center gap-2">
                 <OutcomeMark outcome={outcome} />
                 {OUTCOME_LABELS[outcome].label}
-                <span className="font-mono text-[12px] font-normal text-fg-muted">{group.length}</span>
+                <span className="font-mono text-caption font-normal text-fg-muted">{group.length}</span>
               </span>
             }
             description={`${OUTCOME_LABELS[outcome].meaning}.`}
           >
-            <div className="-mx-5 -my-5 overflow-x-auto">
-              <table className="w-full min-w-[520px] border-collapse">
+            <div className="-mx-card -my-card overflow-x-auto">
+              <table className="w-full min-w-table-narrow border-collapse">
                 <tbody>
                   {group.map((result) => (
                     <ResultRow key={result.site} run={run} result={result} alone={alone.has(result.site)} runParam={runParam} />

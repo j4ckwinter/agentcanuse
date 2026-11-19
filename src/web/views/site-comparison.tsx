@@ -15,10 +15,10 @@ function hostOf(site: Site): string {
 
 function Screenshot({ result }: { result: Result }) {
   if (result.shot !== null) {
-    return <img src={shotUrl(result.shot)} alt="" className="aspect-[8/5] w-full border-b border-line object-cover object-top" />
+    return <img src={shotUrl(result.shot)} alt="" className="aspect-screenshot w-full border-b border-line object-cover object-top" />
   }
   return (
-    <div className="flex aspect-[8/5] w-full flex-col items-center justify-center gap-2 border-b border-line bg-raised p-4 text-center text-[12px] text-fg-muted">
+    <div className="flex aspect-screenshot w-full flex-col items-center justify-center gap-2 border-b border-line bg-raised p-4 text-center text-caption text-fg-muted">
       <ImageOff className="size-4" />
       {result.excerpt === '' ? 'No screenshot or text' : <p className="line-clamp-5 text-left">{result.excerpt}</p>}
     </div>
@@ -28,8 +28,8 @@ function Screenshot({ result }: { result: Result }) {
 function Fact({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex items-baseline justify-between gap-3 border-t border-line py-2 first:border-0">
-      <dt className="text-[12px] text-fg-muted">{label}</dt>
-      <dd className="text-right text-[13px] tabular-nums">{children}</dd>
+      <dt className="text-caption text-fg-muted">{label}</dt>
+      <dd className="text-right text-label tabular-nums">{children}</dd>
     </div>
   )
 }
@@ -48,7 +48,7 @@ function EngineColumn({ engine, result, engineHref }: { engine: EngineRun; resul
       <Screenshot result={result} />
       <dl className="px-4 py-2">
         <Fact label="Version">
-          <span className="font-mono text-[12px]">{engine.version}</span>
+          <span className="font-mono text-caption">{engine.version}</span>
         </Fact>
         <Fact label="HTTP status">{result.status ?? '–'}</Fact>
         <Fact label="Time">{seconds(result.durationMs || null)}</Fact>
@@ -85,7 +85,7 @@ function useArrowKeys(previous: string | null, next: string | null) {
 }
 
 function StepLink({ href, label, children }: { href: string | null; label: string; children: React.ReactNode }) {
-  const style = 'inline-flex h-8 items-center gap-1 rounded-md border border-line bg-surface px-2.5 text-[13px]'
+  const style = 'inline-flex h-8 items-center gap-1 rounded-md border border-line bg-surface px-2.5 text-label'
   if (href === null) return <span className={`${style} text-faint`}>{children}</span>
   return (
     <a href={href} aria-label={label} title={label} className={`${style} text-fg-secondary hover:bg-hover hover:text-fg`}>
@@ -119,19 +119,19 @@ export function SiteComparison({ run, site, verdict, links }: { run: Run; site: 
             <StepLink href={links.previous?.href ?? null} label={links.previous ? `Previous: ${links.previous.name}` : 'No previous site'}>
               <ChevronLeft className="size-4" /> Previous
             </StepLink>
-            {links.position !== null && <span className="font-mono text-[12px] text-fg-muted">{links.position}</span>}
+            {links.position !== null && <span className="font-mono text-caption text-fg-muted">{links.position}</span>}
             <StepLink href={links.next?.href ?? null} label={links.next ? `Next: ${links.next.name}` : 'No next site'}>
               Next <ChevronRight className="size-4" />
             </StepLink>
           </nav>
         }
       />
-      <section className="flex flex-col gap-3 rounded-xl border border-line bg-surface p-5 sm:flex-row sm:items-center sm:justify-between" aria-label="Verdict">
+      <section className="flex flex-col gap-3 rounded-xl border border-line bg-surface p-card sm:flex-row sm:items-center sm:justify-between" aria-label="Verdict">
         <div className="flex flex-col gap-2">
           <VerdictLabel verdict={verdict} className="self-start" />
           <p className="text-lg font-medium tracking-tight">{VERDICT_LABELS[verdict].sentence(site.name)}</p>
         </div>
-        <dl className="flex shrink-0 gap-6 text-[13px]">
+        <dl className="flex shrink-0 gap-6 text-label">
           <div>
             <dt className="text-fg-muted">Category</dt>
             <dd>{CATEGORY_LABELS[site.category]}</dd>
@@ -150,7 +150,7 @@ export function SiteComparison({ run, site, verdict, links }: { run: Run; site: 
           })}
         </div>
       </div>
-      <p className="hidden text-[12px] text-fg-muted sm:block">
+      <p className="hidden text-caption text-fg-muted sm:block">
         Use the ← and → keys to step through the sites in this list. Screenshots are kept only where the engines disagreed.
       </p>
     </>

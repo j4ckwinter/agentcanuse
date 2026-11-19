@@ -15,7 +15,7 @@ export function VerdictLabel({ verdict, className }: { verdict: Verdict; classNa
   const color = TONES[tone]
   return (
     <span
-      className={cn('inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-[12px] font-medium whitespace-nowrap text-fg', className)}
+      className={cn('inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-caption font-medium whitespace-nowrap text-fg', className)}
       style={{ borderColor: `color-mix(in oklab, ${color} 35%, transparent)`, backgroundColor: `color-mix(in oklab, ${color} 10%, transparent)` }}
     >
       <span className="size-1.5 rounded-full" style={{ backgroundColor: color }} aria-hidden="true" />

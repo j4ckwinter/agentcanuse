@@ -11,7 +11,7 @@ export function PageHeader({ title, description, back, aside }: PageHeaderProps)
   return (
     <div className="flex flex-col gap-3">
       {back && (
-        <a href={back.href} className="inline-flex items-center gap-1.5 self-start text-[13px] text-fg-muted hover:text-fg">
+        <a href={back.href} className="inline-flex items-center gap-1.5 self-start text-label text-fg-muted hover:text-fg">
           <ArrowLeft className="size-3.5" />
           {back.label}
         </a>

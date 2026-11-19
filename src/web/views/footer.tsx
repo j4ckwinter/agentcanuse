@@ -7,7 +7,7 @@ const LINK = 'hover:text-fg'
 export function Footer({ latest }: { latest: RunSummary | null }) {
   return (
     <footer className="border-t border-line">
-      <div className="mx-auto flex max-w-[1200px] flex-wrap items-center gap-x-5 gap-y-1 px-4 py-5 text-[13px] text-fg-muted sm:px-6">
+      <div className="mx-auto flex max-w-page flex-wrap items-center gap-x-5 gap-y-1 px-4 py-card text-label text-fg-muted sm:px-6">
         {latest !== null && <span>Updated {shortDate(latest.startedAt)}</span>}
         <a className={LINK} href="#method">
           Method

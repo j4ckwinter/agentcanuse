@@ -1,0 +1,6 @@
+{
+  "chromium": { "version": "stable" },
+  "lightpanda": { "version": "1.0.4" },
+  "obscura": { "version": "v0.2.7" },
+  "kitesurf": { "version": "endpoint" }
+}

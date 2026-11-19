@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 
-export type Route = { view: 'leaderboard' } | { view: 'sites'; site: string | null } | { view: 'releases' }
+export type Route = { view: 'leaderboard' } | { view: 'sites'; site: string | null } | { view: 'releases' } | { view: 'method' }
 
 export function parseRoute(hash: string): Route {
   const [view, detail] = hash.replace(/^#\/?/, '').split('/')
   if (view === 'sites') return { view: 'sites', site: detail ? decodeURIComponent(detail) : null }
   if (view === 'releases') return { view: 'releases' }
+  if (view === 'method') return { view: 'method' }
   return { view: 'leaderboard' }
 }
 

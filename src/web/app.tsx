@@ -5,6 +5,7 @@ import { loadIndex, loadRun } from '@/data'
 import { ORIGIN_LABELS, shortDate } from '@/labels'
 import { useRoute, type Route } from '@/route'
 import { LeaderboardView } from '@/views/leaderboard-view'
+import { MethodView } from '@/views/method-view'
 import { ReleasesView } from '@/views/releases-view'
 import { SitesView } from '@/views/sites-view'
 
@@ -31,6 +32,8 @@ function Body({ route, runs, latest, navigate }: { route: Route; runs: RunSummar
       return <SitesView run={latest} site={route.site} onOpen={(site) => navigate({ view: 'sites', site })} />
     case 'releases':
       return <ReleasesView runs={runs} />
+    case 'method':
+      return <MethodView />
   }
 }
 
@@ -50,11 +53,12 @@ export function App() {
           </p>
         )}
       </header>
-      <Tabs value={route.view} onValueChange={(view) => navigate(view === 'sites' ? { view, site: null } : { view: view as 'leaderboard' | 'releases' })}>
+      <Tabs value={route.view} onValueChange={(view) => navigate(view === 'sites' ? { view, site: null } : { view: view as 'leaderboard' | 'releases' | 'method' })}>
         <TabsList>
           <TabsTrigger value="leaderboard">Leaderboard</TabsTrigger>
           <TabsTrigger value="sites">Sites</TabsTrigger>
           <TabsTrigger value="releases">Releases</TabsTrigger>
+          <TabsTrigger value="method">Method</TabsTrigger>
         </TabsList>
       </Tabs>
       {loaded === null && <p className="text-sm text-muted-foreground">Loading…</p>}

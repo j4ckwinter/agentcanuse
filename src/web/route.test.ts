@@ -13,7 +13,7 @@ describe('routes', () => {
   })
 
   it('writes hashes that read back as the same route', () => {
-    for (const route of [{ view: 'leaderboard' }, { view: 'sites', site: 'gov-uk' }, { view: 'sites', site: null }, { view: 'releases' }] as const) {
+    for (const route of [{ view: 'leaderboard' }, { view: 'sites', site: 'gov-uk' }, { view: 'sites', site: null }, { view: 'releases' }, { view: 'method' }] as const) {
       expect(parseRoute(routeHash(route))).toEqual(route)
     }
   })

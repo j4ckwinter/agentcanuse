@@ -13,7 +13,7 @@
     "typecheck": "tsc --noEmit",
     "check": "npm run typecheck && npm run test && npm run build",
     "bench": "tsx src/runner/main.ts",
-    "reindex": "tsx src/runner/reindex.ts",
+    "tidy": "tsx src/runner/tidy.ts",
     "watch-releases": "tsx src/runner/watch.ts"
   },
   "dependencies": {

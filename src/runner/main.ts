@@ -63,20 +63,41 @@ async function permittedSites(sites: Site[]): Promise<Set<string>> {
   return permitted
 }
 
-async function open(id: EngineId, options: Options): Promise<{ engine: RunningEngine; browser: Browser } | string> {
-  const launch = await launchEngine(id, options.pins, options.cacheDir, options.port)
+type Session = { engine: RunningEngine; browser: Browser }
+
+function messageOf(error: unknown): string {
+  return error instanceof Error ? error.message : String(error)
+}
+
+async function open(id: EngineId, options: Options): Promise<Session | string> {
+  let launch
+  try {
+    launch = await launchEngine(id, options.pins, options.cacheDir, options.port)
+  } catch (error) {
+    return `Could not start: ${messageOf(error)}`
+  }
   if ('unavailable' in launch) return launch.unavailable
   try {
     return { engine: launch.engine, browser: await connect(launch.engine.endpoint) }
   } catch (error) {
     await launch.engine.stop()
-    return `Could not connect: ${error instanceof Error ? error.message : String(error)}`
+    return `Could not connect: ${messageOf(error)}`
   }
 }
 
-async function close(session: { engine: RunningEngine; browser: Browser }): Promise<void> {
+async function close(session: Session): Promise<void> {
   await session.browser.disconnect().catch(() => undefined)
   await session.engine.stop()
+}
+
+async function thumbnail(options: Options, runId: string, id: EngineId, site: Site, png: Uint8Array | null): Promise<string | null> {
+  if (png === null) return null
+  try {
+    return await saveThumbnail(options.dataDir, runId, id, site.id, png)
+  } catch (error) {
+    console.log(`  could not save the ${site.id} screenshot: ${messageOf(error)}`)
+    return null
+  }
 }
 
 async function surveyEngine(id: EngineId, sites: Site[], permitted: Set<string>, runId: string, options: Options) {
@@ -88,26 +109,31 @@ async function surveyEngine(id: EngineId, sites: Site[], permitted: Set<string>,
   const engine: EngineRun = { id, version: session.engine.version }
   console.log(`${id} ${engine.version}`)
   const results: Result[] = []
-  for (const site of sites) {
-    if (!permitted.has(site.id)) {
-      results.push(skipped(site, id, ROBOTS_REFUSAL))
-      continue
+  let needsRestart = false
+  try {
+    for (const site of sites) {
+      if (!permitted.has(site.id)) {
+        results.push(skipped(site, id, ROBOTS_REFUSAL))
+        continue
+      }
+      if (typeof session === 'string' || needsRestart || !session.browser.connected) {
+        if (typeof session !== 'string') await close(session)
+        session = await open(id, options)
+        needsRestart = false
+      }
+      if (typeof session === 'string') {
+        results.push(skipped(site, id, `Engine could not restart: ${session}`))
+        continue
+      }
+      const capture = await visitPage(session.browser, site.url)
+      needsRestart = capture.stalled
+      const result = judge(site, id, capture.visit, await thumbnail(options, runId, id, site, capture.screenshot))
+      results.push(result)
+      console.log(`  ${result.outcome.padEnd(10)} ${site.id} ${result.error ?? ''}`)
     }
-    if (typeof session === 'string' || !session.browser.connected) {
-      if (typeof session !== 'string') await close(session)
-      session = await open(id, options)
-    }
-    if (typeof session === 'string') {
-      results.push(skipped(site, id, `Engine could not restart: ${session}`))
-      continue
-    }
-    const capture = await visitPage(session.browser, site.url)
-    const shot = capture.screenshot === null ? null : await saveThumbnail(options.dataDir, runId, id, site.id, capture.screenshot)
-    const result = judge(site, id, capture.visit, shot)
-    results.push(result)
-    console.log(`  ${result.outcome.padEnd(10)} ${site.id} ${result.error ?? ''}`)
+  } finally {
+    if (typeof session !== 'string') await close(session)
   }
-  if (typeof session !== 'string') await close(session)
   return { engine, results }
 }
 

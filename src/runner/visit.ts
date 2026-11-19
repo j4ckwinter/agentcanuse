@@ -10,6 +10,7 @@ export const VIEWPORT = { width: 1280, height: 800 }
 export interface Capture {
   visit: Visit
   screenshot: Uint8Array | null
+  stalled: boolean
 }
 
 interface PageContent {
@@ -54,31 +55,43 @@ async function capture(page: Page, url: string): Promise<Capture> {
     return {
       visit: { status: response?.status() ?? null, ...content, durationMs, error: null },
       screenshot: await screenshotOf(page),
+      stalled: false,
     }
   } catch (error) {
     const durationMs = Math.round(performance.now() - started)
-    return { visit: { status: null, title: '', text: '', linkCount: 0, durationMs, error: messageOf(error) }, screenshot: null }
+    return {
+      visit: { status: null, title: '', text: '', linkCount: 0, durationMs, error: messageOf(error) },
+      screenshot: null,
+      stalled: false,
+    }
   }
 }
 
-async function deadline(ms: number): Promise<Capture> {
-  await delay(ms)
+async function deadline(ms: number, signal: AbortSignal): Promise<Capture> {
+  await delay(ms, undefined, { signal })
   return {
     visit: { status: null, title: '', text: '', linkCount: 0, durationMs: ms, error: `No answer within ${ms / 1000}s` },
     screenshot: null,
+    stalled: true,
   }
 }
 
 export async function visitPage(browser: Browser, url: string): Promise<Capture> {
   let close: () => Promise<unknown> = async () => {}
+  const timers = new AbortController()
   try {
     const context = await browser.createBrowserContext()
     close = () => context.close()
     const page = await context.newPage()
-    return await Promise.race([capture(page, url), deadline(VISIT_DEADLINE_MS)])
+    return await Promise.race([capture(page, url), deadline(VISIT_DEADLINE_MS, timers.signal)])
   } catch (error) {
-    return { visit: { status: null, title: '', text: '', linkCount: 0, durationMs: 0, error: messageOf(error) }, screenshot: null }
+    return {
+      visit: { status: null, title: '', text: '', linkCount: 0, durationMs: 0, error: messageOf(error) },
+      screenshot: null,
+      stalled: true,
+    }
   } finally {
+    timers.abort()
     await Promise.race([close().catch(() => undefined), delay(5_000)])
   }
 }

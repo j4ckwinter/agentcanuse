@@ -1,4 +1,5 @@
 import { spawn, type ChildProcess } from 'node:child_process'
+import { createServer } from 'node:net'
 import { setTimeout as delay } from 'node:timers/promises'
 import type { EngineId } from '../core/model'
 import type { Pins } from './config'
@@ -20,6 +21,7 @@ const HOST = '127.0.0.1'
 interface Started {
   child: ChildProcess
   output: string[]
+  failure: () => Error | null
 }
 
 function start(binary: string, args: string[], env: Record<string, string> = {}): Started {
@@ -31,7 +33,11 @@ function start(binary: string, args: string[], env: Record<string, string> = {})
   }
   child.stdout?.on('data', keep)
   child.stderr?.on('data', keep)
-  return { child, output }
+  let failed: Error | null = null
+  child.once('error', (error) => {
+    failed = error
+  })
+  return { child, output, failure: () => failed }
 }
 
 async function stopProcess(child: ChildProcess): Promise<void> {
@@ -39,7 +45,9 @@ async function stopProcess(child: ChildProcess): Promise<void> {
   const exited = new Promise<void>((resolve) => child.once('exit', () => resolve()))
   child.kill('SIGTERM')
   const finished = await Promise.race([exited.then(() => true), delay(5000).then(() => false)])
-  if (!finished) child.kill('SIGKILL')
+  if (finished) return
+  child.kill('SIGKILL')
+  await Promise.race([exited, delay(5000)])
 }
 
 async function debuggerUrl(port: number): Promise<string | null> {
@@ -53,8 +61,10 @@ async function debuggerUrl(port: number): Promise<string | null> {
   }
 }
 
-async function waitForEndpoint({ child, output }: Started, port: number, fallback: string): Promise<string> {
+async function waitForEndpoint({ child, output, failure }: Started, port: number, fallback: string): Promise<string> {
   for (let attempt = 0; attempt < STARTUP_ATTEMPTS; attempt += 1) {
+    const failed = failure()
+    if (failed !== null) throw new Error(`Engine could not start: ${failed.message}`)
     if (child.exitCode !== null) throw new Error(`Engine exited during startup: ${output.join('').slice(-500)}`)
     const url = await debuggerUrl(port)
     if (url !== null) return url
@@ -101,6 +111,25 @@ const launchers: Record<EngineId, Launcher> = {
   },
 }
 
-export function launchEngine(id: EngineId, pins: Pins, cacheDir: string, port: number): Promise<Launch> {
+async function portAnswers(port: number): Promise<boolean> {
+  return fetch(`http://${HOST}:${port}/`, { signal: AbortSignal.timeout(1000) }).then(
+    () => true,
+    () => false,
+  )
+}
+
+export async function launchEngine(id: EngineId, pins: Pins, cacheDir: string, port: number): Promise<Launch> {
+  if (id !== 'kitesurf' && (await portAnswers(port))) throw new Error(`Something is already listening on port ${port}`)
   return launchers[id](cacheDir, pins[id], port)
+}
+
+export function freePort(): Promise<number> {
+  return new Promise((resolve, reject) => {
+    const server = createServer()
+    server.once('error', reject)
+    server.listen(0, HOST, () => {
+      const address = server.address()
+      server.close(() => (typeof address === 'object' && address !== null ? resolve(address.port) : reject(new Error('No free port'))))
+    })
+  })
 }

@@ -11,6 +11,6 @@ function quoted(value: string): string {
 export function reproduceCommand(site: Pick<Site, 'url' | 'expect'>, engine?: EngineId): string {
   const parts = ['npx', NPX_ALLOW_GIT, CLI_PACKAGE, 'check', quoted(site.url)]
   if (engine) parts.push('--engine', engine)
-  for (const phrase of site.expect) parts.push('--expect', quoted(phrase))
+  for (const phrase of site.expect) parts.push(`--expect=${quoted(phrase)}`)
   return parts.join(' ')
 }

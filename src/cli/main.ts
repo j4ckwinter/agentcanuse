@@ -6,18 +6,19 @@ import { judge } from '../core/judge'
 import { ENGINE_IDS, type EngineId, type Site } from '../core/model'
 import { verdictFor } from '../core/verdict'
 import { isEngineId, loadPins } from '../runner/config'
-import { launchEngine } from '../runner/engines'
+import { freePort, launchEngine } from '../runner/engines'
 import { connect, visitPage } from '../runner/visit'
 import { formatReport, type CheckedEngine } from './report'
 
 const PINS = fileURLToPath(new URL('../../engines.json', import.meta.url))
-const DEFAULT_PORT = 9555
 const USAGE = `Usage: agentcanuse check <url> [--engine <id>]... [--expect <phrase>]... [--json]
 
 Visits the page once with each engine and prints how each did.
   --engine   only these engines (${ENGINE_IDS.join(', ')}); defaults to all
   --expect   a phrase the page should show; without one, a page passes when it loads readable text
-  --json     print the results as JSON`
+  --json     print the results as JSON
+
+Exits 1 when no engine could run, 2 on a usage error.`
 
 function fail(message: string): never {
   console.error(`${message}\n\n${USAGE}`)
@@ -25,15 +26,21 @@ function fail(message: string): never {
 }
 
 function readArguments() {
-  const { values, positionals } = parseArgs({
-    allowPositionals: true,
-    options: {
-      engine: { type: 'string', multiple: true },
-      expect: { type: 'string', multiple: true },
-      json: { type: 'boolean', default: false },
-      help: { type: 'boolean', default: false },
-    },
-  })
+  let parsed
+  try {
+    parsed = parseArgs({
+      allowPositionals: true,
+      options: {
+        engine: { type: 'string', multiple: true },
+        expect: { type: 'string', multiple: true },
+        json: { type: 'boolean', default: false },
+        help: { type: 'boolean', default: false },
+      },
+    })
+  } catch (error) {
+    fail(error instanceof Error ? error.message : String(error))
+  }
+  const { values, positionals } = parsed
   if (values.help) {
     console.log(USAGE)
     process.exit(0)
@@ -54,7 +61,7 @@ function readArguments() {
 type Checked = { checked: CheckedEngine } | { skipped: string }
 
 async function check(id: EngineId, site: Site, cacheDir: string): Promise<Checked> {
-  const launch = await launchEngine(id, await loadPins(PINS), cacheDir, DEFAULT_PORT)
+  const launch = await launchEngine(id, await loadPins(PINS), cacheDir, await freePort())
   if ('unavailable' in launch) return { skipped: launch.unavailable }
   try {
     const browser = await connect(launch.engine.endpoint)
@@ -88,6 +95,7 @@ async function main(): Promise<void> {
   const verdict = verdictFor(checked.map((entry) => entry.result))
   if (json) console.log(JSON.stringify({ url, verdict, checked, skipped }, null, 2))
   else console.log(`\n${formatReport(url, checked, skipped, verdict)}`)
+  if (checked.length === 0) process.exitCode = 1
 }
 
 main().catch((error: unknown) => {

@@ -17,6 +17,13 @@ export function verdictFor(results: Result[]): Verdict {
   return 'mixed'
 }
 
+export const MIN_ENGINES_TO_COMPARE = 2
+
+export function comparedVerdict(results: Result[]): Verdict | null {
+  const visited = results.filter((result) => result.outcome !== 'skipped')
+  return visited.length < MIN_ENGINES_TO_COMPARE ? null : verdictFor(visited)
+}
+
 export function verdictsBySite(results: Result[]): Map<string, Verdict> {
   const bySite = new Map<string, Result[]>()
   for (const result of results) bySite.set(result.site, [...(bySite.get(result.site) ?? []), result])

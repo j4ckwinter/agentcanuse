@@ -3,7 +3,7 @@ import { join } from 'node:path'
 import { parseArgs } from 'node:util'
 import { judge } from '../core/judge'
 import { ENGINE_IDS, type EngineId, type Site } from '../core/model'
-import { verdictFor } from '../core/verdict'
+import { comparedVerdict } from '../core/verdict'
 import enginePins from '../../engines.json'
 import { isEngineId, pinsFrom } from '../runner/config'
 import { freePort, launchEngine } from '../runner/engines'
@@ -92,7 +92,7 @@ async function main(): Promise<void> {
       skipped.push({ engine, reason: error instanceof Error ? error.message.split('\n')[0] : String(error), failed: true })
     }
   }
-  const verdict = verdictFor(checked.map((entry) => entry.result))
+  const verdict = comparedVerdict(checked.map((entry) => entry.result))
   if (json) console.log(JSON.stringify({ url, verdict, checked, skipped }, null, 2))
   else console.log(`\n${formatReport(url, checked, skipped, verdict)}`)
   if (checked.length === 0) process.exitCode = 1

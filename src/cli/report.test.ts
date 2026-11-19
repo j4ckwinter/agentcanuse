@@ -47,3 +47,8 @@ it('says so when no engine ran', () => {
   const report = formatReport('https://example.com/', [], [{ engine: 'chromium', reason: 'offline', failed: true }], 'not-visited')
   expect(report.split('\n').at(-1)).toBe('No engine ran, so there’s no verdict. Try again.')
 })
+
+it('reports a single engine on its own, without claiming a verdict', () => {
+  const report = formatReport('https://www.jackwinter.xyz/', [{ engine: 'lightpanda', version: '1.0.4', result: result('passed') }], [], null)
+  expect(report.split('\n').at(-1)).toBe('Only lightpanda was checked, so there’s nothing to compare. It passed.')
+})

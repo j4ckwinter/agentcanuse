@@ -1,4 +1,4 @@
-import type { EngineId, Result } from '../core/model'
+import type { EngineId, Outcome, Result } from '../core/model'
 import type { Verdict } from '../core/verdict'
 import { judgedTree } from '../core/tree'
 import { displayHost } from '../web/host'
@@ -26,17 +26,34 @@ function pad(text: string, width: number): string {
   return text.length >= width ? text : text + ' '.repeat(width - text.length)
 }
 
-function verdictLine(url: string, checked: CheckedEngine[], skipped: SkippedEngine[], verdict: Verdict): string {
+const ALONE: Record<Outcome, string> = {
+  passed: 'passed',
+  incomplete: 'was missing some expected content',
+  empty: 'read almost no text',
+  blocked: 'was blocked',
+  failed: 'failed',
+  skipped: 'was skipped',
+}
+
+function missedLine(skipped: SkippedEngine[]): string {
+  if (skipped.length === 0) return ''
+  const retry = skipped.some((entry) => entry.failed) ? ', so try again' : ''
+  return ` ${skipped.map((entry) => entry.engine).join(', ')} didn’t run${retry}.`
+}
+
+function verdictLine(url: string, checked: CheckedEngine[], skipped: SkippedEngine[], verdict: Verdict | null): string {
   if (checked.length === 0) return 'No engine ran, so there’s no verdict. Try again.'
+  if (verdict === null) {
+    const [only] = checked
+    return `Only ${only.engine} ${skipped.length === 0 ? 'was checked' : 'ran'}, so there’s nothing to compare. It ${ALONE[only.result.outcome]}.${missedLine(skipped)}`
+  }
   const { label, sentence } = VERDICT_LABELS[verdict]
   if (skipped.length === 0) return `${label}. ${sentence(displayHost(url))}`
   const ran = checked.map((entry) => entry.engine).join(', ')
-  const missed = skipped.map((entry) => entry.engine).join(', ')
-  const retry = skipped.some((entry) => entry.failed) ? ', so try again' : ''
-  return `${label}, among the engines that ran (${ran}). ${missed} didn’t run${retry}.`
+  return `${label}, among the engines that ran (${ran}).${missedLine(skipped)}`
 }
 
-export function formatReport(url: string, checked: CheckedEngine[], skipped: SkippedEngine[], verdict: Verdict): string {
+export function formatReport(url: string, checked: CheckedEngine[], skipped: SkippedEngine[], verdict: Verdict | null): string {
   const rows = checked.map(({ engine, version, result }) => [engine, version, result.outcome, result.status === null ? '–' : String(result.status), `${(result.durationMs / 1000).toFixed(1)}s`, treeLabel(judgedTree(result)).toLowerCase(), detail(result)])
   const header = ['engine', 'version', 'outcome', 'status', 'time', 'tree', 'detail']
   const widths = header.map((title, column) => Math.max(title.length, ...rows.map((row) => row[column].length)))

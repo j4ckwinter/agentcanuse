@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { EngineId, Outcome, Result } from './model'
-import { verdictFor, verdictsBySite } from './verdict'
+import { comparedVerdict, verdictFor, verdictsBySite } from './verdict'
 
 function result(engine: EngineId, outcome: Outcome, site = 'site'): Result {
   return { site, engine, outcome, status: 200, title: '', excerpt: '', found: [], missing: [], textLength: 0, linkCount: 0, durationMs: 0, error: null, shot: null, tree: null }
@@ -37,5 +37,16 @@ describe('verdictsBySite', () => {
   it('gives each site in a run its verdict', () => {
     const results = [result('chromium', 'blocked', 'zillow'), result('lightpanda', 'passed', 'zillow'), result('chromium', 'passed', 'gov-uk'), result('lightpanda', 'passed', 'gov-uk')]
     expect(verdictsBySite(results)).toEqual(new Map([['zillow', 'blocks-chromium'], ['gov-uk', 'works-everywhere']]))
+  })
+})
+
+describe('comparedVerdict', () => {
+  it('gives no verdict when fewer than two engines visited, since there is nothing to compare', () => {
+    expect(comparedVerdict([result('lightpanda', 'passed')])).toBeNull()
+    expect(comparedVerdict([result('lightpanda', 'passed'), result('chromium', 'skipped')])).toBeNull()
+  })
+
+  it('compares two or more engines the same way as verdictFor', () => {
+    expect(comparedVerdict([result('chromium', 'blocked'), result('lightpanda', 'passed')])).toBe('blocks-chromium')
   })
 })

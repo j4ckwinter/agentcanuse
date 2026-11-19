@@ -13,7 +13,7 @@ it('prints one aligned row per engine, the engines it skipped, and the verdict',
       { engine: 'chromium', version: '158.0.8127.36', result: result('blocked', { status: 403, missing: ['Zillow'], textLength: 106 }) },
       { engine: 'lightpanda', version: '1.0.4', result: result('passed', { durationMs: 3200, tree: { nodes: 400, controls: 40, namedControls: 40, headings: 5, landmarks: 3 } }) },
     ],
-    [{ engine: 'kitesurf', reason: 'KITESURF_ENDPOINT is not set' }],
+    [{ engine: 'kitesurf', reason: 'KITESURF_ENDPOINT is not set', failed: false }],
     'blocks-chromium',
   )
   expect(report).toBe(
@@ -25,7 +25,25 @@ it('prints one aligned row per engine, the engines it skipped, and the verdict',
       'lightpanda  1.0.4          passed   200     3.2s  usable      3,329 characters read',
       'kitesurf: not run (KITESURF_ENDPOINT is not set)',
       '',
-      'Blocks headless Chrome. zillow.com blocked Chromium, but a lighter engine got in.',
+      'Blocks headless Chrome, among the engines that ran (chromium, lightpanda). kitesurf didn’t run.',
     ].join('\n'),
   )
+})
+
+it('only claims a verdict for the engines that ran, and suggests retrying the rest', () => {
+  const report = formatReport(
+    'https://books.toscrape.com/',
+    [
+      { engine: 'lightpanda', version: '1.0.4', result: result('passed') },
+      { engine: 'obscura', version: 'v0.2.7', result: result('passed') },
+    ],
+    [{ engine: 'chromium', reason: 'Client network socket disconnected', failed: true }],
+    'works-everywhere',
+  )
+  expect(report.split('\n').at(-1)).toBe('Works everywhere, among the engines that ran (lightpanda, obscura). chromium didn’t run, so try again.')
+})
+
+it('says so when no engine ran', () => {
+  const report = formatReport('https://example.com/', [], [{ engine: 'chromium', reason: 'offline', failed: true }], 'not-visited')
+  expect(report.split('\n').at(-1)).toBe('No engine ran, so there’s no verdict. Try again.')
 })

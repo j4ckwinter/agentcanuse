@@ -8,7 +8,7 @@ import { verdictFor } from '../core/verdict'
 import { isEngineId, loadPins } from '../runner/config'
 import { freePort, launchEngine } from '../runner/engines'
 import { connect, visitPage } from '../runner/visit'
-import { formatReport, type CheckedEngine } from './report'
+import { formatReport, type CheckedEngine, type SkippedEngine } from './report'
 
 const PINS = fileURLToPath(new URL('../../engines.json', import.meta.url))
 const USAGE = `Usage: agentcanuse check <url> [--engine <id>]... [--expect <phrase>]... [--json]
@@ -81,15 +81,15 @@ async function main(): Promise<void> {
   const site: Site = { id: 'check', name: new URL(url).hostname, category: 'reference', url, expect }
   const cacheDir = process.env.AGENTCANUSE_CACHE ?? join(homedir(), '.cache', 'agentcanuse', 'engines')
   const checked: CheckedEngine[] = []
-  const skipped: { engine: EngineId; reason: string }[] = []
+  const skipped: SkippedEngine[] = []
   for (const engine of engines) {
     if (!json) process.stderr.write(`Checking with ${engine}…\n`)
     try {
       const outcome = await check(engine, site, cacheDir)
       if ('checked' in outcome) checked.push(outcome.checked)
-      else skipped.push({ engine, reason: outcome.skipped })
+      else skipped.push({ engine, reason: outcome.skipped, failed: false })
     } catch (error) {
-      skipped.push({ engine, reason: error instanceof Error ? error.message.split('\n')[0] : String(error) })
+      skipped.push({ engine, reason: error instanceof Error ? error.message.split('\n')[0] : String(error), failed: true })
     }
   }
   const verdict = verdictFor(checked.map((entry) => entry.result))

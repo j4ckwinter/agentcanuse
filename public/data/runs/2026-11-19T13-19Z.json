@@ -304,7 +304,7 @@
    "linkCount": 4033,
    "durationMs": 1914,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/wikipedia.webp"
+   "shot": null
   },
   {
    "site": "mdn",
@@ -322,7 +322,7 @@
    "linkCount": 187,
    "durationMs": 1649,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/mdn.webp"
+   "shot": null
   },
   {
    "site": "gov-uk",
@@ -340,7 +340,7 @@
    "linkCount": 85,
    "durationMs": 1607,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/gov-uk.webp"
+   "shot": null
   },
   {
    "site": "python-docs",
@@ -358,7 +358,7 @@
    "linkCount": 176,
    "durationMs": 1588,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/python-docs.webp"
+   "shot": null
   },
   {
    "site": "arxiv",
@@ -376,7 +376,7 @@
    "linkCount": 85,
    "durationMs": 1643,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/arxiv.webp"
+   "shot": null
   },
   {
    "site": "hacker-news",
@@ -394,7 +394,7 @@
    "linkCount": 228,
    "durationMs": 1688,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/hacker-news.webp"
+   "shot": null
   },
   {
    "site": "books-toscrape",
@@ -412,7 +412,7 @@
    "linkCount": 94,
    "durationMs": 2247,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/books-toscrape.webp"
+   "shot": null
   },
   {
    "site": "quotes-js",
@@ -430,7 +430,7 @@
    "linkCount": 5,
    "durationMs": 2069,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/quotes-js.webp"
+   "shot": null
   },
   {
    "site": "react-dev",
@@ -448,7 +448,7 @@
    "linkCount": 127,
    "durationMs": 2191,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/react-dev.webp"
+   "shot": null
   },
   {
    "site": "tailwind-docs",
@@ -466,7 +466,7 @@
    "linkCount": 234,
    "durationMs": 1673,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/tailwind-docs.webp"
+   "shot": null
   },
   {
    "site": "github",
@@ -484,7 +484,7 @@
    "linkCount": 304,
    "durationMs": 2356,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/github.webp"
+   "shot": null
   },
   {
    "site": "npm",
@@ -539,7 +539,7 @@
    "linkCount": 165,
    "durationMs": 1786,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/bbc-news.webp"
+   "shot": null
   },
   {
    "site": "guardian",
@@ -557,7 +557,7 @@
    "linkCount": 431,
    "durationMs": 3910,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/guardian.webp"
+   "shot": null
   },
   {
    "site": "nytimes",
@@ -575,7 +575,7 @@
    "linkCount": 0,
    "durationMs": 1727,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/nytimes.webp"
+   "shot": null
   },
   {
    "site": "archive-org",
@@ -593,7 +593,7 @@
    "linkCount": 0,
    "durationMs": 1801,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/archive-org.webp"
+   "shot": null
   },
   {
    "site": "met-office",
@@ -611,7 +611,7 @@
    "linkCount": 275,
    "durationMs": 2230,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/met-office.webp"
+   "shot": null
   },
   {
    "site": "bbc-food",
@@ -629,7 +629,7 @@
    "linkCount": 142,
    "durationMs": 1791,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/bbc-food.webp"
+   "shot": null
   },
   {
    "site": "youtube",
@@ -646,7 +646,7 @@
    "linkCount": 3,
    "durationMs": 2146,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/youtube.webp"
+   "shot": null
   },
   {
    "site": "zillow",
@@ -664,7 +664,7 @@
    "linkCount": 0,
    "durationMs": 1932,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/zillow.webp"
+   "shot": null
   },
   {
    "site": "etsy",
@@ -682,7 +682,7 @@
    "linkCount": 0,
    "durationMs": 2028,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/etsy.webp"
+   "shot": null
   },
   {
    "site": "ebay",
@@ -701,7 +701,7 @@
    "linkCount": 0,
    "durationMs": 1658,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/ebay.webp"
+   "shot": null
   },
   {
    "site": "airbnb",
@@ -719,7 +719,7 @@
    "linkCount": 161,
    "durationMs": 2466,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/airbnb.webp"
+   "shot": null
   },
   {
    "site": "booking",
@@ -737,7 +737,7 @@
    "linkCount": 245,
    "durationMs": 1707,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/booking.webp"
+   "shot": null
   },
   {
    "site": "vercel",
@@ -755,7 +755,7 @@
    "linkCount": 169,
    "durationMs": 1883,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/vercel.webp"
+   "shot": null
   },
   {
    "site": "cloudflare",
@@ -773,7 +773,7 @@
    "linkCount": 72,
    "durationMs": 1978,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/cloudflare.webp"
+   "shot": null
   },
   {
    "site": "stripe-docs",
@@ -791,7 +791,7 @@
    "linkCount": 86,
    "durationMs": 3323,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/stripe-docs.webp"
+   "shot": null
   },
   {
    "site": "craigslist",
@@ -809,7 +809,7 @@
    "linkCount": 269,
    "durationMs": 2359,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/craigslist.webp"
+   "shot": null
   },
   {
    "site": "hn-algolia",
@@ -827,7 +827,7 @@
    "linkCount": 191,
    "durationMs": 1979,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/chromium/hn-algolia.webp"
+   "shot": null
   },
   {
    "site": "wikipedia",
@@ -845,7 +845,7 @@
    "linkCount": 4033,
    "durationMs": 1768,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/wikipedia.webp"
+   "shot": null
   },
   {
    "site": "mdn",
@@ -863,7 +863,7 @@
    "linkCount": 187,
    "durationMs": 1739,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/mdn.webp"
+   "shot": null
   },
   {
    "site": "gov-uk",
@@ -881,7 +881,7 @@
    "linkCount": 85,
    "durationMs": 1576,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/gov-uk.webp"
+   "shot": null
   },
   {
    "site": "python-docs",
@@ -899,7 +899,7 @@
    "linkCount": 176,
    "durationMs": 1555,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/python-docs.webp"
+   "shot": null
   },
   {
    "site": "arxiv",
@@ -917,7 +917,7 @@
    "linkCount": 0,
    "durationMs": 1526,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/arxiv.webp"
+   "shot": null
   },
   {
    "site": "hacker-news",
@@ -935,7 +935,7 @@
    "linkCount": 228,
    "durationMs": 1624,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/hacker-news.webp"
+   "shot": null
   },
   {
    "site": "books-toscrape",
@@ -953,7 +953,7 @@
    "linkCount": 94,
    "durationMs": 2046,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/books-toscrape.webp"
+   "shot": null
   },
   {
    "site": "quotes-js",
@@ -971,7 +971,7 @@
    "linkCount": 5,
    "durationMs": 2003,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/quotes-js.webp"
+   "shot": null
   },
   {
    "site": "react-dev",
@@ -989,7 +989,7 @@
    "linkCount": 126,
    "durationMs": 1764,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/react-dev.webp"
+   "shot": null
   },
   {
    "site": "tailwind-docs",
@@ -1007,7 +1007,7 @@
    "linkCount": 234,
    "durationMs": 1608,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/tailwind-docs.webp"
+   "shot": null
   },
   {
    "site": "github",
@@ -1025,7 +1025,7 @@
    "linkCount": 304,
    "durationMs": 2514,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/github.webp"
+   "shot": null
   },
   {
    "site": "npm",
@@ -1080,7 +1080,7 @@
    "linkCount": 165,
    "durationMs": 1701,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/bbc-news.webp"
+   "shot": null
   },
   {
    "site": "guardian",
@@ -1098,7 +1098,7 @@
    "linkCount": 432,
    "durationMs": 2272,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/guardian.webp"
+   "shot": null
   },
   {
    "site": "nytimes",
@@ -1116,7 +1116,7 @@
    "linkCount": 0,
    "durationMs": 1603,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/nytimes.webp"
+   "shot": null
   },
   {
    "site": "archive-org",
@@ -1134,7 +1134,7 @@
    "linkCount": 0,
    "durationMs": 3144,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/archive-org.webp"
+   "shot": null
   },
   {
    "site": "met-office",
@@ -1152,7 +1152,7 @@
    "linkCount": 277,
    "durationMs": 2235,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/met-office.webp"
+   "shot": null
   },
   {
    "site": "bbc-food",
@@ -1170,7 +1170,7 @@
    "linkCount": 142,
    "durationMs": 1748,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/bbc-food.webp"
+   "shot": null
   },
   {
    "site": "youtube",
@@ -1187,7 +1187,7 @@
    "linkCount": 3,
    "durationMs": 2074,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/youtube.webp"
+   "shot": null
   },
   {
    "site": "zillow",
@@ -1205,7 +1205,7 @@
    "linkCount": 294,
    "durationMs": 2246,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/zillow.webp"
+   "shot": null
   },
   {
    "site": "etsy",
@@ -1223,7 +1223,7 @@
    "linkCount": 0,
    "durationMs": 1567,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/etsy.webp"
+   "shot": null
   },
   {
    "site": "ebay",
@@ -1242,7 +1242,7 @@
    "linkCount": 0,
    "durationMs": 1624,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/ebay.webp"
+   "shot": null
   },
   {
    "site": "airbnb",
@@ -1260,7 +1260,7 @@
    "linkCount": 8,
    "durationMs": 2366,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/airbnb.webp"
+   "shot": null
   },
   {
    "site": "booking",
@@ -1278,7 +1278,7 @@
    "linkCount": 261,
    "durationMs": 1669,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/booking.webp"
+   "shot": null
   },
   {
    "site": "vercel",
@@ -1296,7 +1296,7 @@
    "linkCount": 169,
    "durationMs": 1739,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/vercel.webp"
+   "shot": null
   },
   {
    "site": "cloudflare",
@@ -1314,7 +1314,7 @@
    "linkCount": 72,
    "durationMs": 2160,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/cloudflare.webp"
+   "shot": null
   },
   {
    "site": "stripe-docs",
@@ -1332,7 +1332,7 @@
    "linkCount": 86,
    "durationMs": 3115,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/stripe-docs.webp"
+   "shot": null
   },
   {
    "site": "craigslist",
@@ -1350,7 +1350,7 @@
    "linkCount": 269,
    "durationMs": 2163,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/craigslist.webp"
+   "shot": null
   },
   {
    "site": "hn-algolia",
@@ -1368,7 +1368,7 @@
    "linkCount": 191,
    "durationMs": 1825,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/lightpanda/hn-algolia.webp"
+   "shot": null
   },
   {
    "site": "wikipedia",
@@ -1386,7 +1386,7 @@
    "linkCount": 4031,
    "durationMs": 3680,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/wikipedia.webp"
+   "shot": null
   },
   {
    "site": "mdn",
@@ -1404,7 +1404,7 @@
    "linkCount": 187,
    "durationMs": 2019,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/mdn.webp"
+   "shot": null
   },
   {
    "site": "gov-uk",
@@ -1422,7 +1422,7 @@
    "linkCount": 85,
    "durationMs": 1917,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/gov-uk.webp"
+   "shot": null
   },
   {
    "site": "python-docs",
@@ -1440,7 +1440,7 @@
    "linkCount": 176,
    "durationMs": 1683,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/python-docs.webp"
+   "shot": null
   },
   {
    "site": "arxiv",
@@ -1458,7 +1458,7 @@
    "linkCount": 85,
    "durationMs": 1890,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/arxiv.webp"
+   "shot": null
   },
   {
    "site": "hacker-news",
@@ -1476,7 +1476,7 @@
    "linkCount": 228,
    "durationMs": 1792,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/hacker-news.webp"
+   "shot": null
   },
   {
    "site": "books-toscrape",
@@ -1494,7 +1494,7 @@
    "linkCount": 94,
    "durationMs": 2962,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/books-toscrape.webp"
+   "shot": null
   },
   {
    "site": "quotes-js",
@@ -1512,7 +1512,7 @@
    "linkCount": 5,
    "durationMs": 2570,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/quotes-js.webp"
+   "shot": null
   },
   {
    "site": "react-dev",
@@ -1530,7 +1530,7 @@
    "linkCount": 126,
    "durationMs": 2797,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/react-dev.webp"
+   "shot": null
   },
   {
    "site": "tailwind-docs",
@@ -1548,7 +1548,7 @@
    "linkCount": 234,
    "durationMs": 1796,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/tailwind-docs.webp"
+   "shot": null
   },
   {
    "site": "github",
@@ -1566,7 +1566,7 @@
    "linkCount": 278,
    "durationMs": 3519,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/github.webp"
+   "shot": null
   },
   {
    "site": "npm",
@@ -1638,7 +1638,7 @@
    "linkCount": 428,
    "durationMs": 3315,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/guardian.webp"
+   "shot": null
   },
   {
    "site": "nytimes",
@@ -1674,7 +1674,7 @@
    "linkCount": 0,
    "durationMs": 2164,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/archive-org.webp"
+   "shot": null
   },
   {
    "site": "met-office",
@@ -1692,7 +1692,7 @@
    "linkCount": 275,
    "durationMs": 2264,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/met-office.webp"
+   "shot": null
   },
   {
    "site": "bbc-food",
@@ -1710,7 +1710,7 @@
    "linkCount": 141,
    "durationMs": 4008,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/bbc-food.webp"
+   "shot": null
   },
   {
    "site": "youtube",
@@ -1727,7 +1727,7 @@
    "linkCount": 3,
    "durationMs": 2226,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/youtube.webp"
+   "shot": null
   },
   {
    "site": "zillow",
@@ -1745,7 +1745,7 @@
    "linkCount": 284,
    "durationMs": 3635,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/zillow.webp"
+   "shot": null
   },
   {
    "site": "etsy",
@@ -1763,7 +1763,7 @@
    "linkCount": 0,
    "durationMs": 1613,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/etsy.webp"
+   "shot": null
   },
   {
    "site": "ebay",
@@ -1782,7 +1782,7 @@
    "linkCount": 0,
    "durationMs": 1620,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/ebay.webp"
+   "shot": null
   },
   {
    "site": "airbnb",
@@ -1801,7 +1801,7 @@
    "linkCount": 15,
    "durationMs": 2969,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/airbnb.webp"
+   "shot": null
   },
   {
    "site": "booking",
@@ -1837,7 +1837,7 @@
    "linkCount": 169,
    "durationMs": 4243,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/vercel.webp"
+   "shot": null
   },
   {
    "site": "cloudflare",
@@ -1855,7 +1855,7 @@
    "linkCount": 72,
    "durationMs": 4200,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/cloudflare.webp"
+   "shot": null
   },
   {
    "site": "stripe-docs",
@@ -1873,7 +1873,7 @@
    "linkCount": 86,
    "durationMs": 6465,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/stripe-docs.webp"
+   "shot": null
   },
   {
    "site": "craigslist",
@@ -1891,7 +1891,7 @@
    "linkCount": 269,
    "durationMs": 2789,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/craigslist.webp"
+   "shot": null
   },
   {
    "site": "hn-algolia",
@@ -1909,7 +1909,7 @@
    "linkCount": 191,
    "durationMs": 2100,
    "error": null,
-   "shot": "shots/2026-11-19T13-19Z/obscura/hn-algolia.webp"
+   "shot": null
   }
  ]
 }

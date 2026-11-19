@@ -44,7 +44,7 @@ Each decision has one owner. Put new code with the owner of the decision it make
 
 - `src/core` takes values and returns values. It imports nothing from the runner, the web app or a vendor library. The clock, the network, processes and files stay in `src/runner`.
 - Every engine is driven the same way: started as a local DevTools server and visited with `puppeteer-core`. A difference in the results should come from the engine, not from how we drove it.
-- Ask `robots.txt` before visiting. A site that disallows `agentcanuse`, or whose `robots.txt` can't be read, is skipped. Visit each site once per engine per run, one at a time.
+- Ask `robots.txt` before visiting. A site that disallows `agentcanuse`, or whose `robots.txt` can't be read, is skipped. Only a 404 or 410 counts as having no `robots.txt`; a 401, 403 or 429 counts as unreadable. Visit each site once per engine per run, one at a time.
 - Use the engines' standard builds. Never their stealth builds or anything else meant to get past a bot check: being blocked is one of the things measured.
 - Kitesurf runs only when `KITESURF_ENDPOINT` points at a deployed instance. Its README warns against opening untrusted sites with a local Kitesurf, so don't run it locally.
 - An expected phrase should be content a person would look for, and should show in Chromium today. When a phrase stops matching in Chromium too, the site changed, so update `sites.json` rather than the scoring.

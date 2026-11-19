@@ -10,7 +10,7 @@ interface CardProps {
 
 export function Card({ title, description, action, className, children }: CardProps) {
   return (
-    <section className={cn('flex flex-col rounded-xl border border-line bg-surface', className)}>
+    <section className={cn('flex min-w-0 flex-col rounded-xl border border-line bg-surface', className)}>
       {(title || action) && (
         <header className="flex items-start justify-between gap-4 border-b border-line px-card py-3.5">
           <div className="min-w-0">

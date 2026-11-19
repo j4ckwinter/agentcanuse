@@ -176,7 +176,7 @@ function ReproduceCard({ site }: { site: Site }) {
         </button>
       }
     >
-      <pre className="overflow-x-auto rounded-md border border-line bg-raised px-3 py-2.5 font-mono text-caption">{command}</pre>
+      <pre className="rounded-md border border-line bg-raised px-3 py-2.5 font-mono text-caption break-all whitespace-pre-wrap">{command}</pre>
     </Card>
   )
 }

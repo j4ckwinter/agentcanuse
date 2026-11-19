@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils'
 
 interface CardProps {
-  title?: string
+  title?: React.ReactNode
   description?: string
   action?: React.ReactNode
   className?: string

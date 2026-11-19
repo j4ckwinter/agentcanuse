@@ -2,19 +2,21 @@ import { Search, X } from 'lucide-react'
 import { CATEGORIES, type Run, type Site } from '../../core/model'
 import type { Verdict } from '../../core/verdict'
 import { OutcomeKey, OutcomeMark } from '@/components/outcome-mark'
+import { PageHeader } from '@/components/page-header'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { VerdictLabel } from '@/components/verdict-label'
-import { CATEGORY_LABELS, ENGINE_INFO } from '@/labels'
+import { CATEGORY_LABELS, ENGINE_COLORS, ENGINE_INFO } from '@/labels'
 import { cn } from '@/lib/utils'
 import { resultFor } from '@/results'
 import { NO_FILTER, type Blocking, type SiteFilter } from '@/site-filter'
 
 const BLOCKING_LABELS: Record<Exclude<Blocking, 'any'>, string> = {
-  'only-chromium': 'blocked chromium, let a lighter engine in',
-  'only-others': 'let chromium in, blocked a lighter engine',
+  'only-chromium': 'Blocked Chromium, let a lighter engine in',
+  'only-others': 'Let Chromium in, blocked a lighter engine',
 }
 
-const PILL = 'inline-flex h-8 items-center rounded-lg border px-3 text-[13px] transition-colors'
+const SEGMENT = 'inline-flex h-7 items-center rounded-[5px] px-2.5 text-[13px] transition-colors'
+const HEAD = 'px-3 py-2 text-left text-[12px] font-medium text-fg-muted'
 
 interface ToolbarProps {
   filter: SiteFilter
@@ -25,40 +27,41 @@ interface ToolbarProps {
 
 function Toolbar({ filter, onChange, disagreeing, total }: ToolbarProps) {
   return (
-    <div className="flex flex-col gap-3">
-      <div className="relative">
-        <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-fg-muted" />
+    <div className="flex flex-col gap-3 border-b border-line p-4 lg:flex-row lg:items-center">
+      <div className="relative lg:w-72">
+        <Search className="pointer-events-none absolute top-1/2 left-2.5 size-3.5 -translate-y-1/2 text-fg-muted" />
         <input
           value={filter.query}
           onChange={(event) => onChange({ ...filter, query: event.target.value })}
-          placeholder="search sites"
+          placeholder="Search by name or address"
           aria-label="Search sites"
-          className="h-9 w-full rounded-lg border border-line bg-surface pr-3 pl-9 text-sm shadow-xs outline-none placeholder:text-fg-muted focus-visible:border-fg-muted"
+          className="h-8 w-full rounded-md border border-line bg-surface pr-3 pl-8 text-[13px] outline-none placeholder:text-fg-muted focus-visible:border-accent-blue"
         />
       </div>
       <div className="flex flex-wrap items-center gap-2">
-        <button
-          type="button"
-          aria-pressed={!filter.disagreeingOnly}
-          onClick={() => onChange({ ...filter, disagreeingOnly: false })}
-          className={cn(PILL, !filter.disagreeingOnly ? 'border-fg bg-fg text-surface' : 'border-line text-fg-secondary hover:bg-hover')}
-        >
-          all {total}
-        </button>
-        <button
-          type="button"
-          aria-pressed={filter.disagreeingOnly}
-          onClick={() => onChange({ ...filter, disagreeingOnly: true })}
-          className={cn(PILL, filter.disagreeingOnly ? 'border-fg bg-fg text-surface' : 'border-line text-fg-secondary hover:bg-hover')}
-        >
-          engines disagree {disagreeing}
-        </button>
+        <div className="inline-flex rounded-md border border-line bg-raised p-0.5" role="group" aria-label="Which sites">
+          {[
+            { value: false, label: `All sites`, count: total },
+            { value: true, label: 'Engines disagree', count: disagreeing },
+          ].map(({ value, label, count }) => (
+            <button
+              key={label}
+              type="button"
+              aria-pressed={filter.disagreeingOnly === value}
+              onClick={() => onChange({ ...filter, disagreeingOnly: value })}
+              className={cn(SEGMENT, filter.disagreeingOnly === value ? 'bg-surface font-medium text-fg shadow-xs' : 'text-fg-secondary hover:text-fg')}
+            >
+              {label}
+              <span className="ml-1.5 font-mono text-[11px] text-fg-muted">{count}</span>
+            </button>
+          ))}
+        </div>
         <Select value={filter.category} onValueChange={(category) => onChange({ ...filter, category: category as SiteFilter['category'] })}>
-          <SelectTrigger className="h-8 rounded-lg text-[13px]" aria-label="Category">
+          <SelectTrigger size="sm" className="h-8 rounded-md text-[13px]" aria-label="Category">
             <SelectValue />
           </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">every category</SelectItem>
+          <SelectContent position="popper" align="start">
+            <SelectItem value="all">All categories</SelectItem>
             {CATEGORIES.map((category) => (
               <SelectItem key={category} value={category}>
                 {CATEGORY_LABELS[category]}
@@ -67,7 +70,11 @@ function Toolbar({ filter, onChange, disagreeing, total }: ToolbarProps) {
           </SelectContent>
         </Select>
         {filter.blocking !== 'any' && (
-          <button type="button" onClick={() => onChange({ ...filter, blocking: 'any' })} className={cn(PILL, 'gap-1.5 border-line text-fg-secondary hover:bg-hover')}>
+          <button
+            type="button"
+            onClick={() => onChange({ ...filter, blocking: 'any' })}
+            className="inline-flex h-8 items-center gap-1.5 rounded-md border border-accent-blue/40 bg-accent-blue/10 px-2.5 text-[13px] text-fg"
+          >
             {BLOCKING_LABELS[filter.blocking]}
             <X className="size-3.5" aria-label="Clear" />
           </button>
@@ -88,61 +95,66 @@ interface SiteMatrixProps {
 }
 
 export function SiteMatrix({ run, sites, verdicts, filter, onFilter, disagreeing, siteHref }: SiteMatrixProps) {
-  const columns = { '--engines': run.engines.length } as React.CSSProperties
   return (
-    <section className="flex flex-col gap-5" aria-labelledby="sites-title">
-      <div className="flex flex-col gap-1">
-        <h2 id="sites-title">Sites</h2>
-        <p className="text-[13px] text-fg-muted">
-          showing {sites.length} of {run.sites.length}. pick one to see every engine side by side.
-        </p>
-      </div>
-      <Toolbar filter={filter} onChange={onFilter} disagreeing={disagreeing} total={run.sites.length} />
-      <ul className="flex flex-col">
-        <li className="grid grid-cols-[minmax(0,1fr)_auto_repeat(var(--engines),1.25rem)] items-center gap-x-3 pb-2 text-[12px] text-fg-muted" style={columns} aria-hidden="true">
-          <span />
-          <span />
-          {run.engines.map((engine) => (
-            <span key={engine.id} className="text-center" title={ENGINE_INFO[engine.id].name}>
-              {ENGINE_INFO[engine.id].name[0].toLowerCase()}
-            </span>
-          ))}
-        </li>
-        {sites.map((site) => (
-          <li key={site.id}>
-            <a
-              href={siteHref(site.id)}
-              className="-mx-3 grid grid-cols-[minmax(0,1fr)_auto_repeat(var(--engines),1.25rem)] items-center gap-x-3 rounded-lg px-3 py-2 transition-colors hover:bg-raised"
-              style={columns}
-            >
-              <span className="min-w-0">
-                <span className="block truncate text-sm">{site.name}</span>
-                <span className="block truncate text-[12px] text-fg-muted">
-                  {new URL(site.url).hostname.replace(/^www\./, '')} · {CATEGORY_LABELS[site.category]}
-                </span>
-              </span>
-              <VerdictLabel verdict={verdicts.get(site.id) ?? 'mixed'} className="hidden sm:inline-flex" />
-              {run.engines.map((engine) => {
-                const result = resultFor(run, site.id, engine.id)
-                return (
-                  <span key={engine.id} className="flex justify-center">
-                    {result && <OutcomeMark outcome={result.outcome} />}
-                  </span>
-                )
-              })}
-            </a>
-          </li>
-        ))}
-      </ul>
-      {sites.length === 0 && (
-        <p className="py-6 text-center text-sm text-fg-muted">
-          no sites match.{' '}
-          <button type="button" className="underline underline-offset-4" onClick={() => onFilter(NO_FILTER)}>
-            clear the filters
-          </button>
-        </p>
-      )}
-      <OutcomeKey />
-    </section>
+    <>
+      <PageHeader title="Sites" description={`Every site in this run, its verdict, and how each engine did. Showing ${sites.length} of ${run.sites.length}.`} />
+      <section className="rounded-xl border border-line bg-surface" aria-label="Sites">
+        <Toolbar filter={filter} onChange={onFilter} disagreeing={disagreeing} total={run.sites.length} />
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[680px] border-collapse">
+            <thead>
+              <tr className="border-b border-line">
+                <th className={`${HEAD} pl-5`}>Site</th>
+                <th className={HEAD}>Category</th>
+                <th className={HEAD}>Verdict</th>
+                {run.engines.map((engine) => (
+                  <th key={engine.id} className={`${HEAD} text-center last:pr-5`}>
+                    <span className="inline-flex items-center gap-1.5">
+                      <span className="size-2 rounded-full" style={{ backgroundColor: ENGINE_COLORS[engine.id] }} aria-hidden="true" />
+                      {ENGINE_INFO[engine.id].name}
+                    </span>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {sites.map((site) => (
+                <tr key={site.id} className="relative border-b border-line last:border-0 hover:bg-raised">
+                  <td className="px-3 py-2.5 pl-5">
+                    <a href={siteHref(site.id)} className="text-sm font-medium after:absolute after:inset-0 hover:underline">
+                      {site.name}
+                    </a>
+                    <div className="text-[12px] text-fg-muted">{new URL(site.url).hostname.replace(/^www\./, '')}</div>
+                  </td>
+                  <td className="px-3 py-2.5 text-[13px] text-fg-secondary">{CATEGORY_LABELS[site.category]}</td>
+                  <td className="px-3 py-2.5">
+                    <VerdictLabel verdict={verdicts.get(site.id) ?? 'mixed'} />
+                  </td>
+                  {run.engines.map((engine) => {
+                    const result = resultFor(run, site.id, engine.id)
+                    return (
+                      <td key={engine.id} className="px-3 py-2.5 text-center last:pr-5">
+                        {result && <OutcomeMark outcome={result.outcome} />}
+                      </td>
+                    )
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {sites.length === 0 && (
+          <div className="flex flex-col items-center gap-2 px-5 py-12 text-center">
+            <p className="text-sm font-medium">No sites match these filters</p>
+            <button type="button" className="text-[13px] font-medium text-accent-blue hover:underline" onClick={() => onFilter(NO_FILTER)}>
+              Clear filters
+            </button>
+          </div>
+        )}
+        <div className="border-t border-line px-5 py-3">
+          <OutcomeKey />
+        </div>
+      </section>
+    </>
   )
 }

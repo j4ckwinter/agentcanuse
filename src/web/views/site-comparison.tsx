@@ -3,9 +3,10 @@ import { ChevronLeft, ChevronRight, ImageOff } from 'lucide-react'
 import type { EngineRun, Result, Run, Site } from '../../core/model'
 import type { Verdict } from '../../core/verdict'
 import { OutcomeLabel } from '@/components/outcome-mark'
+import { PageHeader } from '@/components/page-header'
 import { VerdictLabel } from '@/components/verdict-label'
 import { shotUrl } from '@/data'
-import { CATEGORY_LABELS, ENGINE_INFO, seconds, VERDICT_LABELS } from '@/labels'
+import { CATEGORY_LABELS, ENGINE_COLORS, ENGINE_INFO, seconds, VERDICT_LABELS } from '@/labels'
 import { resultFor } from '@/results'
 
 function hostOf(site: Site): string {
@@ -14,21 +15,21 @@ function hostOf(site: Site): string {
 
 function Screenshot({ result }: { result: Result }) {
   if (result.shot !== null) {
-    return <img src={shotUrl(result.shot)} alt="" className="aspect-[8/5] w-full rounded-lg border border-line object-cover object-top" />
+    return <img src={shotUrl(result.shot)} alt="" className="aspect-[8/5] w-full border-b border-line object-cover object-top" />
   }
   return (
-    <div className="flex aspect-[8/5] w-full flex-col items-center justify-center gap-2 rounded-lg border border-line bg-raised p-3 text-center text-[12px] text-fg-muted">
+    <div className="flex aspect-[8/5] w-full flex-col items-center justify-center gap-2 border-b border-line bg-raised p-4 text-center text-[12px] text-fg-muted">
       <ImageOff className="size-4" />
-      {result.excerpt === '' ? 'nothing to show' : <p className="line-clamp-5 text-left">{result.excerpt}</p>}
+      {result.excerpt === '' ? 'No screenshot or text' : <p className="line-clamp-5 text-left">{result.excerpt}</p>}
     </div>
   )
 }
 
 function Fact({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div className="flex flex-col gap-0.5 border-t border-line pt-2">
-      <dt className="text-[11px] text-fg-muted">{label}</dt>
-      <dd className="text-[13px] tabular-nums">{children}</dd>
+    <div className="flex items-baseline justify-between gap-3 border-t border-line py-2 first:border-0">
+      <dt className="text-[12px] text-fg-muted">{label}</dt>
+      <dd className="text-right text-[13px] tabular-nums">{children}</dd>
     </div>
   )
 }
@@ -36,22 +37,26 @@ function Fact({ label, children }: { label: string; children: React.ReactNode })
 function EngineColumn({ engine, result, engineHref }: { engine: EngineRun; result: Result; engineHref: string }) {
   const missing = result.outcome === 'skipped' ? [] : result.missing
   return (
-    <div className="flex min-w-0 flex-col gap-3">
-      <a href={engineHref} className="truncate text-sm hover:underline">
-        {ENGINE_INFO[engine.id].name} <span className="font-mono text-[12px] text-fg-muted">{engine.version}</span>
-      </a>
+    <section className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-line bg-surface">
+      <header className="flex items-center justify-between gap-2 border-b border-line px-4 py-3">
+        <a href={engineHref} className="flex min-w-0 items-center gap-2 text-sm font-medium hover:underline">
+          <span className="size-2.5 shrink-0 rounded-full" style={{ backgroundColor: ENGINE_COLORS[engine.id] }} aria-hidden="true" />
+          <span className="truncate">{ENGINE_INFO[engine.id].name}</span>
+        </a>
+        <OutcomeLabel outcome={result.outcome} />
+      </header>
       <Screenshot result={result} />
-      <dl className="flex flex-col gap-2">
-        <Fact label="result">
-          <OutcomeLabel outcome={result.outcome} />
+      <dl className="px-4 py-2">
+        <Fact label="Version">
+          <span className="font-mono text-[12px]">{engine.version}</span>
         </Fact>
-        <Fact label="status">{result.status ?? '–'}</Fact>
-        <Fact label="time">{seconds(result.durationMs || null)}</Fact>
-        <Fact label="text">{result.textLength.toLocaleString('en-GB')} chars</Fact>
-        <Fact label="missing">{missing.length === 0 ? '–' : missing.map((phrase) => `“${phrase}”`).join(', ')}</Fact>
-        {result.error !== null && <Fact label="error">{result.error}</Fact>}
+        <Fact label="HTTP status">{result.status ?? '–'}</Fact>
+        <Fact label="Time">{seconds(result.durationMs || null)}</Fact>
+        <Fact label="Text read">{result.textLength.toLocaleString('en-GB')} characters</Fact>
+        <Fact label="Missing">{missing.length === 0 ? 'Nothing' : missing.map((phrase) => `“${phrase}”`).join(', ')}</Fact>
+        {result.error !== null && <Fact label="Error">{result.error}</Fact>}
       </dl>
-    </div>
+    </section>
   )
 }
 
@@ -80,7 +85,7 @@ function useArrowKeys(previous: string | null, next: string | null) {
 }
 
 function StepLink({ href, label, children }: { href: string | null; label: string; children: React.ReactNode }) {
-  const style = 'inline-flex size-7 items-center justify-center rounded-md'
+  const style = 'inline-flex h-8 items-center gap-1 rounded-md border border-line bg-surface px-2.5 text-[13px]'
   if (href === null) return <span className={`${style} text-faint`}>{children}</span>
   return (
     <a href={href} aria-label={label} title={label} className={`${style} text-fg-secondary hover:bg-hover hover:text-fg`}>
@@ -90,6 +95,7 @@ function StepLink({ href, label, children }: { href: string | null; label: strin
 }
 
 export interface ComparisonLinks {
+  back: string
   previous: { href: string; name: string } | null
   next: { href: string; name: string } | null
   position: string | null
@@ -99,35 +105,45 @@ export interface ComparisonLinks {
 export function SiteComparison({ run, site, verdict, links }: { run: Run; site: Site; verdict: Verdict; links: ComparisonLinks }) {
   useArrowKeys(links.previous?.href ?? null, links.next?.href ?? null)
   return (
-    <article className="flex flex-col gap-8">
-      <header className="flex flex-col gap-3">
-        <div className="flex items-start justify-between gap-4">
-          <div className="min-w-0">
-            <h2 className="text-2xl font-medium">{site.name}</h2>
-            <a href={site.url} className="text-[13px] text-fg-muted underline-offset-4 hover:underline">
-              {hostOf(site)}
-            </a>
-          </div>
-          <nav aria-label="Other sites" className="flex shrink-0 items-center gap-1">
-            <StepLink href={links.previous?.href ?? null} label={links.previous ? `previous: ${links.previous.name}` : 'no previous site'}>
-              <ChevronLeft className="size-4" />
+    <>
+      <PageHeader
+        back={{ href: links.back, label: 'All sites' }}
+        title={site.name}
+        description={
+          <a href={site.url} className="hover:underline">
+            {hostOf(site)}
+          </a>
+        }
+        aside={
+          <nav aria-label="Other sites" className="flex shrink-0 items-center gap-2">
+            <StepLink href={links.previous?.href ?? null} label={links.previous ? `Previous: ${links.previous.name}` : 'No previous site'}>
+              <ChevronLeft className="size-4" /> Previous
             </StepLink>
-            {links.position !== null && <span className="text-[12px] text-fg-muted tabular-nums">{links.position}</span>}
-            <StepLink href={links.next?.href ?? null} label={links.next ? `next: ${links.next.name}` : 'no next site'}>
-              <ChevronRight className="size-4" />
+            {links.position !== null && <span className="font-mono text-[12px] text-fg-muted">{links.position}</span>}
+            <StepLink href={links.next?.href ?? null} label={links.next ? `Next: ${links.next.name}` : 'No next site'}>
+              Next <ChevronRight className="size-4" />
             </StepLink>
           </nav>
+        }
+      />
+      <section className="flex flex-col gap-3 rounded-xl border border-line bg-surface p-5 sm:flex-row sm:items-center sm:justify-between" aria-label="Verdict">
+        <div className="flex flex-col gap-2">
+          <VerdictLabel verdict={verdict} className="self-start" />
+          <p className="text-lg font-medium tracking-tight">{VERDICT_LABELS[verdict].sentence(site.name)}</p>
         </div>
-        <div className="flex flex-col gap-2 rounded-xl border border-line bg-raised p-4">
-          <VerdictLabel verdict={verdict} className="self-start bg-surface" />
-          <p className="text-lg leading-snug">{VERDICT_LABELS[verdict].sentence(hostOf(site))}</p>
-          <p className="text-[13px] text-fg-muted">
-            {CATEGORY_LABELS[site.category]} · looks for {site.expect.map((phrase) => `“${phrase}”`).join(' and ')}
-          </p>
-        </div>
-      </header>
-      <div className="-mx-5 overflow-x-auto px-5 sm:mx-0 sm:px-0">
-        <div className="grid auto-cols-[minmax(11rem,1fr)] grid-flow-col gap-4">
+        <dl className="flex shrink-0 gap-6 text-[13px]">
+          <div>
+            <dt className="text-fg-muted">Category</dt>
+            <dd>{CATEGORY_LABELS[site.category]}</dd>
+          </div>
+          <div>
+            <dt className="text-fg-muted">Looks for</dt>
+            <dd>{site.expect.map((phrase) => `“${phrase}”`).join(', ')}</dd>
+          </div>
+        </dl>
+      </section>
+      <div className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+        <div className="grid auto-cols-[minmax(15rem,1fr)] grid-flow-col gap-4">
           {run.engines.map((engine) => {
             const result = resultFor(run, site.id, engine.id)
             return result && <EngineColumn key={engine.id} engine={engine} result={result} engineHref={links.engine(engine)} />
@@ -135,8 +151,8 @@ export function SiteComparison({ run, site, verdict, links }: { run: Run; site: 
         </div>
       </div>
       <p className="hidden text-[12px] text-fg-muted sm:block">
-        the arrow keys step through the sites in this list. screenshots are kept only where the engines disagreed.
+        Use the ← and → keys to step through the sites in this list. Screenshots are kept only where the engines disagreed.
       </p>
-    </article>
+    </>
   )
 }

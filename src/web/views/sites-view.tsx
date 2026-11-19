@@ -39,6 +39,7 @@ export function SitesView({ run, route, navigate }: SitesViewProps) {
       site={selected}
       verdict={verdicts.get(selected.id) ?? 'mixed'}
       links={{
+        back: siteHref(null),
         previous: previous && { href: siteHref(previous.id), name: previous.name },
         next: next && { href: siteHref(next.id), name: next.name },
         position: index === -1 ? null : `${index + 1} of ${sites.length}`,

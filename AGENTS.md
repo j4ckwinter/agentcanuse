@@ -36,17 +36,17 @@ Each decision has one owner. Put new code with the owner of the decision it make
 | How long a visit waits: the load timeout, the settle wait, the overall deadline | `src/runner/timing.ts` |
 | Which sites keep screenshots, where blocking differs between Chromium and the other engines, and where one engine alone differs | `src/core/agreement.ts` |
 | Which runs can be compared: same network, same site list | `src/core/comparable.ts` |
-| A site's verdict (works everywhere, blocks headless chrome, …) | `src/core/verdict.ts` |
-| What the Findings section reports | `src/core/findings.ts`, worded in `src/web/views/findings-list.tsx` |
+| A site's verdict (works everywhere, blocks headless Chrome, …) | `src/core/verdict.ts` |
+| What the Findings card reports | `src/core/findings.ts`, worded in `src/web/views/findings-card.tsx` |
 | A run's summary for the index, and which runs a trend line follows | `src/core/leaderboard.ts` |
 | Site categories and per-category pass rates | `src/core/model.ts`, `src/core/leaderboard.ts` |
 | Whether a page may be visited, and the user agent that asks | `src/runner/robots.ts` |
 | Where runs, the index and thumbnails are written, and which runs keep their thumbnails | `src/runner/store.ts` |
 | Command-line options and the order of a run | `src/runner/main.ts` |
 | Loading runs in the page | `src/web/data.ts` |
-| Wording for engines, outcomes, verdicts, categories and changes, and each outcome's mark | `src/web/labels.ts` |
+| Wording for engines, outcomes, verdicts, categories and changes; each outcome's mark and status colour; each engine's series colour | `src/web/labels.ts` |
 | How each outcome mark is drawn | `src/web/components/outcome-mark.tsx` |
-| The palette, light and dark, high contrast and motion | `src/web/index.css` |
+| The palette (surfaces, text, series, status, sequential ramp), light and dark, high contrast and motion | `src/web/index.css` |
 | Light and dark: the stored choice and the toggle | `src/web/theme.ts`, `src/web/components/theme-toggle.tsx`, and the boot script in `index.html` |
 | Page addresses, including filters and the selected run | `src/web/route.ts` |
 | Which run is shown, and what happens for a run id the index doesn't list | `src/web/app.tsx` |
@@ -70,7 +70,7 @@ Each decision has one owner. Put new code with the owner of the decision it make
 ## Conventions
 
 - Every site in `sites.json` has a `category` from `CATEGORIES` in `src/core/model.ts`; the runner refuses an unknown one.
-- The look follows Jack's jackwinter site: one narrow column, Geist, a grey palette of `light-dark()` pairs with no accent colour, casual lowercase copy, and sentence-case section titles. Outcomes are told apart by the shape of their mark, not by colour. Keep new UI inside that palette.
+- The look is a professional analytics dashboard in the Linear and Vercel mould: a sticky top bar with nav tabs, KPI tiles, bordered cards, dense tables, Geist and Geist Mono, sentence-case copy. Engines are categorical series (blue, orange, aqua, validated as a set); outcomes use the status palette and keep a distinct mark shape, so colour never carries meaning alone; magnitude uses the one-hue blue ramp. All of it is defined in `src/web/index.css`.
 - Colours follow the system's light or dark setting until a visitor picks one with the toggle. `public/og.png` is a static preview image with no scores in it, so it never goes stale; it names the engines and the site count, so redo it when either changes.
 - Durations are milliseconds. Rates are fractions from 0 to 1, shown as percentages.
 - `index.json` holds a summary per run: its origin, engines, site count, a fingerprint of its site list, and each engine's pass rate. The site reads trends from it without loading every run. `npm run tidy` rebuilds it.

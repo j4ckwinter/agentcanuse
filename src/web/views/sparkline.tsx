@@ -5,10 +5,10 @@ const WIDTH = 72
 const HEIGHT = 22
 const PADDING = 2
 
-export function Sparkline({ points }: { points: TrendPoint[] }) {
+export function Sparkline({ points, color = 'currentColor' }: { points: TrendPoint[]; color?: string }) {
   if (points.length < 2) {
     return (
-      <span className="text-xs text-muted-foreground" title="A trend appears after two comparable runs">
+      <span className="text-xs text-fg-muted" title="A trend appears after two comparable runs">
         –
       </span>
     )
@@ -27,9 +27,10 @@ export function Sparkline({ points }: { points: TrendPoint[] }) {
       height={HEIGHT}
       role="img"
       aria-label={`Pass rate over ${points.length} runs, from ${percent(points[0].passRate)} to ${percent(last.passRate)}`}
-      className="inline-block align-middle text-emerald-500"
+      className="inline-block align-middle"
+      style={{ color }}
     >
-      <polyline points={path} fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round" />
+      <polyline points={path} fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
       <circle cx={x(points.length - 1)} cy={y(last.passRate)} r="2" fill="currentColor" />
     </svg>
   )

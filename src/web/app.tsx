@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react'
 import type { Run, RunSummary } from '../core/model'
-import { ArrowLeft, BookOpen, Code, History, List } from 'lucide-react'
+import { Code } from 'lucide-react'
 import { repository } from '../../package.json'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { loadIndex, loadRun } from '@/data'
 import { routeHash, useRoute, type Route } from '@/route'
+import { NO_FILTER } from '@/site-filter'
 import { EngineView } from '@/views/engine-view'
 import { Footer } from '@/views/footer'
-import { HomeView } from '@/views/home-view'
+import { OverviewView } from '@/views/overview-view'
+import { SiteSearch } from '@/views/site-search'
 import { MethodView } from '@/views/method-view'
 import { ReleasesView } from '@/views/releases-view'
 import { RunPicker } from '@/views/run-picker'
@@ -52,54 +54,93 @@ function withRun(route: Route, run: string | null): Route {
   return 'run' in route ? { ...route, run } : { view: 'home', run }
 }
 
-const ICON_BUTTON = 'inline-flex size-7 items-center justify-center rounded-md text-fg-secondary transition-transform hover:bg-hover hover:text-fg active:scale-[0.97]'
+const ICON_BUTTON = 'inline-flex size-8 items-center justify-center rounded-md text-fg-secondary transition-colors hover:bg-hover hover:text-fg'
 
-function Header() {
+type Tab = 'home' | 'sites' | 'releases' | 'method'
+
+const TABS: { tab: Tab; label: string }[] = [
+  { tab: 'home', label: 'Overview' },
+  { tab: 'sites', label: 'Sites' },
+  { tab: 'releases', label: 'Releases' },
+  { tab: 'method', label: 'Method' },
+]
+
+function tabOf(route: Route): Tab {
+  return route.view === 'engine' ? 'home' : route.view
+}
+
+function tabHref(tab: Tab, run: string | null): string {
+  switch (tab) {
+    case 'home':
+      return routeHash({ view: 'home', run })
+    case 'sites':
+      return routeHash({ view: 'sites', run, site: null, filter: NO_FILTER })
+    case 'releases':
+    case 'method':
+      return routeHash({ view: tab })
+  }
+}
+
+function Mark() {
   return (
-    <header className="flex items-center justify-between gap-4">
-      <a href="#" className="group/home">
-        <h1 className="font-medium">agentcanuse</h1>
-        <p className="mt-1 text-fg-muted">can ai agents' browsers use the web?</p>
-      </a>
-      <nav aria-label="Links">
-        <ul className="flex gap-px">
-          <li>
-            <a href="#sites" aria-label="Every site" title="Every site" className={ICON_BUTTON}>
-              <List className="size-4" />
-            </a>
-          </li>
-          <li>
-            <a href="#releases" aria-label="Releases" title="Releases" className={ICON_BUTTON}>
-              <History className="size-4" />
-            </a>
-          </li>
-          <li>
-            <a href="#method" aria-label="How it works" title="How it works" className={ICON_BUTTON}>
-              <BookOpen className="size-4" />
-            </a>
-          </li>
-          <li>
-            <a href={repository.url} aria-label="Source on GitHub" title="Source on GitHub" className={ICON_BUTTON}>
-              <Code className="size-4" />
-            </a>
-          </li>
-          <li>
-            <ThemeToggle className={ICON_BUTTON} />
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <svg viewBox="0 0 32 32" aria-hidden="true" className="size-6 shrink-0">
+      <rect width="32" height="32" rx="8" className="fill-fg" />
+      <rect x="7" y="17" width="4.5" height="8" rx="1.25" fill="var(--series-1)" />
+      <rect x="13.75" y="11" width="4.5" height="14" rx="1.25" fill="var(--series-2)" />
+      <rect x="20.5" y="7" width="4.5" height="18" rx="1.25" fill="var(--series-3)" />
+    </svg>
   )
 }
 
-function Back({ route }: { route: Route }) {
-  if (route.view === 'home') return null
-  const href = route.view === 'sites' && route.site !== null ? routeHash({ ...route, site: null }) : routeHash({ view: 'home', run: runParamOf(route) })
-  const label = route.view === 'sites' && route.site !== null ? 'all sites' : 'agentcanuse'
+interface TopBarProps {
+  route: Route
+  ready: { runs: RunSummary[]; run: Run } | null
+  navigate: (route: Route, options?: { replace?: boolean }) => void
+}
+
+function TopBar({ route, ready, navigate }: TopBarProps) {
+  const runParam = runParamOf(route)
+  const active = tabOf(route)
   return (
-    <a href={href} className="-mb-4 inline-flex items-center gap-1 self-start text-[13px] text-fg-muted hover:text-fg">
-      <ArrowLeft className="size-3.5" /> {label}
-    </a>
+    <header className="sticky top-0 z-40 border-b border-line bg-page/85 backdrop-blur-md">
+      <div className="mx-auto flex h-14 max-w-[1200px] items-center gap-2 px-4 sm:px-6">
+        <a href={tabHref('home', runParam)} className="flex items-center gap-2.5 rounded-md pr-1 text-sm font-semibold">
+          <Mark />
+          agentcanuse
+        </a>
+        {ready && (
+          <>
+            <span className="text-faint" aria-hidden="true">
+              /
+            </span>
+            <RunPicker runs={ready.runs} current={ready.run.id} onPick={(id) => navigate(withRun(route, id === ready.runs[0].id ? null : id))} />
+          </>
+        )}
+        <div className="ml-auto flex items-center gap-1">
+          {ready && (
+            <div className="mr-1 hidden w-64 md:block">
+              <SiteSearch run={ready.run} siteHref={(site) => routeHash({ view: 'sites', run: runParam, site, filter: NO_FILTER })} />
+            </div>
+          )}
+          <a href={repository.url} aria-label="Source on GitHub" title="Source on GitHub" className={ICON_BUTTON}>
+            <Code className="size-4" />
+          </a>
+          <ThemeToggle className={ICON_BUTTON} />
+        </div>
+      </div>
+      <nav aria-label="Sections" className="mx-auto flex max-w-[1200px] gap-1 overflow-x-auto px-2 sm:px-4">
+        {TABS.map(({ tab, label }) => (
+          <a
+            key={tab}
+            href={tabHref(tab, runParam)}
+            aria-current={active === tab ? 'page' : undefined}
+            className="relative px-2.5 py-2.5 text-[13px] whitespace-nowrap text-fg-secondary transition-colors hover:text-fg aria-[current=page]:text-fg aria-[current=page]:after:absolute aria-[current=page]:after:inset-x-2 aria-[current=page]:after:-bottom-px aria-[current=page]:after:h-0.5 aria-[current=page]:after:rounded-full aria-[current=page]:after:bg-fg"
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
+    </header>
   )
 }
 
@@ -108,13 +149,12 @@ interface BodyProps {
   runs: RunSummary[]
   run: Run
   navigate: (route: Route, options?: { replace?: boolean }) => void
-  runPicker: React.ReactNode
 }
 
-function Body({ route, runs, run, navigate, runPicker }: BodyProps) {
+function Body({ route, runs, run, navigate }: BodyProps) {
   switch (route.view) {
     case 'home':
-      return <HomeView run={run} runs={runs} runParam={route.run} runPicker={runPicker} />
+      return <OverviewView run={run} runs={runs} runParam={route.run} />
     case 'sites':
       return <SitesView run={run} route={route} navigate={navigate} />
     case 'engine':
@@ -126,12 +166,15 @@ function Body({ route, runs, run, navigate, runPicker }: BodyProps) {
   }
 }
 
-function LoadingRows() {
+function LoadingCards() {
   return (
-    <div className="flex flex-col gap-3" aria-label="Loading">
-      {[0, 1, 2, 3].map((row) => (
-        <div key={row} className="h-10 animate-pulse rounded-lg bg-hover" />
-      ))}
+    <div className="flex flex-col gap-4" aria-label="Loading">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {[0, 1, 2, 3].map((tile) => (
+          <div key={tile} className="h-[104px] animate-pulse rounded-xl border border-line bg-surface" />
+        ))}
+      </div>
+      <div className="h-64 animate-pulse rounded-xl border border-line bg-surface" />
     </div>
   )
 }
@@ -147,17 +190,15 @@ export function App() {
   const run = useRun(runId)
   const error = (index !== null && 'error' in index && index.error) || (run !== null && 'error' in run && run.error) || null
   const ready = runs !== null && run !== null && 'value' in run ? { runs, run: run.value } : null
-  const runPicker = ready && <RunPicker runs={ready.runs} current={ready.run} onPick={(id) => navigate(withRun(route, id === ready.runs[0].id ? null : id))} />
 
   return (
-    <div className="mx-auto flex min-h-svh w-full max-w-[720px] flex-col gap-10 px-5 pt-8 pb-24 sm:px-8 md:pt-14">
-      <Header />
-      <main key={route.view} className="enter flex flex-1 flex-col gap-12">
-        <Back route={route} />
-        {unknownRun && <p className="text-[13px] text-fg-muted">there's no run called “{runParam}”, so this shows the latest one.</p>}
+    <div className="flex min-h-svh flex-col">
+      <TopBar route={route} ready={ready} navigate={navigate} />
+      <main key={route.view} className="enter mx-auto flex w-full max-w-[1200px] flex-1 flex-col gap-6 px-4 py-8 sm:px-6">
+        {unknownRun && <p className="text-[13px] text-fg-muted">There's no run called “{runParam}”, so this shows the latest one.</p>}
         {error !== null && <p className="text-sm text-destructive">{error}</p>}
-        {error === null && ready === null && <LoadingRows />}
-        {ready !== null && <Body route={route} runs={ready.runs} run={ready.run} navigate={navigate} runPicker={runPicker} />}
+        {error === null && ready === null && <LoadingCards />}
+        {ready !== null && <Body route={route} runs={ready.runs} run={ready.run} navigate={navigate} />}
       </main>
       <Footer latest={runs?.[0] ?? null} />
     </div>

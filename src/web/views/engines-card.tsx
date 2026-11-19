@@ -1,0 +1,86 @@
+import { leaderboard, trend, type Standing } from '../../core/leaderboard'
+import { OUTCOMES, type Run, type RunSummary } from '../../core/model'
+import { Card } from '@/components/card'
+import { OutcomeKey } from '@/components/outcome-mark'
+import { Tooltip } from '@/components/tooltip'
+import { ENGINE_COLORS, ENGINE_INFO, OUTCOME_LABELS, percent, seconds } from '@/labels'
+import { routeHash } from '@/route'
+import { Sparkline } from '@/views/sparkline'
+
+function OutcomeBar({ standing }: { standing: Standing }) {
+  const total = Object.values(standing.counts).reduce((sum, count) => sum + count, 0)
+  const shown = OUTCOMES.filter((outcome) => standing.counts[outcome] > 0)
+  return (
+    <div className="flex h-2.5 w-full gap-[2px]" aria-label={shown.map((outcome) => `${standing.counts[outcome]} ${OUTCOME_LABELS[outcome].label.toLowerCase()}`).join(', ')}>
+      {shown.map((outcome, index) => (
+        <Tooltip
+          key={outcome}
+          className="h-full min-w-[3px] basis-0"
+          style={{ flexGrow: standing.counts[outcome] }}
+          content={
+            <>
+              <span className="font-medium">{OUTCOME_LABELS[outcome].label}</span> · {standing.counts[outcome]} of {total}
+            </>
+          }
+        >
+          <span
+            tabIndex={0}
+            className={`block h-full w-full ${index === 0 ? 'rounded-l-[4px]' : ''} ${index === shown.length - 1 ? 'rounded-r-[4px]' : ''}`}
+            style={{ backgroundColor: OUTCOME_LABELS[outcome].color }}
+          />
+        </Tooltip>
+      ))}
+    </div>
+  )
+}
+
+const HEAD = 'px-3 py-2 text-left text-[12px] font-medium text-fg-muted'
+const CELL = 'px-3 py-3'
+
+export function EnginesCard({ run, runs, runParam }: { run: Run; runs: RunSummary[]; runParam: string | null }) {
+  const current = runs.find((summary) => summary.id === run.id)
+  const standings = leaderboard(run)
+  const anyTrend = current !== undefined && standings.some((standing) => trend(runs, current, standing.engine.id).length >= 2)
+  return (
+    <Card title="Engines" description="Every visit in this run, by outcome." action={<span className="hidden md:block"><OutcomeKey /></span>}>
+      <div className="-mx-5 -my-2 overflow-x-auto">
+        <table className="w-full min-w-[640px] border-collapse">
+          <thead>
+            <tr className="border-b border-line">
+              <th className={`${HEAD} pl-5`}>Engine</th>
+              <th className={`${HEAD} w-[38%]`}>Outcomes</th>
+              <th className={`${HEAD} text-right`}>Passed</th>
+              <th className={`${HEAD} text-right`}>Blocked</th>
+              <th className={`${HEAD} text-right`}>Median</th>
+              {anyTrend && <th className={`${HEAD} pr-5 text-right`}>Trend</th>}
+            </tr>
+          </thead>
+          <tbody>
+            {standings.map((standing) => (
+              <tr key={standing.engine.id} className="border-b border-line last:border-0 hover:bg-raised">
+                <td className={`${CELL} pl-5`}>
+                  <a href={routeHash({ view: 'engine', run: runParam, engine: standing.engine.id })} className="flex items-center gap-2.5 text-sm font-medium hover:underline">
+                    <span className="size-2.5 shrink-0 rounded-full" style={{ backgroundColor: ENGINE_COLORS[standing.engine.id] }} aria-hidden="true" />
+                    {ENGINE_INFO[standing.engine.id].name}
+                    <span className="rounded border border-line px-1.5 py-px font-mono text-[11px] font-normal text-fg-muted">{standing.engine.version}</span>
+                  </a>
+                </td>
+                <td className={CELL}>
+                  <OutcomeBar standing={standing} />
+                </td>
+                <td className={`${CELL} text-right text-sm font-semibold tabular-nums`}>{percent(standing.passRate)}</td>
+                <td className={`${CELL} text-right text-sm text-fg-secondary tabular-nums`}>{percent(standing.blockedRate)}</td>
+                <td className={`${CELL} text-right font-mono text-[13px] text-fg-secondary`}>{seconds(standing.medianMs)}</td>
+                {anyTrend && current && (
+                  <td className={`${CELL} pr-5 text-right`}>
+                    <Sparkline points={trend(runs, current, standing.engine.id)} color={ENGINE_COLORS[standing.engine.id]} />
+                  </td>
+                )}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </Card>
+  )
+}

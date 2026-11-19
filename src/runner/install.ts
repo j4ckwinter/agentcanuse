@@ -3,6 +3,7 @@ import { access, chmod, mkdir, readdir, rm, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { promisify } from 'node:util'
 import { Browser, detectBrowserPlatform, install, resolveBuildId } from '@puppeteer/browsers'
+import { RELEASE_REPOS } from '../core/releases'
 
 const run = promisify(execFile)
 
@@ -39,7 +40,7 @@ export async function installLightpanda(cacheDir: string, version: string): Prom
   const binary = join(directory, 'lightpanda')
   if (await exists(binary)) return binary
   await mkdir(directory, { recursive: true })
-  await download(`https://github.com/lightpanda-io/browser/releases/download/${version}/lightpanda-${arch}-${os}`, binary)
+  await download(`https://github.com/${RELEASE_REPOS.lightpanda}/releases/download/${version}/lightpanda-${arch}-${os}`, binary)
   await chmod(binary, 0o755)
   return binary
 }
@@ -51,7 +52,7 @@ export async function installObscura(cacheDir: string, version: string): Promise
   await mkdir(directory, { recursive: true })
   const archive = join(directory, 'obscura.tar.gz')
   try {
-    await download(`https://github.com/h4ckf0r0day/obscura/releases/download/${version}/obscura-${arch}-${os}.tar.gz`, archive)
+    await download(`https://github.com/${RELEASE_REPOS.obscura}/releases/download/${version}/obscura-${arch}-${os}.tar.gz`, archive)
     await run('tar', ['-xzf', archive, '-C', directory])
   } catch (error) {
     await rm(directory, { recursive: true, force: true })

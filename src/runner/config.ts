@@ -1,4 +1,4 @@
-import { readFile } from 'node:fs/promises'
+import { readFile, writeFile } from 'node:fs/promises'
 import { ENGINE_IDS, type EngineId, type Site } from '../core/model'
 
 export type Pins = Record<EngineId, string>
@@ -23,6 +23,11 @@ export async function loadPins(path: string): Promise<Pins> {
       return [id, entry.version]
     }),
   ) as Pins
+}
+
+export async function savePins(path: string, pins: Pins): Promise<void> {
+  const entries = ENGINE_IDS.map((id) => `  "${id}": { "version": ${JSON.stringify(pins[id])} }`)
+  await writeFile(path, `{\n${entries.join(',\n')}\n}\n`)
 }
 
 export function isEngineId(value: string): value is EngineId {

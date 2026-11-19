@@ -1,0 +1,36 @@
+name: Watch releases
+
+on:
+  schedule:
+    - cron: '41 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - id: watch
+        run: npm run watch-releases
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - if: steps.watch.outputs.bumped == 'true'
+        run: |
+          git config user.name "agentcanuse survey"
+          git config user.email "survey@users.noreply.github.com"
+          git add engines.json
+          git commit -m "chore: pin ${{ steps.watch.outputs.summary }}"
+          git pull --rebase
+          git push
+          gh workflow run survey.yml --ref main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

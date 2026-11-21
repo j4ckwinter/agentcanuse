@@ -1360,7 +1360,7 @@
    "linkCount": 85,
    "durationMs": 1729,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/chromium/arxiv.webp",
+   "shot": null,
    "tree": {
     "nodes": 529,
     "controls": 85,
@@ -1387,7 +1387,7 @@
    "linkCount": 3,
    "durationMs": 1814,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/chromium/hacker-news.webp",
+   "shot": null,
    "tree": {
     "nodes": 33,
     "controls": 3,
@@ -1584,7 +1584,7 @@
    "linkCount": 165,
    "durationMs": 1920,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/chromium/bbc-news.webp",
+   "shot": null,
    "tree": {
     "nodes": 1223,
     "controls": 123,
@@ -1636,7 +1636,7 @@
    "linkCount": 0,
    "durationMs": 1996,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/chromium/nytimes.webp",
+   "shot": null,
    "tree": {
     "nodes": 2,
     "controls": 0,
@@ -1662,7 +1662,7 @@
    "linkCount": 0,
    "durationMs": 1950,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/chromium/archive-org.webp",
+   "shot": null,
    "tree": {
     "nodes": 616,
     "controls": 110,
@@ -1739,7 +1739,7 @@
    "linkCount": 95,
    "durationMs": 3630,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/chromium/youtube.webp",
+   "shot": null,
    "tree": {
     "nodes": 863,
     "controls": 61,
@@ -1765,7 +1765,7 @@
    "linkCount": 0,
    "durationMs": 2386,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/chromium/zillow.webp",
+   "shot": null,
    "tree": {
     "nodes": 17,
     "controls": 0,
@@ -1818,7 +1818,7 @@
    "linkCount": 0,
    "durationMs": 1850,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/chromium/ebay.webp",
+   "shot": null,
    "tree": {
     "nodes": 21,
     "controls": 0,
@@ -1844,7 +1844,7 @@
    "linkCount": 161,
    "durationMs": 2377,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/chromium/airbnb.webp",
+   "shot": null,
    "tree": {
     "nodes": 460,
     "controls": 78,
@@ -1870,7 +1870,7 @@
    "linkCount": 266,
    "durationMs": 1985,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/chromium/booking.webp",
+   "shot": null,
    "tree": {
     "nodes": 1429,
     "controls": 176,
@@ -2155,7 +2155,7 @@
    "linkCount": 0,
    "durationMs": 1640,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/chromium/argos.webp",
+   "shot": null,
    "tree": {
     "nodes": 12,
     "controls": 0,
@@ -2206,7 +2206,7 @@
    "linkCount": 0,
    "durationMs": 1639,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/chromium/asos.webp",
+   "shot": null,
    "tree": {
     "nodes": 12,
     "controls": 0,
@@ -2277,7 +2277,7 @@
    "linkCount": 295,
    "durationMs": 1989,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/chromium/bbc-sport.webp",
+   "shot": null,
    "tree": {
     "nodes": 2667,
     "controls": 245,
@@ -2348,7 +2348,7 @@
    "linkCount": 78,
    "durationMs": 11941,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/chromium/canada.webp",
+   "shot": null,
    "tree": {
     "nodes": 691,
     "controls": 82,
@@ -2426,7 +2426,7 @@
    "linkCount": 0,
    "durationMs": 1563,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/chromium/cnn.webp",
+   "shot": null,
    "tree": {
     "nodes": 4,
     "controls": 0,
@@ -3111,7 +3111,7 @@
    "linkCount": 2,
    "durationMs": 1830,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/chromium/medium.webp",
+   "shot": null,
    "tree": {
     "nodes": 31,
     "controls": 2,
@@ -3318,7 +3318,7 @@
    "linkCount": 141,
    "durationMs": 3993,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/chromium/nature.webp",
+   "shot": null,
    "tree": {
     "nodes": 35,
     "controls": 4,
@@ -3731,7 +3731,7 @@
    "linkCount": 0,
    "durationMs": 1627,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/chromium/sky-news.webp",
+   "shot": null,
    "tree": {
     "nodes": 12,
     "controls": 0,
@@ -3756,7 +3756,7 @@
    "linkCount": 0,
    "durationMs": 2246,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/chromium/skyscanner.webp",
+   "shot": null,
    "tree": {
     "nodes": 30,
     "controls": 0,
@@ -4314,7 +4314,7 @@
    "linkCount": 174,
    "durationMs": 4822,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/chromium/wise.webp",
+   "shot": null,
    "tree": {
     "nodes": 1228,
     "controls": 143,
@@ -4534,7 +4534,7 @@
    "linkCount": 0,
    "durationMs": 1573,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/arxiv.webp",
+   "shot": null,
    "tree": {
     "nodes": 12,
     "controls": 0,
@@ -4560,7 +4560,7 @@
    "linkCount": 229,
    "durationMs": 1726,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/hacker-news.webp",
+   "shot": null,
    "tree": {
     "nodes": 1229,
     "controls": 230,
@@ -4763,7 +4763,7 @@
    "linkCount": 165,
    "durationMs": 1901,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/bbc-news.webp",
+   "shot": null,
    "tree": {
     "nodes": 1171,
     "controls": 112,
@@ -4818,7 +4818,7 @@
    "linkCount": 0,
    "durationMs": 1797,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/nytimes.webp",
+   "shot": null,
    "tree": {
     "nodes": 2,
     "controls": 0,
@@ -4844,7 +4844,7 @@
    "linkCount": 0,
    "durationMs": 3393,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/archive-org.webp",
+   "shot": null,
    "tree": {
     "nodes": 1779,
     "controls": 250,
@@ -4927,7 +4927,7 @@
    "linkCount": 4,
    "durationMs": 4125,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/youtube.webp",
+   "shot": null,
    "tree": {
     "nodes": 219,
     "controls": 13,
@@ -4953,7 +4953,7 @@
    "linkCount": 294,
    "durationMs": 2783,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/zillow.webp",
+   "shot": null,
    "tree": {
     "nodes": 1292,
     "controls": 94,
@@ -5005,7 +5005,7 @@
    "linkCount": 499,
    "durationMs": 2929,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/ebay.webp",
+   "shot": null,
    "tree": {
     "nodes": 60,
     "controls": 6,
@@ -5031,7 +5031,7 @@
    "linkCount": 241,
    "durationMs": 2726,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/airbnb.webp",
+   "shot": null,
    "tree": {
     "nodes": 3453,
     "controls": 327,
@@ -5060,7 +5060,7 @@
    "linkCount": 242,
    "durationMs": 2058,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/booking.webp",
+   "shot": null,
    "tree": {
     "nodes": 2500,
     "controls": 259,
@@ -5366,7 +5366,7 @@
    "linkCount": 1,
    "durationMs": 2248,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/argos.webp",
+   "shot": null,
    "tree": {
     "nodes": 1,
     "controls": 0,
@@ -5420,7 +5420,7 @@
    "linkCount": 683,
    "durationMs": 2707,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/asos.webp",
+   "shot": null,
    "tree": {
     "nodes": 1200,
     "controls": 132,
@@ -5494,7 +5494,7 @@
    "linkCount": 295,
    "durationMs": 1896,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/bbc-sport.webp",
+   "shot": null,
    "tree": {
     "nodes": 4088,
     "controls": 251,
@@ -5524,7 +5524,7 @@
    "linkCount": 126,
    "durationMs": 4199,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/bestbuy.webp",
+   "shot": null,
    "tree": {
     "nodes": 1290,
     "controls": 126,
@@ -5575,7 +5575,7 @@
    "linkCount": 76,
    "durationMs": 2087,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/canada.webp",
+   "shot": null,
    "tree": {
     "nodes": 861,
     "controls": 84,
@@ -5656,7 +5656,7 @@
    "linkCount": 566,
    "durationMs": 2926,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/cnn.webp",
+   "shot": null,
    "tree": {
     "nodes": 3,
     "controls": 0,
@@ -6228,7 +6228,7 @@
    "linkCount": 228,
    "durationMs": 3940,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/independent.webp",
+   "shot": null,
    "tree": {
     "nodes": 1438,
     "controls": 224,
@@ -6395,7 +6395,7 @@
    "linkCount": 2,
    "durationMs": 1726,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/medium.webp",
+   "shot": null,
    "tree": {
     "nodes": 26,
     "controls": 2,
@@ -6620,7 +6620,7 @@
    "linkCount": 0,
    "durationMs": 1688,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/nature.webp",
+   "shot": null,
    "tree": {
     "nodes": 20,
     "controls": 3,
@@ -7066,7 +7066,7 @@
    "linkCount": 1,
    "durationMs": 1843,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/sky-news.webp",
+   "shot": null,
    "tree": {
     "nodes": 1,
     "controls": 0,
@@ -7091,7 +7091,7 @@
    "linkCount": 0,
    "durationMs": 1883,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/skyscanner.webp",
+   "shot": null,
    "tree": {
     "nodes": 19,
     "controls": 0,
@@ -7689,7 +7689,7 @@
    "linkCount": 172,
    "durationMs": 4453,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/lightpanda/wise.webp",
+   "shot": null,
    "tree": {
     "nodes": 1924,
     "controls": 168,
@@ -7912,7 +7912,7 @@
    "linkCount": 85,
    "durationMs": 2266,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/obscura/arxiv.webp",
+   "shot": null,
    "tree": {
     "nodes": 673,
     "controls": 85,
@@ -7941,7 +7941,7 @@
    "linkCount": 229,
    "durationMs": 1973,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/obscura/hacker-news.webp",
+   "shot": null,
    "tree": {
     "nodes": 1294,
     "controls": 230,
@@ -8212,7 +8212,7 @@
    "linkCount": 0,
    "durationMs": 3774,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/obscura/archive-org.webp",
+   "shot": null,
    "tree": {
     "nodes": 8,
     "controls": 0,
@@ -8295,7 +8295,7 @@
    "linkCount": 19,
    "durationMs": 6742,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/obscura/youtube.webp",
+   "shot": null,
    "tree": {
     "nodes": 125,
     "controls": 8,
@@ -8321,7 +8321,7 @@
    "linkCount": 274,
    "durationMs": 5205,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/obscura/zillow.webp",
+   "shot": null,
    "tree": {
     "nodes": 523,
     "controls": 69,
@@ -8374,7 +8374,7 @@
    "linkCount": 0,
    "durationMs": 2057,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/obscura/ebay.webp",
+   "shot": null,
    "tree": {
     "nodes": 21,
     "controls": 0,
@@ -8401,7 +8401,7 @@
    "linkCount": 14,
    "durationMs": 3300,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/obscura/airbnb.webp",
+   "shot": null,
    "tree": {
     "nodes": 346,
     "controls": 13,
@@ -8724,7 +8724,7 @@
    "linkCount": 0,
    "durationMs": 2175,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/obscura/argos.webp",
+   "shot": null,
    "tree": {
     "nodes": 13,
     "controls": 0,
@@ -8778,7 +8778,7 @@
    "linkCount": 672,
    "durationMs": 6656,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/obscura/asos.webp",
+   "shot": null,
    "tree": {
     "nodes": 1197,
     "controls": 130,
@@ -8873,7 +8873,7 @@
    "linkCount": 118,
    "durationMs": 14749,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/obscura/bestbuy.webp",
+   "shot": null,
    "tree": {
     "nodes": 1173,
     "controls": 115,
@@ -8999,7 +8999,7 @@
    "linkCount": 556,
    "durationMs": 27199,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/obscura/cnn.webp",
+   "shot": null,
    "tree": {
     "nodes": 6921,
     "controls": 348,
@@ -9571,7 +9571,7 @@
    "linkCount": 256,
    "durationMs": 13086,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/obscura/independent.webp",
+   "shot": null,
    "tree": {
     "nodes": 1948,
     "controls": 270,
@@ -9738,7 +9738,7 @@
    "linkCount": 22,
    "durationMs": 3775,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/obscura/medium.webp",
+   "shot": null,
    "tree": {
     "nodes": 118,
     "controls": 19,
@@ -9963,7 +9963,7 @@
    "linkCount": 140,
    "durationMs": 4436,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/obscura/nature.webp",
+   "shot": null,
    "tree": {
     "nodes": 2346,
     "controls": 101,
@@ -10412,7 +10412,7 @@
    "linkCount": 0,
    "durationMs": 1926,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/obscura/sky-news.webp",
+   "shot": null,
    "tree": {
     "nodes": 13,
     "controls": 0,
@@ -10437,7 +10437,7 @@
    "linkCount": 421,
    "durationMs": 4696,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/obscura/skyscanner.webp",
+   "shot": null,
    "tree": {
     "nodes": 554,
     "controls": 76,
@@ -11035,7 +11035,7 @@
    "linkCount": 175,
    "durationMs": 21781,
    "error": null,
-   "shot": "shots/2026-11-20T15-45Z/obscura/wise.webp",
+   "shot": null,
    "tree": {
     "nodes": 1560,
     "controls": 138,

@@ -1,6 +1,32 @@
 {
  "runs": [
   {
+   "id": "2026-11-22T11-32Z",
+   "startedAt": "2026-11-22T11:32:03.406Z",
+   "origin": "data-centre",
+   "engines": [
+    {
+     "id": "chromium",
+     "version": "158.0.8127.36"
+    },
+    {
+     "id": "lightpanda",
+     "version": "1.0.5"
+    },
+    {
+     "id": "obscura",
+     "version": "v0.2.7"
+    }
+   ],
+   "siteCount": 124,
+   "siteList": "dfa25b64",
+   "passRates": {
+    "chromium": 0.788135593220339,
+    "lightpanda": 0.788135593220339,
+    "obscura": 0.7796610169491526
+   }
+  },
+  {
    "id": "2026-11-21T11-12Z",
    "startedAt": "2026-11-21T11:12:37.129Z",
    "origin": "data-centre",

@@ -18,8 +18,8 @@ describe('kitesurfLaunch', () => {
     expect(kitesurfLaunch({ KITESURF_ENDPOINT: endpoint, KITESURF_TOKEN: '' })).toMatchObject({ engine: { headers: {} } })
   })
 
-  it('labels the version from KITESURF_VERSION, or as deployed', () => {
-    expect(kitesurfLaunch({ KITESURF_ENDPOINT: endpoint })).toMatchObject({ engine: { version: 'deployed' } })
+  it('labels the version from KITESURF_VERSION, or as hosted', () => {
+    expect(kitesurfLaunch({ KITESURF_ENDPOINT: endpoint })).toMatchObject({ engine: { version: 'hosted' } })
     expect(kitesurfLaunch({ KITESURF_ENDPOINT: endpoint, KITESURF_VERSION: 'beta' })).toMatchObject({ engine: { version: 'beta' } })
   })
 })

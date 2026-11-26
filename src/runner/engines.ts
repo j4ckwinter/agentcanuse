@@ -116,7 +116,7 @@ export function kitesurfLaunch(env: Record<string, string | undefined>): Launch 
   }
   const token = env.KITESURF_TOKEN
   const headers: Record<string, string> = token === undefined || token === '' ? {} : { Authorization: `Bearer ${token}` }
-  return { engine: { id: 'kitesurf', version: env.KITESURF_VERSION ?? 'deployed', endpoint, headers, hosted: true, stop: async () => {} } }
+  return { engine: { id: 'kitesurf', version: env.KITESURF_VERSION ?? 'hosted', endpoint, headers, hosted: true, stop: async () => {} } }
 }
 
 async function portAnswers(port: number): Promise<boolean> {

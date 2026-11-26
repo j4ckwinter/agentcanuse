@@ -45,6 +45,11 @@ export function MethodView() {
               Each engine visits each site once per run, one page at a time. Engines run their standard builds, never a stealth mode, because getting blocked is one of the
               things measured.
             </p>
+            <p>
+              Each also introduces itself the way it does out of the box, and we don't change that. Chromium says it's HeadlessChrome and Lightpanda says it's Lightpanda, while
+              Obscura and Moli say they're desktop Chrome on Windows. Sites that block bots by name let those two in more easily, so some of their lead on blocking sites may come from that
+              choice.
+            </p>
           </Prose>
         </Card>
       </div>

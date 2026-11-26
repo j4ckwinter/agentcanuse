@@ -57,6 +57,7 @@ the exact rules and thresholds are on the [method page](https://agentcanuse.com/
 
 - **it only reads the page.** nothing clicks, types or fills in a form, so it measures what an agent can see, not what it can do.
 - **kitesurf runs on Cloudflare's network.** Cloudflare hosts it in beta through Browser Run, so its visits come from there whatever the run's label says, and its load times include the trip. to drive it yourself, bring your own Cloudflare account and set the same two variables as [checking your own site](#check-your-own-site).
+- **each engine introduces itself its own way.** chromium says it's HeadlessChrome and lightpanda says it's Lightpanda, while obscura and moli say they're desktop Chrome on Windows. we leave each as it ships, so some of their lead on sites that block bots may come from that.
 - **agent-browser isn't here because it isn't an engine.** it drives chromium or lightpanda, which are both measured.
 
 want a site in the survey? [suggest one](https://github.com/j4ckwinter/agentcanuse/issues/new?template=suggest-a-site.yml). it needs a public page and two phrases a person would look for on it.

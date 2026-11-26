@@ -4,7 +4,7 @@
 
 **caniuse, but for the browsers ai agents use.** see it at [agentcanuse.com](https://agentcanuse.com).
 
-<img src="docs/demo.gif" alt="Agent Can Use: the overview's answer and category guide across Chromium, Lightpanda, Obscura and Kitesurf, the engines table and speed chart, Zillow read side by side by all four, then Chromium's release diff with three sites now passing" width="900">
+<img src="docs/demo.gif" alt="Agent Can Use: the overview's answer and category guide across Chromium, Lightpanda, Obscura, Kitesurf and Moli, the engines table and speed chart, Zillow read side by side by all five, then Chromium's release diff with Hacker News now passing" width="900">
 
 </div>
 

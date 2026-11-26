@@ -92,7 +92,7 @@ export const ENGINE_COLORS: Record<EngineId, string> = {
   chromium: 'var(--series-1)',
   lightpanda: 'var(--series-2)',
   obscura: 'var(--series-3)',
-  kitesurf: 'var(--status-neutral)',
+  kitesurf: 'var(--series-4)',
 }
 
 export function treeLabel(tree: TreeSummary | null): string {

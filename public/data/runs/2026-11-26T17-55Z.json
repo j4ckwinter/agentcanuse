@@ -1368,7 +1368,7 @@
    "linkCount": 85,
    "durationMs": 1684,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/arxiv.webp",
+   "shot": null,
    "tree": {
     "nodes": 529,
     "controls": 85,
@@ -1591,7 +1591,7 @@
    "linkCount": 165,
    "durationMs": 1986,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/bbc-news.webp",
+   "shot": null,
    "tree": {
     "nodes": 1222,
     "controls": 123,
@@ -1643,7 +1643,7 @@
    "linkCount": 0,
    "durationMs": 1858,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/nytimes.webp",
+   "shot": null,
    "tree": {
     "nodes": 2,
     "controls": 0,
@@ -1695,7 +1695,7 @@
    "linkCount": 276,
    "durationMs": 2211,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/met-office.webp",
+   "shot": null,
    "tree": {
     "nodes": 1048,
     "controls": 129,
@@ -1746,7 +1746,7 @@
    "linkCount": 98,
    "durationMs": 2826,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/youtube.webp",
+   "shot": null,
    "tree": {
     "nodes": 824,
     "controls": 64,
@@ -1772,7 +1772,7 @@
    "linkCount": 0,
    "durationMs": 2012,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/zillow.webp",
+   "shot": null,
    "tree": {
     "nodes": 17,
     "controls": 0,
@@ -1825,7 +1825,7 @@
    "linkCount": 0,
    "durationMs": 1731,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/ebay.webp",
+   "shot": null,
    "tree": {
     "nodes": 21,
     "controls": 0,
@@ -1851,7 +1851,7 @@
    "linkCount": 161,
    "durationMs": 3119,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/airbnb.webp",
+   "shot": null,
    "tree": {
     "nodes": 460,
     "controls": 78,
@@ -1877,7 +1877,7 @@
    "linkCount": 271,
    "durationMs": 1802,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/booking.webp",
+   "shot": null,
    "tree": {
     "nodes": 1482,
     "controls": 182,
@@ -2007,7 +2007,7 @@
    "linkCount": 191,
    "durationMs": 2018,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/hn-algolia.webp",
+   "shot": null,
    "tree": {
     "nodes": 1372,
     "controls": 203,
@@ -2060,7 +2060,7 @@
    "linkCount": 2,
    "durationMs": 1825,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/amazon.webp",
+   "shot": null,
    "tree": {
     "nodes": 26,
     "controls": 3,
@@ -2085,7 +2085,7 @@
    "linkCount": 2,
    "durationMs": 1757,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/apnews.webp",
+   "shot": null,
    "tree": {
     "nodes": 31,
     "controls": 2,
@@ -2162,7 +2162,7 @@
    "linkCount": 0,
    "durationMs": 1594,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/argos.webp",
+   "shot": null,
    "tree": {
     "nodes": 12,
     "controls": 0,
@@ -2213,7 +2213,7 @@
    "linkCount": 0,
    "durationMs": 1678,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/asos.webp",
+   "shot": null,
    "tree": {
     "nodes": 12,
     "controls": 0,
@@ -2284,7 +2284,7 @@
    "linkCount": 304,
    "durationMs": 2004,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/bbc-sport.webp",
+   "shot": null,
    "tree": {
     "nodes": 2640,
     "controls": 248,
@@ -2329,7 +2329,7 @@
    "linkCount": 2,
    "durationMs": 1812,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/britannica.webp",
+   "shot": null,
    "tree": {
     "nodes": 30,
     "controls": 2,
@@ -2355,7 +2355,7 @@
    "linkCount": 76,
    "durationMs": 8839,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/canada.webp",
+   "shot": null,
    "tree": {
     "nodes": 669,
     "controls": 80,
@@ -2407,7 +2407,7 @@
    "linkCount": 239,
    "durationMs": 2535,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/cdc.webp",
+   "shot": null,
    "tree": {
     "nodes": 548,
     "controls": 86,
@@ -2433,7 +2433,7 @@
    "linkCount": 0,
    "durationMs": 1548,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/cnn.webp",
+   "shot": null,
    "tree": {
     "nodes": 4,
     "controls": 0,
@@ -2458,7 +2458,7 @@
    "linkCount": 2,
    "durationMs": 1767,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/codepen.webp",
+   "shot": null,
    "tree": {
     "nodes": 30,
     "controls": 2,
@@ -2536,7 +2536,7 @@
    "linkCount": 373,
    "durationMs": 2135,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/devto.webp",
+   "shot": null,
    "tree": {
     "nodes": 1728,
     "controls": 329,
@@ -2607,7 +2607,7 @@
    "linkCount": 118,
    "durationMs": 2462,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/docker-hub.webp",
+   "shot": null,
    "tree": {
     "nodes": 2137,
     "controls": 128,
@@ -2710,7 +2710,7 @@
    "linkCount": 1,
    "durationMs": 1855,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/expedia.webp",
+   "shot": null,
    "tree": {
     "nodes": 24,
     "controls": 1,
@@ -2736,7 +2736,7 @@
    "linkCount": 153,
    "durationMs": 2060,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/figma.webp",
+   "shot": null,
    "tree": {
     "nodes": 640,
     "controls": 95,
@@ -2761,7 +2761,7 @@
    "linkCount": 9,
    "durationMs": 1880,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/ft.webp",
+   "shot": null,
    "tree": {
     "nodes": 102,
     "controls": 9,
@@ -3047,7 +3047,7 @@
    "linkCount": 334,
    "durationMs": 1602,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/khan.webp",
+   "shot": null,
    "tree": {
     "nodes": 3071,
     "controls": 345,
@@ -3124,7 +3124,7 @@
    "linkCount": 2,
    "durationMs": 1794,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/medium.webp",
+   "shot": null,
    "tree": {
     "nodes": 31,
     "controls": 2,
@@ -3149,7 +3149,7 @@
    "linkCount": 2,
    "durationMs": 1820,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/merriam-webster.webp",
+   "shot": null,
    "tree": {
     "nodes": 31,
     "controls": 2,
@@ -3279,7 +3279,7 @@
    "linkCount": 283,
    "durationMs": 2786,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/nasa.webp",
+   "shot": null,
    "tree": {
     "nodes": 703,
     "controls": 77,
@@ -3331,7 +3331,7 @@
    "linkCount": 141,
    "durationMs": 4087,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/nature.webp",
+   "shot": null,
    "tree": {
     "nodes": 35,
     "controls": 4,
@@ -3538,7 +3538,7 @@
    "linkCount": 0,
    "durationMs": 2468,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/paypal.webp",
+   "shot": null,
    "tree": {
     "nodes": 3,
     "controls": 0,
@@ -3589,7 +3589,7 @@
    "linkCount": 2,
    "durationMs": 1976,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/producthunt.webp",
+   "shot": null,
    "tree": {
     "nodes": 31,
     "controls": 2,
@@ -3744,7 +3744,7 @@
    "linkCount": 0,
    "durationMs": 1572,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/sky-news.webp",
+   "shot": null,
    "tree": {
     "nodes": 12,
     "controls": 0,
@@ -3769,7 +3769,7 @@
    "linkCount": 0,
    "durationMs": 1889,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/skyscanner.webp",
+   "shot": null,
    "tree": {
     "nodes": 30,
     "controls": 0,
@@ -3945,7 +3945,7 @@
    "linkCount": 122,
    "durationMs": 2321,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/supabase.webp",
+   "shot": null,
    "tree": {
     "nodes": 948,
     "controls": 126,
@@ -4145,7 +4145,7 @@
    "linkCount": 491,
    "durationMs": 9317,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/verge.webp",
+   "shot": null,
    "tree": {
     "nodes": 3455,
     "controls": 337,
@@ -4223,7 +4223,7 @@
    "linkCount": 132,
    "durationMs": 3125,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/walmart.webp",
+   "shot": null,
    "tree": {
     "nodes": 604,
     "controls": 56,
@@ -4249,7 +4249,7 @@
    "linkCount": 151,
    "durationMs": 9382,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/weather-com.webp",
+   "shot": null,
    "tree": {
     "nodes": 1517,
     "controls": 164,
@@ -4301,7 +4301,7 @@
    "linkCount": 183,
    "durationMs": 6480,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/wired.webp",
+   "shot": null,
    "tree": {
     "nodes": 1760,
     "controls": 209,
@@ -4328,7 +4328,7 @@
    "linkCount": 172,
    "durationMs": 4896,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/wise.webp",
+   "shot": null,
    "tree": {
     "nodes": 1204,
     "controls": 140,
@@ -4354,7 +4354,7 @@
    "linkCount": 63,
    "durationMs": 2563,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/chromium/wolfram.webp",
+   "shot": null,
    "tree": {
     "nodes": 411,
     "controls": 76,
@@ -4548,7 +4548,7 @@
    "linkCount": 0,
    "durationMs": 1571,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/arxiv.webp",
+   "shot": null,
    "tree": {
     "nodes": 12,
     "controls": 0,
@@ -4777,7 +4777,7 @@
    "linkCount": 165,
    "durationMs": 2101,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/bbc-news.webp",
+   "shot": null,
    "tree": {
     "nodes": 1175,
     "controls": 112,
@@ -4832,7 +4832,7 @@
    "linkCount": 0,
    "durationMs": 1696,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/nytimes.webp",
+   "shot": null,
    "tree": {
     "nodes": 2,
     "controls": 0,
@@ -4884,7 +4884,7 @@
    "linkCount": 278,
    "durationMs": 2349,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/met-office.webp",
+   "shot": null,
    "tree": {
     "nodes": 1107,
     "controls": 133,
@@ -4941,7 +4941,7 @@
    "linkCount": 4,
    "durationMs": 2828,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/youtube.webp",
+   "shot": null,
    "tree": {
     "nodes": 219,
     "controls": 13,
@@ -4967,7 +4967,7 @@
    "linkCount": 284,
    "durationMs": 2424,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/zillow.webp",
+   "shot": null,
    "tree": {
     "nodes": 932,
     "controls": 84,
@@ -5020,7 +5020,7 @@
    "linkCount": 0,
    "durationMs": 1922,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/ebay.webp",
+   "shot": null,
    "tree": {
     "nodes": 19,
     "controls": 0,
@@ -5046,7 +5046,7 @@
    "linkCount": 221,
    "durationMs": 2459,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/airbnb.webp",
+   "shot": null,
    "tree": {
     "nodes": 2915,
     "controls": 291,
@@ -5075,7 +5075,7 @@
    "linkCount": 270,
    "durationMs": 1798,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/booking.webp",
+   "shot": null,
    "tree": {
     "nodes": 2750,
     "controls": 287,
@@ -5217,7 +5217,7 @@
    "linkCount": 191,
    "durationMs": 1902,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/hn-algolia.webp",
+   "shot": null,
    "tree": {
     "nodes": 1249,
     "controls": 204,
@@ -5272,7 +5272,7 @@
    "linkCount": 194,
    "durationMs": 2642,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/amazon.webp",
+   "shot": null,
    "tree": {
     "nodes": 2206,
     "controls": 254,
@@ -5297,7 +5297,7 @@
    "linkCount": 2,
    "durationMs": 1643,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/apnews.webp",
+   "shot": null,
    "tree": {
     "nodes": 26,
     "controls": 2,
@@ -5380,7 +5380,7 @@
    "linkCount": 1,
    "durationMs": 2388,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/argos.webp",
+   "shot": null,
    "tree": {
     "nodes": 1,
     "controls": 0,
@@ -5434,7 +5434,7 @@
    "linkCount": 686,
    "durationMs": 2361,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/asos.webp",
+   "shot": null,
    "tree": {
     "nodes": 1200,
     "controls": 132,
@@ -5508,7 +5508,7 @@
    "linkCount": 302,
    "durationMs": 1844,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/bbc-sport.webp",
+   "shot": null,
    "tree": {
     "nodes": 3991,
     "controls": 252,
@@ -5538,7 +5538,7 @@
    "linkCount": 125,
    "durationMs": 3806,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/bestbuy.webp",
+   "shot": null,
    "tree": {
     "nodes": 1658,
     "controls": 136,
@@ -5563,7 +5563,7 @@
    "linkCount": 2,
    "durationMs": 1642,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/britannica.webp",
+   "shot": null,
    "tree": {
     "nodes": 26,
     "controls": 2,
@@ -5589,7 +5589,7 @@
    "linkCount": 76,
    "durationMs": 2068,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/canada.webp",
+   "shot": null,
    "tree": {
     "nodes": 861,
     "controls": 84,
@@ -5641,7 +5641,7 @@
    "linkCount": 237,
    "durationMs": 2685,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/cdc.webp",
+   "shot": null,
    "tree": {
     "nodes": 1798,
     "controls": 238,
@@ -5670,7 +5670,7 @@
    "linkCount": 559,
    "durationMs": 2701,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/cnn.webp",
+   "shot": null,
    "tree": {
     "nodes": 3,
     "controls": 0,
@@ -5695,7 +5695,7 @@
    "linkCount": 2,
    "durationMs": 1630,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/codepen.webp",
+   "shot": null,
    "tree": {
     "nodes": 26,
     "controls": 2,
@@ -5779,7 +5779,7 @@
    "linkCount": 0,
    "durationMs": 1553,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/devto.webp",
+   "shot": null,
    "tree": {
     "nodes": 1,
     "controls": 0,
@@ -5853,7 +5853,7 @@
    "linkCount": 118,
    "durationMs": 2631,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/docker-hub.webp",
+   "shot": null,
    "tree": {
     "nodes": 1691,
     "controls": 128,
@@ -5959,7 +5959,7 @@
    "linkCount": 55,
    "durationMs": 2309,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/expedia.webp",
+   "shot": null,
    "tree": {
     "nodes": 500,
     "controls": 42,
@@ -5985,7 +5985,7 @@
    "linkCount": 154,
    "durationMs": 2067,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/figma.webp",
+   "shot": null,
    "tree": {
     "nodes": 878,
     "controls": 97,
@@ -6013,7 +6013,7 @@
    "linkCount": 9,
    "durationMs": 1687,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/ft.webp",
+   "shot": null,
    "tree": {
     "nodes": 68,
     "controls": 9,
@@ -6323,7 +6323,7 @@
    "linkCount": 333,
    "durationMs": 1680,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/khan.webp",
+   "shot": null,
    "tree": {
     "nodes": 1915,
     "controls": 345,
@@ -6409,7 +6409,7 @@
    "linkCount": 2,
    "durationMs": 1628,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/medium.webp",
+   "shot": null,
    "tree": {
     "nodes": 26,
     "controls": 2,
@@ -6434,7 +6434,7 @@
    "linkCount": 2,
    "durationMs": 1668,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/merriam-webster.webp",
+   "shot": null,
    "tree": {
     "nodes": 26,
     "controls": 2,
@@ -6576,7 +6576,7 @@
    "linkCount": 283,
    "durationMs": 2058,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/nasa.webp",
+   "shot": null,
    "tree": {
     "nodes": 1207,
     "controls": 95,
@@ -6634,7 +6634,7 @@
    "linkCount": 0,
    "durationMs": 1767,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/nature.webp",
+   "shot": null,
    "tree": {
     "nodes": 20,
     "controls": 3,
@@ -6862,7 +6862,7 @@
    "linkCount": 0,
    "durationMs": 1742,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/paypal.webp",
+   "shot": null,
    "tree": {
     "nodes": 2,
     "controls": 0,
@@ -6913,7 +6913,7 @@
    "linkCount": 2,
    "durationMs": 1647,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/producthunt.webp",
+   "shot": null,
    "tree": {
     "nodes": 26,
     "controls": 2,
@@ -7080,7 +7080,7 @@
    "linkCount": 1,
    "durationMs": 1836,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/sky-news.webp",
+   "shot": null,
    "tree": {
     "nodes": 1,
     "controls": 0,
@@ -7105,7 +7105,7 @@
    "linkCount": 0,
    "durationMs": 1792,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/skyscanner.webp",
+   "shot": null,
    "tree": {
     "nodes": 19,
     "controls": 0,
@@ -7290,7 +7290,7 @@
    "linkCount": 122,
    "durationMs": 2223,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/supabase.webp",
+   "shot": null,
    "tree": {
     "nodes": 1026,
     "controls": 151,
@@ -7499,7 +7499,7 @@
    "linkCount": 481,
    "durationMs": 4379,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/verge.webp",
+   "shot": null,
    "tree": {
     "nodes": 4251,
     "controls": 432,
@@ -7586,7 +7586,7 @@
    "linkCount": 136,
    "durationMs": 2858,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/walmart.webp",
+   "shot": null,
    "tree": {
     "nodes": 1441,
     "controls": 149,
@@ -7615,7 +7615,7 @@
    "linkCount": 82,
    "durationMs": 2079,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/weather-com.webp",
+   "shot": null,
    "tree": {
     "nodes": 1474,
     "controls": 143,
@@ -7673,7 +7673,7 @@
    "linkCount": 183,
    "durationMs": 3278,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/wired.webp",
+   "shot": null,
    "tree": {
     "nodes": 1913,
     "controls": 209,
@@ -7702,7 +7702,7 @@
    "linkCount": 174,
    "durationMs": 4184,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/wise.webp",
+   "shot": null,
    "tree": {
     "nodes": 1957,
     "controls": 171,
@@ -7728,7 +7728,7 @@
    "linkCount": 63,
    "durationMs": 1998,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/lightpanda/wolfram.webp",
+   "shot": null,
    "tree": {
     "nodes": 409,
     "controls": 76,
@@ -7925,7 +7925,7 @@
    "linkCount": 85,
    "durationMs": 4543,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/arxiv.webp",
+   "shot": null,
    "tree": {
     "nodes": 673,
     "controls": 85,
@@ -8251,7 +8251,7 @@
    "linkCount": 276,
    "durationMs": 3353,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/met-office.webp",
+   "shot": null,
    "tree": {
     "nodes": 1146,
     "controls": 129,
@@ -8308,7 +8308,7 @@
    "linkCount": 19,
    "durationMs": 5249,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/youtube.webp",
+   "shot": null,
    "tree": {
     "nodes": 125,
     "controls": 8,
@@ -8334,7 +8334,7 @@
    "linkCount": 284,
    "durationMs": 4038,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/zillow.webp",
+   "shot": null,
    "tree": {
     "nodes": 888,
     "controls": 80,
@@ -8387,7 +8387,7 @@
    "linkCount": 0,
    "durationMs": 2053,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/ebay.webp",
+   "shot": null,
    "tree": {
     "nodes": 21,
     "controls": 0,
@@ -8414,7 +8414,7 @@
    "linkCount": 15,
    "durationMs": 3273,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/airbnb.webp",
+   "shot": null,
    "tree": {
     "nodes": 370,
     "controls": 17,
@@ -8573,7 +8573,7 @@
    "linkCount": 191,
    "durationMs": 6389,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/hn-algolia.webp",
+   "shot": null,
    "tree": {
     "nodes": 1246,
     "controls": 203,
@@ -8629,7 +8629,7 @@
    "linkCount": 2,
    "durationMs": 1835,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/amazon.webp",
+   "shot": null,
    "tree": {
     "nodes": 79,
     "controls": 3,
@@ -8654,7 +8654,7 @@
    "linkCount": 2,
    "durationMs": 1740,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/apnews.webp",
+   "shot": null,
    "tree": {
     "nodes": 33,
     "controls": 2,
@@ -8737,7 +8737,7 @@
    "linkCount": 1,
    "durationMs": 2275,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/argos.webp",
+   "shot": null,
    "tree": {
     "nodes": 7,
     "controls": 0,
@@ -8791,7 +8791,7 @@
    "linkCount": 675,
    "durationMs": 4055,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/asos.webp",
+   "shot": null,
    "tree": {
     "nodes": 1196,
     "controls": 130,
@@ -8886,7 +8886,7 @@
    "linkCount": 117,
    "durationMs": 26396,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/bestbuy.webp",
+   "shot": null,
    "tree": {
     "nodes": 1154,
     "controls": 110,
@@ -8911,7 +8911,7 @@
    "linkCount": 2,
    "durationMs": 1712,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/britannica.webp",
+   "shot": null,
    "tree": {
     "nodes": 32,
     "controls": 2,
@@ -8983,7 +8983,7 @@
    "linkCount": 230,
    "durationMs": 3182,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/cdc.webp",
+   "shot": null,
    "tree": {
     "nodes": 782,
     "controls": 75,
@@ -9012,7 +9012,7 @@
    "linkCount": 552,
    "durationMs": 14598,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/cnn.webp",
+   "shot": null,
    "tree": {
     "nodes": 6884,
     "controls": 350,
@@ -9037,7 +9037,7 @@
    "linkCount": 2,
    "durationMs": 1681,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/codepen.webp",
+   "shot": null,
    "tree": {
     "nodes": 33,
     "controls": 2,
@@ -9121,7 +9121,7 @@
    "linkCount": 390,
    "durationMs": 3497,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/devto.webp",
+   "shot": null,
    "tree": {
     "nodes": 3743,
     "controls": 346,
@@ -9198,7 +9198,7 @@
    "linkCount": 115,
    "durationMs": 3476,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/docker-hub.webp",
+   "shot": null,
    "tree": {
     "nodes": 1555,
     "controls": 123,
@@ -9304,7 +9304,7 @@
    "linkCount": 1,
    "durationMs": 2841,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/expedia.webp",
+   "shot": null,
    "tree": {
     "nodes": 29,
     "controls": 1,
@@ -9330,7 +9330,7 @@
    "linkCount": 153,
    "durationMs": 3091,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/figma.webp",
+   "shot": null,
    "tree": {
     "nodes": 731,
     "controls": 95,
@@ -9358,7 +9358,7 @@
    "linkCount": 9,
    "durationMs": 1732,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/ft.webp",
+   "shot": null,
    "tree": {
     "nodes": 70,
     "controls": 9,
@@ -9668,7 +9668,7 @@
    "linkCount": 334,
    "durationMs": 3110,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/khan.webp",
+   "shot": null,
    "tree": {
     "nodes": 2144,
     "controls": 342,
@@ -9754,7 +9754,7 @@
    "linkCount": 22,
    "durationMs": 2212,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/medium.webp",
+   "shot": null,
    "tree": {
     "nodes": 118,
     "controls": 19,
@@ -9779,7 +9779,7 @@
    "linkCount": 2,
    "durationMs": 1686,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/merriam-webster.webp",
+   "shot": null,
    "tree": {
     "nodes": 33,
     "controls": 2,
@@ -9921,7 +9921,7 @@
    "linkCount": 283,
    "durationMs": 4660,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/nasa.webp",
+   "shot": null,
    "tree": {
     "nodes": 1212,
     "controls": 77,
@@ -9979,7 +9979,7 @@
    "linkCount": 140,
    "durationMs": 4278,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/nature.webp",
+   "shot": null,
    "tree": {
     "nodes": 2393,
     "controls": 101,
@@ -10210,7 +10210,7 @@
    "linkCount": 0,
    "durationMs": 1802,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/paypal.webp",
+   "shot": null,
    "tree": {
     "nodes": 11,
     "controls": 0,
@@ -10261,7 +10261,7 @@
    "linkCount": 2,
    "durationMs": 1658,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/producthunt.webp",
+   "shot": null,
    "tree": {
     "nodes": 33,
     "controls": 2,
@@ -10428,7 +10428,7 @@
    "linkCount": 1,
    "durationMs": 1948,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/sky-news.webp",
+   "shot": null,
    "tree": {
     "nodes": 6,
     "controls": 0,
@@ -10453,7 +10453,7 @@
    "linkCount": 421,
    "durationMs": 4460,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/skyscanner.webp",
+   "shot": null,
    "tree": {
     "nodes": 568,
     "controls": 71,
@@ -10638,7 +10638,7 @@
    "linkCount": 122,
    "durationMs": 3680,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/supabase.webp",
+   "shot": null,
    "tree": {
     "nodes": 834,
     "controls": 126,
@@ -10945,7 +10945,7 @@
    "linkCount": 79,
    "durationMs": 3104,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/weather-com.webp",
+   "shot": null,
    "tree": {
     "nodes": 763,
     "controls": 73,
@@ -11003,7 +11003,7 @@
    "linkCount": 178,
    "durationMs": 9376,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/wired.webp",
+   "shot": null,
    "tree": {
     "nodes": 2227,
     "controls": 219,
@@ -11032,7 +11032,7 @@
    "linkCount": 177,
    "durationMs": 15677,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/wise.webp",
+   "shot": null,
    "tree": {
     "nodes": 1520,
     "controls": 140,
@@ -11058,7 +11058,7 @@
    "linkCount": 55,
    "durationMs": 2668,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/obscura/wolfram.webp",
+   "shot": null,
    "tree": {
     "nodes": 578,
     "controls": 68,
@@ -11255,7 +11255,7 @@
    "linkCount": 85,
    "durationMs": 3568,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/arxiv.webp",
+   "shot": null,
    "tree": {
     "nodes": 394,
     "controls": 85,
@@ -11535,7 +11535,7 @@
    "linkCount": 0,
    "durationMs": 2308,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/nytimes.webp",
+   "shot": null,
    "tree": {
     "nodes": 3,
     "controls": 0,
@@ -11635,7 +11635,7 @@
    "linkCount": 19,
    "durationMs": 10465,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/youtube.webp",
+   "shot": null,
    "tree": {
     "nodes": 198,
     "controls": 10,
@@ -11709,7 +11709,7 @@
    "linkCount": 0,
    "durationMs": 2304,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/ebay.webp",
+   "shot": null,
    "tree": {
     "nodes": 20,
     "controls": 0,
@@ -11736,7 +11736,7 @@
    "linkCount": 14,
    "durationMs": 7462,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/airbnb.webp",
+   "shot": null,
    "tree": {
     "nodes": 270,
     "controls": 13,
@@ -11762,7 +11762,7 @@
    "linkCount": 0,
    "durationMs": 2836,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/booking.webp",
+   "shot": null,
    "tree": {
     "nodes": 3,
     "controls": 0,
@@ -11902,7 +11902,7 @@
    "linkCount": 0,
    "durationMs": 3312,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/hn-algolia.webp",
+   "shot": null,
    "tree": {
     "nodes": 3,
     "controls": 0,
@@ -11957,7 +11957,7 @@
    "linkCount": 0,
    "durationMs": 3650,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/amazon.webp",
+   "shot": null,
    "tree": {
     "nodes": 3,
     "controls": 0,
@@ -11982,7 +11982,7 @@
    "linkCount": 0,
    "durationMs": 2220,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/apnews.webp",
+   "shot": null,
    "tree": {
     "nodes": 4,
     "controls": 0,
@@ -12065,7 +12065,7 @@
    "linkCount": 0,
    "durationMs": 2265,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/argos.webp",
+   "shot": null,
    "tree": {
     "nodes": 9,
     "controls": 0,
@@ -12119,7 +12119,7 @@
    "linkCount": 5,
    "durationMs": 2052,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/asos.webp",
+   "shot": null,
    "tree": {
     "nodes": 95,
     "controls": 6,
@@ -12193,7 +12193,7 @@
    "linkCount": 304,
    "durationMs": 9482,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/bbc-sport.webp",
+   "shot": null,
    "tree": {
     "nodes": 3999,
     "controls": 235,
@@ -12222,7 +12222,7 @@
    "linkCount": 5,
    "durationMs": 1922,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/bestbuy.webp",
+   "shot": null,
    "tree": {
     "nodes": 95,
     "controls": 6,
@@ -12247,7 +12247,7 @@
    "linkCount": 273,
    "durationMs": 10832,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/britannica.webp",
+   "shot": null,
    "tree": {
     "nodes": 870,
     "controls": 188,
@@ -12273,7 +12273,7 @@
    "linkCount": 5,
    "durationMs": 2370,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/canada.webp",
+   "shot": null,
    "tree": {
     "nodes": 95,
     "controls": 6,
@@ -12325,7 +12325,7 @@
    "linkCount": 0,
    "durationMs": 2171,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/cdc.webp",
+   "shot": null,
    "tree": {
     "nodes": 9,
     "controls": 0,
@@ -12351,7 +12351,7 @@
    "linkCount": 556,
    "durationMs": 7753,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/cnn.webp",
+   "shot": null,
    "tree": {
     "nodes": 2689,
     "controls": 350,
@@ -12376,7 +12376,7 @@
    "linkCount": 65,
    "durationMs": 10027,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/codepen.webp",
+   "shot": null,
    "tree": {
     "nodes": 745,
     "controls": 66,
@@ -12460,7 +12460,7 @@
    "linkCount": 391,
    "durationMs": 10722,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/devto.webp",
+   "shot": null,
    "tree": {
     "nodes": 1849,
     "controls": 347,
@@ -12537,7 +12537,7 @@
    "linkCount": 0,
    "durationMs": 2173,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/docker-hub.webp",
+   "shot": null,
    "tree": {
     "nodes": 33,
     "controls": 2,
@@ -12640,7 +12640,7 @@
    "linkCount": 1,
    "durationMs": 6247,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/expedia.webp",
+   "shot": null,
    "tree": {
     "nodes": 26,
     "controls": 1,
@@ -12692,7 +12692,7 @@
    "linkCount": 9,
    "durationMs": 2725,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/ft.webp",
+   "shot": null,
    "tree": {
     "nodes": 61,
     "controls": 9,
@@ -13002,7 +13002,7 @@
    "linkCount": 0,
    "durationMs": 2847,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/khan.webp",
+   "shot": null,
    "tree": {
     "nodes": 10,
     "controls": 0,
@@ -13085,7 +13085,7 @@
    "linkCount": 0,
    "durationMs": 2273,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/medium.webp",
+   "shot": null,
    "tree": {
     "nodes": 4,
     "controls": 0,
@@ -13110,7 +13110,7 @@
    "linkCount": 146,
    "durationMs": 9566,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/merriam-webster.webp",
+   "shot": null,
    "tree": {
     "nodes": 1196,
     "controls": 101,
@@ -13301,7 +13301,7 @@
    "linkCount": 140,
    "durationMs": 8484,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/nature.webp",
+   "shot": null,
    "tree": {
     "nodes": 1130,
     "controls": 101,
@@ -13532,7 +13532,7 @@
    "linkCount": 0,
    "durationMs": 2661,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/paypal.webp",
+   "shot": null,
    "tree": {
     "nodes": 3,
     "controls": 0,
@@ -13744,7 +13744,7 @@
    "linkCount": 0,
    "durationMs": 2148,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/sky-news.webp",
+   "shot": null,
    "tree": {
     "nodes": 9,
     "controls": 0,
@@ -13769,7 +13769,7 @@
    "linkCount": 0,
    "durationMs": 6095,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/skyscanner.webp",
+   "shot": null,
    "tree": {
     "nodes": 16,
     "controls": 0,
@@ -14154,7 +14154,7 @@
    "linkCount": 489,
    "durationMs": 24239,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/verge.webp",
+   "shot": null,
    "tree": {
     "nodes": 3718,
     "controls": 335,
@@ -14241,7 +14241,7 @@
    "linkCount": 586,
    "durationMs": 28532,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/walmart.webp",
+   "shot": null,
    "tree": {
     "nodes": 1529,
     "controls": 123,
@@ -14270,7 +14270,7 @@
    "linkCount": 79,
    "durationMs": 4969,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/weather-com.webp",
+   "shot": null,
    "tree": {
     "nodes": 752,
     "controls": 73,
@@ -14328,7 +14328,7 @@
    "linkCount": 178,
    "durationMs": 24944,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/wired.webp",
+   "shot": null,
    "tree": {
     "nodes": 2150,
     "controls": 215,
@@ -14357,7 +14357,7 @@
    "linkCount": 177,
    "durationMs": 22186,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/wise.webp",
+   "shot": null,
    "tree": {
     "nodes": 1510,
     "controls": 143,
@@ -14383,7 +14383,7 @@
    "linkCount": 63,
    "durationMs": 5545,
    "error": null,
-   "shot": "shots/2026-11-26T17-55Z/kitesurf/wolfram.webp",
+   "shot": null,
    "tree": {
     "nodes": 608,
     "controls": 76,

@@ -9,7 +9,7 @@ import { isEngineId, loadPins, loadSites, type Pins } from './config'
 import { launchEngine, type RunningEngine } from './engines'
 import { robotsAllows } from './robots'
 import { saveRun, saveThumbnail } from './store'
-import { connect, visitPage } from './visit'
+import { connect, release, visitPage } from './visit'
 
 const ROBOTS_REFUSAL = 'robots.txt does not allow this page, or could not be read'
 
@@ -94,7 +94,7 @@ async function open(id: EngineId, options: Options): Promise<Session | Refusal> 
   }
   if ('unavailable' in launch) return { reason: launch.unavailable, expected: true }
   try {
-    return { engine: launch.engine, browser: await connect(launch.engine.endpoint) }
+    return { engine: launch.engine, browser: await connect(launch.engine) }
   } catch (error) {
     await launch.engine.stop()
     return { reason: `Could not connect: ${messageOf(error)}`, expected: false }
@@ -102,7 +102,7 @@ async function open(id: EngineId, options: Options): Promise<Session | Refusal> 
 }
 
 async function close(session: Session): Promise<void> {
-  await session.browser.disconnect().catch(() => undefined)
+  await release(session.browser, session.engine)
   await session.engine.stop()
 }
 

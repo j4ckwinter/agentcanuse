@@ -9,6 +9,8 @@ export interface RunningEngine {
   id: EngineId
   version: string
   endpoint: string
+  headers: Record<string, string>
+  hosted: boolean
   stop(): Promise<void>
 }
 
@@ -81,7 +83,7 @@ async function waitForEndpoint({ child, output, failure }: Started, port: number
 
 async function serve(id: EngineId, version: string, started: Started, port: number, fallback: string): Promise<RunningEngine> {
   const endpoint = await waitForEndpoint(started, port, fallback)
-  return { id, version, endpoint, stop: () => stopProcess(started.child) }
+  return { id, version, endpoint, headers: {}, hosted: false, stop: () => stopProcess(started.child) }
 }
 
 type Launcher = (cacheDir: string, version: string, port: number) => Promise<Launch>
@@ -103,12 +105,18 @@ const launchers: Record<EngineId, Launcher> = {
     return { engine: await serve('obscura', version, started, port, `ws://${HOST}:${port}/devtools/browser`) }
   },
   async kitesurf() {
-    const endpoint = process.env.KITESURF_ENDPOINT
-    if (endpoint === undefined || endpoint === '') {
-      return { unavailable: 'KITESURF_ENDPOINT is not set; Kitesurf runs on Cloudflare Workers, not on this machine' }
-    }
-    return { engine: { id: 'kitesurf', version: process.env.KITESURF_VERSION ?? 'deployed', endpoint, stop: async () => {} } }
+    return kitesurfLaunch(process.env)
   },
+}
+
+export function kitesurfLaunch(env: Record<string, string | undefined>): Launch {
+  const endpoint = env.KITESURF_ENDPOINT
+  if (endpoint === undefined || endpoint === '') {
+    return { unavailable: 'KITESURF_ENDPOINT is not set; Kitesurf runs on Cloudflare, not on this machine' }
+  }
+  const token = env.KITESURF_TOKEN
+  const headers: Record<string, string> = token === undefined || token === '' ? {} : { Authorization: `Bearer ${token}` }
+  return { engine: { id: 'kitesurf', version: env.KITESURF_VERSION ?? 'deployed', endpoint, headers, hosted: true, stop: async () => {} } }
 }
 
 async function portAnswers(port: number): Promise<boolean> {

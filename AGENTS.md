@@ -35,7 +35,7 @@ Each decision has one owner. Put new code with the owner of the decision it make
 | Checking for new engine releases and bumping pins | `src/runner/watch.ts` |
 | Downloading engine builds | `src/runner/install.ts` |
 | Starting each engine and finding its DevTools endpoint | `src/runner/engines.ts` |
-| Visiting a page: what is read, screenshots | `src/runner/visit.ts` |
+| Visiting a page: connecting to an engine, what is read, screenshots, and ending the session | `src/runner/visit.ts` |
 | How long a visit waits: the load timeout, the settle wait, the overall deadline, and how long to wait for the accessibility tree | `src/runner/timing.ts` |
 | Which sites keep screenshots, where blocking differs between Chromium and the other engines, and where one engine alone differs | `src/core/agreement.ts` |
 | Which runs can be compared: same network, same site list | `src/core/comparable.ts` |
@@ -76,11 +76,11 @@ Each decision has one owner. Put new code with the owner of the decision it make
 ## Rules that matter here
 
 - `src/core` takes values and returns values. It imports nothing from the runner, the web app or a vendor library. The clock, the network, processes and files stay in `src/runner`.
-- Every engine is driven the same way: started as a local DevTools server and visited with `puppeteer-core`. A difference in the results should come from the engine, not from how we drove it.
+- Every engine is driven the same way: visited with `puppeteer-core` over its DevTools endpoint. Chromium, Lightpanda and Obscura start as local DevTools servers; Kitesurf is hosted. A difference in the results should come from the engine, not from how we drove it.
 - Ask `robots.txt` before visiting. A site that disallows `agentcanuse`, or whose `robots.txt` can't be read, is skipped. Only a 404 or 410 counts as having no `robots.txt`; a 401, 403 or 429 counts as unreadable. Visit each site once per engine per run, one at a time.
 - Use the engines' standard builds. Never their stealth builds or anything else meant to get past a bot check: being blocked is one of the things measured.
 - `agentcanuse check` visits only the page a person asks for, once per engine, so it skips the `robots.txt` check the survey makes. It shares the survey's launcher, visit and judge, so a check scores a page the same way. Without `--expect`, a page passes when it loads readable text. It ships to npm as `agentcanuse`, bundled into one file with the engine pins baked in, so its only runtime dependencies are `puppeteer-core` and `@puppeteer/browsers`; everything the site and the survey need is a dev dependency. `prepublishOnly` runs the checks and the bundle. Jack runs `npm publish` himself, and a new version needs his request.
-- Kitesurf runs only when `KITESURF_ENDPOINT` points at a deployed instance. Its README warns against opening untrusted sites with a local Kitesurf, so don't run it locally.
+- Kitesurf runs only when `KITESURF_ENDPOINT` is set, normally to Cloudflare's hosted Browser Run endpoint with `?browser=kitesurf`, authorised by `KITESURF_TOKEN` as a bearer token. A hosted session is closed, not just disconnected, so it stops using browser time. Its README warns against opening untrusted sites with a local Kitesurf, so don't run it locally. Its visits travel to Cloudflare and back, so its load times include that trip.
 - An expected phrase should be content a person would look for, and should show in Chromium today. When a phrase stops matching in Chromium too, the site changed, so update `sites.json` rather than the scoring. A site that blocks Chromium can't have its phrases checked, so it lists only the site's name.
 - Tests cover `src/core` and `src/web/route.ts` through their exported functions. No network, clock or sleeping in tests.
 - Write code that needs no comments. Name things for what they mean to the reader of the scoreboard.

@@ -2,6 +2,7 @@ import { setTimeout as delay } from 'node:timers/promises'
 import puppeteer, { type Browser, type Page } from 'puppeteer-core'
 import type { Visit } from '../core/model'
 import type { TreeNode } from '../core/tree'
+import type { RunningEngine } from './engines'
 import { NAVIGATION_TIMEOUT_MS, SETTLE_MS, TREE_TIMEOUT_MS, VISIT_DEADLINE_MS } from './timing'
 
 export const VIEWPORT = { width: 1280, height: 800 }
@@ -18,8 +19,13 @@ interface PageContent {
   linkCount: number
 }
 
-export function connect(endpoint: string): Promise<Browser> {
-  return puppeteer.connect({ browserWSEndpoint: endpoint, defaultViewport: null, protocolTimeout: VISIT_DEADLINE_MS })
+export function connect(engine: RunningEngine): Promise<Browser> {
+  return puppeteer.connect({ browserWSEndpoint: engine.endpoint, headers: engine.headers, defaultViewport: null, protocolTimeout: VISIT_DEADLINE_MS })
+}
+
+export async function release(browser: Browser, engine: RunningEngine): Promise<void> {
+  const ending = engine.hosted ? browser.close() : browser.disconnect()
+  await ending.catch(() => undefined)
 }
 
 function messageOf(error: unknown): string {

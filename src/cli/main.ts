@@ -9,7 +9,7 @@ import { comparedVerdict } from '../core/verdict'
 import enginePins from '../../engines.json'
 import { isEngineId, pinsFrom } from '../runner/config'
 import { freePort, launchEngine } from '../runner/engines'
-import { connect, visitPage } from '../runner/visit'
+import { connect, release, visitPage } from '../runner/visit'
 import { formatReport, type CheckedEngine, type SkippedEngine } from './report'
 
 const PINS = pinsFrom(enginePins, 'engines.json')
@@ -66,7 +66,7 @@ async function check(id: EngineId, site: Site, cacheDir: string, evidence: Hidde
   const launch = await launchEngine(id, PINS, cacheDir, await freePort())
   if ('unavailable' in launch) return { skipped: launch.unavailable }
   try {
-    const browser = await connect(launch.engine.endpoint)
+    const browser = await connect(launch.engine)
     try {
       const capture = await visitPage(browser, site.url, { collectHidden: id === REFERENCE_ENGINE })
       const result = judge(site, id, capture.visit, null)
@@ -76,7 +76,7 @@ async function check(id: EngineId, site: Site, cacheDir: string, evidence: Hidde
       }
       return { checked: { engine: id, version: launch.engine.version, result } }
     } finally {
-      await browser.disconnect().catch(() => undefined)
+      await release(browser, launch.engine)
     }
   } finally {
     await launch.engine.stop()

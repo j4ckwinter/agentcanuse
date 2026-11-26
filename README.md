@@ -48,7 +48,7 @@ the exact rules and thresholds are on the [method page](https://agentcanuse.com/
 ## what it can't tell you yet
 
 - **it only reads the page.** nothing clicks, types or fills in a form, so it measures what an agent can see, not what it can do.
-- **kitesurf isn't in the results yet.** it runs on Cloudflare Workers, and hosting it needs a paid plan. the runner drives it as soon as `KITESURF_ENDPOINT` points at a deployed instance.
+- **kitesurf isn't in the results yet.** it runs on Cloudflare, not on your machine. Cloudflare hosts it in beta through Browser Run: set `KITESURF_ENDPOINT` to `wss://api.cloudflare.com/client/v4/accounts/<account id>/browser-run/devtools/browser?browser=kitesurf` and `KITESURF_TOKEN` to an API token with Browser Rendering edit, and the runner drives it.
 - **agent-browser isn't here because it isn't an engine.** it drives chromium or lightpanda, which are both measured.
 
 want a site in the survey? [suggest one](https://github.com/j4ckwinter/agentcanuse/issues/new?template=suggest-a-site.yml). it needs a public page and two phrases a person would look for on it.

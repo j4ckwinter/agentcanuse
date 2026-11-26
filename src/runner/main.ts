@@ -4,6 +4,7 @@ import { REFERENCE_ENGINE } from '../core/agreement'
 import { hiddenSample, textKey, withHiddenReads, type HiddenEvidence } from '../core/hidden'
 import { judge, skipped } from '../core/judge'
 import { ENGINE_IDS, ORIGINS, type EngineId, type EngineRun, type Origin, type Result, type Site } from '../core/model'
+import { stopsPublishing } from '../core/publishing'
 import { runIdAt } from '../core/run-id'
 import { isEngineId, loadPins, loadSites, type Pins } from './config'
 import { launchEngine, type RunningEngine } from './engines'
@@ -171,7 +172,7 @@ async function main(): Promise<void> {
   for (const id of options.engines) {
     const survey = await surveyEngine(id, sites, permitted, runId, options, evidence)
     if ('reason' in survey) {
-      if (!survey.expected) failures.push(`${id}: ${survey.reason}`)
+      if (stopsPublishing(id, survey.expected)) failures.push(`${id}: ${survey.reason}`)
       continue
     }
     engines.push(survey.engine)

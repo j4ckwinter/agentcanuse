@@ -48,6 +48,7 @@ Each decision has one owner. Put new code with the owner of the decision it make
 | Site categories and per-category pass rates | `src/core/model.ts`, `src/core/leaderboard.ts` |
 | Whether a page may be visited, and the user agent that asks | `src/runner/robots.ts` |
 | Where runs, the index and thumbnails are written, and which runs keep their thumbnails | `src/runner/store.ts` |
+| Which engines a run can be published without when they fail | `src/core/publishing.ts` |
 | Command-line options and the order of a run | `src/runner/main.ts` |
 | The `agentcanuse check` command: its options and the order of a check | `src/cli/main.ts`, bundled into `cli/agentcanuse.mjs` by `npm run build:cli` |
 | How a check's results are printed | `src/cli/report.ts` |

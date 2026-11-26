@@ -28,6 +28,7 @@ function socialCard(): Buffer {
     { color: '#3987e5', label: 'Chromium' },
     { color: '#eb6834', label: 'Lightpanda' },
     { color: '#1baf7a', label: 'Obscura' },
+    { color: '#d34db8', label: 'Kitesurf' },
   ]
     .map(({ color, label }) => {
       const width = Math.round(label.length * CHIP_CHAR + CHIP_PADDING)

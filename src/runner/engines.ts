@@ -112,7 +112,7 @@ const launchers: Record<EngineId, Launcher> = {
 export function kitesurfLaunch(env: Record<string, string | undefined>): Launch {
   const endpoint = env.KITESURF_ENDPOINT
   if (endpoint === undefined || endpoint === '') {
-    return { unavailable: 'KITESURF_ENDPOINT is not set; Kitesurf runs on Cloudflare, not on this machine' }
+    return { unavailable: 'KITESURF_ENDPOINT is not set; Kitesurf runs on Cloudflare and needs your own account and token' }
   }
   const token = env.KITESURF_TOKEN
   const headers: Record<string, string> = token === undefined || token === '' ? {} : { Authorization: `Bearer ${token}` }

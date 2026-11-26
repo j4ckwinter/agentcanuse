@@ -35,6 +35,14 @@ Works everywhere. Every engine could read gov.uk.
 
 add `--expect "some text"` (as many as you like) to check the page shows what it should, `--engine lightpanda` to try one engine, or `--json` for the raw results. every site page on agentcanuse.com has the exact command for that site.
 
+kitesurf is the exception: it only runs on Cloudflare, so `check` leaves it out unless you bring your own Cloudflare account. create an API token with Browser Run edit (the free plan's 10 browser-minutes a day is plenty for checks), then:
+
+```sh
+export KITESURF_ENDPOINT='wss://api.cloudflare.com/client/v4/accounts/<your account id>/browser-run/devtools/browser?browser=kitesurf'
+export KITESURF_TOKEN='<your token>'
+npx agentcanuse check https://your-site.com
+```
+
 ## reading the output
 
 | column | says |
@@ -48,7 +56,7 @@ the exact rules and thresholds are on the [method page](https://agentcanuse.com/
 ## what it can't tell you yet
 
 - **it only reads the page.** nothing clicks, types or fills in a form, so it measures what an agent can see, not what it can do.
-- **kitesurf runs on Cloudflare's network.** Cloudflare hosts it in beta through Browser Run, so its visits come from there whatever the run's label says, and its load times include the trip. to drive it yourself, set `KITESURF_ENDPOINT` to `wss://api.cloudflare.com/client/v4/accounts/<account id>/browser-run/devtools/browser?browser=kitesurf` and `KITESURF_TOKEN` to an API token with Browser Rendering edit, and the runner drives it.
+- **kitesurf runs on Cloudflare's network.** Cloudflare hosts it in beta through Browser Run, so its visits come from there whatever the run's label says, and its load times include the trip. to drive it yourself, bring your own Cloudflare account and set the same two variables as [checking your own site](#check-your-own-site).
 - **agent-browser isn't here because it isn't an engine.** it drives chromium or lightpanda, which are both measured.
 
 want a site in the survey? [suggest one](https://github.com/j4ckwinter/agentcanuse/issues/new?template=suggest-a-site.yml). it needs a public page and two phrases a person would look for on it.

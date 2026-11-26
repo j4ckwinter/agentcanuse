@@ -20,6 +20,9 @@ Visits the page once with each engine and prints how each did.
   --expect   a phrase the page should show; without one, a page passes when it loads readable text
   --json     print the results as JSON
 
+Kitesurf runs on Cloudflare, so it needs your own Cloudflare account: set KITESURF_ENDPOINT
+and KITESURF_TOKEN to include it. Without them, a check leaves it out.
+
 Exits 1 when no engine could run, 2 on a usage error.`
 
 function fail(message: string): never {
@@ -54,10 +57,11 @@ function readArguments() {
   } catch {
     fail(`That isn't a full web address: ${url}`)
   }
-  const engines = values.engine ?? ENGINE_IDS.filter((id) => id !== 'kitesurf' || process.env.KITESURF_ENDPOINT)
+  const kitesurfLeftOut = values.engine === undefined && !process.env.KITESURF_ENDPOINT
+  const engines = values.engine ?? ENGINE_IDS.filter((id) => id !== 'kitesurf' || !kitesurfLeftOut)
   const unknown = engines.filter((engine) => !isEngineId(engine))
   if (unknown.length > 0) fail(`Unknown engine: ${unknown.join(', ')}`)
-  return { url, engines: engines as EngineId[], expect: values.expect ?? [], json: values.json }
+  return { url, engines: engines as EngineId[], expect: values.expect ?? [], json: values.json, kitesurfLeftOut }
 }
 
 type Checked = { checked: CheckedEngine } | { skipped: string }
@@ -84,7 +88,8 @@ async function check(id: EngineId, site: Site, cacheDir: string, evidence: Hidde
 }
 
 async function main(): Promise<void> {
-  const { url, engines, expect, json } = readArguments()
+  const { url, engines, expect, json, kitesurfLeftOut } = readArguments()
+  if (!json && kitesurfLeftOut) process.stderr.write('Leaving out kitesurf: it runs on Cloudflare and needs your own KITESURF_ENDPOINT and KITESURF_TOKEN.\n')
   const site: Site = { id: 'check', name: new URL(url).hostname, category: 'reference', url, expect }
   const cacheDir = process.env.AGENTCANUSE_CACHE ?? join(homedir(), '.cache', 'agentcanuse', 'engines')
   const ran: CheckedEngine[] = []

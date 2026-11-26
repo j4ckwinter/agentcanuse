@@ -97,7 +97,7 @@ export function MethodView() {
         <Card title="Where runs come from">
           <Prose>
             <p>
-              A survey runs every night on GitHub Actions, from a data centre, and again within six hours of a new Lightpanda or Obscura release. Some runs come from a home
+              A survey runs every night on GitHub Actions, from a data centre, and again within six hours of a new Lightpanda, Obscura or Moli release. Some runs come from a home
               connection.
             </p>
             <p>Sites tend to block data centres more, so every run is labelled, and comparisons stick to runs from the same kind of network when they can.</p>

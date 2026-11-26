@@ -8,7 +8,7 @@
 
 </div>
 
-if you're building an agent, you have to pick a browser for it. chromium is the safe choice. [Lightpanda](https://github.com/lightpanda-io/browser) and [Obscura](https://github.com/h4ckf0r0day/obscura) are lighter engines built for agents, and Cloudflare open-sourced [Kitesurf](https://github.com/cloudflare/kitesurf) on 13 november. the lighter ones promise less memory and quicker pages, and they break on some real sites. which ones, and how often? every comparison so far is a one-off, mostly run by whoever makes the engine.
+if you're building an agent, you have to pick a browser for it. chromium is the safe choice. [Lightpanda](https://github.com/lightpanda-io/browser), [Obscura](https://github.com/h4ckf0r0day/obscura) and Lexmount's [Moli](https://github.com/lexmount/moli) are lighter engines built for agents, and Cloudflare open-sourced [Kitesurf](https://github.com/cloudflare/kitesurf) on 13 november. the lighter ones promise less memory and quicker pages, and they break on some real sites. which ones, and how often? every comparison so far is a one-off, mostly run by whoever makes the engine.
 
 agent can use runs every engine against the same [100+ real sites](sites.json) every night, scores each visit the same way, and keeps the history. the latest results, and what changed with each engine release, are on [agentcanuse.com](https://agentcanuse.com).
 

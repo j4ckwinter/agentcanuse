@@ -23,6 +23,7 @@
   --series-2: light-dark(#eb6834, #d95926);
   --series-3: light-dark(#1baf7a, #199e70);
   --series-4: light-dark(#c43fa8, #d34db8);
+  --series-5: light-dark(#5c20b6, #792bee);
 
   --status-good: #0ca30c;
   --status-warning: #fab219;
@@ -93,6 +94,7 @@
   --color-series-2: var(--series-2);
   --color-series-3: var(--series-3);
   --color-series-4: var(--series-4);
+  --color-series-5: var(--series-5);
   --color-fg: var(--palette-fg);
   --color-fg-secondary: var(--palette-fg-secondary);
   --color-fg-muted: var(--palette-fg-muted);

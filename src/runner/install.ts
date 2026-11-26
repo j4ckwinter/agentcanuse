@@ -64,6 +64,26 @@ export async function installObscura(cacheDir: string, version: string): Promise
   return binary
 }
 
+export async function installMoli(cacheDir: string, version: string): Promise<string> {
+  const { arch, os } = releasePlatform()
+  const target = { macos: 'apple-darwin', linux: 'unknown-linux-gnu' }[os]
+  const directory = join(cacheDir, 'moli', version)
+  if (await exists(directory)) return findFile(directory, 'moli')
+  await mkdir(directory, { recursive: true })
+  const archive = join(directory, 'moli.tar.gz')
+  try {
+    await download(`https://github.com/${RELEASE_REPOS.moli}/releases/download/${version}/moli-${arch}-${target}.tar.gz`, archive)
+    await run('tar', ['-xzf', archive, '-C', directory])
+  } catch (error) {
+    await rm(directory, { recursive: true, force: true })
+    throw error
+  }
+  await rm(archive)
+  const binary = await findFile(directory, 'moli')
+  await chmod(binary, 0o755)
+  return binary
+}
+
 export async function installChromium(cacheDir: string, version: string): Promise<{ binary: string; buildId: string }> {
   const platform = detectBrowserPlatform()
   if (platform === undefined) throw new Error(`No Chromium builds for ${process.platform}/${process.arch}`)

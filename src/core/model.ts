@@ -1,7 +1,7 @@
 import type { HiddenReads } from './hidden'
 import type { TreeNode, TreeSummary } from './tree'
 
-export const ENGINE_IDS = ['chromium', 'lightpanda', 'obscura', 'kitesurf'] as const
+export const ENGINE_IDS = ['chromium', 'lightpanda', 'obscura', 'kitesurf', 'moli'] as const
 export type EngineId = (typeof ENGINE_IDS)[number]
 
 export const CATEGORIES = ['docs', 'developer', 'government', 'reference', 'news', 'shopping', 'travel', 'listings', 'services'] as const

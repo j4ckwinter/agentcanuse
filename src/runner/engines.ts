@@ -3,7 +3,7 @@ import { createServer } from 'node:net'
 import { setTimeout as delay } from 'node:timers/promises'
 import type { EngineId } from '../core/model'
 import type { Pins } from './config'
-import { installChromium, installLightpanda, installObscura } from './install'
+import { installChromium, installLightpanda, installMoli, installObscura } from './install'
 
 export interface RunningEngine {
   id: EngineId
@@ -106,6 +106,11 @@ const launchers: Record<EngineId, Launcher> = {
   },
   async kitesurf() {
     return kitesurfLaunch(process.env)
+  },
+  async moli(cacheDir, version, port) {
+    const binary = await installMoli(cacheDir, version)
+    const started = start(binary, ['serve', '--host', HOST, '--port', String(port)])
+    return { engine: await serve('moli', version, started, port, `ws://${HOST}:${port}/devtools/browser`) }
   },
 }
 

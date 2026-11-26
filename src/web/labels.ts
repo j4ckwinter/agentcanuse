@@ -32,6 +32,11 @@ export const ENGINE_INFO: Record<EngineId, EngineInfo> = {
     about: "Cloudflare's experimental browser engine for agents, built to run on Workers.",
     homepage: 'https://github.com/cloudflare/kitesurf',
   },
+  moli: {
+    name: 'Moli',
+    about: "Lexmount's headless browser for agents, written in Rust, with layout and paint done on demand.",
+    homepage: 'https://github.com/lexmount/moli',
+  },
 }
 
 export function releaseNotesUrl(engine: EngineId, version: string): string | null {
@@ -93,6 +98,7 @@ export const ENGINE_COLORS: Record<EngineId, string> = {
   lightpanda: 'var(--series-2)',
   obscura: 'var(--series-3)',
   kitesurf: 'var(--series-4)',
+  moli: 'var(--series-5)',
 }
 
 export function treeLabel(tree: TreeSummary | null): string {

@@ -5,6 +5,7 @@ export const RELEASE_REPOS: Record<EngineId, string | null> = {
   lightpanda: 'lightpanda-io/browser',
   obscura: 'h4ckf0r0day/obscura',
   kitesurf: null,
+  moli: 'lexmount/moli',
 }
 
 export interface PinUpdate {

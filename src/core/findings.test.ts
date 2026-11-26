@@ -10,19 +10,17 @@ function site(id: string): Site {
   return { id, name: id, category: 'docs', url: `https://${id}.test/`, expect: [] }
 }
 
-function runOf(outcomes: Record<'chromium' | 'lightpanda', Outcome[]>): Run {
-  const count = outcomes.chromium.length
+function runOf(outcomes: Partial<Record<EngineId, Outcome[]>>): Run {
+  const engines = Object.keys(outcomes) as EngineId[]
+  const count = outcomes[engines[0]]?.length ?? 0
   const sites = Array.from({ length: count }, (_, index) => site(`s${index}`))
   return {
     id: 'r',
     startedAt: '2026-11-20T03:17:00.000Z',
     origin: 'data-centre',
-    engines: [
-      { id: 'chromium', version: '158' },
-      { id: 'lightpanda', version: '1.0.4' },
-    ],
+    engines: engines.map((id) => ({ id, version: '1' })),
     sites,
-    results: sites.flatMap((entry, index) => [result(entry.id, 'chromium', outcomes.chromium[index]), result(entry.id, 'lightpanda', outcomes.lightpanda[index])]),
+    results: sites.flatMap((entry, index) => engines.map((engine) => result(entry.id, engine, outcomes[engine]?.[index] ?? 'skipped'))),
   }
 }
 
@@ -33,11 +31,20 @@ function repeat(outcome: Outcome, times: number): Outcome[] {
 describe('findings', () => {
   it('calls the engines level when their margins of error overlap, giving the range of pass rates', () => {
     const run = runOf({ chromium: ['blocked', 'passed'], lightpanda: ['passed', 'passed'] })
-    expect(findings(run)).toEqual({ overall: { kind: 'level', low: 0.5, high: 1 }, blockedOnlyChromium: 1, blockedOnlyOthers: 0 })
+    expect(findings(run)).toEqual({ overall: { kind: 'level', low: 0.5, high: 1, trailing: [] }, blockedOnlyChromium: 1, blockedOnlyOthers: 0 })
   })
 
   it('names a leader only when its margin of error clears every other engine', () => {
     const run = runOf({ chromium: [...repeat('passed', 40), ...repeat('blocked', 60)], lightpanda: [...repeat('passed', 90), ...repeat('blocked', 10)] })
     expect(findings(run).overall).toEqual({ kind: 'ahead', engine: 'lightpanda', passRate: 0.9 })
+  })
+
+  it('keeps an engine that is clearly behind out of the level range and names it as trailing', () => {
+    const run = runOf({
+      chromium: [...repeat('passed', 78), ...repeat('blocked', 22)],
+      obscura: [...repeat('passed', 77), ...repeat('blocked', 23)],
+      kitesurf: [...repeat('passed', 54), ...repeat('failed', 46)],
+    })
+    expect(findings(run).overall).toEqual({ kind: 'level', low: 0.77, high: 0.78, trailing: [{ engine: 'kitesurf', passRate: 0.54 }] })
   })
 })

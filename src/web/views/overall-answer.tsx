@@ -1,5 +1,5 @@
 import { REFERENCE_ENGINE } from '../../core/agreement'
-import { findings, type Overall } from '../../core/findings'
+import { findings, type Overall, type Trailing } from '../../core/findings'
 import type { Run } from '../../core/model'
 import { ENGINE_INFO, percent } from '@/labels'
 import { routeHash } from '@/route'
@@ -16,8 +16,14 @@ function headline(overall: Overall, siteCount: number): string {
     case 'ahead':
       return `${ENGINE_INFO[overall.engine].name} is ahead, reading ${percent(overall.passRate)} of ${siteCount} real sites.`
     case 'level':
-      return `No engine is clearly ahead. Each one reads between ${percent(overall.low)} and ${percent(overall.high)} of ${siteCount} real sites, within the margin of error.`
+      return overall.trailing.length === 0
+        ? `No engine is clearly ahead. Each one reads between ${percent(overall.low)} and ${percent(overall.high)} of ${siteCount} real sites, within the margin of error.`
+        : `No engine is clearly ahead. The leaders read between ${percent(overall.low)} and ${percent(overall.high)} of ${siteCount} real sites, within the margin of error. ${trailingSentence(overall.trailing)}`
   }
+}
+
+function trailingSentence(trailing: Trailing[]): string {
+  return trailing.map((entry) => `${ENGINE_INFO[entry.engine].name} trails at ${percent(entry.passRate)}.`).join(' ')
 }
 
 export function OverallAnswer({ run, runParam }: { run: Run; runParam: string | null }) {

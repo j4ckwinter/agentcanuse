@@ -18,32 +18,41 @@ function markSvg(size: number, tile: string, radius = MARK_RADIUS): Buffer {
   return Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${MARK_VIEWBOX} ${MARK_VIEWBOX}">${markBody(tile, radius)}</svg>`)
 }
 
-function socialCard(): Buffer {
+const CARD_FONT = 'Geist, -apple-system, Helvetica Neue, Arial, sans-serif'
+const CHIP_FONT_SIZE = 28
+
+async function textWidth(label: string): Promise<number> {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="60"><text x="10" y="40" font-size="${CHIP_FONT_SIZE}" font-family="${CARD_FONT}" fill="#000">${label}</text></svg>`
+  const { info } = await sharp(Buffer.from(svg)).trim().toBuffer({ resolveWithObject: true })
+  return info.width
+}
+
+async function socialCard(): Promise<Buffer> {
   const mark = `<g transform="translate(90 150) scale(4.5)">${markBody(MARK_TILE.light)}</g>`
-  const CHIP_CHAR = 16.5
-  const CHIP_PADDING = 80
+  const CHIP_TEXT_START = 50
+  const CHIP_END_PADDING = 22
   const CHIP_GAP = 20
   let x = 90
-  const chips = [
+  const labels = [
     { color: '#3987e5', label: 'Chromium' },
     { color: '#eb6834', label: 'Lightpanda' },
     { color: '#1baf7a', label: 'Obscura' },
     { color: '#d34db8', label: 'Kitesurf' },
+    { color: '#792bee', label: 'Moli' },
   ]
-    .map(({ color, label }) => {
-      const width = Math.round(label.length * CHIP_CHAR + CHIP_PADDING)
-      const chip = `<rect x="${x}" y="430" width="${width}" height="60" rx="12" fill="#16171a" stroke="#26282d"/><circle cx="${x + 30}" cy="460" r="8" fill="${color}"/><text x="${x + 50}" y="470" font-size="28" fill="#ededed">${label}</text>`
-      x += width + CHIP_GAP
-      return chip
-    })
-    .join('')
-  return Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Geist, -apple-system, Helvetica Neue, Arial, sans-serif">
+  const chips: string[] = []
+  for (const { color, label } of labels) {
+    const width = CHIP_TEXT_START + (await textWidth(label)) + CHIP_END_PADDING
+    chips.push(`<rect x="${x}" y="430" width="${width}" height="60" rx="12" fill="#16171a" stroke="#26282d"/><circle cx="${x + 30}" cy="460" r="8" fill="${color}"/><text x="${x + CHIP_TEXT_START}" y="470" font-size="${CHIP_FONT_SIZE}" fill="#ededed">${label}</text>`)
+    x += width + CHIP_GAP
+  }
+  return Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="${CARD_FONT}">
 <rect width="1200" height="630" fill="#08090a"/>
 <rect x="0.5" y="0.5" width="1199" height="629" fill="none" stroke="#26282d"/>
 ${mark}
 <text x="260" y="232" font-size="92" font-weight="700" letter-spacing="-3" fill="#ededed">${BRAND_NAME}</text>
 <text x="90" y="350" font-size="38" fill="#a1a1a1">${BRAND_TAGLINE}</text>
-${chips}
+${chips.join('')}
 <text x="90" y="575" font-size="26" fill="#7a7a7a">agentcanuse.com · real sites, every night</text>
 </svg>`)
 }
@@ -53,7 +62,7 @@ async function main(): Promise<void> {
   await sharp(markSvg(32, MARK_TILE.light)).resize(32, 32).png().toFile(`${PUBLIC}/favicon-32.png`)
   await sharp(markSvg(180, MARK_TILE.light, 0)).resize(180, 180).png().toFile(`${PUBLIC}/apple-touch-icon.png`)
   for (const size of [192, 512]) await sharp(markSvg(size, MARK_TILE.light)).resize(size, size).png().toFile(`${PUBLIC}/icon-${size}.png`)
-  await sharp(socialCard()).png().toFile(`${PUBLIC}/og.png`)
+  await sharp(await socialCard()).png().toFile(`${PUBLIC}/og.png`)
   console.log('Wrote favicon.svg, favicon-32.png, apple-touch-icon.png, icon-192.png, icon-512.png and og.png')
 }
 

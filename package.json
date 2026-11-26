@@ -1,6 +1,6 @@
 {
   "name": "agentcanuse",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "check whether the browsers ai agents use can read a page: chromium, lightpanda, obscura and kitesurf, side by side",
   "license": "MIT",
   "homepage": "https://agentcanuse.com",

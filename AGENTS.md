@@ -36,7 +36,7 @@ Each decision has one owner. Put new code with the owner of the decision it make
 | Downloading engine builds | `src/runner/install.ts` |
 | Starting each engine and finding its DevTools endpoint | `src/runner/engines.ts` |
 | Visiting a page: connecting to an engine, what is read, screenshots, and ending the session | `src/runner/visit.ts` |
-| How long a visit waits: the load timeout, the settle wait, the overall deadline, and how long to wait for the accessibility tree | `src/runner/timing.ts` |
+| How long a visit waits: the load timeout, the settle wait, the overall deadline, how long to wait for the accessibility tree, and how long connecting and ending a session may take | `src/runner/timing.ts` |
 | Which sites keep screenshots, where blocking differs between Chromium and the other engines, and where one engine alone differs | `src/core/agreement.ts` |
 | Which runs can be compared: same network, same site list | `src/core/comparable.ts` |
 | The margin of error on a pass rate | `src/core/confidence.ts` |
@@ -48,7 +48,7 @@ Each decision has one owner. Put new code with the owner of the decision it make
 | Site categories and per-category pass rates | `src/core/model.ts`, `src/core/leaderboard.ts` |
 | Whether a page may be visited, and the user agent that asks | `src/runner/robots.ts` |
 | Where runs, the index and thumbnails are written, and which runs keep their thumbnails | `src/runner/store.ts` |
-| Which engines a run can be published without when they fail | `src/core/publishing.ts` |
+| Which engines a run can be published without when they fail, and when to give up on one mid-run | `src/core/publishing.ts` |
 | Command-line options and the order of a run | `src/runner/main.ts` |
 | The `agentcanuse check` command: its options and the order of a check | `src/cli/main.ts`, bundled into `cli/agentcanuse.mjs` by `npm run build:cli` |
 | How a check's results are printed | `src/cli/report.ts` |

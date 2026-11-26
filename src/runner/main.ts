@@ -4,7 +4,7 @@ import { REFERENCE_ENGINE } from '../core/agreement'
 import { hiddenSample, textKey, withHiddenReads, type HiddenEvidence } from '../core/hidden'
 import { judge, skipped } from '../core/judge'
 import { ENGINE_IDS, ORIGINS, type EngineId, type EngineRun, type Origin, type Result, type Site } from '../core/model'
-import { stopsPublishing } from '../core/publishing'
+import { givesUp, stopsPublishing } from '../core/publishing'
 import { runIdAt } from '../core/run-id'
 import { isEngineId, loadPins, loadSites, type Pins } from './config'
 import { launchEngine, type RunningEngine } from './engines'
@@ -127,8 +127,13 @@ async function surveyEngine(id: EngineId, sites: Site[], permitted: Set<string>,
   console.log(`${id} ${engine.version}`)
   const results: Result[] = []
   let needsRestart = false
+  let troublesInARow = 0
   try {
     for (const site of sites) {
+      if (givesUp(id, troublesInARow)) {
+        console.log(`${id}: gave up after ${troublesInARow} stalls or failed restarts in a row`)
+        return { reason: `gave up after ${troublesInARow} stalls or failed restarts in a row`, expected: false }
+      }
       if (!permitted.has(site.id)) {
         results.push(skipped(site, id, ROBOTS_REFUSAL))
         continue
@@ -139,11 +144,13 @@ async function surveyEngine(id: EngineId, sites: Site[], permitted: Set<string>,
         needsRestart = false
       }
       if (!isSession(session)) {
+        troublesInARow += 1
         results.push(skipped(site, id, `Engine could not restart: ${session.reason}`))
         continue
       }
       const capture = await visitPage(session.browser, site.url, { collectHidden: id === REFERENCE_ENGINE })
       needsRestart = capture.stalled
+      troublesInARow = capture.stalled ? troublesInARow + 1 : 0
       const result = judge(site, id, capture.visit, await thumbnail(options, runId, id, site, capture.screenshot))
       results.push(result)
       if (result.outcome === 'passed') {

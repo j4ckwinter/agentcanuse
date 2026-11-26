@@ -3,7 +3,7 @@ import puppeteer, { type Browser, type Page } from 'puppeteer-core'
 import type { Visit } from '../core/model'
 import type { TreeNode } from '../core/tree'
 import type { RunningEngine } from './engines'
-import { NAVIGATION_TIMEOUT_MS, SETTLE_MS, TREE_TIMEOUT_MS, VISIT_DEADLINE_MS } from './timing'
+import { CONNECT_TIMEOUT_MS, NAVIGATION_TIMEOUT_MS, RELEASE_TIMEOUT_MS, SETTLE_MS, TREE_TIMEOUT_MS, VISIT_DEADLINE_MS } from './timing'
 
 export const VIEWPORT = { width: 1280, height: 800 }
 
@@ -19,13 +19,24 @@ interface PageContent {
   linkCount: number
 }
 
-export function connect(engine: RunningEngine): Promise<Browser> {
-  return puppeteer.connect({ browserWSEndpoint: engine.endpoint, headers: engine.headers, defaultViewport: null, protocolTimeout: VISIT_DEADLINE_MS })
+export async function connect(engine: RunningEngine): Promise<Browser> {
+  const timer = new AbortController()
+  const connecting = puppeteer.connect({ browserWSEndpoint: engine.endpoint, headers: engine.headers, defaultViewport: null, protocolTimeout: VISIT_DEADLINE_MS })
+  const giveUp = delay(CONNECT_TIMEOUT_MS, undefined, { signal: timer.signal }).then(
+    () => Promise.reject(new Error(`No connection within ${CONNECT_TIMEOUT_MS / 1000}s`)),
+    () => new Promise<never>(() => undefined),
+  )
+  try {
+    return await Promise.race([connecting, giveUp])
+  } finally {
+    timer.abort()
+  }
 }
 
 export async function release(browser: Browser, engine: RunningEngine): Promise<void> {
-  const ending = engine.hosted ? browser.close() : browser.disconnect()
-  await ending.catch(() => undefined)
+  const ending = (engine.hosted ? browser.close() : browser.disconnect()).catch(() => undefined)
+  await Promise.race([ending, delay(RELEASE_TIMEOUT_MS)])
+  if (browser.connected) await browser.disconnect().catch(() => undefined)
 }
 
 function messageOf(error: unknown): string {

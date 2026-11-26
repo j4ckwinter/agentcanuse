@@ -35,7 +35,7 @@ Works everywhere. Every engine could read gov.uk.
 
 add `--expect "some text"` (as many as you like) to check the page shows what it should, `--engine lightpanda` to try one engine, or `--json` for the raw results. every site page on agentcanuse.com has the exact command for that site.
 
-kitesurf is the exception: it only runs on Cloudflare, so `check` leaves it out unless you bring your own Cloudflare account. create an API token with Browser Run edit (the free plan's 10 browser-minutes a day is plenty for checks), then:
+kitesurf is the exception: it only runs on Cloudflare, so `check` leaves it out unless you bring your own Cloudflare account. create an API token with Browser Run edit (Cloudflare's docs still call it Browser Rendering - Edit; the free plan's 10 browser-minutes a day is plenty for checks), then:
 
 ```sh
 export KITESURF_ENDPOINT='wss://api.cloudflare.com/client/v4/accounts/<your account id>/browser-run/devtools/browser?browser=kitesurf'

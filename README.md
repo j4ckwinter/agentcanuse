@@ -26,9 +26,10 @@ the first run downloads each engine into `~/.cache/agentcanuse`. then it visits 
 https://www.gov.uk/bank-holidays
 
 engine      version        outcome  status  time  tree    hidden text  detail
-chromium    158.0.8127.36  passed   200     1.8s  usable  reference    5,994 characters read
-lightpanda  1.0.4          passed   200     1.8s  usable  reads it     16,132 characters read
+chromium    158.0.8127.88  passed   200     1.9s  usable  reference    5,994 characters read
+lightpanda  1.0.5          passed   200     1.7s  usable  reads it     16,132 characters read
 obscura     v0.2.7         passed   200     2.3s  usable  reads it     16,137 characters read
+moli        v1.1.27        passed   200     2.0s  usable  skips it     5,994 characters read
 
 Works everywhere. Every engine could read gov.uk.
 ```

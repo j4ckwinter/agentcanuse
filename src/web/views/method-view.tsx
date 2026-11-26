@@ -101,11 +101,12 @@ export function MethodView() {
               connection.
             </p>
             <p>Sites tend to block data centres more, so every run is labelled, and comparisons stick to runs from the same kind of network when they can.</p>
+            <p>Kitesurf is the exception. Cloudflare hosts it, so its visits come from Cloudflare's network whatever the run's label says, and its load times include the trip there and back.</p>
           </Prose>
         </Card>
         <Card title="What it can't tell you">
           <Prose>
-            <p>It only reads pages. Nothing clicks, types or fills in a form, and Kitesurf isn't measured yet. A usable tree means an agent could find what to act on, not that acting on it works.</p>
+            <p>It only reads pages. Nothing clicks, types or fills in a form. A usable tree means an agent could find what to act on, not that acting on it works.</p>
             <p>The sites are a sample chosen by hand, and some results move between runs with no change to the engine, so read one site as a hint and the totals as the signal.</p>
           </Prose>
         </Card>

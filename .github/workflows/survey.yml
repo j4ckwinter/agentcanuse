@@ -27,6 +27,9 @@ jobs:
       - run: npm ci
       - run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
       - run: npm run bench -- --origin data-centre
+        env:
+          KITESURF_ENDPOINT: ${{ secrets.KITESURF_ENDPOINT }}
+          KITESURF_TOKEN: ${{ secrets.KITESURF_TOKEN }}
       - run: |
           git config user.name "agentcanuse survey"
           git config user.email "survey@users.noreply.github.com"

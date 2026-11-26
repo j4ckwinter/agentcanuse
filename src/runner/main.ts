@@ -77,7 +77,9 @@ async function permittedSites(sites: Site[]): Promise<Set<string>> {
 type Session = { engine: RunningEngine; browser: Browser }
 
 function messageOf(error: unknown): string {
-  return error instanceof Error ? error.message : String(error)
+  if (error instanceof Error) return error.message
+  if (typeof error === 'object' && error !== null && 'message' in error && typeof error.message === 'string') return error.message
+  return String(error)
 }
 
 type Refusal = { reason: string; expected: boolean }
@@ -128,11 +130,13 @@ async function surveyEngine(id: EngineId, sites: Site[], permitted: Set<string>,
   const results: Result[] = []
   let needsRestart = false
   let troublesInARow = 0
+  let lastTrouble = ''
   try {
     for (const site of sites) {
       if (givesUp(id, troublesInARow)) {
-        console.log(`${id}: gave up after ${troublesInARow} stalls or failed restarts in a row`)
-        return { reason: `gave up after ${troublesInARow} stalls or failed restarts in a row`, expected: false }
+        const reason = `gave up after ${troublesInARow} stalls or failed restarts in a row, the last: ${lastTrouble}`
+        console.log(`${id}: ${reason}`)
+        return { reason, expected: false }
       }
       if (!permitted.has(site.id)) {
         results.push(skipped(site, id, ROBOTS_REFUSAL))
@@ -145,12 +149,14 @@ async function surveyEngine(id: EngineId, sites: Site[], permitted: Set<string>,
       }
       if (!isSession(session)) {
         troublesInARow += 1
+        lastTrouble = session.reason
         results.push(skipped(site, id, `Engine could not restart: ${session.reason}`))
         continue
       }
       const capture = await visitPage(session.browser, site.url, { collectHidden: id === REFERENCE_ENGINE })
-      needsRestart = capture.stalled
+      needsRestart = capture.stalled || session.engine.hosted
       troublesInARow = capture.stalled ? troublesInARow + 1 : 0
+      if (capture.stalled) lastTrouble = capture.visit.error ?? 'stalled'
       const result = judge(site, id, capture.visit, await thumbnail(options, runId, id, site, capture.screenshot))
       results.push(result)
       if (result.outcome === 'passed') {

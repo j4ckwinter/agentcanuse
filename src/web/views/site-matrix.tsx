@@ -89,6 +89,26 @@ function Toolbar({ filter, onChange, disagreeing, total }: ToolbarProps) {
   )
 }
 
+function StackedSites({ sites, verdicts, siteHref }: { sites: Site[]; verdicts: Map<string, Verdict>; siteHref: (site: string) => string }) {
+  return (
+    <ul className="md:hidden">
+      {sites.map((site) => (
+        <li key={site.id} className="border-b border-line last:border-0">
+          <a href={siteHref(site.id)} className="flex items-center justify-between gap-3 px-card py-3 hover:bg-raised">
+            <span className="min-w-0">
+              <span className="block text-sm font-medium">{site.name}</span>
+              <span className="block truncate text-caption text-fg-muted">
+                {displayHost(site.url)} · {CATEGORY_LABELS[site.category]}
+              </span>
+            </span>
+            <VerdictLabel verdict={verdicts.get(site.id) ?? 'mixed'} className="shrink-0" />
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
 interface SiteMatrixProps {
   run: Run
   sites: Site[]
@@ -105,7 +125,8 @@ export function SiteMatrix({ run, sites, verdicts, filter, onFilter, disagreeing
       <PageHeader title="Sites" description={`Every site in this run, its verdict, and how each engine did. Showing ${sites.length} of ${run.sites.length}.`} />
       <section className="rounded-xl border border-line bg-surface" aria-label="Sites">
         <Toolbar filter={filter} onChange={onFilter} disagreeing={disagreeing} total={run.sites.length} />
-        <div className="overflow-x-auto">
+        <StackedSites sites={sites} verdicts={verdicts} siteHref={siteHref} />
+        <div className="hidden overflow-x-auto md:block">
           <table className="w-full min-w-table border-collapse">
             <thead>
               <tr className="border-b border-line">
@@ -157,7 +178,9 @@ export function SiteMatrix({ run, sites, verdicts, filter, onFilter, disagreeing
           </div>
         )}
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line px-card py-3">
-          <OutcomeKey />
+          <span className="hidden md:block">
+            <OutcomeKey />
+          </span>
           <a href={SUGGEST_SITE_URL} className="text-label font-medium text-accent-blue hover:underline">
             Suggest a site
           </a>

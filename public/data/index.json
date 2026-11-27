@@ -1,6 +1,42 @@
 {
  "runs": [
   {
+   "id": "2026-11-27T12-31Z",
+   "startedAt": "2026-11-27T12:31:51.665Z",
+   "origin": "data-centre",
+   "engines": [
+    {
+     "id": "chromium",
+     "version": "158.0.8127.88"
+    },
+    {
+     "id": "lightpanda",
+     "version": "1.0.5"
+    },
+    {
+     "id": "obscura",
+     "version": "v0.2.7"
+    },
+    {
+     "id": "kitesurf",
+     "version": "hosted"
+    },
+    {
+     "id": "moli",
+     "version": "v1.1.28"
+    }
+   ],
+   "siteCount": 124,
+   "siteList": "dfa25b64",
+   "passRates": {
+    "moli": 0.8305084745762712,
+    "lightpanda": 0.788135593220339,
+    "kitesurf": 0.7711864406779662,
+    "chromium": 0.7711864406779662,
+    "obscura": 0.7627118644067796
+   }
+  },
+  {
    "id": "2026-11-26T21-54Z",
    "startedAt": "2026-11-26T21:54:01.977Z",
    "origin": "data-centre",

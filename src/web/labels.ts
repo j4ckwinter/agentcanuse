@@ -119,6 +119,12 @@ export function describeTree(tree: TreeSummary): string {
   return `${tree.namedControls} of ${tree.controls} controls named · ${tree.headings} headings · ${tree.landmarks} landmarks`
 }
 
+const ENGINE_LIST = new Intl.ListFormat('en-GB', { type: 'conjunction' })
+
+export function engineNames(engines: EngineId[]): string {
+  return ENGINE_LIST.format(engines.map((id) => ENGINE_INFO[id].name))
+}
+
 export function percent(value: number): string {
   return `${Math.round(value * 100)}%`
 }

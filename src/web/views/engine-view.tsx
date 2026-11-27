@@ -47,8 +47,9 @@ function ResultRow({ run, result, alone, runParam }: { run: Run; result: Result;
           {site.name}
         </a>
         <div className="text-caption text-fg-muted">{CATEGORY_LABELS[site.category]}</div>
+        <div className="mt-1 text-label text-fg-secondary sm:hidden">{detail(result)}</div>
       </td>
-      <td className="px-3 py-2.5 text-label text-fg-secondary">{detail(result)}</td>
+      <td className="hidden px-3 py-2.5 text-label text-fg-secondary sm:table-cell">{detail(result)}</td>
       <td className="px-3 py-2.5 pr-card text-right">
         {alone && <span className="rounded-full border border-line px-2 py-0.5 text-micro whitespace-nowrap text-fg-muted">Only {ENGINE_INFO[result.engine].name}</span>}
       </td>
@@ -113,7 +114,7 @@ export function EngineView({ run, engine, runParam }: { run: Run; engine: Engine
             description={`${OUTCOME_LABELS[outcome].meaning}.`}
           >
             <div className="-mx-card -my-card overflow-x-auto">
-              <table className="w-full min-w-table-narrow border-collapse">
+              <table className="w-full border-collapse sm:min-w-table-narrow">
                 <tbody>
                   {group.map((result) => (
                     <ResultRow key={result.site} run={run} result={result} alone={alone.has(result.site)} runParam={runParam} />

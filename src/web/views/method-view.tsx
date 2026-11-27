@@ -54,20 +54,16 @@ export function MethodView() {
         </Card>
       </div>
       <Card title="Scoring" description="Every visit gets exactly one outcome. The checks run in this order.">
-        <div className="-mx-card -mt-card overflow-x-auto border-b border-line">
-          <table className="w-full min-w-table-narrow border-collapse">
-            <tbody>
-              {OUTCOMES.map((outcome) => (
-                <tr key={outcome} className="border-b border-line last:border-0">
-                  <td className="w-40 px-3 py-3 pl-card">
-                    <OutcomeLabel outcome={outcome} />
-                  </td>
-                  <td className="px-3 py-3 pr-card text-sm text-fg-secondary">{OUTCOME_LABELS[outcome].meaning}.</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <dl className="-mx-card -mt-card border-b border-line">
+          {OUTCOMES.map((outcome) => (
+            <div key={outcome} className="flex flex-col gap-1 border-b border-line px-card py-3 last:border-0 sm:flex-row sm:gap-3">
+              <dt className="sm:w-37 sm:shrink-0">
+                <OutcomeLabel outcome={outcome} />
+              </dt>
+              <dd className="text-sm text-fg-secondary">{OUTCOME_LABELS[outcome].meaning}.</dd>
+            </div>
+          ))}
+        </dl>
         <p className="mt-4 text-label leading-relaxed text-fg-muted">
           Blocked means the site answered {BLOCKING_STATUSES.join(', ')}, or a short page or its title showed a bot check such as “{CHALLENGE_PHRASES[0]}”. Empty means fewer
           than {MIN_TEXT_LENGTH} characters of text. An engine error counts as failed even if some text came back.

@@ -117,30 +117,38 @@ export function ReleasesView({ runs }: { runs: RunSummary[] }) {
               <p className="py-6 text-center text-sm text-fg-muted">No site changed outcome between these runs.</p>
             ) : (
               <div className="-mx-card -my-card overflow-x-auto">
-                <table className="w-full min-w-table-narrow border-collapse">
+                <table className="w-full border-collapse sm:min-w-table-narrow">
                   <thead>
                     <tr className="border-b border-line">
                       <th className="px-3 py-2 pl-card text-left text-caption font-medium text-fg-muted">Site</th>
-                      <th className="px-3 py-2 text-left text-caption font-medium text-fg-muted">Before</th>
-                      <th className="px-3 py-2 text-left text-caption font-medium text-fg-muted">After</th>
-                      <th className="px-3 py-2 pr-card text-left text-caption font-medium text-fg-muted">Change</th>
+                      <th className="hidden px-3 py-2 text-left text-caption font-medium text-fg-muted sm:table-cell">Before</th>
+                      <th className="hidden px-3 py-2 text-left text-caption font-medium text-fg-muted sm:table-cell">After</th>
+                      <th className="hidden px-3 py-2 pr-card text-left text-caption font-medium text-fg-muted sm:table-cell">Change</th>
                     </tr>
                   </thead>
                   <tbody>
                     {result.diff.changes.map((change) => (
                       <tr key={change.site} className="relative border-b border-line last:border-0 hover:bg-raised">
-                        <td className="px-3 py-2.5 pl-card">
-                          <a href={routeHash({ view: 'sites', run: comparison === null || comparison.after === runs[0].id ? null : comparison.after, site: change.site, filter: NO_FILTER })} className="text-sm font-medium after:absolute after:inset-0 hover:underline">
-                            {result.names.get(change.site) ?? change.site}
-                          </a>
+                        <td className="px-3 py-2.5 pr-card pl-card sm:pr-3">
+                          <div className="flex items-baseline justify-between gap-3">
+                            <a href={routeHash({ view: 'sites', run: comparison === null || comparison.after === runs[0].id ? null : comparison.after, site: change.site, filter: NO_FILTER })} className="text-sm font-medium after:absolute after:inset-0 hover:underline">
+                              {result.names.get(change.site) ?? change.site}
+                            </a>
+                            <span className="text-label text-fg-secondary sm:hidden">{CHANGE_LABELS[change.change].label}</span>
+                          </div>
+                          <div className="mt-1 flex flex-wrap items-center gap-x-1.5 text-label text-fg-muted sm:hidden">
+                            <OutcomeLabel outcome={change.before} />
+                            →
+                            <OutcomeLabel outcome={change.after} />
+                          </div>
                         </td>
-                        <td className="px-3 py-2.5">
+                        <td className="hidden px-3 py-2.5 sm:table-cell">
                           <OutcomeLabel outcome={change.before} />
                         </td>
-                        <td className="px-3 py-2.5">
+                        <td className="hidden px-3 py-2.5 sm:table-cell">
                           <OutcomeLabel outcome={change.after} />
                         </td>
-                        <td className="px-3 py-2.5 pr-card text-label text-fg-secondary">{CHANGE_LABELS[change.change].label}</td>
+                        <td className="hidden px-3 py-2.5 pr-card text-label text-fg-secondary sm:table-cell">{CHANGE_LABELS[change.change].label}</td>
                       </tr>
                     ))}
                   </tbody>
